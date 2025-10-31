@@ -1,0 +1,88 @@
+@extends('layouts.admin')
+
+@section('title', 'Tambah Layanan - Admin Panel')
+@section('page-title', 'Tambah Layanan')
+
+@section('content')
+    <div class="max-w-4xl mx-auto">
+        <div class="bg-white rounded-lg shadow p-6">
+            <form action="{{ route('admin.services.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="md:col-span-2">
+                        <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Judul Layanan *</label>
+                        <input type="text" id="title" name="title" value="{{ old('title') }}"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title') border-red-500 @enderror"
+                            required>
+                        @error('title')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Deskripsi Singkat
+                            *</label>
+                        <textarea id="description" name="description" rows="3"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description') border-red-500 @enderror"
+                            required>{{ old('description') }}</textarea>
+                        @error('description')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Konten Lengkap</label>
+                        <textarea id="content" name="content" rows="8"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror">{{ old('content') }}</textarea>
+                        @error('content')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div>
+                        <label for="icon" class="block text-sm font-medium text-gray-700 mb-2">Icon</label>
+                        <input type="file" id="icon" name="icon" accept="image/*"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('icon') border-red-500 @enderror">
+                        @error('icon')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                        <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, SVG. Maksimal 2MB</p>
+                    </div>
+
+                    <div>
+                        <label for="sort_order" class="block text-sm font-medium text-gray-700 mb-2">Urutan</label>
+                        <input type="number" id="sort_order" name="sort_order" value="{{ old('sort_order', 0) }}"
+                            min="0"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('sort_order') border-red-500 @enderror">
+                        @error('sort_order')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="md:col-span-2">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="is_active" name="is_active" value="1"
+                                {{ old('is_active', 1) ? 'checked' : '' }}
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="is_active" class="ml-2 block text-sm text-gray-900">
+                                Aktifkan layanan ini
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-end space-x-4 mt-8">
+                    <a href="{{ route('admin.services.index') }}"
+                        class="px-6 py-3 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors duration-200">
+                        Batal
+                    </a>
+                    <button type="submit"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                        Simpan Layanan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+@endsection
