@@ -1,6 +1,6 @@
 # Website BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET
 
-Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET yang dibangun menggunakan Laravel 10 dengan fitur admin panel untuk manajemen konten.
+Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET yang dibangun menggunakan Laravel 12 dengan fitur admin panel untuk manajemen konten.
 
 ## Fitur Utama
 
@@ -23,7 +23,7 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
 
 ## Teknologi yang Digunakan
 
-- **Framework**: Laravel 10
+- **Framework**: Laravel 12
 - **Frontend**: Blade Templates, Tailwind CSS, Alpine.js
 - **Database**: MySQL
 - **Authentication**: Laravel Breeze
@@ -53,7 +53,7 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
 ## Instalasi
 
 ### Persyaratan Sistem
-- PHP >= 8.1
+- PHP >= 8.2
 - Composer
 - MySQL >= 5.7
 - Node.js & NPM (untuk assets)
@@ -61,9 +61,10 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
 
 ### Langkah Instalasi
 
-1. **Clone atau ekstrak proyek ini**
+1. **Clone repo dan masuk ke folder proyek**
    ```bash
-   cd "D:\aduh pusing"
+   git clone https://github.com/ilham99fariz/BBKKP.git
+   cd BBKKP
    ```
 
 2. **Install dependencies PHP**
@@ -130,6 +131,16 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
     ```
     
     Website akan berjalan di: http://localhost:8000
+
+### Catatan Untuk Pengguna Windows
+- Jika muncul peringatan: `WARN  forking is not supported on this platform.`, jalankan tanpa reload otomatis:
+  ```bash
+  php artisan serve --no-reload
+  ```
+  atau gunakan server bawaan PHP:
+  ```bash
+  php -S 127.0.0.1:8000 -t public
+  ```
 
 ## Akun Admin Default
 
