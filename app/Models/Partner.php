@@ -36,4 +36,20 @@ class Partner extends Model
     {
         return $query->orderBy('sort_order')->orderBy('name');
     }
+
+    /**
+     * Get public URL for the partner logo with fallback.
+     */
+    public function getLogoUrlAttribute(): string
+    {
+        if (!$this->logo) {
+            return asset('images/placeholder-logo.png');
+        }
+
+        try {
+            return \Storage::url($this->logo);
+        } catch (\Throwable $e) {
+            return asset('images/placeholder-logo.png');
+        }
+    }
 }

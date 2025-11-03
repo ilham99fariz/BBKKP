@@ -320,8 +320,16 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
                     @foreach ($partners as $partner)
                         <div class="text-center">
-                            <img src="{{ Storage::url($partner->logo) }}" alt="{{ $partner->name }}"
-                                class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                            @if (!empty($partner->website_url))
+                                <a href="{{ $partner->website_url }}" target="_blank" rel="noopener"
+                                    aria-label="Kunjungi {{ $partner->name }}">
+                                    <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
+                                        class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                                </a>
+                            @else
+                                <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
+                                    class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                            @endif
                         </div>
                     @endforeach
                 </div>
