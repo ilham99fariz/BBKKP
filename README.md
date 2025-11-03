@@ -23,7 +23,7 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
 
 ## Teknologi yang Digunakan
 
-- **Framework**: Laravel 10
+- **Framework**: Laravel 12
 - **Frontend**: Blade Templates, Tailwind CSS, Alpine.js
 - **Database**: MySQL
 - **Authentication**: Laravel Breeze
@@ -53,7 +53,7 @@ Website resmi untuk BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT,
 ## Instalasi
 
 ### Persyaratan Sistem
-- PHP >= 8.1
+- PHP >= 8.2
 - Composer
 - MySQL >= 5.7
 - Node.js & NPM (untuk assets)
