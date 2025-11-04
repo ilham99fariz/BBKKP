@@ -305,7 +305,7 @@
                     Halal Center
                 </a>
 
-                <a href="/daftar-layanan"
+                <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
                     class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     Daftar Layanan
                 </a>
@@ -596,7 +596,7 @@
                 Halal Center
             </a>
 
-            <a href="#"
+            <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
                 class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">
                 Daftar Layanan
             </a>
