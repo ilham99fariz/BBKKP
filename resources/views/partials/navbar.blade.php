@@ -1,11 +1,11 @@
 <!-- Navigation -->
-<nav class="bg-white shadow-lg sticky top-0 z-50" x-data="navbarData()">
+<nav class="bg-white shadow-lg sticky top-0 z-50" x-data="navbarData()" @keydown.escape.window="mobileOpen = false">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
-                    <img class="h-12 w-25" src="{{ asset('images/logobalai.png') }}" alt="Logo">
+                    <img class="h-8 w-auto sm:h-10" src="{{ asset('images/logobalai.png') }}" alt="Logo">
                     <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
                 </a>
             </div>
@@ -361,8 +361,8 @@
 
             <!-- Mobile menu button -->
             <div class="lg:hidden flex items-center">
-                <button @click="mobileOpen = !mobileOpen"
-                    class="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600">
+                <button @click="mobileOpen = !mobileOpen" :aria-expanded="mobileOpen.toString()" aria-controls="mobileMenu"
+                    class="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:text-blue-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -374,9 +374,12 @@
         </div>
     </div>
 
+    <!-- Mobile overlay -->
+    <div x-show="mobileOpen" x-cloak @click="mobileOpen = false" class="fixed inset-0 bg-black/40 lg:hidden"></div>
+
     <!-- Mobile Navigation -->
-    <div x-show="mobileOpen" x-cloak
-        class="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-4rem)] overflow-y-auto">
+    <div x-show="mobileOpen" x-cloak id="mobileMenu"
+        class="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-4rem)] overflow-y-auto relative">
         <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <a href="{{ route('home') }}"
                 class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('home') ? 'text-blue-600 font-semibold bg-blue-50' : '' }}">
