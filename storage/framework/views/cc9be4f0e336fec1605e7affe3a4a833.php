@@ -5,8 +5,8 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
-                    <img class="h-8 w-8" src="<?php echo e(asset('images/logo.png')); ?>" alt="Logo">
-                    <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span>
+                    <img class="h-12 w-25" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo">
+                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
                 </a>
             </div>
 
@@ -300,6 +300,40 @@
                     </div>
                 </div>
 
+                <!-- Halal Center Dropdown -->
+                <!-- <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a href="<?php echo e(route('about.index')); ?>"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        Halal Center
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a> -->
+                    <!-- Invisible bridge to prevent cursor gap -->
+                    <!-- <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                        @mouseleave="open = false"></div>
+                    <div x-show="open" x-cloak
+                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="/tonggak-sejarah"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tentang
+                            LPH</a>
+                        <a href="/profil-singkat"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Layanan
+                            LPH</a>
+                        <a href="/profil-pejabat"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Proses
+                            Sertifikasi Halal</a>
+                        <a href="/struktur-organisasi"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Peraturan
+                            dan Pedoman Halal</a>
+                        <a href="/makna-logo"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pertanyaan
+                            Paling Sering Terkait Halal</a>
+                    </div>
+                </div> -->
                 <a href="/halal-center"
                     class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     Halal Center
@@ -309,7 +343,6 @@
                     class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     Daftar Layanan
                 </a>
-
                 <!-- Admin Login
                 <?php if(auth()->guard()->guest()): ?>
                     <a href="<?php echo e(route('login')); ?>"
@@ -634,5 +667,4 @@
             tentangOpen: false
         }
     }
-</script>
-<?php /**PATH C:\alamak\resources\views/partials/navbar.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\alamak\resources\views/partials/navbar.blade.php ENDPATH**/ ?>

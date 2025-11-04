@@ -13,11 +13,11 @@ class AdminMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+     public function handle(Request $request, Closure $next): Response
     {
         // Middleware kini pakai session admin saja
         if (!session()->has('admin_id')) {
-            return redirect()->route('login');
+            return redirect()->route('admin.login');
         }
         // Admin terautentikasi, lolos access
         return $next($request);

@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Beranda - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET'); ?>
 <?php $__env->startSection('description',
     'Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk
@@ -395,8 +393,16 @@ unset($__errorArgs, $__bag); ?>
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
                     <?php $__currentLoopData = $partners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="text-center">
-                            <img src="<?php echo e(Storage::url($partner->logo)); ?>" alt="<?php echo e($partner->name); ?>"
-                                class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                            <?php if(!empty($partner->website_url)): ?>
+                                <a href="<?php echo e($partner->website_url); ?>" target="_blank" rel="noopener"
+                                    aria-label="Kunjungi <?php echo e($partner->name); ?>">
+                                    <img src="<?php echo e($partner->logo_url); ?>" alt="<?php echo e($partner->name); ?>"
+                                        class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                                </a>
+                            <?php else: ?>
+                                <img src="<?php echo e($partner->logo_url); ?>" alt="<?php echo e($partner->name); ?>"
+                                    class="h-16 mx-auto grayscale hover:grayscale-0 transition-all duration-300">
+                            <?php endif; ?>
                         </div>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>

@@ -49,6 +49,10 @@ Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class,
 Route::get('/pengujian', [PengujianController::class, 'index'])->name('pengujian.index');
 Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'])->name('pengujian.produk-kulit');
 
+Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'createAdmin'])
+    ->middleware('guest')
+    ->name('admin.login');
+    
 // Admin Routes
 Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
