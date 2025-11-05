@@ -125,4 +125,4 @@ Route::post('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionContro
 require __DIR__ . '/auth.php';
 
 // Dynamic Pages Route (MUST BE LAST - catch-all route)
-Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.show');
+Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.page');

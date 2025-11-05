@@ -22,9 +22,9 @@ class DatabaseSeeder extends Seeder
         // Siapkan 3 akun admin, email sama, password berbeda
         Admin::truncate();
         $admins = [
-            ['email' => 'admin@balaiindustri.go.id', 'password' => Hash::make('minda123')],
-            ['email' => 'admin@balaiindustri.go.id', 'password' => Hash::make('minda231')],
-            ['email' => 'admin@balaiindustri.go.id', 'password' => Hash::make('minda321')],
+            ['name' => 'Admin 1', 'email' => 'admin@balaiindustri.go.id', 'password' => Hash::make('minda123')],
+            ['name' => 'Admin 2', 'email' => 'admin2@balaiindustri.go.id', 'password' => Hash::make('minda231')],
+            ['name' => 'Admin 3', 'email' => 'admin3@balaiindustri.go.id', 'password' => Hash::make('minda321')],
         ];
         foreach ($admins as $row) {
             Admin::create($row);
@@ -227,5 +227,6 @@ class DatabaseSeeder extends Seeder
         foreach ($partners as $partner) {
             Partner::create($partner);
         }
+        $this->call(DynamicPageSeeder::class);
     }
 }

@@ -1,1 +1,0 @@
-<?php /**PATH E:\aduh pusing\aduh pusing\resources\views/pages/pengujian/index.blade.php ENDPATH**/ ?>
