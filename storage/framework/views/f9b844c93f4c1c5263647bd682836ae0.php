@@ -4,22 +4,22 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
-                    <img class="h-8 w-auto sm:h-10" src="{{ asset('images/logobalai.png') }}" alt="Logo">
+                <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
+                    <img class="h-8 w-auto sm:h-10" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo">
                     <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
                 </a>
             </div>
 
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-1">
-                <a href="{{ route('home') }}"
-                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-blue-600 font-semibold' : '' }}">
+                <a href="<?php echo e(route('home')); ?>"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 <?php echo e(request()->routeIs('home') ? 'text-blue-600 font-semibold' : ''); ?>">
                     Beranda
                 </a>
 
                 <!-- Layanan Dropdown -->
                 <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('services.index') }}"
+                    <a href="<?php echo e(route('services.index')); ?>"
                         class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
                         Layanan
                         <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -34,7 +34,7 @@
                     <div x-show="open" x-cloak
                         class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
                         @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('pengujian.index') }}"
+                        <a href="<?php echo e(route('pengujian.index')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengujian</a>
                         <a href="/kalibrasi"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kalibrasi</a>
@@ -194,7 +194,7 @@
 
                 <!-- Standar Pelayanan Dropdown -->
                 <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('standards.index') }}"
+                    <a href="<?php echo e(route('standards.index')); ?>"
                         class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
                         Standar Pelayanan
                         <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -230,14 +230,14 @@
                         <a href="/ikm"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
                             Kepuasan Masyarakat</a>
-                        <a href="{{ route('contact.show') }}"
+                        <a href="<?php echo e(route('contact.show')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
                     </div>
                 </div>
 
                 <!-- Media dan Informasi Dropdown -->
                 <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('media.index') }}"
+                    <a href="<?php echo e(route('media.index')); ?>"
                         class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
                         Media dan Informasi
                         <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -255,7 +255,7 @@
                         <a href="/keterbukaan-informasi-publik"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Keterbukaan
                             Informasi Publik</a>
-                        <a href="{{ route('news.index') }}"
+                        <a href="<?php echo e(route('news.index')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">BBSPJIKKP
                             News</a>
                         <a href="/publikasi"
@@ -267,7 +267,7 @@
 
                 <!-- Tentang Kami Dropdown -->
                 <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('about.index') }}"
+                    <a href="<?php echo e(route('about.index')); ?>"
                         class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
                         Tentang Kami
                         <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -302,7 +302,7 @@
 
                 <!-- Halal Center Dropdown -->
                 <!-- <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('about.index') }}"
+                    <a href="<?php echo e(route('about.index')); ?>"
                         class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
                         Halal Center
                         <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
@@ -344,19 +344,19 @@
                     Daftar Layanan
                 </a>
                 <!-- Admin Login
-                @guest
-                            <a href="{{ route('login') }}"
+                <?php if(auth()->guard()->guest()): ?>
+                            <a href="<?php echo e(route('login')); ?>"
                                 class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors duration-200">
                                 Login Admin
                             </a>
-                @endguest
+                <?php endif; ?>
 
-                @auth
-                            <a href="{{ route('admin.dashboard') }}"
+                <?php if(auth()->guard()->check()): ?>
+                            <a href="<?php echo e(route('admin.dashboard')); ?>"
                                 class="bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-green-700 transition-colors duration-200">
                                 Dashboard
                             </a>
-                @endauth
+                <?php endif; ?>
             </div> -->
 
                 <!-- Mobile menu button -->
@@ -383,8 +383,8 @@
         <div x-show="mobileOpen" x-cloak id="mobileMenu"
             class="lg:hidden bg-white border-t border-gray-200 max-h-[calc(100vh-4rem)] overflow-y-auto relative">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="{{ route('home') }}"
-                    class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium {{ request()->routeIs('home') ? 'text-blue-600 font-semibold bg-blue-50' : '' }}">
+                <a href="<?php echo e(route('home')); ?>"
+                    class="text-gray-700 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium <?php echo e(request()->routeIs('home') ? 'text-blue-600 font-semibold bg-blue-50' : ''); ?>">
                     Beranda
                 </a>
 
@@ -400,7 +400,7 @@
                         </svg>
                     </button>
                     <div x-show="layananOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                        <a href="{{ route('services.index') }}"
+                        <a href="<?php echo e(route('services.index')); ?>"
                             class="block px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-semibold">Semua
                             Layanan</a>
                         <a href="#"
@@ -543,7 +543,7 @@
                         </svg>
                     </button>
                     <div x-show="standarOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                        <a href="{{ route('standards.index') }}"
+                        <a href="<?php echo e(route('standards.index')); ?>"
                             class="block px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-semibold">Semua
                             Standar Pelayanan</a>
                         <a href="#"
@@ -567,7 +567,7 @@
                         <a href="#"
                             class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">Indeks
                             Kepuasan Masyarakat</a>
-                        <a href="{{ route('contact.show') }}"
+                        <a href="<?php echo e(route('contact.show')); ?>"
                             class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">Kontak</a>
                     </div>
                 </div>
@@ -584,13 +584,13 @@
                         </svg>
                     </button>
                     <div x-show="mediaOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                        <a href="{{ route('media.index') }}"
+                        <a href="<?php echo e(route('media.index')); ?>"
                             class="block px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-semibold">Semua
                             Media & Informasi</a>
                         <a href="#"
                             class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">Keterbukaan
                             Informasi Publik</a>
-                        <a href="{{ route('news.index') }}"
+                        <a href="<?php echo e(route('news.index')); ?>"
                             class="block px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-md">BBSPJIKKP
                             News</a>
                         <a href="#"
@@ -612,7 +612,7 @@
                         </svg>
                     </button>
                     <div x-show="tentangOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                        <a href="{{ route('about.index') }}"
+                        <a href="<?php echo e(route('about.index')); ?>"
                             class="block px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md font-semibold">Profil
                             & Tentang Kami</a>
                         <a href="#"
@@ -644,19 +644,19 @@
                 </a>
 
                 <!-- Mobile Admin Login -->
-                @guest
-                    <a href="{{ route('login') }}"
+                <?php if(auth()->guard()->guest()): ?>
+                    <a href="<?php echo e(route('login')); ?>"
                         class="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-blue-700 transition-colors duration-200">
                         Login Admin
                     </a>
-                @endguest
+                <?php endif; ?>
 
-                @auth
-                    <a href="{{ route('admin.dashboard') }}"
+                <?php if(auth()->guard()->check()): ?>
+                    <a href="<?php echo e(route('admin.dashboard')); ?>"
                         class="bg-green-600 text-white block px-3 py-2 rounded-md text-base font-medium hover:bg-green-700 transition-colors duration-200">
                         Dashboard
                     </a>
-                @endauth
+                <?php endif; ?>
             </div>
         </div>
 </nav>
@@ -677,3 +677,4 @@
         }
     }
 </script>
+<?php /**PATH D:\BBKKP\resources\views/partials/navbar.blade.php ENDPATH**/ ?>
