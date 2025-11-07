@@ -72,7 +72,7 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <div class="flex space-x-2">
-                                    <a href="{{ route('dynamic.show', $page->slug) }}"
+                                    <a href="{{ route('dynamic.page', $page->slug) }}"
                                         class="text-blue-600 hover:text-blue-900" target="_blank" title="Lihat">
                                         <i class="fas fa-eye"></i>
                                     </a>

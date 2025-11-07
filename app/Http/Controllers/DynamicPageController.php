@@ -10,6 +10,7 @@ class DynamicPageController extends Controller
     public function show($slug)
     {
         $page = DynamicPage::where('slug', $slug)->firstOrFail();
-        return view('pages.dynamic-page', compact('page'));
+        // Gunakan template yang mendukung hero image dan konten lengkap
+        return view('pages.dynamic.show', compact('page'));
     }
 }

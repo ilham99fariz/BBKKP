@@ -5,132 +5,143 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
     /**
-     * Display a listing of news.
+     * Display a listing of news
      */
     public function index()
     {
-        $news = News::latest()->paginate(10);
+        $news = News::orderByRaw('CASE WHEN position IS NULL THEN 1 ELSE 0 END')
+            ->orderBy('position', 'asc')
+            ->orderBy('published_at', 'desc')
+            ->paginate(20);
+
         return view('admin.news.index', compact('news'));
     }
 
     /**
-     * Show the form for creating a new news.
+     * Show the form for creating a new news
      */
     public function create()
     {
-        return view('admin.news.create');
+        return view('admin.news.form');
     }
 
     /**
-     * Store a newly created news.
+     * Store a newly created news
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'excerpt' => 'nullable|string',
+            'excerpt' => 'required|string|max:500',
             'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'is_published' => 'boolean',
-            'published_at' => 'nullable|date',
             'author' => 'required|string|max:255',
+            'position' => 'nullable|integer|in:1,2,3',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'published_at' => 'required|date',
+            'is_published' => 'boolean'
         ]);
 
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-        $data['is_published'] = $request->has('is_published');
+        // Generate slug from title
+        $validated['slug'] = Str::slug($validated['title']);
 
+        // Handle image upload
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('news', 'public');
+            $validated['image'] = $request->file('image')->store('news', 'public');
         }
 
-        if ($data['is_published'] && !$data['published_at']) {
-            $data['published_at'] = now();
-        }
+        // Set is_published default value
+        $validated['is_published'] = $request->has('is_published');
 
-        News::create($data);
+        // Initialize views counter
+        $validated['views'] = 0;
+
+        News::create($validated);
 
         return redirect()->route('admin.news.index')
-            ->with('success', 'Berita berhasil ditambahkan.');
+            ->with('success', 'Berita berhasil ditambahkan!');
     }
 
     /**
-     * Show the form for editing the specified news.
+     * Show the form for editing news
      */
     public function edit(News $news)
     {
-        return view('admin.news.edit', compact('news'));
+        return view('admin.news.form', compact('news'));
     }
 
     /**
-     * Update the specified news.
+     * Update the specified news
      */
     public function update(Request $request, News $news)
     {
-        $request->validate([
+        $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'excerpt' => 'nullable|string',
+            'excerpt' => 'required|string|max:500',
             'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'is_published' => 'boolean',
-            'published_at' => 'nullable|date',
             'author' => 'required|string|max:255',
+            'position' => 'nullable|integer|in:1,2,3',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:10240',
+            'published_at' => 'required|date',
+            'is_published' => 'boolean'
         ]);
 
-        $data = $request->all();
-        $data['slug'] = Str::slug($request->title);
-        $data['is_published'] = $request->has('is_published');
+        // Update slug if title changed
+        if ($validated['title'] !== $news->title) {
+            $validated['slug'] = Str::slug($validated['title']);
+        }
 
+        // Handle image upload
         if ($request->hasFile('image')) {
             // Delete old image
             if ($news->image) {
-                \Storage::disk('public')->delete($news->image);
+                Storage::disk('public')->delete($news->image);
             }
-            $data['image'] = $request->file('image')->store('news', 'public');
+            $validated['image'] = $request->file('image')->store('news', 'public');
         }
 
-        if ($data['is_published'] && !$data['published_at']) {
-            $data['published_at'] = now();
-        }
+        // Set is_published
+        $validated['is_published'] = $request->has('is_published');
 
-        $news->update($data);
+        $news->update($validated);
 
         return redirect()->route('admin.news.index')
-            ->with('success', 'Berita berhasil diperbarui.');
+            ->with('success', 'Berita berhasil diupdate!');
     }
 
     /**
-     * Remove the specified news.
+     * Toggle publish status
+     */
+    public function togglePublish(News $news)
+    {
+        $news->update([
+            'is_published' => !$news->is_published
+        ]);
+
+        $status = $news->is_published ? 'dipublikasikan' : 'di-unpublish';
+
+        return redirect()->back()
+            ->with('success', "Berita berhasil {$status}!");
+    }
+
+    /**
+     * Remove the specified news
      */
     public function destroy(News $news)
     {
-        // Delete image file
+        // Delete image if exists
         if ($news->image) {
-            \Storage::disk('public')->delete($news->image);
+            Storage::disk('public')->delete($news->image);
         }
 
         $news->delete();
 
         return redirect()->route('admin.news.index')
-            ->with('success', 'Berita berhasil dihapus.');
-    }
-
-    /**
-     * Toggle publish status.
-     */
-    public function togglePublish(News $news)
-    {
-        $news->update([
-            'is_published' => !$news->is_published,
-            'published_at' => !$news->is_published ? now() : null,
-        ]);
-
-        return redirect()->back()
-            ->with('success', 'Status publikasi berita berhasil diubah.');
+            ->with('success', 'Berita berhasil dihapus!');
     }
 }
