@@ -31,39 +31,28 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                {{ $settings['about_title'] ?? 'Tentang Kami' }}
-            </h2>
-            <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-16">
-                {{ $settings['about_description'] ?? 'BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET adalah lembaga yang berdedikasi untuk memberikan pelayanan terbaik dalam bidang standardisasi dan pelayanan jasa industri.' }}
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="text-center">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-award text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Berpengalaman</h3>
-                    <p class="text-gray-600">Tim ahli berpengalaman dalam bidang standardisasi industri.</p>
+    <section class="py-20 bg-gradient-to-br from-white via-white to-blue-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Image -->
+                <div class="flex justify-center lg:justify-start">
+                    <img src="{{ asset('images/logobalai.png') }}" alt="Logo BBSPJIKP" class="w-full max-w-md">
+                    <!-- Atau jika menggunakan path langsung -->
+                    <!-- <img src="/path/to/your/image.png" alt="Logo BBSPJIKP" class="w-full max-w-md"> -->
                 </div>
 
-                <div class="text-center">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Bersertifikat</h3>
-                    <p class="text-gray-600">Memiliki sertifikasi internasional untuk kualitas layanan.</p>
-                </div>
-
-                <div class="text-center">
-                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-handshake text-blue-600 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Terpercaya</h3>
-                    <p class="text-gray-600">Dipercaya oleh berbagai perusahaan industri terkemuka.</p>
+                <!-- Right Side - Content -->
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Dari Pengujian ke Kepercayaan
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Menjaga Mutu, Mendukung Daya Saing <span class="text-green-600 font-semibold">Industri</span>
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed">
+                        Menjadi balai besar yang akuntabel, kolaboratif dan berorientasi pelayanan dalam mewujudkan industri
+                        nasional bidang kulit, karet, dan plastik yang mandiri dan berdaya saing
+                    </p>
                 </div>
             </div>
         </div>
