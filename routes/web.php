@@ -38,7 +38,18 @@ Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show')
 // Static index pages for parent menus
 Route::view('/standar-layanan', 'pages.standards.index')->name('standards.index');
 Route::view('/media-informasi', 'pages.media.index')->name('media.index');
-Route::view('/tentang-kami', 'pages.about.index')->name('about.index');
+// Keterbukaan Informasi Publik page
+Route::view('/keterbukaan-informasi-publik', 'pages.media.keterbukaan-informasi-publik')->name('media.keterbukaan-informasi-publik');
+
+// About Routes
+Route::prefix('tentang-kami')->name('about.')->group(function () {
+    Route::view('/', 'pages.about.index')->name('index');
+    Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');
+    Route::view('/tonggak-sejarah', 'pages.about.tonggak-sejarah')->name('tonggak-sejarah');
+    Route::view('/profil-pejabat', 'pages.about.profil-pejabat')->name('profil-pejabat');
+    Route::view('/struktur-organisasi', 'pages.about.struktur-organisasi')->name('struktur-organisasi');
+    Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
+});
 
 Route::get('/kontak', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/kontak', [ContactController::class, 'submit'])->name('contact.submit');
@@ -123,6 +134,16 @@ Route::post('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionContro
 
 // Authentication Routes (Laravel Breeze)
 require __DIR__ . '/auth.php';
+
+// Halal Center Routes
+Route::prefix('halal-center')->name('halal.')->group(function () {
+    Route::view('/', 'pages.halal-center.index')->name('index');
+    Route::view('/tentang-lph', 'pages.halal-center.about')->name('about');
+    Route::view('/layanan', 'pages.halal-center.services')->name('services');
+    Route::view('/proses-sertifikasi', 'pages.halal-center.certification-process')->name('certification-process');
+    Route::view('/peraturan-dan-pedoman', 'pages.halal-center.regulations')->name('regulations');
+    Route::view('/faq', 'pages.halal-center.faq')->name('faq');
+});
 
 // Dynamic Pages Route (MUST BE LAST - catch-all route)
 Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.page');

@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('title', 'Tentang Kami - BBSPJIKP')
-@section('description', 'Informasi lengkap tentang Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet')
 
-@section('content')
+<?php $__env->startSection('title', 'Tentang Kami - BBSPJIKP'); ?>
+<?php $__env->startSection('description', 'Informasi lengkap tentang Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet'); ?>
+
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-tentangkami.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -18,7 +18,7 @@
             <nav class="flex mb-8" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
                             <i class="fas fa-home mr-2"></i>
                             Home
                         </a>
@@ -47,10 +47,10 @@
         <!-- Menu Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Profil Singkat -->
-            <a href="{{ route('about.profil-singkat') }}" class="group">
+            <a href="<?php echo e(route('about.profil-singkat')); ?>" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
                     <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-building text-6xl"></i>
                         </div>
@@ -63,10 +63,10 @@
             </a>
 
             <!-- Tonggak Sejarah -->
-            <a href="{{ route('about.tonggak-sejarah') }}" class="group">
+            <a href="<?php echo e(route('about.tonggak-sejarah')); ?>" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
                     <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-history text-6xl"></i>
                         </div>
@@ -79,10 +79,10 @@
             </a>
 
             <!-- Profil Pejabat -->
-            <a href="{{ route('about.profil-pejabat') }}" class="group">
+            <a href="<?php echo e(route('about.profil-pejabat')); ?>" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
                     <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-users text-6xl"></i>
                         </div>
@@ -95,10 +95,10 @@
             </a>
 
             <!-- Struktur Organisasi -->
-            <a href="{{ route('about.struktur-organisasi') }}" class="group">
+            <a href="<?php echo e(route('about.struktur-organisasi')); ?>" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
                     <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-sitemap text-6xl"></i>
                         </div>
@@ -111,10 +111,10 @@
             </a>
 
             <!-- Makna Logo -->
-            <a href="{{ route('about.makna-logo') }}" class="group">
+            <a href="<?php echo e(route('about.makna-logo')); ?>" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
                     <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-certificate text-6xl"></i>
                         </div>
@@ -127,4 +127,5 @@
             </a>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/about/index.blade.php ENDPATH**/ ?>

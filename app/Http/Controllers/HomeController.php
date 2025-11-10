@@ -16,7 +16,8 @@ class HomeController extends Controller
      */
   public function index()
 {
-    $services = Service::active()->ordered()->take(4)->get();
+    // show up to 8 services on the homepage so newly added items are visible
+    $services = Service::active()->ordered()->take(8)->get();
     $testimonials = Testimonial::approved()->ordered()->take(3)->get();
     $partners = Partner::active()->ordered()->get();
     $settings = HomepageSetting::getAllAsArray();

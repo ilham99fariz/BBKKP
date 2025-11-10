@@ -8,7 +8,7 @@
                     <!-- <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
                         <i class="fas fa-cog text-blue-500 text-2xl"></i>
                     </div> -->
-                    <img class="h-15 w-auto sm:h-17" src="{{ asset('images/logobalai-hitamputih.png') }}" alt="Logo">
+                    <img class="h-15 w-auto sm:h-17" src="<?php echo e(asset('images/logobalai-hitamputih.png')); ?>" alt="Logo">
                     <!-- <span class="ml-3 text-lg font-bold">BBSPJIKKP</span> -->
                 </div>
                 <p class="text-white text-sm mb-4 leading-relaxed">
@@ -226,3 +226,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\alamak\resources\views/partials/footer.blade.php ENDPATH**/ ?>
