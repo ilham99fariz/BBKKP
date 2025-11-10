@@ -1,46 +1,130 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami - BBSPJIKKP')
-@section('description', 'Informasi tentang BBSPJIKKP: profil, struktur organisasi, pejabat, dan lain-lain')
+@section('title', 'Tentang Kami - BBSPJIKP')
+@section('description', 'Informasi lengkap tentang Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet')
 
 @section('content')
-    <section class="relative">
-        <div class="h-56 md:h-72 w-full bg-cover bg-center"
-            style="background-image:url('https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1600&fit=crop');">
-            <div class="h-full w-full bg-black/40 flex items-end">
-                <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-                    <nav class="text-white/80 text-sm mb-2">
-                        <a href="{{ route('home') }}" class="hover:text-white">Home</a>
-                        <span class="mx-2">/</span>
-                        <span>Tentang Kami</span>
-                    </nav>
-                    <h1 class="text-3xl md:text-4xl font-bold text-white">Tentang Kami</h1>
+    <!-- Hero Section with Background -->
+    <div class="relative bg-gray-900">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img src="{{ asset('images/bg-tentangkami.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <!-- Breadcrumb -->
+            <nav class="flex mb-8" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-gray-300">Tentang Kami</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Header Text -->
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Tentang Kami</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Mengenal lebih dekat Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Profil Singkat -->
+            <a href="{{ route('about.profil-singkat') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <div class="h-48 bg-blue-600">
+                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-building text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Singkat</h2>
+                        <p class="text-gray-600">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </a>
 
-    <section class="py-12 md:py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                <a href="/tonggak-sejarah" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Tonggak Sejarah</div>
-                </a>
-                <a href="/profil-singkat" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Profil Singkat BBSPJIKKP</div>
-                </a>
-                <a href="/profil-pejabat" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Profil Pejabat</div>
-                </a>
-                <a href="/struktur-organisasi" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Struktur Organisasi</div>
-                </a>
-                <a href="/makna-logo" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Makna Logo</div>
-                </a>
-            </div>
+            <!-- Tonggak Sejarah -->
+            <a href="{{ route('about.tonggak-sejarah') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <div class="h-48 bg-blue-600">
+                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-history text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tonggak Sejarah</h2>
+                        <p class="text-gray-600">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Profil Pejabat -->
+            <a href="{{ route('about.profil-pejabat') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <div class="h-48 bg-blue-600">
+                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-users text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Pejabat</h2>
+                        <p class="text-gray-600">Pimpinan dan pejabat struktural BBSPJIKP.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Struktur Organisasi -->
+            <a href="{{ route('about.struktur-organisasi') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <div class="h-48 bg-blue-600">
+                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-sitemap text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Struktur Organisasi</h2>
+                        <p class="text-gray-600">Susunan organisasi dan tata kerja BBSPJIKP.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Makna Logo -->
+            <a href="{{ route('about.makna-logo') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
+                    <div class="h-48 bg-blue-600">
+                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-certificate text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Makna Logo</h2>
+                        <p class="text-gray-600">Filosofi dan arti di balik logo BBSPJIKP.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-    </section>
+    </div>
 @endsection
-
-

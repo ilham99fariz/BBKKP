@@ -5,10 +5,11 @@
             <!-- Company Info -->
             <div class="col-span-1 lg:col-span-1">
                 <div class="flex items-center mb-4">
-                    <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
+                    <!-- <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
                         <i class="fas fa-cog text-blue-500 text-2xl"></i>
-                    </div>
-                    <span class="ml-3 text-lg font-bold">BBSPJIKKP</span>
+                    </div> -->
+                    <img class="h-15 w-auto sm:h-17" src="{{ asset('images/logobalai-hitamputih.png') }}" alt="Logo">
+                    <!-- <span class="ml-3 text-lg font-bold">BBSPJIKKP</span> -->
                 </div>
                 <p class="text-white text-sm mb-4 leading-relaxed">
                     Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik
@@ -78,7 +79,7 @@
                 <ul class="space-y-2 text-sm mb-6">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Audit
                             Teknologi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Penujian</a>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pengujian</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sertifikasi</a>
                     </li>

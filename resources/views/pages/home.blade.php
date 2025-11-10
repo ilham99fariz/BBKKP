@@ -64,25 +64,25 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                     {{ $settings['services_title'] ?? 'Layanan Kami' }}
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    {{ $settings['services_subtitle'] ?? 'Kami menyediakan berbagai layanan berkualitas tinggi untuk mendukung industri Anda' }}
-                </p>
-            </div>
-
-            <div class="relative">
-                <style>
-                    /* hide horizontal scrollbar */
-                    .no-scrollbar::-webkit-scrollbar { display: none; }
-                    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-                </style>
-
-                <!-- Prev Button (desktop only) -->
-                <button id="services-prev" aria-label="Sebelumnya"
-                    class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
+                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                @foreach ($services->take(4) as $service)
+                                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
+                                        <div class="text-center">
+                                            @if ($service->icon)
+                                                <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
+                                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
+                                                </div>
+                                            @else
+                                                <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                                                    <i class="fas fa-cog text-blue-600 text-2xl"></i>
+                                                </div>
+                                            @endif
+                                            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
+                                            <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
+                                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
+                                        </div>
+                                    </div>
+                                @endforeach
                 <!-- Next Button (desktop only) -->
                 <button id="services-next" aria-label="Selanjutnya"
                     class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
@@ -109,16 +109,35 @@
                                         <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
                                         <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
                                     </div>
+=======
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach ($services->take(4) as $service)
+                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
+                        <div class="text-center">
+                            @if ($service->icon)
+                                <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
+                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
+>>>>>>> cf3dded2beb73db048e19ef4c278623006c68c61
                                 </div>
-                            </div>
-                        @endforeach
+                            @else
+                                <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                                    <i class="fas fa-cog text-blue-600 text-2xl"></i>
+                                </div>
+                            @endif
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
+                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
                     </div>
+<<<<<<< HEAD
                 </div>
 
                 <!-- Dots (optional) -->
                 <div id="services-dots" class="flex justify-center mt-8 space-x-2"></div>
+=======
+                @endforeach
+>>>>>>> cf3dded2beb73db048e19ef4c278623006c68c61
             </div>
-
             <div class="text-center mt-12">
                 <a href="{{ route('services.index') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Lihat Semua Layanan</a>
             </div>
