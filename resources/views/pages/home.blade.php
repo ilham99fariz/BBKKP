@@ -58,8 +58,8 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="py-20 bg-gray-50" x-data="servicesCarousel()" x-init="init()">
+    <!-- Services Section (native scroll slider with arrows + swipe) -->
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -71,51 +71,43 @@
             </div>
 
             <div class="relative">
-                <!-- Prev Button -->
-                <button @click="prev()"
-                    class="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition"
-                    :class="{ 'opacity-50 cursor-not-allowed': currentIndex === 0 }" :disabled="currentIndex === 0">
+                <style>
+                    /* hide horizontal scrollbar */
+                    .no-scrollbar::-webkit-scrollbar { display: none; }
+                    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+                </style>
+
+                <!-- Prev Button (desktop only) -->
+                <button id="services-prev" aria-label="Sebelumnya"
+                    class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
                     <i class="fas fa-chevron-left"></i>
                 </button>
 
-                <!-- Next Button -->
-                <button @click="next()"
-                    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition"
-                    :class="{ 'opacity-50 cursor-not-allowed': currentIndex >= maxIndex }"
-                    :disabled="currentIndex >= maxIndex">
+                <!-- Next Button (desktop only) -->
+                <button id="services-next" aria-label="Selanjutnya"
+                    class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
                     <i class="fas fa-chevron-right"></i>
                 </button>
 
-                <!-- Carousel Wrapper -->
-                <div class="overflow-hidden" x-ref="carouselWrapper">
-                    <div class="flex transition-transform duration-300 ease-in-out"
-                        :style="`transform: translateX(-${currentIndex * itemWidth}px)`" @touchstart="touchStart($event)"
-                        @touchmove="touchMove($event)" @touchend="touchEnd($event)">
-
+                <!-- Slider (native scroll: touch + pointer drag) -->
+                <div id="services-slider" class="no-scrollbar overflow-x-auto scroll-smooth -mx-2 px-2 py-4" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                    <div class="flex items-stretch gap-4">
                         @foreach ($services as $service)
-                            <div class="flex-shrink-0 px-2" :style="`width: ${itemWidth}px`">
+                            <div class="flex-shrink-0 px-2 scroll-snap-start w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
                                 <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full">
                                     <div class="text-center">
                                         @if ($service->icon)
                                             <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
-                                                <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}"
-                                                    class="w-full h-full object-cover">
+                                                <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
                                             </div>
                                         @else
-                                            <div
-                                                class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                                            <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
                                                 <i class="fas fa-cog text-blue-600 text-2xl"></i>
                                             </div>
                                         @endif
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
-                                            {{ $service->title }}
-                                        </h3>
-                                        <p class="text-gray-600 mb-4 line-clamp-3">
-                                            {{ Str::limit($service->description, 120) }}</p>
-                                        <a href="{{ route('services.show', $service) }}"
-                                            class="text-blue-600 font-semibold hover:text-blue-700">
-                                            Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i>
-                                        </a>
+                                        <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
+                                        <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
+                                        <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -123,21 +115,12 @@
                     </div>
                 </div>
 
-                <!-- Dots -->
-                <div class="flex justify-center mt-8 space-x-2">
-                    <template x-for="(dot, index) in dots" :key="index">
-                        <button @click="goToSlide(index)" class="w-3 h-3 rounded-full transition-all duration-200"
-                            :class="index === currentIndex ? 'bg-blue-600 w-8' : 'bg-gray-300 hover:bg-gray-400'">
-                        </button>
-                    </template>
-                </div>
+                <!-- Dots (optional) -->
+                <div id="services-dots" class="flex justify-center mt-8 space-x-2"></div>
             </div>
 
             <div class="text-center mt-12">
-                <a href="{{ route('services.index') }}"
-                    class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Lihat Semua Layanan
-                </a>
+                <a href="{{ route('services.index') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Lihat Semua Layanan</a>
             </div>
         </div>
     </section>
@@ -324,49 +307,99 @@
 
 @push('scripts')
     <script>
-        function servicesCarousel() {
-            return {
-                currentIndex: 0,
-                itemWidth: 0,
-                maxIndex: 0,
-                dots: [],
-                totalItems: {{ $services->count() }},
-                init() {
-                    this.updateDimensions();
-                    window.addEventListener('resize', () => this.updateDimensions());
-                    setInterval(() => {
-                        this.currentIndex < this.maxIndex ? this.next() : this.goToSlide(0);
-                    }, 5000);
-                },
-                updateDimensions() {
-                    const w = this.$refs.carouselWrapper.offsetWidth;
-                    let itemsPerSlide = window.innerWidth >= 1024 ? 4 :
-                        window.innerWidth >= 768 ? 3 :
-                        window.innerWidth >= 640 ? 2 : 1;
-                    this.itemWidth = w / itemsPerSlide;
-                    this.maxIndex = Math.ceil(this.totalItems / itemsPerSlide) - 1;
-                    this.dots = Array(this.maxIndex + 1).fill(0);
-                },
-                prev() {
-                    if (this.currentIndex > 0) this.currentIndex--;
-                },
-                next() {
-                    if (this.currentIndex < this.maxIndex) this.currentIndex++;
-                },
-                goToSlide(i) {
-                    this.currentIndex = i;
-                },
-                touchStart(e) {
-                    this.touchStartX = e.changedTouches[0].screenX;
-                },
-                touchMove(e) {
-                    this.touchEndX = e.changedTouches[0].screenX;
-                },
-                touchEnd() {
-                    if (this.touchStartX - this.touchEndX > 50) this.next();
-                    if (this.touchEndX - this.touchStartX > 50) this.prev();
-                }
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('services-slider');
+            if (!slider) return;
+
+            const prevBtn = document.getElementById('services-prev');
+            const nextBtn = document.getElementById('services-next');
+            const dotsContainer = document.getElementById('services-dots');
+
+            function getItems() {
+                return Array.from(slider.querySelectorAll('.flex > .flex-shrink-0, .flex > [class*="w-"]'));
             }
-        }
+
+            function itemsPerView() {
+                const w = window.innerWidth;
+                if (w >= 1024) return 4;
+                if (w >= 768) return 3;
+                if (w >= 640) return 2;
+                return 1;
+            }
+
+            function updateDots() {
+                const items = getItems();
+                const per = itemsPerView();
+                const pages = Math.max(1, Math.ceil(items.length / per));
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < pages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'w-3 h-3 rounded-full transition-all duration-200 bg-gray-300';
+                    btn.addEventListener('click', () => {
+                        slider.scrollTo({ left: i * slider.clientWidth, behavior: 'smooth' });
+                    });
+                    dotsContainer.appendChild(btn);
+                }
+                updateActiveDot();
+            }
+
+            function updateActiveDot() {
+                const items = getItems();
+                if (!items.length) return;
+                const per = itemsPerView();
+                const left = slider.scrollLeft;
+                const page = Math.round(left / slider.clientWidth);
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((d, i) => d.className = i === page ? 'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' : 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
+            }
+
+            // Prev/Next scroll by one viewport-width (page)
+            prevBtn && prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+            });
+            nextBtn && nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+            });
+
+            // Pointer drag for desktop
+            let isDown = false, startX = 0, scrollLeft = 0;
+            slider.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                slider.setPointerCapture(e.pointerId);
+                startX = e.clientX;
+                scrollLeft = slider.scrollLeft;
+                slider.classList.add('cursor-grabbing');
+            });
+            slider.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                const x = e.clientX;
+                const walk = startX - x;
+                slider.scrollLeft = scrollLeft + walk;
+            });
+            slider.addEventListener('pointerup', (e) => {
+                isDown = false;
+                try { slider.releasePointerCapture(e.pointerId); } catch (er) {}
+                slider.classList.remove('cursor-grabbing');
+            });
+            slider.addEventListener('pointercancel', () => { isDown = false; slider.classList.remove('cursor-grabbing'); });
+
+            // Update dots on resize and scroll
+            window.addEventListener('resize', updateDots);
+            slider.addEventListener('scroll', () => {
+                // throttle via requestAnimationFrame
+                window.requestAnimationFrame(updateActiveDot);
+            });
+
+            // init
+            updateDots();
+
+            // autoplay (optional) - slow interval
+            let autoplay = setInterval(() => {
+                if (document.hidden) return;
+                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+            }, 7000);
+            slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+            slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
+        });
     </script>
 @endpush
