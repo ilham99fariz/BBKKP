@@ -115,36 +115,125 @@
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">1990</span>
+                                    <span class="text-blue-600 font-bold">1956</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Integrasi Plastik dan Karet</h3>
-                                <p class="text-gray-600">Penambahan bidang plastik dan karet dalam lingkup kerja, menjadi Balai Besar Penelitian dan Pengembangan Industri Barang Kulit, Karet, dan Plastik.</p>
+                                <h3 class="text-xl font-semibold mb-2">Masa Reorganisasi</h3>
+                                <p class="text-gray-600">Pada tahun 1956, balai ini berada di bawah Jawatan Balai-Balai Penyelidikan dan Pendidikan, Kementerian Perindustrian.</p>
                             </div>
                         </div>
 
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">2002</span>
+                                    <span class="text-blue-600 font-bold">1957</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Modernisasi dan Standardisasi</h3>
-                                <p class="text-gray-600">Transformasi menjadi Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet (BBSPJIKP) dengan fokus pada standardisasi dan pelayanan industri.</p>
+                                <h3 class="text-xl font-semibold mb-2">Peningkatan Fasilitas Penelitian</h3>
+                                <p class="text-gray-600">Tahun 1957, aktivitas balai semakin meningkat dengan kedatangan berbagai mesin physical testing seperti:</p>
+
+                                    <div class="my-2"></div>
+
+                                    <ol class="list-decimal list-inside text-black font- ml-4 space-y-1">
+                                    <li><span><em>Abrasion Strength Tester</em>:</span> untuk menguji ketahanan aus kulit sol (sol sepatu),</li>
+                                    <li><span><em>Schopper Machine</em>:</span> untuk mengukur tensile strength kulit lapis atau atasan,</li>
+                                    <li><span><em>Crockmeter</em>:</span> untuk menguji rubfastness dari pigment finish pada kulit,</li>
+                                    <li><span><em>Bending Strength Tester</em>:</span> untuk mengetahui kekuatan lentur kulit box, chevreaux, dan suede bagi kebutuhan sepatu.</li>
+                                </ol>
+
+                                <p class="text-gray-600 mt-3">Selain itu, juga datang mesin besar untuk Pilot Plant seperti sok leather embossing machine, sammying machine, dan dua diesel generator.</p>
+
+                                    <div class="mt-4">
+                                        @if (file_exists(public_path('images/tonggak-1957.jpg')))
+                                            <img src="{{ asset('images/tonggak-1957.jpg') }}" alt="Peningkatan Fasilitas 1957" class="w-full rounded-lg shadow-md">
+                                        @else
+                                            <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1957) belum tersedia</div>
+                                        @endif
+                                        <p class="text-sm text-gray-500 mt-2">Dokumentasi peningkatan fasilitas penelitian (1957). Sumber: Arsip BBKKP.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="flex gap-4">
+                                <div class="flex-none">
+                                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                        <span class="text-blue-600 font-bold">1958</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-2">Perintah Baru</h3>
+                                    <p class="text-gray-600">Berdasarkan Undang-Undang RI Nomor 85 Tahun 1958 tentang Rencana Pembangunan Lima Tahun 1956–1960, Balai Penyelidikan Kulit memiliki tugas memajukan industri melalui pemberian nasihat teknis, peningkatan mekanisasi, dan peningkatan mutu teknologi melalui pemeriksaan bahan, penyelidikan, penyuluhan, serta pendidikan teknis.</p>
+
+                                    <div class="mt-4">
+                                        @if (file_exists(public_path('images/tonggak-1958.jpg')))
+                                            <img src="{{ asset('images/tonggak-1958.jpg') }}" alt="Perintah Baru 1958" class="w-full rounded-lg shadow-md">
+                                        @else
+                                            <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1958) belum tersedia</div>
+                                        @endif
+                                        <p class="text-sm text-gray-500 mt-2">Dokumentasi perintah baru (1958). Sumber: Arsip BBKKP.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="my-2"></div>
+
 
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">2020</span>
+                                        <span class="text-blue-600 font-bold">1960</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Era Digital</h3>
-                                <p class="text-gray-600">Implementasi sistem pelayanan digital dan pengembangan laboratorium terakreditasi internasional untuk mendukung industri 4.0.</p>
+                                    <h3 class="text-xl font-semibold mb-2">Transformasi Lembaga</h3>
+                                <p class="text-gray-600">Pada tahun 1960, status Djawatan berubah menjadi Institut Teknologi dan Pendidikan di bawah Departemen Perindustrian Rakyat.</p>
+
+                            </div>
+
+                        </div>
+                        
+                        <!-- 1961 - Perubahan Status -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">1961</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Perubahan Status</h3>
+                                <p class="text-gray-600">Di tahun 1961, lembaga ini menjadi Perusahaan Negara Urusan Penelitian, Pembinaan, dan Pendidikan dengan nama PN.PR. Nupiksa Yasa, dan Balai Penyelidikan Kulit menjadi salah satu unitnya. Berdasarkan SK BPU PNPR No.142/Sek/BPU/61 tanggal 16 Juli 1961, nama lembaga resmi menjadi Balai Penelitian Kulit berstatus PN di bawah PN.PR. Nupiksa Yasa.</p>
+
+                                <div class="mt-4">
+                                    @if (file_exists(public_path('images/tonggak-1961.jpg')))
+                                        <img src="{{ asset('images/tonggak-1961.jpg') }}" alt="Perubahan Status 1961" class="w-full rounded-lg shadow-md">
+                                    @else
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1961) belum tersedia</div>
+                                    @endif
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi perubahan status (1961). Sumber: Arsip BBKKP.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">1961</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Perubahan Status</h3>
+                                <p class="text-gray-600">Di tahun 1961, lembaga ini menjadi Perusahaan Negara Urusan Penelitian, Pembinaan, dan Pendidikan dengan nama PN.PR. Nupiksa Yasa, dan Balai Penyelidikan Kulit menjadi salah satu unitnya. Berdasarkan SK BPU PNPR No.142/Sek/BPU/61 tanggal 16 Juli 1961, nama lembaga resmi menjadi Balai Penelitian Kulit berstatus PN di bawah PN.PR. Nupiksa Yasa.</p>
+
+                                <div class="mt-4">
+                                    @if (file_exists(public_path('images/tonggak-1961.jpg')))
+                                        <img src="{{ asset('images/tonggak-1961.jpg') }}" alt="Perubahan Status 1961" class="w-full rounded-lg shadow-md">
+                                    @else
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1961) belum tersedia</div>
+                                    @endif
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi perubahan status (1961). Sumber: Arsip BBKKP.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
