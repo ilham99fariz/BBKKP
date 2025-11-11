@@ -103,12 +103,14 @@
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">1975</span>
+                                    <span class="text-blue-600 font-bold">1951</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Pengembangan Kapasitas</h3>
-                                <p class="text-gray-600">Perluasan cakupan menjadi Balai Penelitian Kulit, dengan penambahan fasilitas laboratorium dan peralatan modern.</p>
+                                <h3 class="text-xl font-semibold mb-2">Awal Produktivitas dan Memulai Penelitian Kulit</h3>
+                                <p class="text-gray-600">Baru pada tahun 1951, setelah adanya tambahan pegawai terampil dan fasilitas, kegiatan penelitian mulai aktif kembali meski dengan peralatan sederhana. Saat itu, Balai Penyelidikan Kulit berada di bawah Jawatan Perindustrian, Kementerian Perekonomian.</p>
+
+                                <p class="text-gray-600 mt-3">Dengan peralatan seadanya, balai ini mampu memproduksi berbagai jenis kulit seperti box, ecrace, suede, dan chamois. Penelitian juga dilakukan pada proses penyamakan nabati, mineral, dan minyak tak jenuh.</p>
                             </div>
                         </div>
 
