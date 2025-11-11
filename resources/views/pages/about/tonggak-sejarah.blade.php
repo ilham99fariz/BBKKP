@@ -108,9 +108,7 @@
                             </div>
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Awal Produktivitas dan Memulai Penelitian Kulit</h3>
-                                <p class="text-gray-600">Baru pada tahun 1951, setelah adanya tambahan pegawai terampil dan fasilitas, kegiatan penelitian mulai aktif kembali meski dengan peralatan sederhana. Saat itu, Balai Penyelidikan Kulit berada di bawah Jawatan Perindustrian, Kementerian Perekonomian.</p>
-
-                                <p class="text-gray-600 mt-3">Dengan peralatan seadanya, balai ini mampu memproduksi berbagai jenis kulit seperti box, ecrace, suede, dan chamois. Penelitian juga dilakukan pada proses penyamakan nabati, mineral, dan minyak tak jenuh.</p>
+                                <p class="text-gray-600">Baru pada tahun 1951, setelah adanya tambahan pegawai terampil dan fasilitas, kegiatan penelitian mulai aktif kembali meski dengan peralatan sederhana. Saat itu, Balai Penyelidikan Kulit berada di bawah Jawatan Perindustrian, Kementerian Perekonomian. Dengan peralatan seadanya, balai ini mampu memproduksi berbagai jenis kulit seperti box, ecrace, suede, dan chamois, serta melakukan penelitian pada proses penyamakan nabati, mineral, dan minyak tak jenuh.</p>
                             </div>
                         </div>
 
