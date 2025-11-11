@@ -87,12 +87,16 @@
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">1953</span>
+                                    <span class="text-blue-600 font-bold">1945</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Pendirian Awal</h3>
-                                <p class="text-gray-600">Didirikan sebagai Balai Penyelidikan Kulit di Yogyakarta, dengan fokus pada penelitian dan pengembangan industri kulit.</p>
+                                <h3 class="text-xl font-semibold mb-2">Perkembangan Awal pada Masa Pasca Kemerdekaan Indonesia</h3>
+                                <p class="text-gray-600">Pada masa awal kemerdekaan tahun 1945, Laboratorium Voor Leder diambil alih oleh Pemerintah Indonesia di bawah Kementerian Perekonomian dan diubah namanya menjadi Balai Penyelidikan Kulit dengan Amir Husin Siregar sebagai Kepala Balai. Setelah berakhirnya kekuasaan Belanda dan penyerahan kedaulatan kepada Republik Indonesia tahun 1950, pembangunan nasional dimulai, terutama pada sektor industri dalam negeri.</p>
+
+                                <p class="text-gray-600 mt-3">Sebagai negara agraris, Indonesia perlu membangun sektor industri untuk meningkatkan taraf hidup masyarakat. Pembangunan industri dinilai penting karena hanya negara yang telah memasuki struktur industrialistis yang dapat mempercepat peningkatan living standard masyarakatnya. Untuk itu, kegiatan penelitian industri (industrial research) digiatkan secara bertahap, dimulai dari yang sederhana hingga menuju mekanisasi dan penyempurnaan.</p>
+
+                                <p class="text-gray-600 mt-3">Yogyakarta sebagai ibu kota revolusi tahun 1950 menjadi pusat berbagai kegiatan research industri, termasuk Balai Penyelidikan Kulit yang pada awalnya hanya memiliki satu ruangan kerja dan enam pegawai. Pasca perang kemerdekaan, kegiatan penelitian mengalami kendala besar karena minimnya peralatan laboratorium.</p>
                             </div>
                         </div>
 
