@@ -36,6 +36,29 @@
                 
                 <div class="prose max-w-none">
                     <div class="space-y-8">
+                        <!-- 1927 - Founding (user-provided content) -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">1927</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Awal Perintisan di Bogor</h3>
+                                <p class="text-gray-600">Balai Besar Kulit, Karet, dan Plastik (BBKKP) memiliki sejarah panjang dalam perjalanannya hingga menjadi lembaga yang dikenal saat ini. Awal mula lembaga ini dirintis di Bogor pada tahun 1927 dengan nama Leerlooierij in Lederbewerking Stichting met Het Laboratorium Voor Lederbewerking en Schoenmakerij is een Van Drie Centrale Nijverheidsscholen voor Lichting: Departement van Economische Zaken yang dipimpin oleh Cavalini sebagai Direktur.</p>
+
+                                <!-- Image and caption below the paragraph -->
+                                <div class="mt-4">
+                                    @if (file_exists(public_path('images/tonggak-1927.jpg')))
+                                        <img src="{{ asset('images/tonggak-1927.jpg') }}" alt="Dokumentasi 1927" class="w-full rounded-lg shadow-md">
+                                    @else
+                                        <!-- Placeholder if image missing -->
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1927) belum tersedia</div>
+                                    @endif
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi awal pendirian di Bogor (1927). Sumber: Arsip BBKKP.</p>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Timeline items -->
                         <div class="flex gap-4">
                             <div class="flex-none">
