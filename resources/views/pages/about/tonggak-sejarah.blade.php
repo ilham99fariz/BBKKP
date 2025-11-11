@@ -59,6 +59,30 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 1937 - Relocation to Yogyakarta (user-provided content) -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">1937</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Pemindahan ke Yogyakarta</h3>
+                                <p class="text-gray-600">Pada tahun 1937, Departement van Economische Zaken memutuskan untuk memindahkan instansi tersebut ke Yogyakarta, tepatnya di Tugu Kulon. Oey Ong Ham diangkat sebagai Wakil Direktur mendampingi Cavalini. Berita pemindahan Laboratorium Voor Leder ini dimuat di berbagai surat kabar seperti De Indische Courant (1 Mei 1937), Nederlandsch Indie (11 Desember 1937), dan Soerabaijasch Handelsblad (15 Desember 1937).</p>
+
+                                <!-- Image and caption below the paragraph -->
+                                <div class="mt-4">
+                                    @if (file_exists(public_path('images/tonggak-1937.jpg')))
+                                        <img src="{{ asset('images/tonggak-1937.jpg') }}" alt="Pemindahan 1937" class="w-full rounded-lg shadow-md">
+                                    @else
+                                        <!-- Placeholder if image missing -->
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1937) belum tersedia</div>
+                                    @endif
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi pemindahan ke Yogyakarta (1937). Sumber: Arsip BBKKP.</p>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Timeline items -->
                         <div class="flex gap-4">
                             <div class="flex-none">
