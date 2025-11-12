@@ -323,6 +323,20 @@
                                 
                             </div>
                         </div>
+                        <!-- 2022 - Era Baru BBSPJIKKP -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2022</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Era Baru BBSPJIKKP</h3>
+                                <p class="text-gray-600">Transformasi terakhir terjadi pada 17 Februari 2022 melalui Peraturan Menteri Perindustrian No.1 Tahun 2022 tentang Organisasi dan Tata Kerja Unit Pelaksana Teknis di Lingkungan BSKJI. BBKKP bertransformasi menjadi Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik (BBSPJIKKP). Meskipun demikian, nama BBKKP masih tetap digunakan secara umum. Transformasi ini juga mencakup perubahan struktur organisasi yang kini lebih ramping, dengan fungsi penelitian dan perekayasaan ditiadakan, serta unit di bawah kepala balai terdiri dari Bagian Tata Usaha dan Kelompok Jabatan Fungsional.</p>
+
+                                
+                            </div>
+                        </div>
 
                         </div>
                     </div>
