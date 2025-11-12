@@ -204,35 +204,27 @@
                             <div>
                                 <h3 class="text-xl font-semibold mb-2">Perubahan Status</h3>
                                 <p class="text-gray-600">Di tahun 1961, lembaga ini menjadi Perusahaan Negara Urusan Penelitian, Pembinaan, dan Pendidikan dengan nama PN.PR. Nupiksa Yasa, dan Balai Penyelidikan Kulit menjadi salah satu unitnya. Berdasarkan SK BPU PNPR No.142/Sek/BPU/61 tanggal 16 Juli 1961, nama lembaga resmi menjadi Balai Penelitian Kulit berstatus PN di bawah PN.PR. Nupiksa Yasa.</p>
-
-                                <div class="mt-4">
-                                    @if (file_exists(public_path('images/tonggak-1961.jpg')))
-                                        <img src="{{ asset('images/tonggak-1961.jpg') }}" alt="Perubahan Status 1961" class="w-full rounded-lg shadow-md">
-                                    @else
-                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1961) belum tersedia</div>
-                                    @endif
-                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi perubahan status (1961). Sumber: Arsip BBKKP.</p>
-                                </div>
                             </div>
                         </div>
-                        
+
+                        <!-- 1980 - Perubahan Nama dan Status -->
                         <div class="flex gap-4">
                             <div class="flex-none">
                                 <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                                    <span class="text-blue-600 font-bold">1961</span>
+                                    <span class="text-blue-600 font-bold">1980</span>
                                 </div>
                             </div>
                             <div>
-                                <h3 class="text-xl font-semibold mb-2">Perubahan Status</h3>
-                                <p class="text-gray-600">Di tahun 1961, lembaga ini menjadi Perusahaan Negara Urusan Penelitian, Pembinaan, dan Pendidikan dengan nama PN.PR. Nupiksa Yasa, dan Balai Penyelidikan Kulit menjadi salah satu unitnya. Berdasarkan SK BPU PNPR No.142/Sek/BPU/61 tanggal 16 Juli 1961, nama lembaga resmi menjadi Balai Penelitian Kulit berstatus PN di bawah PN.PR. Nupiksa Yasa.</p>
+                                <h3 class="text-xl font-semibold mb-2">Perubahan Nama dan Status</h3>
+                                <p class="text-gray-600">Pada tahun 1980, melalui SK Menteri Perindustrian No. 218/M/SK/6/1980 tanggal 5 Juni 1980, nama dan status lembaga berubah menjadi Balai Besar Penelitian dan Pengembangan Industri Barang Kulit, Karet, dan Plastik.</p>
 
                                 <div class="mt-4">
-                                    @if (file_exists(public_path('images/tonggak-1961.jpg')))
-                                        <img src="{{ asset('images/tonggak-1961.jpg') }}" alt="Perubahan Status 1961" class="w-full rounded-lg shadow-md">
+                                    @if (file_exists(public_path('images/tonggak-1980.jpg')))
+                                        <img src="{{ asset('images/tonggak-1980.jpg') }}" alt="Perubahan Nama dan Status 1980" class="w-full rounded-lg shadow-md">
                                     @else
-                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1961) belum tersedia</div>
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (1980) belum tersedia</div>
                                     @endif
-                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi perubahan status (1961). Sumber: Arsip BBKKP.</p>
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi perubahan nama dan status (1980). Sumber: Arsip BBKKP.</p>
                                 </div>
                             </div>
                         </div>
