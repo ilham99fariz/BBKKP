@@ -309,6 +309,21 @@
                             </div>
                         </div>
 
+                        <!-- 2020 - Transformasi ke BSKJI -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2020</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Transformasi ke BSKJI</h3>
+                                <p class="text-gray-600">Berdasarkan Peraturan Presiden Republik Indonesia Nomor 107 Tahun 2020 tanggal 6 November 2020 tentang Kementerian Perindustrian, Badan Penelitian dan Pengembangan Industri (BPPI) berubah menjadi Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI). Sehingga, BBKKP sekarang berada di bawah Badan Standardisasi dan Kebijakan Jasa Industri (BSKJI) dengan tanpa mengalami perubahan tugas pokok dan fungsi.</p>
+
+                                
+                            </div>
+                        </div>
+
                         </div>
                     </div>
                 </div>
