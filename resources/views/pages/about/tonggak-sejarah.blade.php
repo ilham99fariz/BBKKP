@@ -255,9 +255,30 @@
 
                                 </div>
                             </div>
+                        </div>
+                        </div>
 
-
+                        <!-- 2009 - Transformasi ke Kementerian Perindustrian -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2009</span>
+                                </div>
                             </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Transformasi ke Kementerian Perindustrian</h3>
+                                <p class="text-gray-600">Melalui Peraturan Presiden No.47 Tahun 2009, Departemen Perindustrian berganti nama menjadi Kementerian Perindustrian, namun struktur BBKKP tetap sama.</p>
+
+                                <div class="mt-4">
+                                    @if (file_exists(public_path('images/tonggak-2009.jpg')))
+                                        <img src="{{ asset('images/tonggak-2009.jpg') }}" alt="Transformasi ke Kementerian Perindustrian 2009" class="w-full rounded-lg shadow-md">
+                                    @else
+                                        <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar tonggak sejarah (2009) belum tersedia</div>
+                                    @endif
+                                    <p class="text-sm text-gray-500 mt-2">Dokumentasi transformasi (2009). Sumber: Arsip BBKKP.</p>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
