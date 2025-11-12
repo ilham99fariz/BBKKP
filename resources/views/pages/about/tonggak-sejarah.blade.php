@@ -228,6 +228,37 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- 1995 - Penetapan Nama Resmi BBKKP -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">1995</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Penetapan Nama Resmi BBKKP</h3>
+                                <p class="text-gray-600">Pada 6 Desember 1995, Departemen Perindustrian digabung dengan Departemen Perdagangan menjadi Departemen Perindustrian dan Perdagangan (Depperindag). Struktur organisasi BBKKP tidak mengalami perubahan. Berdasarkan SK Menteri Perindustrian dan Perdagangan No.783/MPP/Kep/11/2002, nama lembaga resmi menjadi Balai Besar Kulit, Karet, dan Plastik (BBKKP).</p>
+                            </div>
+                        </div>
+
+                        <!-- 2006 - Pemisahan Depperindag -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2006</span>
+                                 </div>
+                            </div>
+                            <div>
+                                    <h3 class="text-xl font-semibold mb-2">Pemisahan Depperindag</h3>
+                                    <p class="text-gray-600">Tahun 2006, kedua departemen tersebut dipisah kembali, dan BBKKP berada di bawah Departemen Perindustrian sesuai SK Menperin No.45/M-IND/PER/6/2006.</p>
+
+                                </div>
+                            </div>
+
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
