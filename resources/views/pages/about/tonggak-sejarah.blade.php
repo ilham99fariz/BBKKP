@@ -255,8 +255,7 @@
 
                                 </div>
                             </div>
-                        </div>
-                        </div>
+
 
                         <!-- 2009 - Transformasi ke Kementerian Perindustrian -->
                         <div class="flex gap-4">
@@ -279,6 +278,37 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 2010 - BBKKP di Bawah BPKIMI -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2010</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">BBKKP di Bawah BPKIMI</h3>
+                                <p class="text-gray-600">Perubahan berikutnya terjadi tahun 2010 berdasarkan Peraturan Menteri Perindustrian No.105/M-IND/PER/2010, di mana BBKKP berada di bawah Badan Pengkajian Kebijakan, Iklim, dan Mutu Industri (BPKIMI) tanpa perubahan tugas pokok dan fungsi.</p>
+
+                                
+                            </div>
+                        </div>
+
+                        <!-- 2015 - Perubahan BPKIMI menjadi BPPI -->
+                        <div class="flex gap-4">
+                            <div class="flex-none">
+                                <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
+                                    <span class="text-blue-600 font-bold">2015</span>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Perubahan BPKIMI menjadi BPPI</h3>
+                                <p class="text-gray-600">Terbit Peraturan Presiden Republik Indonesia Nomor 29 Tahun 2015 tentang Kementerian Perindustrian, Badan Pengkajian Kebijakan, Iklim dan Mutu Industri (BPKIMI) berubah menjadi Badan Penelitian dan Pengembangan Industri (BPPI). Sehingga, BBKKP sekarang berada di bawah Badan Penelitian dan Pengembangan Industri (BPPI) dengan tanpa mengalami perubahan tugas pokok dan fungsi.</p>
+
+                                
+                            </div>
+                        </div>
+
                         </div>
                     </div>
                 </div>
