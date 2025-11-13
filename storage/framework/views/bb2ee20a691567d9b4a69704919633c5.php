@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="<?php echo e(asset('images/halal-center-bg.jpg')); ?>" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-halalcenter.png')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 

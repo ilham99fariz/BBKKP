@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-berita.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -50,7 +50,7 @@
             <a href="{{ route('halal.about') }}" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-berita.jpg') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tentang LPH</h2>
@@ -63,7 +63,7 @@
             <a href="{{ route('halal.services') }}" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-berita.jpg') }}" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Layanan LPH</h2>
@@ -76,7 +76,7 @@
             <a href="{{ route('halal.certification-process') }}" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-berita.jpg') }}" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Proses Sertifikasi</h2>
@@ -89,7 +89,7 @@
             <a href="{{ route('halal.regulations') }}" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-berita.jpg') }}" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Peraturan & Pedoman</h2>
@@ -102,7 +102,7 @@
             <a href="{{ route('halal.faq') }}" class="group">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-berita.jpg') }}" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">FAQ</h2>

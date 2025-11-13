@@ -23,7 +23,7 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="<?php echo e(route('services.index')); ?>"
-                    class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
+                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
                     Lihat Layanan Kami
                 </a>
                 <a href="<?php echo e(route('contact.show')); ?>"
@@ -95,8 +95,8 @@
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
             <div class="text-center mt-12">
-                <a href="<?php echo e(route('services.index')); ?>" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Lihat Semua Layanan</a>
-            </div>
+                <a href="<?php echo e(route('services.index')); ?>" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">Lihat Semua Layanan</a>
+            </div>                                            
         </div>
     </section>
 
@@ -178,7 +178,7 @@
 
             <div class="text-center mt-12">
                 <a href="<?php echo e(route('news.index')); ?>"
-                    class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
                     Lihat Semua Berita
                 </a>
             </div>

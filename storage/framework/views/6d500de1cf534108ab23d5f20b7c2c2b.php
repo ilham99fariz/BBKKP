@@ -4,54 +4,152 @@
 <?php $__env->startSection('description', 'Daftar standar pelayanan dan informasi terkait BBSPJIKKP'); ?>
 
 <?php $__env->startSection('content'); ?>
-    <section class="relative">
-        <div class="h-56 md:h-72 w-full bg-cover bg-center"
-            style="background-image:url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&fit=crop');">
-            <div class="h-full w-full bg-black/40 flex items-end">
-                <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
-                    <nav class="text-white/80 text-sm mb-2">
-                        <a href="<?php echo e(route('home')); ?>" class="hover:text-white">Home</a>
-                        <span class="mx-2">/</span>
-                        <span>Standar Pelayanan</span>
-                    </nav>
-                    <h1 class="text-3xl md:text-4xl font-bold text-white">Standar Pelayanan</h1>
+    <!-- Hero Section with Background -->
+    <div class="relative bg-gray-900">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Header Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <!-- Breadcrumb -->
+            <nav class="flex mb-8" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-home mr-2"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-gray-300">Standar Pelayanan</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Header Text -->
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Standar Pelayanan</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Daftar standar pelayanan dan informasi terkait BBSPJIKKP
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Halal Center Cards (consistent with site cards) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- standar pelayanan -->
+            <a href="<?php echo e(route('standards.standar')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan</h2>
+                        <p class="text-gray-600">Dokumen dan standar pelayanan kami</p>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </a>
 
-    <section class="py-12 md:py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                <a href="/standar-pelayanan" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Standar Pelayanan</div>
-                </a>
-                <a href="/maklumat-pelayanan" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Maklumat Pelayanan</div>
-                </a>
-                <a href="/tarif-layanan" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Tarif Layanan</div>
-                </a>
-                <a href="/tarif-percepatan" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Tarif Percepatan</div>
-                </a>
-                <a href="/spm" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Standar Pelayanan Minimum (SPM)</div>
-                </a>
-                <a href="/survey-layanan-pelanggan" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Survey Layanan Pelanggan</div>
-                </a>
-                <a href="/ikm" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Indeks Kepuasan Masyarakat</div>
-                </a>
-                <a href="<?php echo e(route('contact.show')); ?>" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow">
-                    <div class="text-lg font-semibold">Kontak</div>
-                </a>
-            </div>
+            <!-- Maklumat Pelayanan -->
+            <a href="<?php echo e(route('standards.maklumat')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Maklumat Pelayanan</h2>
+                        <p class="text-gray-600">Maklumat dan informasi layanan</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tarif Layanan -->
+            <a href="<?php echo e(route('standards.tarif')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Layanan</h2>
+                        <p class="text-gray-600">Daftar harga layanan</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Tarif Percepatan -->
+            <a href="<?php echo e(route('standards.tarif_percepatan')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Percepatan</h2>
+                        <p class="text-gray-600">Biayan layanan dengan percepatan.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- SPM -->
+            <a href="<?php echo e(route('standards.spm')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan Minimum</h2>
+                        <p class="text-gray-600">Standar pelayanan minimum yang harus dipenuhi.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- survei Pelanggan -->
+             <a href="<?php echo e(route('standards.survey')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Survey Pelanggan</h2>
+                        <p class="text-gray-600">Survey pelanggan dalam menggunakan layanan.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- IKM     -->
+            <a href="<?php echo e(route('standards.ikm')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Indeks Kepuasan Masyarakat</h2>
+                        <p class="text-gray-600">Indeks kepuasan masyarakat.</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- kontak -->
+            <a href="<?php echo e(route('contact.show')); ?>" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Kontak</h2>
+                        <p class="text-gray-600">Kontak kami untuk informasi lebih lanjut.</p>
+                    </div>
+                </div>
+            </a>
         </div>
-    </section>
+    </div>
 <?php $__env->stopSection(); ?>
-
-
-
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/standards/index.blade.php ENDPATH**/ ?>

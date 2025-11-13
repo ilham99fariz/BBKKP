@@ -138,13 +138,13 @@
                             <p class="mb-2 text-sm text-gray-500">
                                 <span class="font-semibold">Klik untuk upload</span> atau drag and drop
                             </p>
-                            <p class="text-xs text-gray-500">PNG, JPG, JPEG (MAX. 2MB)</p>
+                                <p class="text-xs text-gray-500">PNG, JPG, JPEG, GIF, SVG, WEBP (MAX. 2MB)</p>
                         </div>
-                        <input id="image" 
-                               name="image" 
-                               type="file" 
-                               class="hidden" 
-                               accept="image/*"
+               <input id="image" 
+                   name="image" 
+                   type="file" 
+                   class="hidden" 
+                   accept=".jpeg,.jpg,.png,.gif,.svg,.webp"
                                onchange="previewImage(event)">
                     </label>
                 </div>

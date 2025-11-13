@@ -40,8 +40,25 @@ Route::view('/standar-layanan', 'pages.standards.index')->name('standards.index'
 Route::view('/media-informasi', 'pages.media.index')->name('media.index');
 // Keterbukaan Informasi Publik page
 Route::view('/keterbukaan-informasi-publik', 'pages.media.keterbukaan-informasi-publik')->name('media.keterbukaan-informasi-publik');
+Route::view('/publikasi', 'pages.media.publication')->name('media.publication');
+Route::view('/pengumuman', 'pages.media.announcement')->name('media.announcement');
+
+// Standar Pelayanan subpages
+Route::view('/standar-pelayanan', 'pages.standards.standar-pelayanan')->name('standards.standar');
+Route::view('/maklumat-pelayanan', 'pages.standards.maklumat-pelayanan')->name('standards.maklumat');
+Route::view('/tarif-layanan', 'pages.standards.tarif-layanan')->name('standards.tarif');
+Route::view('/tarif-percepatan', 'pages.standards.tarif-percepatan')->name('standards.tarif_percepatan');
+Route::view('/spm', 'pages.standards.spm')->name('standards.spm');
+Route::view('/survey-layanan-pelanggan', 'pages.standards.survey-layanan-pelanggan')->name('standards.survey');
+Route::view('/ikm', 'pages.standards.ikm')->name('standards.ikm');
 
 // About Routes
+Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');
+Route::view('/tonggak-sejarah', 'pages.about.tonggak-sejarah')->name('tonggak-sejarah');
+Route::view('/profil-pejabat', 'pages.about.profil-pejabat')->name('profil-pejabat');
+Route::view('/struktur-organisasi', 'pages.about.struktur-organisasi')->name('struktur-organisasi');
+Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
+Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
 Route::prefix('tentang-kami')->name('about.')->group(function () {
     Route::view('/', 'pages.about.index')->name('index');
     Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');

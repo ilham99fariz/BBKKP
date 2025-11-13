@@ -4,7 +4,7 @@
 @section('description', 'Sejarah perjalanan dan perkembangan Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet')
 
 @section('content')
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Breadcrumb -->
         <nav class="flex mb-8" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -100,5 +100,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

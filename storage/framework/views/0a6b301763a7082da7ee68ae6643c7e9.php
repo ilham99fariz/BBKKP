@@ -1,0 +1,1 @@
+<?php /**PATH C:\alamak\resources\views/pages/pengujian/index.blade.php ENDPATH**/ ?>

@@ -107,7 +107,7 @@
                                 <p class="text-sm text-gray-600 mt-1">Gambar saat ini</p>
                             </div>
                         @endif
-                        <input type="file" id="hero_image" name="hero_image" accept="image/*"
+                            <input type="file" id="hero_image" name="hero_image" accept=".jpeg,.jpg,.png,.gif,.svg,.webp"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG. Maksimal 5MB</p>
                     </div>

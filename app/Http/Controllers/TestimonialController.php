@@ -17,7 +17,7 @@ class TestimonialController extends Controller
             'client_name' => 'required|string|max:255',
             'client_company' => 'nullable|string|max:255',
             'content' => 'required|string|max:1000',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'rating' => 'required|integer|min:1|max:5',
         ]);
 

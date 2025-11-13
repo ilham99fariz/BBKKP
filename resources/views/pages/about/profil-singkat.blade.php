@@ -4,30 +4,50 @@
 @section('description', 'Profil dan informasi umum tentang Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet')
 
 @section('content')
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <!-- Breadcrumb -->
-        <nav class="flex mb-8" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                <li class="inline-flex items-center">
-                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600">
-                        <i class="fas fa-home mr-2"></i>
-                        Beranda
-                    </a>
-                </li>
-                <li>
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                        <a href="{{ route('about.index') }}" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
-                    </div>
-                </li>
-                <li aria-current="page">
-                    <div class="flex items-center">
-                        <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                        <span class="text-gray-500">Profil Singkat</span>
-                    </div>
-                </li>
-            </ol>
-        </nav>
+    <div class="relative bg-gray-900">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0">
+            <img src="{{ asset('images/bg-halalcenter.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+            <!-- Breadcrumb -->
+            <nav class="flex mb-8" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                            <i class="fas fa-home mr-2"></i>
+                            Beranda
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <a href="{{ route('about.index') }}" class="text-gray-300 hover:text-white">
+                                Tentang Kami
+                            </a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                            <span class="text-gray-300">Profil Singkat</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <!-- Header Text -->
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Profil Singkat </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Profil singkat visi, misi dan informasi umum tentang BBSPJIKP
+                </p>
+            </div>
+        </div>
+    </div>
 
         <!-- Main Content -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -116,5 +136,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
