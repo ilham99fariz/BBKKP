@@ -47,69 +47,72 @@
         <!-- Halal Center Cards (consistent with site cards) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- About LPH -->
-            <a href="{{ route('halal.about') }}" class="group">
+            <a href="{{ route('halal.about') }}" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tentang LPH</h2>
                         <p class="text-gray-600">Informasi mengenai peran dan fungsi Lembaga Pemeriksa Halal BBSPJIKP.</p>
                     </div>
                 </div>
-            </a>
+            </a>    
 
             <!-- Services -->
-            <a href="{{ route('halal.services') }}" class="group">
+            <a href="{{ route('halal.services') }}" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Layanan LPH</h2>
-                        <p class="text-gray-600">Pemeriksaan dokumen, audit lapangan, dan pengujian laboratorium.</p>
+                        <p class="text-gray-600 flex-1">Pemeriksaan dokumen, audit lapangan, dan pengujian laboratorium.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Certification Process -->
-            <a href="{{ route('halal.certification-process') }}" class="group">
+            <a href="{{ route('halal.certification-process') }}" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/bg-random.webp') }}" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Proses Sertifikasi</h2>
-                        <p class="text-gray-600">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.</p>
+                        <p class="text-gray-600 flex-1">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Regulations -->
-            <a href="{{ route('halal.regulations') }}" class="group">
+            <a href="{{ route('halal.regulations') }}" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Peraturan & Pedoman</h2>
-                        <p class="text-gray-600">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
+                        <p class="text-gray-600 flex-1">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
                     </div>
                 </div>
             </a>
 
             <!-- FAQ -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="{{ route('halal.faq') }}" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">FAQ</h2>
-                        <p class="text-gray-600">Pertanyaan yang sering diajukan seputar sertifikasi halal.</p>
+                        <p class="text-gray-600 flex-1  ">Pertanyaan yang sering diajukan seputar sertifikasi halal.</p>
                     </div>
                 </div>
             </a>
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection

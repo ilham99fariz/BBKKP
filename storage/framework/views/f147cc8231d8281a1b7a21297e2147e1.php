@@ -47,53 +47,53 @@
         <!-- Keterbukaan Informasi Publik -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- informasi Publik -->
-            <a href="<?php echo e(route('media.keterbukaan-informasi-publik')); ?>" class="group">
+            <a href="<?php echo e(route('media.keterbukaan-informasi-publik')); ?>" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Keterbukaan Informasi Publik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">keterbukaan Informasi Publik</h2>
-                        <p class="text-gray-600">Dokumen dan informasi publik yang wajib tersedia bagi masyarakat.</p>
+                        <p class="text-gray-600 flex-1">Dokumen dan informasi publik yang wajib tersedia bagi masyarakat.</p>
                     </div>
                 </div>
             </a>
 
             <!-- News -->
-            <a href="<?php echo e(route('news.index')); ?>" class="group">
+            <a href="<?php echo e(route('news.index')); ?>" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">BBSPJIKKP News</h2>
-                        <p class="text-gray-600">berita-berita, artikel dan update kegiatan BBSPJIKKP.</p>
+                        <p class="text-gray-600 flex-1">berita-berita, artikel dan update kegiatan BBSPJIKKP.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Publikasi -->
-            <a href="<?php echo e(route('media.publication')); ?>" class="group">
+            <a href="<?php echo e(route('media.publication')); ?>" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/joker.jpg')); ?>" alt="Publikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Publikasi</h2>
-                        <p class="text-gray-600">Laporan, pedoman, dan materi komunikasi yang dapat diunduh.</p>
+                        <p class="text-gray-600 flex-1">Laporan, pedoman, dan materi komunikasi yang dapat diunduh.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Pengumuman -->
-            <a href="<?php echo e(route('media.announcement')); ?>" class="group">
+            <a href="<?php echo e(route('media.announcement')); ?>" class="group h-full flex">
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pengumuman</h2>
-                        <p class="text-gray-600">Pemberitahuan resmi dan informasi penting untuk publik.</p>
+                        <p class="text-gray-600 flex-1">Pemberitahuan resmi dan informasi penting untuk publik.</p>
                     </div>
                 </div>
             </a>
@@ -103,5 +103,8 @@
 
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/media/index.blade.php ENDPATH**/ ?>

@@ -44,7 +44,7 @@
             <div class="text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Tentang LPH</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Mengenal Lembaga Pemeriksa Halal BBSPJIKP
+                    Mengenal Lembaga Pemeriksa Halal BBSPJIKKP
                 </p>
             </div>
         </div>
@@ -55,73 +55,27 @@
             <div class="p-8">
                 <!-- Profil Section -->
                 <section class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Profil LPH BBSPJIKP</h2>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">LPH BBSPJIKKP</h2>
                     <div class="prose max-w-none">
                         <p class="text-lg text-gray-600 mb-6">
-                            Lembaga Pemeriksa Halal (LPH) BBSPJIKP merupakan lembaga yang memiliki kewenangan untuk melakukan pemeriksaan dan/atau pengujian kehalalan produk yang terakreditasi oleh BPJPH yang bekerja sama dengan MUI.
+                            Indonesia memiliki populasi muslim terbesar di dunia, sehingga menawarkan potensi pasar yang sangat luas bagi pengembangan industri halal. Undang-Undang Nomor 33 Tahun 2014 tentang Jaminan Produk Halal menetapkan bahwa setiap produk yang masuk, beredar, dan diperdagangkan di wilayah Indonesia wajib memiliki sertifikat halal. Penyelenggaraan jaminan produk halal bertujuan untuk memberikan kenyamanan, keamanan, keselamatan, serta kepastian ketersediaan produk halal bagi masyarakat, sekaligus meningkatkan nilai tambah bagi pelaku usaha dalam memproduksi dan memasarkan produk halal.
                         </p>
                     </div>
-                </section>
-
-                <!-- Visi Misi Section -->
-                <section class="mb-12">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-green-50 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold text-green-800 mb-4">Visi</h3>
-                            <p class="text-gray-700">
-                                Menjadi lembaga pemeriksa halal terpercaya yang mendukung pengembangan industri halal nasional.
-                            </p>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-lg">
-                            <h3 class="text-2xl font-bold text-blue-800 mb-4">Misi</h3>
-                            <ul class="list-disc list-inside text-gray-700 space-y-2">
-                                <li>Melaksanakan pemeriksaan dan pengujian kehalalan produk</li>
-                                <li>Mendukung pengembangan industri halal nasional</li>
-                                <li>Memberikan layanan prima kepada pelaku usaha</li>
-                            </ul>
-                        </div>
+                    <div class="prose max-w-none">
+                        <p class="text-lg text-gray-600 mb-6">
+                            Sebagai bentuk dukungan terhadap implementasi regulasi tersebut dan program Pemerintah Indonesia untuk menjadi produsen produk halal terbesar di dunia, LPH Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik (LPH BBSPJIKKP) telah resmi memperoleh akreditasi dari Badan Penyelenggara Jaminan Produk Halal (BPJPH) sebagai LPH Pratama. Saat ini, LPH BBSPJIKKP juga sedang dalam proses akreditasi menuju LPH Utama dengan cakupan wilayah kerja nasional dan internasional.
+                        </p>
                     </div>
-                </section>
-
-                <!-- Tugas dan Fungsi -->
-                <section class="mb-12">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Tugas dan Fungsi</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Tugas Pokok</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Pemeriksaan dan pengujian kehalalan produk</li>
-                                <li>Verifikasi proses produksi halal</li>
-                                <li>Pengawasan berkelanjutan</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Fungsi</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Pelaksanaan pemeriksaan kehalalan produk</li>
-                                <li>Pengujian kehalalan produk</li>
-                                <li>Penyusunan, pengelolaan, dan evaluasi sistem jaminan halal</li>
-                            </ul>
-                        </div>
+                    <!-- Gambar Logo Halal (TENGAH) -->
+                     <div class="flex justify-center my-10">
+                     <img src="<?php echo e(asset('images/logo-halal.png')); ?>"
+                          alt="Logo Halal BBSPJIKKP"
+                          class="w-72 md:w-96 opacity-90">
                     </div>
-                </section>
-
-                <!-- Tim Ahli -->
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Tim Ahli</h2>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="bg-white border rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Auditor Halal</h3>
-                            <p class="text-gray-600">Tim yang tersertifikasi untuk melakukan audit kehalalan produk</p>
-                        </div>
-                        <div class="bg-white border rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Penyelia Halal</h3>
-                            <p class="text-gray-600">Tim yang mengawasi proses produksi halal</p>
-                        </div>
-                        <div class="bg-white border rounded-lg p-6">
-                            <h3 class="text-xl font-semibold mb-3">Tim Teknis</h3>
-                            <p class="text-gray-600">Tim yang melakukan pengujian laboratorium</p>
-                        </div>
+                    <div class="prose max-w-none">
+                        <p class="text-lg text-gray-600 mb-6">
+                            Struktur dan organisasi LPH BBSPJIKKP ditetapkan dalam Keputusan Kepala BBKKP No. 134 Tahun 2025 tanggal 18 Juni 2025. LPH BBSPJIKKP didukung oleh 17 auditor halal.
+                        </p>
                     </div>
                 </section>
             </div>

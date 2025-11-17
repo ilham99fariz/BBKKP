@@ -55,127 +55,123 @@
             <div class="p-8">
                 <!-- Peraturan Perundang-undangan -->
                 <section class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Peraturan Perundang-undangan</h2>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Peraturan dan Pedoman Halal</h2>
                     <div class="space-y-6">
-                        <!-- UU -->
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Undang-Undang</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <i class="fas fa-file-pdf text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <a href="#" class="text-blue-600 hover:underline">UU No. 33 Tahun 2014</a>
-                                        <p class="text-gray-600 mt-1">Tentang Jaminan Produk Halal</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                        <section class="mb-12">
 
-                        <!-- PP -->
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Peraturan Pemerintah</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <i class="fas fa-file-pdf text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <a href="#" class="text-blue-600 hover:underline">PP No. 39 Tahun 2021</a>
-                                        <p class="text-gray-600 mt-1">Tentang Penyelenggaraan Jaminan Produk Halal</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+        <!-- LIST -->
+        <ol class="space-y-3">
 
-                        <!-- Permen -->
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Peraturan Menteri</h3>
-                            <ul class="space-y-4">
-                                <li class="flex items-start">
-                                    <i class="fas fa-file-pdf text-red-500 mt-1 mr-3"></i>
-                                    <div>
-                                        <a href="#" class="text-blue-600 hover:underline">Permenag No. 26 Tahun 2019</a>
-                                        <p class="text-gray-600 mt-1">Tentang Penyelenggaraan Jaminan Produk Halal</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-blue-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">1. Undang-Undang No. 33 Tahun 2014</span> tentang Jaminan Produk Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-blue-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">2. Undang-Undang No. 6 Tahun 2023</span> tentang Penetapan Perppu No. 2 Tahun 2022 tentang Cipta Kerja
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-green-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">3. PP No. 39 Tahun 2021</span> tentang Penyelenggaraan Bidang Jaminan Produk Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-yellow-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">4. PMA No. 26 Tahun 2019</span> tentang Penyelenggaraan Jaminan Produk Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-yellow-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">5. PMA No. 20 Tahun 2021</span> tentang Sertifikasi Halal UMK
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-purple-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">6. KMA No. 748 Tahun 2021</span> tentang Produk Yang Wajib Bersertifikat Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-purple-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">7. KMA No. 1360 Tahun 2021</span> tentang Bahan Yang Dikecualikan dari Kewajiban Bersertifikat Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-red-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">8. Kepkaban No. 20 Tahun 2023</span> tentang Perubahan SJPH
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-red-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">9. Kepkaban No. 78 Tahun 2023</span> tentang Pedoman Sertifikasi Halal Makanan dan Minuman dengan Pengolahan
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-gray-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">10. Kepkaban No. 40 Tahun 2022</span> tentang Penetapan Label Halal
+                </p>
+            </li>
+
+            <li class="flex items-start gap-3">
+                <div class="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
+                    <i class="fas fa-file-alt text-gray-600"></i>
+                </div>
+                <p class="text-gray-800 leading-relaxed">
+                    <span class="font-semibold">11. Kepkaban No. 88</span> tentang Penggunaan Label Halal
+                </p>
+            </li>
+
+        </ol>
+    </div>
+</section>
+
                     </div>
-                </section>
-
-                <!-- Pedoman Teknis -->
-                <section class="mb-12">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Pedoman Teknis</h2>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <!-- Pedoman SJH -->
-                        <div class="bg-white border rounded-lg p-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-book text-blue-600 text-xl"></i>
-                                    </div>
-                                </div>
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-semibold">Pedoman Sistem Jaminan Halal</h3>
-                                    <p class="text-gray-600 mt-2">Panduan penerapan sistem jaminan halal di perusahaan</p>
-                                    <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Download PDF</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Manual Audit -->
-                        <div class="bg-white border rounded-lg p-6">
-                            <div class="flex items-start">
-                                <div class="flex-shrink-0">
-                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
-                                        <i class="fas fa-clipboard-check text-green-600 text-xl"></i>
-                                    </div>
-                                </div>
-                                <div class="ml-4">
-                                    <h3 class="text-lg font-semibold">Manual Audit</h3>
-                                    <p class="text-gray-600 mt-2">Panduan pelaksanaan audit halal</p>
-                                    <a href="#" class="text-blue-600 hover:underline mt-2 inline-block">Download PDF</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Standar & Kriteria -->
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Standar dan Kriteria</h2>
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <div class="space-y-6">
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Kriteria Sistem Jaminan Halal</h3>
-                                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                    <li>Kebijakan halal</li>
-                                    <li>Tim manajemen halal</li>
-                                    <li>Pelatihan dan edukasi</li>
-                                    <li>Bahan</li>
-                                    <li>Produk</li>
-                                    <li>Fasilitas produksi</li>
-                                    <li>Prosedur tertulis aktivitas kritis</li>
-                                    <li>Kemampuan telusur</li>
-                                    <li>Penanganan produk yang tidak memenuhi kriteria</li>
-                                    <li>Audit internal</li>
-                                    <li>Kaji ulang manajemen</li>
-                                </ul>
-                            </div>
-
-                            <div>
-                                <h3 class="text-xl font-semibold mb-3">Standar Fasilitas Produksi</h3>
-                                <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                    <li>Lokasi</li>
-                                    <li>Bangunan</li>
-                                    <li>Peralatan</li>
-                                    <li>Sanitasi</li>
-                                    <li>Karyawan</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                </section>  
             </div>
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/halal-center/regulations.blade.php ENDPATH**/ ?>

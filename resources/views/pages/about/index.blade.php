@@ -55,9 +55,9 @@
                             <i class="fas fa-history text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tonggak Sejarah</h2>
-                        <p class="text-gray-600">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
+                        <p class="text-gray-600 flex-1">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
                     </div>
                 </div>
             </a>
@@ -71,9 +71,9 @@
                             <i class="fas fa-building text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Singkat</h2>
-                        <p class="text-gray-600">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
                     </div>
                 </div>
             </a>
@@ -89,9 +89,9 @@
                             <i class="fas fa-users text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Pejabat</h2>
-                        <p class="text-gray-600">Struktur Pimpinan dan pejabat struktural BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">Struktur Pimpinan dan pejabat struktural BBSPJIKP.</p>
                     </div>
                 </div>
             </a>
@@ -105,9 +105,9 @@
                             <i class="fas fa-sitemap text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Struktur Organisasi</h2>
-                        <p class="text-gray-600">Susunan organisasi dan tata kerja BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">Susunan organisasi dan tata kerja BBSPJIKP.</p>
                     </div>
                 </div>
             </a>
@@ -121,7 +121,7 @@
                             <i class="fas fa-certificate text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Makna Logo</h2>
                         <p class="text-gray-600">Filosofi dan arti di balik logo BBSPJIKP.</p>
                     </div>
@@ -129,4 +129,8 @@
             </a>
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
+
 @endsection

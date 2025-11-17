@@ -45,111 +45,114 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
         <!-- Halal Center Cards (consistent with site cards) -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             <!-- standar pelayanan -->
-            <a href="<?php echo e(route('standards.standar')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.standar')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan</h2>
-                        <p class="text-gray-600">Dokumen dan standar pelayanan kami</p>
+                        <p class="text-gray-600 flex-1">Dokumen dan standar pelayanan kami</p>
                     </div>
                 </div>
             </a>
 
             <!-- Maklumat Pelayanan -->
-            <a href="<?php echo e(route('standards.maklumat')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.maklumat')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Maklumat Pelayanan</h2>
-                        <p class="text-gray-600">Maklumat dan informasi layanan</p>
+                        <p class="text-gray-600 flex-1">Maklumat dan informasi layanan</p>
                     </div>
                 </div>
             </a>
 
             <!-- Tarif Layanan -->
-            <a href="<?php echo e(route('standards.tarif')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.tarif')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Layanan</h2>
-                        <p class="text-gray-600">Daftar harga layanan</p>
+                        <p class="text-gray-600 flex-1">Daftar harga layanan</p>
                     </div>
                 </div>
             </a>
 
             <!-- Tarif Percepatan -->
-            <a href="<?php echo e(route('standards.tarif_percepatan')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.tarif_percepatan')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Percepatan</h2>
-                        <p class="text-gray-600">Biayan layanan dengan percepatan.</p>
+                        <p class="text-gray-600 flex-1">Biayan layanan dengan percepatan.</p>
                     </div>
                 </div>
             </a>
 
             <!-- SPM -->
-            <a href="<?php echo e(route('standards.spm')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.spm')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan Minimum</h2>
-                        <p class="text-gray-600">Standar pelayanan minimum yang harus dipenuhi.</p>
+                        <p class="text-gray-600 flex-1">Standar pelayanan minimum yang harus dipenuhi.</p>
                     </div>
                 </div>
             </a>
 
             <!-- survei Pelanggan -->
-             <a href="<?php echo e(route('standards.survey')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+             <a href="<?php echo e(route('standards.survey')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Survey Pelanggan</h2>
-                        <p class="text-gray-600">Survey pelanggan dalam menggunakan layanan.</p>
+                        <p class="text-gray-600 flex-1">Survey pelanggan dalam menggunakan layanan.</p>
                     </div>
                 </div>
             </a>
 
             <!-- IKM     -->
-            <a href="<?php echo e(route('standards.ikm')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('standards.ikm')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Indeks Kepuasan Masyarakat</h2>
-                        <p class="text-gray-600">Indeks kepuasan masyarakat.</p>
+                        <p class="text-gray-600 flex-1">Indeks kepuasan masyarakat.</p>
                     </div>
                 </div>
             </a>
 
             <!-- kontak -->
-            <a href="<?php echo e(route('contact.show')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('contact.show')); ?>" class="group h-full flex">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
                         <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Kontak</h2>
-                        <p class="text-gray-600">Kontak kami untuk informasi lebih lanjut.</p>
+                        <p class="text-gray-600 flex-1">Kontak kami untuk informasi lebih lanjut.</p>
                     </div>
                 </div>
             </a>
         </div>
     </div>
+        <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/standards/index.blade.php ENDPATH**/ ?>

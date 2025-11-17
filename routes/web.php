@@ -28,9 +28,12 @@ use App\Http\Controllers\Admin\SettingController;
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+//Layanan
 Route::get('/layanan', [ServiceController::class, 'index'])->name('services.index');
 Route::get('/layanan/{service}', [ServiceController::class, 'show'])->name('services.show');
+
+//Layanan
+Route::view('/sertifikasi','pages.services.sertifikasi')->name('services.sertifikasi');
 
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show');

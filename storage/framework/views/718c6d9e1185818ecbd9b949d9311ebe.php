@@ -1,5 +1,3 @@
-
-
 <?php $__env->startSection('title', 'Beranda - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET'); ?>
 <?php $__env->startSection('description',
     'Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk
@@ -283,7 +281,9 @@
 
 
     <!-- CTA Section -->
-
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('scripts'); ?>
@@ -383,6 +383,7 @@
             slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
         });
     </script>
+    
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/home.blade.php ENDPATH**/ ?>

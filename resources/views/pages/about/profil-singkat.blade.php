@@ -4,50 +4,30 @@
 @section('description', 'Profil dan informasi umum tentang Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet')
 
 @section('content')
-    <div class="relative bg-gray-900">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-halalcenter.png') }}" alt="Header Background" class="w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-        </div>
-
-        <!-- Content -->
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <!-- Breadcrumb -->
-            <nav class="flex mb-8" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                    <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
-                            <i class="fas fa-home mr-2"></i>
-                            Beranda
-                        </a>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('about.index') }}" class="text-gray-300 hover:text-white">
-                                Tentang Kami
-                            </a>
-                        </div>
-                    </li>
-                    <li aria-current="page">
-                        <div class="flex items-center">
-                            <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Profil Singkat</span>
-                        </div>
-                    </li>
-                </ol>
-            </nav>
-
-            <!-- Header Text -->
-            <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Profil Singkat </h1>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Profil singkat visi, misi dan informasi umum tentang BBSPJIKP
-                </p>
-            </div>
-        </div>
-    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Breadcrumb -->
+        <nav class="flex mb-8" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="{{ route('home') }}" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-home mr-2"></i>
+                        Beranda
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                        <a href="{{ route('about.index') }}" class="text-gray-700 hover:text-blue-600">Tentang Kami</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
+                        <span class="text-gray-500">Profil Singkat</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
 
         <!-- Main Content -->
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
@@ -59,7 +39,7 @@
                     <section class="mb-12">
                         <h2 class="text-2xl font-bold text-blue-600 mb-4">Visi</h2>
                         <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-                            <p class="text-lg">Menjadi lembaga terkemuka dalam standardisasi dan pelayanan jasa industri kulit, plastik, dan karet yang mendukung daya saing industri nasional.</p>
+                            <p class="text-lg">Menjadi balai besar yang akuntabel, kolaboratif dan berorientasi pelayanan dalam mewujudkan industri nasional bidang kulit, karet, dan plastik yang mandiri dan berdaya saing</p>
                         </div>
                     </section>
 
@@ -69,71 +49,75 @@
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                                <span>Mengembangkan standar dan pelayanan jasa yang berkualitas tinggi dalam industri kulit, plastik, dan karet.</span>
+                                <span>Optimalisasi pemanfaatan teknologi industri untuk meningkatkan kemandirian dan daya saing industri</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                                <span>Meningkatkan kompetensi SDM dan infrastruktur pengujian sesuai standar internasional.</span>
+                                <span>Peningkatan peran jasa industri pendukung pembangunan industri secara profesional.</span>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                                <span>Mendukung pengembangan industri nasional melalui riset dan inovasi teknologi.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
-                                <span>Memberikan pelayanan prima kepada pelaku industri dan stakeholder.</span>
+                                <span>Pelaksanaan tata kelola yang baik/good governance dalam keseluruhan aktivitas yang efektif dan akuntabel.</span>
                             </li>
                         </ul>
                     </section>
 
-                    <!-- Tugas dan Fungsi -->
+                    <!-- Moto Section -->
                     <section class="mb-12">
-                        <h2 class="text-2xl font-bold text-blue-600 mb-4">Tugas dan Fungsi</h2>
-                        <div class="grid md:grid-cols-2 gap-6">
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold mb-3">Tugas Pokok</h3>
-                                <p class="text-gray-600">Melaksanakan pengembangan standardisasi, pengujian, sertifikasi, kalibrasi, dan pelayanan jasa teknis lainnya dalam industri kulit, plastik, dan karet sesuai dengan kebijakan teknis yang ditetapkan.</p>
-                            </div>
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-semibold mb-3">Fungsi Utama</h3>
-                                <ul class="space-y-2 text-gray-600">
-                                    <li>• Penelitian dan pengembangan standardisasi</li>
-                                    <li>• Pengujian dan sertifikasi produk</li>
-                                    <li>• Kalibrasi peralatan industri</li>
-                                    <li>• Konsultasi teknis dan pelatihan</li>
-                                </ul>
-                            </div>
+                        <h2 class="text-2xl font-bold text-blue-600 mb-4">Moto</h2>
+                        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                            <p class="text-lg">Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet dan Plastik dalam bekerja selalu menjunjung tinggi motto SIAP (Semangat, Ikhlas, Amanah dan Profesional)</p>
+
+                            <ul class="mt-3 space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Semangat memberikan pelayanan dengan sikap perilaku dinamis dan sepenuh hati</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Ikhlas memberikan pelayanan dengan hati yang bersih, tulus, rela, dan tidak mengharapkan imbalan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Amanah, jujur dan dapat dipercaya dalam memberikan pelayanan</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-blue-500 mt-1 mr-3"></i>
+                                    <span class="text-gray-600">Profesional dalam bekerja dengan tuntas dan akurat didasarkan kompetensi terbaik, penuh tanggung jawab, dan berkomitmen tinggi</span>
+                                </li>
+                            </ul>
                         </div>
                     </section>
 
-                    <!-- Layanan Utama -->
-                    <section>
-                        <h2 class="text-2xl font-bold text-blue-600 mb-4">Layanan Utama</h2>
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="border p-4 rounded-lg">
-                                <div class="text-blue-500 mb-3">
-                                    <i class="fas fa-flask text-3xl"></i>
-                                </div>
-                                <h3 class="font-semibold mb-2">Pengujian Laboratorium</h3>
-                                <p class="text-sm text-gray-600">Layanan pengujian komprehensif untuk produk kulit, plastik, dan karet.</p>
-                            </div>
-                            <div class="border p-4 rounded-lg">
-                                <div class="text-blue-500 mb-3">
-                                    <i class="fas fa-certificate text-3xl"></i>
-                                </div>
-                                <h3 class="font-semibold mb-2">Sertifikasi</h3>
-                                <p class="text-sm text-gray-600">Sertifikasi produk dan sistem manajemen mutu industri.</p>
-                            </div>
-                            <div class="border p-4 rounded-lg">
-                                <div class="text-blue-500 mb-3">
-                                    <i class="fas fa-graduation-cap text-3xl"></i>
-                                </div>
-                                <h3 class="font-semibold mb-2">Pelatihan</h3>
-                                <p class="text-sm text-gray-600">Program pelatihan dan pengembangan kompetensi industri.</p>
-                            </div>
+                    <!-- Tata Nilai (sebelumnya: Tugas dan Fungsi) -->
+                    <section class="mb-12">
+                        <h2 class="text-2xl font-bold text-blue-600 mb-4">Tata Nilai</h2>
+                        <div class="mb-4">
+                                @php
+                                    // Prefer the exact filename the user uploaded, with sensible fallbacks
+                                    $tataImage = null;
+                                    if (file_exists(public_path('images/tatanilai.png'))) {
+                                        $tataImage = asset('images/tatanilai.png');
+                                    } elseif (file_exists(public_path('images/tata-nilai.jpg'))) {
+                                        $tataImage = asset('images/tata-nilai.jpg');
+                                    } elseif (file_exists(public_path('images/tata_nilai.png'))) {
+                                        $tataImage = asset('images/tata_nilai.png');
+                                    }
+                                @endphp
+
+                                @if ($tataImage)
+                                    <img src="{{ $tataImage }}" alt="Tata Nilai" class="w-full rounded-lg shadow-md">
+                                @else
+                                    <div class="w-full h-48 bg-gray-100 rounded-lg flex items-center justify-center text-gray-400">Gambar Tata Nilai belum tersedia</div>
+                                @endif
                         </div>
+                        
                     </section>
                 </div>
             </div>
         </div>
+    </div>
+        <!-- Atau Bisa Seperti Di Bawah Ini -->
+        <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection

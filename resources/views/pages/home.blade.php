@@ -272,7 +272,9 @@
 
 
     <!-- CTA Section -->
-
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection
 
 @push('scripts')
@@ -372,4 +374,5 @@
             slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
         });
     </script>
+    
 @endpush

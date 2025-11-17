@@ -202,19 +202,19 @@
                 <!-- Social Media Links -->
                 <div class="flex items-center space-x-1">
                     <span class="text-sm mr-3 font-semibold">Media Sosial</span>
-                    <a href="#"
+                    <a href="https://www.instagram.com/"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://x.com/"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-x-twitter"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://www.facebook.com/"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="#"
+                    <a href="https://www.youtube.com/"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-youtube"></i>
                     </a>
