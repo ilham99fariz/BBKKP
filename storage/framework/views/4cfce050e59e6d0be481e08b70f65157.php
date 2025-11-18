@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('title', 'Layanan Sertifikasi - BBSPJIKP')
-@section('description', 'Layanan sertifikasi produk, sistem manajemen mutu, dan sertifikasi personil oleh BBSPJIKKP')
 
-@section('content')
+<?php $__env->startSection('title', 'Layanan Sertifikasi - BBSPJIKP'); ?>
+<?php $__env->startSection('description', 'Layanan sertifikasi produk, sistem manajemen mutu, dan sertifikasi personil oleh BBSPJIKKP'); ?>
+
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -18,23 +18,25 @@
             <nav class="flex mb-8" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
                             <i class="fas fa-home mr-2"></i>
-                            {{ __('common.home') }}
+                            <?php echo e(__('common.home')); ?>
+
                         </a>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('services.index') }}" class="text-gray-300 hover:text-white">
-                                {{ __('common.services') }}
+                            <a href="<?php echo e(route('services.index')); ?>" class="text-gray-300 hover:text-white">
+                                <?php echo e(__('common.services')); ?>
+
                             </a>
                         </div>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">{{ __('common.certification') }}</span>
+                            <span class="text-gray-300"><?php echo e(__('common.certification')); ?></span>
                         </div>
                     </li>
                 </ol>
@@ -42,7 +44,7 @@
 
             <!-- Header Text -->
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('sertifikasi.hero_title') }}</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4"><?php echo e(__('sertifikasi.hero_title')); ?></h1>
             </div>
         </div>
     </div>
@@ -54,27 +56,33 @@
                 <nav class="flex flex-wrap space-x-4 md:space-x-8" aria-label="Sertifikasi Tabs">
                     <button onclick="showSertifikasi('sppt-sni')" id="tab-sppt-sni"
                         class="sertifikasi-tab border-b-2 border-blue-600 py-4 px-1 text-sm font-medium text-blue-600">
-                        {{ __('sertifikasi.product_certification') }}
+                        <?php echo e(__('sertifikasi.product_certification')); ?>
+
                     </button>
                     <button onclick="showSertifikasi('smm')" id="tab-smm"
                         class="sertifikasi-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        {{ __('sertifikasi.smm') }}
+                        <?php echo e(__('sertifikasi.smm')); ?>
+
                     </button>
                     <button onclick="showSertifikasi('smk3')" id="tab-smk3"
                         class="sertifikasi-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        {{ __('sertifikasi.smk3') }}
+                        <?php echo e(__('sertifikasi.smk3')); ?>
+
                     </button>
                     <button onclick="showSertifikasi('sml')" id="tab-sml"
                         class="sertifikasi-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        {{ __('sertifikasi.sml') }}
+                        <?php echo e(__('sertifikasi.sml')); ?>
+
                     </button>
                     <button onclick="showSertifikasi('sih')" id="tab-sih"
                         class="sertifikasi-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        {{ __('sertifikasi.sih') }}
+                        <?php echo e(__('sertifikasi.sih')); ?>
+
                     </button>
                     <button onclick="showSertifikasi('personil')" id="tab-personil"
                         class="sertifikasi-tab border-b-2 border-transparent py-4 px-1 text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300">
-                        {{ __('sertifikasi.personnel_certification') }}
+                        <?php echo e(__('sertifikasi.personnel_certification')); ?>
+
                     </button>
                 </nav>
             </div>
@@ -103,7 +111,7 @@
 
                 <div class="bg-gray-50 p-6 rounded-lg mb-8">
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">
-                        {{ __('sertifikasi.product_certification_title') }}</h3>
+                        <?php echo e(__('sertifikasi.product_certification_title')); ?></h3>
                     <p class="text-gray-700">
                         Proses pemberian sertifikat produk kepada perusahaan yang telah menerapkan sistem mutu dan mampu
                         menghasilkan suatu produk dengan mutu yang konsisten sesuai standar yang diacu dan diakui.
@@ -111,7 +119,7 @@
                 </div>
 
                 <div class="bg-gray-50 p-6 rounded-lg mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">{{ __('sertifikasi.certificate_title') }}</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3"><?php echo e(__('sertifikasi.certificate_title')); ?></h3>
                     <p class="text-gray-700">
                         Dokumen yang diterbitkan oleh Lembaga Sertifikasi Produk menyatakan bahwa suatu perusahaan/produsen
                         telah berhak memakai tanda SNI atau standar lainnya yang diacu dan diakui pada produk tertentu yang
@@ -119,7 +127,7 @@
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope') }} LSPr BBSPJIKKP JPA:
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e(__('sertifikasi.scope')); ?> LSPr BBSPJIKKP JPA:
                 </h3>
 
                 <div class="overflow-x-auto mb-8 shadow-lg rounded-lg border border-gray-200">
@@ -612,57 +620,62 @@
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_form') }}
-                                {{ __('sertifikasi.product_certification') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_form')); ?>
+
+                                <?php echo e(__('sertifikasi.product_certification')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_additional_form') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_additional_form')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.client_rights_obligations') }}
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.client_rights_obligations')); ?>
+
                                 LSPr</span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.logo_usage') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.logo_usage')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.audit_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.audit_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.certification_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
-                            <span class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.scope') }}
-                                {{ __('That has been accredited by KAN') }}</span>
+                            <span class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.scope')); ?>
+
+                                <?php echo e(__('That has been accredited by KAN')); ?></span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSPr
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.client_data')); ?> LSPr
                         BBSPJIKKP JPA</h3>
                     <p class="text-gray-700 mb-4">
-                        {{ __('sertifikasi.client_data_desc') }}
+                        <?php echo e(__('sertifikasi.client_data_desc')); ?>
+
                     </p>
                 </div>
 
                 <!-- Skema Sertifikasi Produk -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.certification_scheme') }}</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.certification_scheme')); ?></h3>
                     <p class="text-gray-700">
-                        {{ __('sertifikasi.certification_scheme_desc') }}
+                        <?php echo e(__('sertifikasi.certification_scheme_desc')); ?>
+
                     </p>
                 </div>
             </section>
@@ -680,7 +693,7 @@
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_qms') }}</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e(__('sertifikasi.scope_qms')); ?></h3>
 
                 <div class="bg-gray-50 p-6 rounded-lg mb-8">
                     <ul class="list-disc pl-6 space-y-2 text-gray-700">
@@ -709,40 +722,44 @@
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_form') }}
-                                {{ __('sertifikasi.smm') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_form')); ?>
+
+                                <?php echo e(__('sertifikasi.smm')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.client_rights_obligations') }}
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.client_rights_obligations')); ?>
+
                                 LSSM</span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.logo_usage') }}
-                                {{ __('sertifikasi.smm') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.logo_usage')); ?>
+
+                                <?php echo e(__('sertifikasi.smm')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.audit_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.audit_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.certification_procedure')); ?></span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSSM
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.client_data')); ?> LSSM
                         BBSPJIKKP YOQA</h3>
                     <p class="text-gray-700">
-                        {{ __('sertifikasi.client_data_desc') }}
+                        <?php echo e(__('sertifikasi.client_data_desc')); ?>
+
                     </p>
                 </div>
             </section>
@@ -761,7 +778,7 @@
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_ohs') }}</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e(__('sertifikasi.scope_ohs')); ?></h3>
 
                 <div class="bg-gray-50 p-6 rounded-lg mb-8">
                     <ul class="list-disc pl-6 space-y-2 text-gray-700">
@@ -777,40 +794,44 @@
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_form') }}
-                                {{ __('sertifikasi.smk3') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_form')); ?>
+
+                                <?php echo e(__('sertifikasi.smk3')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.client_rights_obligations') }}
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.client_rights_obligations')); ?>
+
                                 LSSMK3</span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.logo_usage') }}
-                                {{ __('sertifikasi.smk3') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.logo_usage')); ?>
+
+                                <?php echo e(__('sertifikasi.smk3')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.audit_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.audit_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.certification_procedure')); ?></span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSSMK3
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.client_data')); ?> LSSMK3
                         BBSPJIKKP YOK3</h3>
                     <p class="text-gray-700">
-                        {{ __('sertifikasi.client_data_desc') }}
+                        <?php echo e(__('sertifikasi.client_data_desc')); ?>
+
                     </p>
                 </div>
             </section>
@@ -828,7 +849,7 @@
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_ems') }}</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e(__('sertifikasi.scope_ems')); ?></h3>
 
                 <div class="bg-gray-50 p-6 rounded-lg mb-8">
                     <ul class="list-disc pl-6 space-y-2 text-gray-700">
@@ -855,40 +876,44 @@
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_form') }}
-                                {{ __('sertifikasi.sml') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_form')); ?>
+
+                                <?php echo e(__('sertifikasi.sml')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.client_rights_obligations') }}
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.client_rights_obligations')); ?>
+
                                 LSSML</span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.logo_usage') }}
-                                {{ __('sertifikasi.sml') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.logo_usage')); ?>
+
+                                <?php echo e(__('sertifikasi.sml')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.audit_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.audit_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.certification_procedure')); ?></span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSSML
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.client_data')); ?> LSSML
                         BBSPJIKKP JECA</h3>
                     <p class="text-gray-700">
-                        {{ __('sertifikasi.client_data_desc') }}
+                        <?php echo e(__('sertifikasi.client_data_desc')); ?>
+
                     </p>
                 </div>
 
@@ -923,7 +948,7 @@
                     </p>
                 </div>
 
-                <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_green') }}</h3>
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4"><?php echo e(__('sertifikasi.scope_green')); ?></h3>
 
                 <div class="overflow-x-auto mb-8 shadow-lg rounded-lg border border-gray-200">
                     <table class="min-w-full divide-y divide-gray-200 border-collapse">
@@ -1072,40 +1097,44 @@
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.download_form') }}
-                                {{ __('sertifikasi.sih') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.download_form')); ?>
+
+                                <?php echo e(__('sertifikasi.sih')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.client_rights_obligations') }}
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.client_rights_obligations')); ?>
+
                                 LSIH</span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.logo_usage') }}
-                                {{ __('sertifikasi.sih') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.logo_usage')); ?>
+
+                                <?php echo e(__('sertifikasi.sih')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.audit_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.audit_procedure')); ?></span>
                         </a>
                         <a href="#" class="block p-4 border rounded-lg hover:bg-gray-50 transition">
                             <i class="fas fa-file-pdf text-red-600 mr-2"></i>
                             <span
-                                class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
+                                class="text-blue-600 hover:text-blue-800 font-semibold"><?php echo e(__('sertifikasi.certification_procedure')); ?></span>
                         </a>
                     </div>
                 </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSIH
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4"><?php echo e(__('sertifikasi.client_data')); ?> LSIH
                         BBSPJIKKP</h3>
                     <p class="text-gray-700">
-                        {{ __('sertifikasi.client_data_desc') }}
+                        <?php echo e(__('sertifikasi.client_data_desc')); ?>
+
                     </p>
                 </div>
             </section>
@@ -1120,7 +1149,7 @@
         </div>
     </div>
 
-    @push('scripts')
+    <?php $__env->startPush('scripts'); ?>
         <script>
             function showSertifikasi(sertifikasiName) {
                 // Hide all sertifikasi contents
@@ -1190,5 +1219,7 @@
                 }
             });
         </script>
-    @endpush
-@endsection
+    <?php $__env->stopPush(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\BBKKP\resources\views/pages/services/sertifikasi.blade.php ENDPATH**/ ?>

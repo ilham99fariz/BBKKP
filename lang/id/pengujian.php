@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'page_title' => 'Layanan Pengujian - BBSPJIKP',
+    'page_description' => 'Layanan pengujian industri kulit, karet, dan plastik dengan standar nasional dan internasional',
+    'hero_title' => 'LAYANAN PENGUJIAN INDUSTRI KULIT, KARET, DAN PLASTIK',
+    'detail_testing' => 'Detail Pengujian',
+    'test_request' => 'Permohonan Uji',
+    'testing' => 'Pengujian',
+    'testing_description' => 'Menjamin mutu dan keandalan produk melalui pengujian sesuai standar nasional dan internasional',
+    'providing_services' => 'Memberikan jasa layanan di bidang :',
+    'testing_services_list_1' => 'Pengujian kulit, produk kulit dan sepatu',
+    'testing_services_list_2' => 'Pengujian karet, produk karet, plastik dan produk plastik serta sepatu',
+    'testing_services_list_3' => 'Pengujian kualitas lingkungan, air dan air limbah',
+    'testing_services_list_4' => 'Pengujian ban luar dan ban dalam kendaraan bermotor dan mobil',
+    'facilities' => 'Fasilitas',
+    'facility_1' => 'Laboratorium Uji Produk Kulit, Karet, dan Plastik, termasuk uji ban',
+    'facility_2' => 'Laboratorium Uji Lingkungan',
+    'testing_scope' => 'Ruang Lingkup Pengujian',
+    'test_rate' => 'Tarif Uji',
+    'sop_testing' => 'SOP Pengujian',
+    'sop_testing_services' => 'SOP Layanan Jasa Pengujian dan Kalibrasi',
+    'completion_time' => 'Waktu Penyelesaian',
+    'completion_time_desc' => '7 - 14 hari kerja. Sesuai dengan jenis komoditi/ alat dan parameter uji/ besaran kalibrasi.',
+    'download' => 'Unduh',
+    'Complete information regarding testing service rates can be downloaded through the following document:' => 'Informasi lengkap mengenai tarif jasa layanan pengujian dapat diunduh melalui dokumen berikut:',
+];

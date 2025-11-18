@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('title', 'Layanan - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET')
-@section('description', 'Daftar kategori layanan: Pengujian, Kalibrasi, Sertifikasi, Konsultansi, Inspeksi, dll.')
 
-@section('content')
+<?php $__env->startSection('title', 'Layanan - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET'); ?>
+<?php $__env->startSection('description', 'Daftar kategori layanan: Pengujian, Kalibrasi, Sertifikasi, Konsultansi, Inspeksi, dll.'); ?>
+
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <section class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -18,7 +18,7 @@
             <nav class="flex mb-8" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
                             <i class="fas fa-home mr-2"></i>
                             Home
                         </a>
@@ -34,9 +34,10 @@
 
             <!-- Header Text -->
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('common.services') }}</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4"><?php echo e(__('common.services')); ?></h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    {{ __('List of service categories: Testing, Calibration, Certification, Consultation, Inspection, etc.') }}
+                    <?php echo e(__('List of service categories: Testing, Calibration, Certification, Consultation, Inspection, etc.')); ?>
+
                 </p>
             </div>
         </div>
@@ -47,62 +48,64 @@
         <!-- Kategori Layanan -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Pengujian -->
-            <a href="{{ route('pengujian.index') }}" class="group">
+            <a href="<?php echo e(route('pengujian.index')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                            {{ __('common.testing') }}</h2>
-                        <p class="text-gray-600 flex-1">{{ __('Product quality testing.') }}</p>
+                            <?php echo e(__('common.testing')); ?></h2>
+                        <p class="text-gray-600 flex-1"><?php echo e(__('Product quality testing.')); ?></p>
                     </div>
                 </div>
             </a>
 
             <!-- Kalibrasi -->
-            <a href="{{ route('kalibrasi.index') }}" class="group">
+            <a href="<?php echo e(route('kalibrasi.index')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                            {{ __('common.calibration') }}</h2>
-                        <p class="text-gray-600 flex-1">{{ __('Document review, field audit, and laboratory testing.') }}
+                            <?php echo e(__('common.calibration')); ?></h2>
+                        <p class="text-gray-600 flex-1"><?php echo e(__('Document review, field audit, and laboratory testing.')); ?>
+
                         </p>
                     </div>
                 </div>
             </a>
 
             <!-- Sertifikasi -->
-            <a href="{{ route('services.sertifikasi') }}" class="group h-full flex">
+            <a href="<?php echo e(route('services.sertifikasi')); ?>" class="group h-full flex">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Proses Sertifikasi"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Proses Sertifikasi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
-                            {{ __('common.certification') }}</h2>
+                            <?php echo e(__('common.certification')); ?></h2>
                         <p class="text-gray-600 flex-1">
-                            {{ __('Registration stages, audit, fatwa meeting, and certificate issuance.') }}
+                            <?php echo e(__('Registration stages, audit, fatwa meeting, and certificate issuance.')); ?>
+
                         </p>
                     </div>
                 </div>
             </a>
 
             <!-- Bimbingan Teknis/ Konsultasi -->
-            <a href="{{ route('halal.regulations') }}" class="group">
+            <a href="<?php echo e(route('halal.regulations')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -114,11 +117,11 @@
             </a>
 
             <!-- Inspeksi -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -129,11 +132,11 @@
             </a>
 
             <!-- Verifikasi dan Validasi -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -145,11 +148,11 @@
             </a>
 
             <!-- Uji Profisiemsi -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -160,11 +163,11 @@
             </a>
 
             <!-- Pelatihan Teknis -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -176,11 +179,11 @@
             </a>
 
             <!-- Produsen Bahan Acuan -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -192,11 +195,11 @@
             </a>
 
             <!-- Edukasi -->
-            <a href="{{ route('halal.faq') }}" class="group">
+            <a href="<?php echo e(route('halal.faq')); ?>" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -211,4 +214,6 @@
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
     </script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\BBKKP\resources\views/pages/services/index.blade.php ENDPATH**/ ?>

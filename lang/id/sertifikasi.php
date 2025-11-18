@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'page_title' => 'Layanan Sertifikasi - BBSPJIKP',
+    'page_description' => 'Layanan sertifikasi produk, sistem manajemen mutu, dan sertifikasi personil oleh BBSPJIKKP',
+    'hero_title' => 'Sertifikasi',
+    'product_certification' => 'Sertifikasi Produk (SPPT SNI)',
+    'smm' => 'SMM',
+    'smk3' => 'SMK3',
+    'sml' => 'SML',
+    'sih' => 'SIH',
+    'personnel_certification' => 'Sertifikasi Personil',
+    'product_certification_title' => 'SERTIFIKASI PRODUK',
+    'certificate_title' => 'SERTIFIKAT PRODUK',
+    'scope' => 'Ruang lingkup',
+    'download_form' => 'Unduh Form Aplikasi',
+    'download_additional_form' => 'Unduh Form Tambahan - Permohonan SPPT SNI Luar Negeri',
+    'client_rights_obligations' => 'Hak dan Kewajiban Klien',
+    'logo_usage' => 'Tata cara penggunaan logo lisensi sertifikat dan SPPT SNI',
+    'audit_procedure' => 'Prosedur Audit dan Evaluasi',
+    'certification_procedure' => 'Prosedur Pemberian, Penolakan, Pemeliharaan, Pengurangan/Perluasan, Pembekuan, Pemulihan dan Pencabutan Sertifikasi',
+    'client_data' => 'Data Klien',
+    'certification_scheme' => 'Skema Sertifikasi Produk',
+    'client_data_desc' => 'Untuk memperoleh informasi terkait data klien, silakan mengajukan permohonan informasi sesuai dengan Prosedur Permohonan Informasi. Form permohonan informasi dapat diunduh di sini.',
+    'certification_scheme_desc' => 'Untuk memperoleh informasi Skema Sertifikasi Produk sesuai ruang lingkup, silakan mengajukan permohonan informasi sesuai dengan Prosedur Permohonan Informasi. Form permohonan informasi dapat diunduh di sini.',
+    'scope_qms' => 'Ruang lingkup sertifikasi sistem manajemen mutu:',
+    'scope_ohs' => 'Ruang lingkup sertifikasi sistem manajemen K3:',
+    'scope_ems' => 'Ruang lingkup sertifikasi:',
+    'scope_green' => 'Ruang lingkup sertifikasi industri hijau:',
+];
+

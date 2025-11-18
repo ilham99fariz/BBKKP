@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('title', 'FAQ Sertifikasi Halal - BBSPJIKP')
-@section('description', 'Pertanyaan yang sering diajukan terkait sertifikasi halal di LPH BBSPJIKP')
 
-@section('content')
+<?php $__env->startSection('title', 'FAQ Sertifikasi Halal - BBSPJIKP'); ?>
+<?php $__env->startSection('description', 'Pertanyaan yang sering diajukan terkait sertifikasi halal di LPH BBSPJIKP'); ?>
+
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-halalcenter.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-halalcenter.png')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -18,7 +18,7 @@
             <nav class="flex mb-8" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
                             <i class="fas fa-home mr-2"></i>
                             Beranda
                         </a>
@@ -26,7 +26,7 @@
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('halal.index') }}" class="text-gray-300 hover:text-white">
+                            <a href="<?php echo e(route('halal.index')); ?>" class="text-gray-300 hover:text-white">
                                 Halal Center
                             </a>
                         </div>
@@ -218,7 +218,7 @@
         </div>
     </div>
 
-    @push('scripts')
+    <?php $__env->startPush('scripts'); ?>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
 
@@ -254,9 +254,11 @@
 
             });
         </script>
-    @endpush
+    <?php $__env->stopPush(); ?>
     <!-- Atau Bisa Seperti Di Bawah Ini -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
     </script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\BBKKP\resources\views/pages/halal-center/faq.blade.php ENDPATH**/ ?>

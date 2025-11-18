@@ -1,16 +1,16 @@
-@extends('layouts.app')
 
-@section('title', 'Layanan Pengujian - BBSPJIKP')
-@section('description',
+
+<?php $__env->startSection('title', 'Layanan Pengujian - BBSPJIKP'); ?>
+<?php $__env->startSection('description',
     'Layanan pengujian industri kulit, karet, dan plastik dengan standar nasional dan
-    internasional')
+    internasional'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -20,23 +20,25 @@
             <nav class="flex mb-8" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 md:space-x-3">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="<?php echo e(route('home')); ?>" class="text-gray-300 hover:text-white">
                             <i class="fas fa-home mr-2"></i>
-                            {{ __('common.home') }}
+                            <?php echo e(__('common.home')); ?>
+
                         </a>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <a href="{{ route('services.index') }}" class="text-gray-300 hover:text-white">
-                                {{ __('common.services') }}
+                            <a href="<?php echo e(route('services.index')); ?>" class="text-gray-300 hover:text-white">
+                                <?php echo e(__('common.services')); ?>
+
                             </a>
                         </div>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">{{ __('common.testing') }}</span>
+                            <span class="text-gray-300"><?php echo e(__('common.testing')); ?></span>
                         </div>
                     </li>
                 </ol>
@@ -44,15 +46,17 @@
 
             <!-- Header Text -->
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('pengujian.hero_title') }}</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4"><?php echo e(__('pengujian.hero_title')); ?></h1>
                 <div class="flex flex-wrap justify-center gap-4 mt-8">
                     <a href="#detail-pengujian"
                         class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
-                        {{ __('pengujian.detail_testing') }}
+                        <?php echo e(__('pengujian.detail_testing')); ?>
+
                     </a>
                     <a href="#permohonan-uji"
                         class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
-                        {{ __('pengujian.test_request') }}
+                        <?php echo e(__('pengujian.test_request')); ?>
+
                     </a>
                 </div>
             </div>
@@ -62,37 +66,39 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Section Pengujian -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ __('pengujian.testing') }}</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4"><?php echo e(__('pengujian.testing')); ?></h2>
             <p class="text-lg text-gray-700 mb-6">
-                {{ __('pengujian.testing_description') }}
+                <?php echo e(__('pengujian.testing_description')); ?>
+
             </p>
-            <p class="text-lg font-semibold text-gray-800 mb-4">{{ __('pengujian.providing_services') }}</p>
+            <p class="text-lg font-semibold text-gray-800 mb-4"><?php echo e(__('pengujian.providing_services')); ?></p>
             <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                <li>{{ __('pengujian.testing_services_list_1') }}</li>
-                <li>{{ __('pengujian.testing_services_list_2') }}</li>
-                <li>{{ __('pengujian.testing_services_list_3') }}</li>
-                <li>{{ __('pengujian.testing_services_list_4') }}</li>
+                <li><?php echo e(__('pengujian.testing_services_list_1')); ?></li>
+                <li><?php echo e(__('pengujian.testing_services_list_2')); ?></li>
+                <li><?php echo e(__('pengujian.testing_services_list_3')); ?></li>
+                <li><?php echo e(__('pengujian.testing_services_list_4')); ?></li>
             </ul>
         </section>
 
         <!-- Section Fasilitas -->
         <section class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ __('pengujian.facilities') }}</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4"><?php echo e(__('pengujian.facilities')); ?></h2>
             <ul class="list-disc pl-6 space-y-2 text-gray-700">
-                <li>{{ __('pengujian.facility_1') }}</li>
-                <li>{{ __('pengujian.facility_2') }}</li>
+                <li><?php echo e(__('pengujian.facility_1')); ?></li>
+                <li><?php echo e(__('pengujian.facility_2')); ?></li>
             </ul>
             <div class="mt-4">
                 <a href="https://drive.google.com/drive/folders/1nCke-opRpSULC44qhInNBQ8c_ery3--F" target="_blank"
                     rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold">
-                    {{ __('pengujian.testing_scope') }}
+                    <?php echo e(__('pengujian.testing_scope')); ?>
+
                 </a>
             </div>
         </section>
 
         <!-- Section Detail Pengujian -->
         <section id="detail-pengujian" class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">{{ __('pengujian.detail_testing') }}</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6"><?php echo e(__('pengujian.detail_testing')); ?></h2>
 
             <div class="space-y-4">
                 <!-- Item 1 -->
@@ -1071,28 +1077,31 @@
 
         <!-- Section Tarif Uji -->
         <section id="tarif-uji" class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">{{ __('pengujian.test_rate') }}</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-4"><?php echo e(__('pengujian.test_rate')); ?></h2>
             <div class="bg-white border rounded-lg p-6 shadow-sm">
                 <p class="text-gray-700 mb-4">
-                    {{ __('Complete information regarding testing service rates can be downloaded through the following document:') }}
+                    <?php echo e(__('Complete information regarding testing service rates can be downloaded through the following document:')); ?>
+
                 </p>
                 <a href="https://bbkkp.kemenperin.go.id/storage/files/page/tarif/Kep.%2040%20Penetapan%20Tarif%20Jasa%20Layanan%20BLU%20BBSPJIKKP%202025%20uji.pdf"
                     target="_blank" rel="noopener noreferrer"
                     class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition">
-                    <i class="fas fa-download mr-2"></i>{{ __('pengujian.download') }} {{ __('pengujian.test_rate') }}
+                    <i class="fas fa-download mr-2"></i><?php echo e(__('pengujian.download')); ?> <?php echo e(__('pengujian.test_rate')); ?>
+
                 </a>
             </div>
         </section>
 
         <!-- Section SOP Pengujian -->
         <section id="sop-pengujian" class="mb-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">{{ __('pengujian.sop_testing') }}</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6"><?php echo e(__('pengujian.sop_testing')); ?></h2>
 
             <div class="space-y-6">
                 <div class="bg-white border rounded-lg p-6 shadow-sm">
-                    <h3 class="text-xl font-semibold text-gray-900 mb-3">{{ __('pengujian.sop_testing_services') }}</h3>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-3"><?php echo e(__('pengujian.sop_testing_services')); ?></h3>
                     <p class="text-gray-700 mb-4">
-                        {{ __('pengujian.completion_time') }}: {{ __('pengujian.completion_time_desc') }}
+                        <?php echo e(__('pengujian.completion_time')); ?>: <?php echo e(__('pengujian.completion_time_desc')); ?>
+
                     </p>
                 </div>
 
@@ -1108,7 +1117,7 @@
         </section>
     </div>
 
-    @push('scripts')
+    <?php $__env->startPush('scripts'); ?>
         <script>
             document.addEventListener("DOMContentLoaded", function() {
                 const pengujianItems = document.querySelectorAll(".pengujian-item");
@@ -1147,5 +1156,7 @@
                 });
             });
         </script>
-    @endpush
-@endsection
+    <?php $__env->stopPush(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\BBKKP\resources\views/pages/pengujian/index.blade.php ENDPATH**/ ?>

@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PengujianController;
 use App\Http\Controllers\DynamicPageController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DynamicPageController as AdminDynamicPageController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
@@ -26,6 +27,9 @@ use App\Http\Controllers\Admin\SettingController;
 |
 */
 
+// Language Switching
+Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('language.switch');
+
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 //Layanan
@@ -33,7 +37,7 @@ Route::get('/layanan', [ServiceController::class, 'index'])->name('services.inde
 Route::get('/layanan/{service}', [ServiceController::class, 'show'])->name('services.show');
 
 //Layanan
-Route::view('/sertifikasi','pages.services.sertifikasi')->name('services.sertifikasi');
+Route::view('/sertifikasi', 'pages.services.sertifikasi')->name('services.sertifikasi');
 
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show');
@@ -80,10 +84,13 @@ Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class,
 Route::get('/pengujian', [PengujianController::class, 'index'])->name('pengujian.index');
 Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'])->name('pengujian.produk-kulit');
 
+// Kalibrasi Routes
+Route::view('/kalibrasi', 'pages.kalibrasi.index')->name('kalibrasi.index');
+
 Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'createAdmin'])
     ->middleware('guest')
     ->name('admin.login');
-    
+
 // Admin Routes
 Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
