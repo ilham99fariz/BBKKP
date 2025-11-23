@@ -19,16 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Siapkan 3 akun admin, email sama, password berbeda
-        Admin::truncate();
-        $admins = [
-            ['name' => 'Admin 1', 'email' => 'admin@balaiindustri.go.id', 'password' => Hash::make('minda123')],
-            ['name' => 'Admin 2', 'email' => 'admin2@balaiindustri.go.id', 'password' => Hash::make('minda231')],
-            ['name' => 'Admin 3', 'email' => 'admin3@balaiindustri.go.id', 'password' => Hash::make('minda321')],
-        ];
-        foreach ($admins as $row) {
-            Admin::create($row);
-        }
+        // Seed admin users
+        $this->call(AdminSeeder::class);
 
         // Seed Homepage Settings
         $this->seedHomepageSettings();

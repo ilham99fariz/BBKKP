@@ -27,6 +27,7 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
+    @stack('styles')
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <div id="app">
@@ -66,5 +67,8 @@
     </script>
     
     @stack('scripts')
+    
+    <!-- Accessibility Widget -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
 </body>
 </html>

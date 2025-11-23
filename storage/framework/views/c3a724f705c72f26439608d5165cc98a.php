@@ -57,7 +57,7 @@
                         <p class="text-gray-600">Informasi mengenai peran dan fungsi Lembaga Pemeriksa Halal BBSPJIKP.</p>
                     </div>
                 </div>
-            </a>
+            </a>    
 
             <!-- Services -->
             <a href="<?php echo e(route('halal.services')); ?>" class="group h-full flex">

@@ -7,6 +7,7 @@ use App\Models\News;
 use App\Models\Testimonial;
 use App\Models\Partner;
 use App\Models\HomepageSetting;
+use App\Models\DynamicPage;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -45,7 +46,14 @@ class HomeController extends Controller
     }
     $news = $news->merge($otherNews)->slice(0, 3)->values();
 
-    return view('pages.home', compact('services', 'news', 'testimonials', 'partners', 'settings'));
+    // Get all active layanan content from DynamicPage
+    $layananContents = DynamicPage::where('type', 'layanan')
+        ->where('is_active', true)
+        ->orderBy('sort_order')
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+    return view('pages.home', compact('services', 'news', 'testimonials', 'partners', 'settings', 'layananContents'));
 }
 
 

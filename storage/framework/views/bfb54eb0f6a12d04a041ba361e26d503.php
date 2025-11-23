@@ -27,6 +27,7 @@
     <style>
         [x-cloak] { display: none !important; }
     </style>
+    <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 <body class="font-sans antialiased bg-gray-50">
     <div id="app">
@@ -64,6 +65,11 @@
             });
         });
     </script>
+    
+    <?php echo $__env->yieldPushContent('scripts'); ?>
+    
+    <!-- Accessibility Widget -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
 </body>
 </html>
 <?php /**PATH C:\alamak\resources\views/layouts/app.blade.php ENDPATH**/ ?>

@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\PageContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,7 +58,6 @@ Route::view('/tarif-layanan', 'pages.standards.tarif-layanan')->name('standards.
 Route::view('/tarif-percepatan', 'pages.standards.tarif-percepatan')->name('standards.tarif_percepatan');
 Route::view('/spm', 'pages.standards.spm')->name('standards.spm');
 Route::view('/survey-layanan-pelanggan', 'pages.standards.survey-layanan-pelanggan')->name('standards.survey');
-Route::view('/ikm', 'pages.standards.ikm')->name('standards.ikm');
 
 // About Routes
 Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');
@@ -92,7 +92,7 @@ Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionControl
     ->name('admin.login');
 
 // Admin Routes
-Route::prefix('admin')->middleware(['admin'])->group(function () {
+Route::prefix('admin')->middleware(['admin', 'media.admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
     Route::resource('services', AdminServiceController::class)->names([
@@ -153,6 +153,17 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'update' => 'admin.dynamic-pages.update',
         'destroy' => 'admin.dynamic-pages.destroy',
     ]);
+
+    // Page Content Management by Type
+    Route::prefix('page-content')->name('admin.page-content.')->group(function () {
+        Route::get('{type}', [PageContentController::class, 'index'])->name('index');
+        Route::get('{type}/create', [PageContentController::class, 'create'])->name('create');
+        Route::post('{type}', [PageContentController::class, 'store'])->name('store');
+        Route::get('{type}/{page}/edit', [PageContentController::class, 'edit'])->name('edit');
+        Route::put('{type}/{page}', [PageContentController::class, 'update'])->name('update');
+        Route::delete('{type}/{page}', [PageContentController::class, 'destroy'])->name('destroy');
+        Route::post('{type}/upload', [PageContentController::class, 'upload'])->name('upload');
+    });
 });
 
 // Login Admin khusus (url terpisah)

@@ -34,7 +34,7 @@
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">FAQ</span>
+                            <span class="text-gray-300">Pertanyaan Paling Sering Terkait Halal</span>
                         </div>
                     </li>
                 </ol>
@@ -42,9 +42,9 @@
 
             <!-- Header Text -->
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">FAQ</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Pertanyaan Paling Sering Terkait Halal</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Pertanyaan yang Sering Diajukan
+                    Akses informasi publik secara mudah, cepat, dan transparan melalui layanan daring resmi pemerintah.
                 </p>
             </div>
         </div>
@@ -53,186 +53,212 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="p-8">
-                <!-- Search Bar -->
-                <div class="mb-8">
-                    <div class="max-w-xl mx-auto">
-                        <div class="relative">
-                            <input type="text" id="faq-search" 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Cari pertanyaan...">
-                            <div class="absolute right-3 top-3 text-gray-400">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- FAQ Categories -->
                 <div class="space-y-8">
+
                     <!-- Umum -->
                     <section>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Pertanyaan Umum</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Pertanyaan Paling Sering </h2>
+
                         <div class="space-y-4">
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Apa itu sertifikasi halal?</h3>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
+                            <!-- Item FAQ 1 -->
+                            <div class="faq-item border rounded-xl shadow-sm overflow-hidden">
+                                <button type="button"
+                                    class="faq-btn w-full flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition">
+                                    <h3 class="text-lg font-semibold">Siapa yang Menerbitkan Sertifikat Halal ?</h3>
+                                    <i class="fas fa-chevron-right faq-icon transition-transform duration-300"></i>
                                 </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Sertifikasi halal adalah proses untuk memperoleh sertifikat halal melalui serangkaian pemeriksaan dan pengujian yang dilakukan oleh lembaga yang berwenang untuk memastikan bahwa bahan, proses produksi, dan sistem jaminan halal memenuhi standar yang ditetapkan.
+                                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                    <p class="text-gray-600 px-6 py-3">
+                                        Sertifikat Halal adalah pengakuan kehalalan suatu Produk yang diterbitkan oleh BPJPH
+                                        berdasarkan fatwa halal tertulis atau penetapan kehalalan Produk oleh MUI, MUI
+                                        Provinsi, MUI Kabupaten/Kota, Majelis Permusyawaratan Ulama Aceh, atau Komite Fatwa
+                                        Produk Halal
+                                        <span class="italic">– UU No. 6 Tahun 2023 –</span>
                                     </p>
                                 </div>
                             </div>
 
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Siapa yang wajib memiliki sertifikat halal?</h3>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
+                            <!-- Item FAQ 2 -->
+                            <div class="faq-item border rounded-xl shadow-sm overflow-hidden">
+                                <button type="button"
+                                    class="faq-btn w-full flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition">
+                                    <h3 class="text-lg font-semibold">Kapan Boleh Mencantumkan Label Halal ?</h3>
+                                    <i class="fas fa-chevron-right faq-icon transition-transform duration-300"></i>
                                 </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Berdasarkan UU JPH, produk yang masuk, beredar, dan diperdagangkan di Indonesia wajib bersertifikat halal, kecuali produk yang berasal dari bahan yang diharamkan.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
 
-                    <!-- Prosedur -->
-                    <section>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Prosedur Sertifikasi</h2>
-                        <div class="space-y-4">
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Bagaimana cara mendaftar sertifikasi halal?</h3>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Pendaftaran sertifikasi halal dilakukan melalui BPJPH dengan mengisi formulir dan melengkapi dokumen yang dipersyaratkan. Selanjutnya, BPJPH akan menunjuk LPH untuk melakukan pemeriksaan dan/atau pengujian kehalalan produk.
-                                    </p>
-                                </div>
-                            </div>
+                                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                    <div class="px-6 py-3 text-gray-600">
 
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Berapa lama proses sertifikasi halal?</h3>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Proses sertifikasi halal memakan waktu sekitar 3-4 bulan sejak dokumen dinyatakan lengkap dan pembayaran biaya sertifikasi dilakukan.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                                        <ul class="list-disc pl-6 space-y-2">
+                                            <li>
+                                                Label Halal adalah tanda kehalalan suatu produk. Label Halal wajib
+                                                dicantumkan pada kemasan produk, bagian tertentu dari produk,
+                                                dan/atau tempat tertentu dari produk setelah memperoleh sertifikat halal.
+                                                Untuk outlet restoran, label halal dipasang hanya pada outlet yang telah
+                                                masuk dalam lingkup sertifikat halal yang telah diterbitkan. Label Halal
+                                                ditetapkan oleh BPJPH.
+                                                <span class="italic">– UU No. 33 Tahun 2014 –</span>
+                                            </li>
 
-                    <!-- Teknis -->
-                    <section>
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Pertanyaan Teknis</h2>
-                        <div class="space-y-4">
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Apa saja yang diperiksa saat audit?</h3>
-                                        <i class="fas fa-chevron-down"></i>
+                                            <li>
+                                                Label halal Indonesia merupakan sebuah rangkaian yang terdiri atas Logo
+                                                Halal Indonesia yang disertai dengan nomor Sertifikat Halal yang ditampilkan
+                                                dalam satu kesatuan. Adapun label halal yang lama masih bisa digunakan
+                                                sampai dengan 2 Februari 2026 dalam rangka menghabiskan stok kemasan.
+                                                <span class="italic">– Kep. Ka. BPJPH No. 88 Tahun 2022 –</span>
+                                            </li>
+                                        </ul>
+
                                     </div>
-                                </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Audit meliputi pemeriksaan dokumen, fasilitas produksi, bahan baku dan tambahan, proses produksi, sistem jaminan halal, serta pengambilan sampel jika diperlukan.
-                                    </p>
                                 </div>
                             </div>
 
-                            <div class="border rounded-lg">
-                                <button class="w-full text-left px-6 py-4 focus:outline-none">
-                                    <div class="flex justify-between items-center">
-                                        <h3 class="text-lg font-semibold">Berapa lama masa berlaku sertifikat halal?</h3>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
+                            <!-- Item FAQ 3 -->
+                            <div class="faq-item border rounded-xl shadow-sm overflow-hidden">
+                                <button type="button"
+                                    class="faq-btn w-full flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition">
+                                    <h4 class="text-lg font-semibold">Apa itu LPH ?</h4>
+                                    <i class="fas fa-chevron-right faq-icon transition-transform duration-300"></i>
                                 </button>
-                                <div class="px-6 pb-4">
-                                    <p class="text-gray-600">
-                                        Sertifikat halal berlaku selama 4 tahun sejak diterbitkan dan wajib diperpanjang sebelum masa berlakunya habis.
-                                    </p>
+
+                                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                    <div class="px-6 py-3 text-gray-600">
+
+                                        <ul class="list-disc pl-6 space-y-2">
+                                            <li>
+                                                LPH atau Lembaga Pemeriksa Halal adalah lembaga yang melakukan kegiatan
+                                                pemeriksaan dan/atau pengujian terhadap kehalalan Produk berdasarkan standar
+                                                yang telah ditetapkan oleh BPJPH meliputi pemeriksaan keabsahan dokumen dan
+                                                pemeriksaan produk di lokasi usaha pada saat proses produksi. LPH harus
+                                                terakreditasi oleh BPJPH, dan saat ini terdapat 2 kategori yaitu LPH Pratama
+                                                dan LPH Utama.
+                                                <span class="italic">– PP 39 Tahun 2021 dan PMA No. 12 Tahun 2021 –</span>
+                                            </li>
+
+                                            <li>
+                                                LPH Utama memiliki ruang lingkup pemeriksaan untuk seluruh pelaku usaha
+                                                skala mikro, kecil, menengah, maupun besar dalam negeri dan luar negeri. LPH
+                                                Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet dan
+                                                Plastik (LPH BBSPJIKKP) saat ini sedang dalam proses untuk mendapatkan
+                                                akreditasi sebagai LPH Utama dari BPJPH.
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                            <!-- Item FAQ 3 -->
+                            <div class="faq-item border rounded-xl shadow-sm overflow-hidden">
+                                <button type="button"
+                                    class="faq-btn w-full flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition">
+                                    <h4 class="text-lg font-semibold">Ketetapan Halal atau Sertifikat Halal ?</h4>
+                                    <i class="fas fa-chevron-right faq-icon transition-transform duration-300"></i>
+                                </button>
+
+                                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                    <div class="px-6 py-3 text-gray-600">
+
+                                        <ul class="list-disc pl-6 space-y-2">
+                                            <li>
+                                                Ketetapan Halal (KH) atau Keputusan Penetapan Halal Produk adalah penetapan
+                                                kehalalan produk yang diterbitkan oleh MUI atau Komite Fatwa Produk Halal
+                                                sebagai dasar penerbitan sertifikat halal.
+                                            </li>
+
+                                            <li>
+                                                Sertifikat Halal merupakan pengakuan kehalalan suatu produk yang diterbitkan
+                                                oleh BPJPH berdasarkan fatwa halal tertulis atau penetapan kehalalan produk.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <ul class="list-disc pl-6 space-y-2">
+                                        <p class="text-gray-500 pt-2">
+                                            Jadi, jika produk Anda baru memperoleh *Ketetapan Halal*, maka proses
+                                            sertifikasi belum selesai.
+                                            Masih ada satu tahap lagi yaitu penerbitan *Sertifikat Halal* oleh BPJPH agar
+                                            nomor sertifikat halal
+                                            terbit dan label halal dapat dicantumkan.
+                                        </p>
+                                    </ul>
+
+                                </div>
+                            </div>
+                            <!-- Item FAQ 4 -->
+                            <div class="faq-item border rounded-xl shadow-sm overflow-hidden">
+                                <button type="button"
+                                    class="faq-btn w-full flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition">
+                                    <h4 class="text-lg font-semibold">Berapa Lama Masa Berlaku Sertifikat Halal ?</h4>
+                                    <i class="fas fa-chevron-right faq-icon transition-transform duration-300"></i>
+                                </button>
+
+                                <div class="faq-content max-h-0 overflow-hidden transition-all duration-300">
+                                    <div class="px-6 py-3 text-gray-600 leading-relaxed space-y-3">
+
+                                        <!-- PESAN LENGKAP -->
+                                        <p class="text-gray-600">
+                                            Saat ini,
+                                            <span class="text-gray-700 font-semibold">Sertifikat Halal berlaku sejak
+                                                diterbitkan oleh BPJPH dan tetap berlaku selama tidak terdapat perubahan
+                                                komposisi bahan dan/atau proses produk halal.</span>
+                                            Dalam hal terdapat perubahan komposisi bahan dan/atau proses produk halal (PPH)
+                                            maka Pelaku Usaha wajib memperbarui Sertifikat Halal.
+                                            <span class="italic">– UU No. 6 Tahun 2023 –</span>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
                     </section>
                 </div>
 
-                <!-- Contact Section -->
-                <section class="mt-12">
-                    <div class="bg-blue-50 p-6 rounded-lg">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Masih ada pertanyaan?</h2>
-                        <p class="text-gray-600 mb-4">
-                            Jika Anda tidak menemukan jawaban yang Anda cari, silakan hubungi kami melalui:
-                        </p>
-                        <div class="flex flex-wrap gap-4">
-                            <a href="#" class="inline-flex items-center px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-colors">
-                                <i class="fas fa-envelope mr-2"></i>
-                                Email
-                            </a>
-                            <a href="#" class="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-white transition-colors">
-                                <i class="fab fa-whatsapp mr-2"></i>
-                                WhatsApp
-                            </a>
-                        </div>
-                    </div>
+
                 </section>
             </div>
+
         </div>
     </div>
 
     <?php $__env->startPush('scripts'); ?>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqSearch = document.getElementById('faq-search');
-            const questions = document.querySelectorAll('.border.rounded-lg');
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
 
-            faqSearch.addEventListener('input', function(e) {
-                const searchTerm = e.target.value.toLowerCase();
+                const faqItems = document.querySelectorAll(".faq-item");
 
-                questions.forEach(question => {
-                    const title = question.querySelector('h3').textContent.toLowerCase();
-                    const content = question.querySelector('.px-6.pb-4 p').textContent.toLowerCase();
+                faqItems.forEach(item => {
+                    const btn = item.querySelector(".faq-btn");
+                    const content = item.querySelector(".faq-content");
+                    const icon = item.querySelector(".faq-icon");
 
-                    if (title.includes(searchTerm) || content.includes(searchTerm)) {
-                        question.style.display = 'block';
-                    } else {
-                        question.style.display = 'none';
-                    }
+                    btn.addEventListener("click", () => {
+
+                        // Tutup semua FAQ lain
+                        faqItems.forEach(other => {
+                            if (other !== item) {
+                                other.querySelector(".faq-content").style.maxHeight = null;
+                                other.querySelector(".faq-icon").classList.remove("rotate-90");
+                                other.querySelector(".faq-icon").classList.remove("rotate-180");
+                            }
+                        });
+
+                        // Toggle FAQ yang diklik
+                        if (content.style.maxHeight) {
+                            content.style.maxHeight = null;
+                            icon.classList.remove("rotate-90");
+                            icon.classList.remove("rotate-180");
+                        } else {
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            icon.classList.add("rotate-90"); // panah kebawah
+                        }
+                    });
                 });
-            });
 
-            // Toggle FAQ answers
-            const faqButtons = document.querySelectorAll('.border.rounded-lg button');
-            faqButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const answer = button.nextElementSibling;
-                    const icon = button.querySelector('.fas');
-                    
-                    answer.classList.toggle('hidden');
-                    icon.classList.toggle('fa-chevron-down');
-                    icon.classList.toggle('fa-chevron-up');
-                });
             });
-        });
-    </script>
+        </script>
     <?php $__env->stopPush(); ?>
     <!-- Atau Bisa Seperti Di Bawah Ini -->
-    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
+    </script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/halal-center/faq.blade.php ENDPATH**/ ?>

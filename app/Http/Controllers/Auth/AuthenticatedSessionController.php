@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
 
 class AuthenticatedSessionController extends Controller
@@ -55,9 +56,13 @@ class AuthenticatedSessionController extends Controller
             ]);
         }
         // Simpan info pada session agar dikenali sebagai admin
-        session(['admin_id' => $authAdmin->id, 'admin_email' => $authAdmin->email]);
+        session([
+            'admin_id' => $authAdmin->id, 
+            'admin_email' => $authAdmin->email,
+            'admin_role' => $authAdmin->role ?? 'superadmin'
+        ]);
         $request->session()->regenerate();
-        return redirect()->intended(\App\Providers\RouteServiceProvider::HOME);
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     public function getLoginAdmin(): View
@@ -85,9 +90,13 @@ class AuthenticatedSessionController extends Controller
                 'email' => 'Email atau password admin salah.'
             ]);
         }
-        session(['admin_id' => $authAdmin->id, 'admin_email' => $authAdmin->email]);
+        session([
+            'admin_id' => $authAdmin->id, 
+            'admin_email' => $authAdmin->email,
+            'admin_role' => $authAdmin->role ?? 'superadmin'
+        ]);
         $request->session()->regenerate();
-        return redirect()->intended(\App\Providers\RouteServiceProvider::HOME);
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     /**
@@ -96,7 +105,7 @@ class AuthenticatedSessionController extends Controller
     public function destroy(Request $request): \Illuminate\Http\RedirectResponse
     {
         // Hapus session admin
-        session()->forget(['admin_id', 'admin_email']);
+        session()->forget(['admin_id', 'admin_email', 'admin_role']);
         Auth::guard('web')->logout();
 
         $request->session()->invalidate();

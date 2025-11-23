@@ -4,8 +4,6 @@
 <?php $__env->startSection('description', 'Daftar kategori layanan: Pengujian, Kalibrasi, Sertifikasi, Konsultansi, Inspeksi, dll.'); ?>
 
 <?php $__env->startSection('content'); ?>
-
-<?php $__env->startSection('content'); ?>
     <!-- Hero Section with Background -->
     <section class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
@@ -36,9 +34,10 @@
 
             <!-- Header Text -->
             <div class="text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Layanan</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4"><?php echo e(__('common.services')); ?></h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Daftar kategori layanan: Pengujian, Kalibrasi, Sertifikasi, Konsultansi, Inspeksi, dll.
+                    <?php echo e(__('List of service categories: Testing, Calibration, Certification, Consultation, Inspection, etc.')); ?>
+
                 </p>
             </div>
         </div>
@@ -50,51 +49,68 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Pengujian -->
             <a href="<?php echo e(route('pengujian.index')); ?>" class="group">
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Tentang LPH"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pengujian</h2>
-                        <p class="text-gray-600 flex-1">Pengujian kualitas produk.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            <?php echo e(__('common.testing')); ?></h2>
+                        <p class="text-gray-600 flex-1"><?php echo e(__('Product quality testing.')); ?></p>
                     </div>
                 </div>
             </a>
 
             <!-- Kalibrasi -->
-            <a href="<?php echo e(route('halal.services')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('kalibrasi.index')); ?>" class="group">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Layanan LPH"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Kalibrasi</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan dokumen, audit lapangan, dan pengujian laboratorium.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            <?php echo e(__('common.calibration')); ?></h2>
+                        <p class="text-gray-600 flex-1"><?php echo e(__('Document review, field audit, and laboratory testing.')); ?>
+
+                        </p>
                     </div>
                 </div>
             </a>
 
             <!-- Sertifikasi -->
-            <a href="/sertifikasi" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="<?php echo e(route('services.sertifikasi')); ?>" class="group h-full flex">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Proses Sertifikasi"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Sertifikasi</h2>
-                        <p class="text-gray-600 flex-1">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            <?php echo e(__('common.certification')); ?></h2>
+                        <p class="text-gray-600 flex-1">
+                            <?php echo e(__('Registration stages, audit, fatwa meeting, and certificate issuance.')); ?>
+
+                        </p>
                     </div>
                 </div>
             </a>
 
             <!-- Bimbingan Teknis/ Konsultasi -->
             <a href="<?php echo e(route('halal.regulations')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="Peraturan dan Pedoman"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Bimbingan Teknis & Konsultasi</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Bimbingan Teknis &
+                            Konsultasi</h2>
                         <p class="text-gray-600 flex-1">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
                     </div>
                 </div>
@@ -102,9 +118,11 @@
 
             <!-- Inspeksi -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Inspeksi</h2>
@@ -115,12 +133,15 @@
 
             <!-- Verifikasi dan Validasi -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Verifikasi dan Validasi</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Verifikasi dan
+                            Validasi</h2>
                         <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
                     </div>
                 </div>
@@ -128,12 +149,14 @@
 
             <!-- Uji Profisiemsi -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Uji Profisiemsi</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Uji Profisiensi</h2>
                         <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
                     </div>
                 </div>
@@ -141,12 +164,15 @@
 
             <!-- Pelatihan Teknis -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pelatihan Teknis</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pelatihan Teknis
+                        </h2>
                         <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
                     </div>
                 </div>
@@ -154,12 +180,15 @@
 
             <!-- Produsen Bahan Acuan -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Produsen Bahan Acuan</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Produsen Bahan Acuan
+                        </h2>
                         <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
                     </div>
                 </div>
@@ -167,9 +196,11 @@
 
             <!-- Edukasi -->
             <a href="<?php echo e(route('halal.faq')); ?>" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Edukasi</h2>
@@ -180,7 +211,9 @@
         </div>
     </div>
     <!-- Atau Bisa Seperti Di Bawah Ini -->
-    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
+    </script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
+
 <?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/services/index.blade.php ENDPATH**/ ?>

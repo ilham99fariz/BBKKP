@@ -124,31 +124,6 @@
                 </div>
             </a>
 
-            <!-- IKM     -->
-            <a href="<?php echo e(route('standards.ikm')); ?>" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-tentangkami.png')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Indeks Kepuasan Masyarakat</h2>
-                        <p class="text-gray-600 flex-1">Indeks kepuasan masyarakat.</p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- kontak -->
-            <a href="<?php echo e(route('contact.show')); ?>" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
-                    <div class="h-48 overflow-hidden">
-                        <img src="<?php echo e(asset('images/bg-random.webp')); ?>" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                    </div>
-                    <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Kontak</h2>
-                        <p class="text-gray-600 flex-1">Kontak kami untuk informasi lebih lanjut.</p>
-                    </div>
-                </div>
-            </a>
         </div>
     </div>
         <!-- Atau Bisa Seperti Di Bawah Ini -->

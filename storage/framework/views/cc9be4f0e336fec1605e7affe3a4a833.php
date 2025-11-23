@@ -9,13 +9,25 @@
 <nav class="bg-white shadow-lg sticky top-0 z-50" x-data="navbarData()">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
+
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
-                    <img class="h-8 w-auto sm:h-10" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo">
-                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
+                <a href="<?php echo e(route('home')); ?>" class="flex items-center">
+                    <img 
+                        class="h-8 sm:h-10 md:h-12 w-auto object-contain"
+                        src="<?php echo e(asset('images/logobalai.png')); ?>" 
+                        alt="Logo"
+                    >
                 </a>
             </div>
+
+            <!-- Logo -->
+            <!-- <div class="flex items-center">
+                <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
+                    <img class="h-8 w-auto sm:h-10" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo"> -->
+                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
+                <!-- </a>
+            </div> -->
 
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-1">
@@ -43,38 +55,40 @@
                         @mouseenter="open = true" @mouseleave="open = false">
                         <a href="<?php echo e(route('pengujian.index')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengujian</a>
-                        <a href="/kalibrasi"
+                        <a href="<?php echo e(route('kalibrasi.index')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kalibrasi</a>
 
                         <!-- Sertifikasi -->
-                        <div class="relative" x-data="{ open: false }">
-                            <button @click="open = !open" @mouseenter="open = true" @mouseleave="open = false"
-                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
-                                Sertifikasi
-                                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true"
+                            @mouseleave="open = false">
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>"
+                                class="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                <span>Sertifikasi</span>
+                                <svg class="h-3 w-3 transition-transform duration-200" :class="open ? 'rotate-90' : ''"
+                                    fill="currentColor" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd"
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                         clip-rule="evenodd" />
                                 </svg>
-                            </button>
+                            </a>
                             <!-- Invisible bridge for submenu -->
                             <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
                                 @mouseleave="open = false"></div>
-                            <div x-show="open" x-cloak
-                                class="absolute left-full top-0 ml-1 pl-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                            <div x-show="open" x-cloak x-transition
+                                class="absolute left-full top-0 ml-1 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
                                 @mouseenter="open = true" @mouseleave="open = false">
-                                <a href="/sertifikasi-produk-sppt-sni"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sertifikasi
                                     Produk (SPPT SNI)</a>
-                                <a href="/smm"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>#smm"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SMM</a>
-                                <a href="/smk3"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>#smk3"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SMK3</a>
-                                <a href="/sml"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>#sml"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SML</a>
-                                <a href="/sih"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>#sih"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SIH</a>
-                                <a href="/sertifikasi-personil"
+                                <a href="<?php echo e(route('services.sertifikasi')); ?>#personil"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sertifikasi
                                     Personil</a>
                             </div>
@@ -234,11 +248,9 @@
                         <a href="/survey-layanan-pelanggan"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
                             Layanan Pelanggan</a>
-                        <a href="/ikm"
+                        <!-- <a href="/ikm"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
-                            Kepuasan Masyarakat</a>
-                        <a href="<?php echo e(route('contact.show')); ?>"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
+                            Kepuasan Masyarakat</a> -->
                     </div>
                 </div>
 
@@ -304,6 +316,8 @@
                         <a href="/makna-logo"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Makna
                             Logo</a>
+                            <a href="<?php echo e(route('contact.show')); ?>"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
                     </div>
                 </div>
 
@@ -316,6 +330,37 @@
                     class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
                     Daftar Layanan
                 </a>
+
+                <!-- Language Switcher -->
+                <div class="relative ml-2" x-data="{ open: false }" @mouseenter="open = true"
+                    @mouseleave="open = false">
+                    <button type="button"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                        <?php echo e(strtoupper(app()->getLocale())); ?>
+
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div x-show="open" x-cloak x-transition
+                        class="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="<?php echo e(route('language.switch', 'id')); ?>"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 <?php echo e(app()->getLocale() == 'id' ? 'bg-blue-50 text-blue-600' : ''); ?>">
+                            🇮🇩 Bahasa Indonesia
+                        </a>
+                        <a href="<?php echo e(route('language.switch', 'en')); ?>"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 <?php echo e(app()->getLocale() == 'en' ? 'bg-blue-50 text-blue-600' : ''); ?>">
+                            🇬🇧 English
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Mobile menu button -->
@@ -396,45 +441,51 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Pengujian
                     </a>
-                    <a href="/kalibrasi"
+                    <a href="<?php echo e(route('kalibrasi.index')); ?>"
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Kalibrasi
                     </a>
 
                     <!-- Sub-menu Sertifikasi -->
                     <div>
-                        <button @click="sertifikasiOpen = !sertifikasiOpen" type="button"
-                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                            <span>Sertifikasi</span>
-                            <svg class="h-4 w-4 transition-transform duration-200"
-                                :class="sertifikasiOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
+                        <div class="flex items-center justify-between">
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>"
+                                class="flex-1 px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Sertifikasi
+                            </a>
+                            <button @click="sertifikasiOpen = !sertifikasiOpen" type="button"
+                                class="px-2 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                <svg class="h-4 w-4 transition-transform duration-200"
+                                    :class="sertifikasiOpen ? 'rotate-180' : ''" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
                         <div x-show="sertifikasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="/sertifikasi-produk-sppt-sni"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 Sertifikasi Produk (SPPT SNI)
                             </a>
-                            <a href="/smm"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>#smm"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 SMM
                             </a>
-                            <a href="/smk3"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>#smk3"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 SMK3
                             </a>
-                            <a href="/sml"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>#sml"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 SML
                             </a>
-                            <a href="/sih"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>#sih"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 SIH
                             </a>
-                            <a href="/sertifikasi-personil"
+                            <a href="<?php echo e(route('services.sertifikasi')); ?>#personil"
                                 class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                                 Sertifikasi Personil
                             </a>
@@ -606,14 +657,10 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Survey Layanan Pelanggan
                     </a>
-                    <a href="/ikm"
+                    <!-- <a href="/ikm"
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Indeks Kepuasan Masyarakat
-                    </a>
-                    <a href="<?php echo e(route('contact.show')); ?>"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Kontak
-                    </a>
+                    </a> -->
                 </div>
             </div>
 
@@ -690,6 +737,10 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Makna Logo
                     </a>
+                    <a href="<?php echo e(route('contact.show')); ?>"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Kontak
+                    </a>
                 </div>
             </div>
 
@@ -703,19 +754,35 @@
                 Daftar Layanan
             </a>
 
+            <!-- Language Switcher Mobile -->
+            <div class="mt-4 border-t border-gray-200 pt-4">
+                <div class="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    <?php echo e(__('common.language')); ?>
+
+                </div>
+                <a href="<?php echo e(route('language.switch', 'id')); ?>"
+                    class="block px-3 py-2 rounded-md text-base font-medium <?php echo e(app()->getLocale() == 'id' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'); ?>">
+                    🇮🇩 Bahasa Indonesia
+                </a>
+                <a href="<?php echo e(route('language.switch', 'en')); ?>"
+                    class="block px-3 py-2 rounded-md text-base font-medium <?php echo e(app()->getLocale() == 'en' ? 'bg-blue-50 text-blue-600' : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'); ?>">
+                    🇬🇧 English
+                </a>
+            </div>
+
             <!-- Mobile Admin Login (Uncomment if needed) -->
             <!-- <?php if(auth()->guard()->guest()): ?>
-                    <a href="<?php echo e(route('login')); ?>"
-                        class="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 text-center mt-2">
-                        Login Admin
-                    </a>
+                                                                <a href="<?php echo e(route('login')); ?>"
+                                                                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 text-center mt-2">
+                                                                    Login Admin
+                                                                </a>
             <?php endif; ?> -->
 
             <!-- <?php if(auth()->guard()->check()): ?>
-                    <a href="<?php echo e(route('admin.dashboard')); ?>"
-                        class="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 text-center mt-2">
-                        Dashboard
-                    </a>
+                                                                <a href="<?php echo e(route('admin.dashboard')); ?>"
+                                                                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 text-center mt-2">
+                                                                    Dashboard
+                                                                </a>
             <?php endif; ?> -->
         </div>
     </div>
