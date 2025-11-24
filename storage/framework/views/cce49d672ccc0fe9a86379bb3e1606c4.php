@@ -36,7 +36,16 @@
                 <h1 class="text-xl font-bold">Admin Panel</h1>
             </div>
             
-            <nav class="mt-8">
+            <nav class="mt-8" x-data="{ 
+                openMenus: {
+                    layanan: <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'layanan') ? 'true' : 'false'); ?>,
+                    standarPelayanan: <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'standar-pelayanan') ? 'true' : 'false'); ?>,
+                    mediaInformasi: <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'media-informasi') || request()->routeIs('admin.news.*') ? 'true' : 'false'); ?>,
+                    tentangKami: <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'tentang-kami') ? 'true' : 'false'); ?>,
+                    halalCenter: <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'halal-center') ? 'true' : 'false'); ?>
+
+                }
+            }">
                 <div class="px-4 space-y-2">
                     <a href="<?php echo e(route('admin.dashboard')); ?>" 
                        class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.dashboard') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
@@ -44,18 +53,240 @@
                         Dashboard
                     </a>
                     
-                    <a href="<?php echo e(route('admin.services.index')); ?>" 
-                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.services.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
-                        <i class="fas fa-cogs mr-3"></i>
-                        Layanan
-                    </a>
+                    <?php
+                        $adminRole = session('admin_role', 'superadmin');
+                        $isMediaAdmin = $adminRole === 'media';
+                    ?>
                     
-                    <a href="<?php echo e(route('admin.news.index')); ?>" 
-                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.news.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
-                        <i class="fas fa-newspaper mr-3"></i>
-                        Berita
-                    </a>
+                    <?php if(!$isMediaAdmin): ?>
+                    <!-- Layanan -->
+                    <div>
+                        <button @click="openMenus.layanan = !openMenus.layanan" 
+                                class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'layanan') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                            <div class="flex items-center">
+                                <i class="fas fa-cogs mr-3"></i>
+                                <span>Layanan</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openMenus.layanan }"></i>
+                        </button>
+                        <div x-show="openMenus.layanan" x-cloak class="ml-4 mt-1 space-y-1">
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'pengujian'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'pengujian' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-flask mr-2"></i>
+                                Pengujian
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'kalibrasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'kalibrasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-ruler-combined mr-2"></i>
+                                Kalibrasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'sertifikasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'sertifikasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-certificate mr-2"></i>
+                                Sertifikasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'bimbingan-teknis-dan-konsultasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'bimbingan-teknis-dan-konsultasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-chalkboard-teacher mr-2"></i>
+                                Bimbingan Teknis dan Konsultasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'inspeksi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'inspeksi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-search mr-2"></i>
+                                Inspeksi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'verifikasi-dan-validasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'verifikasi-dan-validasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-check-double mr-2"></i>
+                                Verifikasi dan Validasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'uji-profisiensi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'uji-profisiensi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-award mr-2"></i>
+                                Uji Profisiensi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'pelatihan-teknis'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'pelatihan-teknis' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                Pelatihan Teknis
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'produsen-bahan-acuan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'produsen-bahan-acuan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-industry mr-2"></i>
+                                Produsen Bahan Acuan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan', 'category' => 'edukasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'edukasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-book-reader mr-2"></i>
+                                Edukasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'layanan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'layanan' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-list mr-2"></i>
+                                Semua Layanan
+                            </a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
                     
+                    <?php if(!$isMediaAdmin): ?>
+                    <!-- Standar Pelayanan -->
+                    <div>
+                        <button @click="openMenus.standarPelayanan = !openMenus.standarPelayanan" 
+                                class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'standar-pelayanan') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                            <div class="flex items-center">
+                                <i class="fas fa-clipboard-list mr-3"></i>
+                                <span>Standar Pelayanan</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openMenus.standarPelayanan }"></i>
+                        </button>
+                        <div x-show="openMenus.standarPelayanan" x-cloak class="ml-4 mt-1 space-y-1">
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'standar-pelayanan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'standar-pelayanan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-file-alt mr-2"></i>
+                                Standar Pelayanan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'maklumat-pelayanan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'maklumat-pelayanan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Maklumat Pelayanan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'tarif-layanan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'tarif-layanan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-dollar-sign mr-2"></i>
+                                Tarif Layanan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'tarif-percepatan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'tarif-percepatan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-tachometer-alt mr-2"></i>
+                                Tarif Percepatan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'spm'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'spm' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-chart-line mr-2"></i>
+                                SPM
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan', 'category' => 'survey-layanan-pelanggan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'survey-layanan-pelanggan' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-poll mr-2"></i>
+                                Survey Layanan Pelanggan
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'standar-pelayanan'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'standar-pelayanan' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-list mr-2"></i>
+                                Semua
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Media dan Informasi -->
+                    <div>
+                        <button @click="openMenus.mediaInformasi = !openMenus.mediaInformasi" 
+                                class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'media-informasi') || request()->routeIs('admin.news.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                            <div class="flex items-center">
+                                <i class="fas fa-newspaper mr-3"></i>
+                                <span>Media & Informasi</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openMenus.mediaInformasi }"></i>
+                        </button>
+                        <div x-show="openMenus.mediaInformasi" x-cloak class="ml-4 mt-1 space-y-1">
+                            <a href="<?php echo e(route('admin.news.index')); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request()->routeIs('admin.news.*') ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-newspaper mr-2"></i>
+                                Berita
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'media-informasi', 'category' => 'publikasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'publikasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-book mr-2"></i>
+                                Publikasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'media-informasi', 'category' => 'pengumuman'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'pengumuman' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-bullhorn mr-2"></i>
+                                Pengumuman
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'media-informasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'media-informasi' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-list mr-2"></i>
+                                Semua
+                            </a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if(!$isMediaAdmin): ?>
+                    <!-- Tentang Kami -->
+                    <div>
+                        <button @click="openMenus.tentangKami = !openMenus.tentangKami" 
+                                class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'tentang-kami') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                            <div class="flex items-center">
+                                <i class="fas fa-info-circle mr-3"></i>
+                                <span>Tentang Kami</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openMenus.tentangKami }"></i>
+                        </button>
+                        <div x-show="openMenus.tentangKami" x-cloak class="ml-4 mt-1 space-y-1">
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami', 'category' => 'profil-singkat'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'profil-singkat' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-building mr-2"></i>
+                                Profil Singkat
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami', 'category' => 'tonggak-sejarah'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'tonggak-sejarah' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-history mr-2"></i>
+                                Tonggak Sejarah
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami', 'category' => 'profil-pejabat'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'profil-pejabat' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-user-tie mr-2"></i>
+                                Profil Pejabat
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami', 'category' => 'struktur-organisasi'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'struktur-organisasi' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-sitemap mr-2"></i>
+                                Struktur Organisasi
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami', 'category' => 'makna-logo'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'makna-logo' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-palette mr-2"></i>
+                                Makna Logo
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'tentang-kami'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'tentang-kami' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-list mr-2"></i>
+                                Semua
+                            </a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if(!$isMediaAdmin): ?>
+                    <!-- Halal Center -->
+                    <div>
+                        <button @click="openMenus.halalCenter = !openMenus.halalCenter" 
+                                class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'halal-center') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                            <div class="flex items-center">
+                                <i class="fas fa-mosque mr-3"></i>
+                                <span>Halal Center</span>
+                            </div>
+                            <i class="fas fa-chevron-down text-xs transition-transform" :class="{ 'rotate-180': openMenus.halalCenter }"></i>
+                        </button>
+                        <div x-show="openMenus.halalCenter" x-cloak class="ml-4 mt-1 space-y-1">
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'halal-center', 'category' => 'faq'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e(request('category') == 'faq' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-question-circle mr-2"></i>
+                                FAQ
+                            </a>
+                            <a href="<?php echo e(route('admin.page-content.index', ['type' => 'halal-center'])); ?>" 
+                               class="flex items-center px-4 py-2 text-xs rounded-lg <?php echo e((request()->routeIs('admin.page-content.*') && request()->route('type') == 'halal-center' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'); ?>">
+                                <i class="fas fa-list mr-2"></i>
+                                Semua
+                            </a>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                    
+                    <?php if(!$isMediaAdmin): ?>
                     <a href="<?php echo e(route('admin.testimonials.index')); ?>" 
                        class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.testimonials.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
                         <i class="fas fa-quote-left mr-3"></i>
@@ -67,12 +298,7 @@
                         <i class="fas fa-handshake mr-3"></i>
                         Partner
                     </a>
-                    
-                    <a href="<?php echo e(route('admin.dynamic-pages.index')); ?>" 
-                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.dynamic-pages.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
-                        <i class="fas fa-file-alt mr-3"></i>
-                        Halaman Dinamis
-                    </a>
+                    <?php endif; ?>
                     
                     <a href="<?php echo e(route('admin.settings.index')); ?>" 
                        class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.settings.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
@@ -157,6 +383,11 @@
          x-cloak
          @click="sidebarOpen = false"
          class="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden"></div>
+    
+    <!-- Accessibility Widget -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    
+    
 </body>
 </html>
 <?php /**PATH C:\alamak\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

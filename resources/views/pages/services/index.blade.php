@@ -153,7 +153,7 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Uji Profisiemsi</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Uji Profisiensi</h2>
                         <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
                     </div>
                 </div>
