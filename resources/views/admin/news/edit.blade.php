@@ -62,8 +62,7 @@
                 <textarea name="content" 
                           id="content" 
                           rows="10"
-                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror"
-                          required>{{ old('content', $news->content ?? '') }}</textarea>
+                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror">{{ old('content', $news->content ?? '') }}</textarea>
                 @error('content')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror
@@ -197,8 +196,13 @@
                     Batal
                 </a>
                 <button type="submit" 
+                        id="submitBtn"
                         class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
-                    <i class="fas fa-save mr-2"></i>{{ isset($news) ? 'Update Berita' : 'Simpan Berita' }}
+                    <i class="fas fa-save mr-2"></i>
+                    <span id="btnText">{{ isset($news) ? 'Update Berita' : 'Simpan Berita' }}</span>
+                    <span id="btnLoading" class="hidden">
+                        <i class="fas fa-spinner fa-spin mr-2"></i>Menyimpan...
+                    </span>
                 </button>
             </div>
         </form>
@@ -223,20 +227,171 @@ function previewImage(event) {
 }
 </script>
 
-<!-- Optional: Rich Text Editor (TinyMCE or CKEditor) -->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+<!-- CKEditor 5 -->
+<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
 <script>
-tinymce.init({
-    selector: '#content',
-    height: 400,
-    menubar: false,
-    plugins: [
-        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-        'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
-    ],
-    toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
-    content_style: 'body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 14px }'
-});
+    let editorInstance;
+    
+    ClassicEditor
+        .create(document.querySelector('#content'), {
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline', 'strikethrough', '|',
+                    'link', 'uploadImage', 'blockQuote', 'codeBlock', '|',
+                    'bulletedList', 'numberedList', '|',
+                    'outdent', 'indent', '|',
+                    'alignment', '|',
+                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
+                    'insertTable', 'mediaEmbed', 'horizontalLine', '|',
+                    'undo', 'redo', '|',
+                    'sourceEditing'
+                ],
+                shouldNotGroupWhenFull: true
+            },
+            heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
+                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
+                ]
+            },
+            fontSize: {
+                options: [
+                    'tiny',
+                    'small',
+                    'default',
+                    'big',
+                    'huge'
+                ]
+            },
+            fontFamily: {
+                options: [
+                    'default',
+                    'Arial, Helvetica, sans-serif',
+                    'Courier New, Courier, monospace',
+                    'Georgia, serif',
+                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                    'Tahoma, Geneva, sans-serif',
+                    'Times New Roman, Times, serif',
+                    'Trebuchet MS, Helvetica, sans-serif',
+                    'Verdana, Geneva, sans-serif'
+                ]
+            },
+            image: {
+                toolbar: [
+                    'imageStyle:inline',
+                    'imageStyle:block',
+                    'imageStyle:side',
+                    '|',
+                    'toggleImageCaption',
+                    'imageTextAlternative',
+                    '|',
+                    'linkImage'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells',
+                    'tableCellProperties',
+                    'tableProperties'
+                ]
+            },
+            link: {
+                decorators: {
+                    openInNewTab: {
+                        mode: 'manual',
+                        label: 'Open in a new tab',
+                        attributes: {
+                            target: '_blank',
+                            rel: 'noopener noreferrer'
+                        }
+                    }
+                }
+            },
+            language: 'id',
+            placeholder: 'Tulis konten berita di sini...',
+            minHeight: '400px'
+        })
+        .then(editor => {
+            editorInstance = editor;
+            window.editor = editor;
+            
+            console.log('CKEditor initialized successfully');
+            
+            // Set min height
+            editor.editing.view.change(writer => {
+                writer.setStyle('min-height', '400px', editor.editing.view.document.getRoot());
+            });
+        })
+        .catch(error => {
+            console.error('Error initializing CKEditor:', error);
+            alert('Gagal memuat editor. Silakan refresh halaman.');
+        });
+    
+    // Handle form submission
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoading = document.getElementById('btnLoading');
+        
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                console.log('Submit button clicked');
+                
+                // Check if editor is ready
+                if (!editorInstance) {
+                    alert('Editor belum siap. Silakan tunggu sebentar dan coba lagi.');
+                    return false;
+                }
+                
+                // Get data from CKEditor
+                const editorData = editorInstance.getData();
+                console.log('Editor data length:', editorData.length);
+                
+                // Update textarea value
+                const contentTextarea = document.querySelector('#content');
+                contentTextarea.value = editorData;
+                
+                // Validate content
+                if (!editorData || editorData.trim() === '' || editorData === '<p>&nbsp;</p>' || editorData === '<p></p>') {
+                    alert('Konten berita tidak boleh kosong!');
+                    return false;
+                }
+                
+                // Show loading state
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    if (btnText) btnText.classList.add('hidden');
+                    if (btnLoading) btnLoading.classList.remove('hidden');
+                }
+                
+                console.log('Form is valid, submitting...');
+                
+                // Submit the form
+                form.submit();
+            });
+        }
+    });
 </script>
+
+<style>
+    .ck-editor__editable {
+        min-height: 400px;
+    }
+    .ck.ck-editor__main > .ck-editor__editable {
+        background-color: #ffffff;
+    }
+    .ck.ck-toolbar {
+        background-color: #f8f9fa !important;
+        border: 1px solid #d1d5db !important;
+    }
+</style>
 @endsection

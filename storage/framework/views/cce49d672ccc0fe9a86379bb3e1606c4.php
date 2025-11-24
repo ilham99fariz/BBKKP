@@ -386,6 +386,8 @@
     
     <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    
+    
 </body>
 </html>
 <?php /**PATH C:\alamak\resources\views/layouts/admin.blade.php ENDPATH**/ ?>

@@ -70,5 +70,8 @@
     
     <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    
+    <!-- WhatsApp Floating Button -->
+    @include('components.whatsapp-button')
 </body>
 </html>

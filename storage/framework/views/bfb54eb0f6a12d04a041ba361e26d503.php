@@ -32,7 +32,7 @@
 <body class="font-sans antialiased bg-gray-50">
     <div id="app">
         <!-- Navigation -->
-        <?php echo $__env->make('partials.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('partials.navbar', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 
         <!-- Main Content -->
         <main>
@@ -40,7 +40,7 @@
         </main>
 
         <!-- Footer -->
-        <?php echo $__env->make('partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+        <?php echo $__env->make('partials.footer', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
     </div>
 
     <!-- Scripts -->
@@ -70,6 +70,9 @@
     
     <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    
+    <!-- WhatsApp Floating Button -->
+    <?php echo $__env->make('components.whatsapp-button', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?>
 </body>
 </html>
 <?php /**PATH C:\alamak\resources\views/layouts/app.blade.php ENDPATH**/ ?>
