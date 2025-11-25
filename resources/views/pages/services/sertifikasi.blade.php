@@ -677,8 +677,8 @@
                     <p>
                         Lembaga Sertifikasi Sistem Mutu BBSPJIKKP YOQA (LSSM BBSPJIKKP YOQA) telah mendapatkan akreditasi
                         oleh Komite Akreditasi Nasional (KAN) sejak <strong>12 Januari 1996</strong>.
-                    </p>
-                </div>
+                </p>
+            </div>
 
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_qms') }}</h3>
 
@@ -734,8 +734,8 @@
                             <span
                                 class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
                         </a>
-                    </div>
-                </div>
+        </div>
+    </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
@@ -743,9 +743,9 @@
                         BBSPJIKKP YOQA</h3>
                     <p class="text-gray-700">
                         {{ __('sertifikasi.client_data_desc') }}
-                    </p>
-                </div>
-            </section>
+                        </p>
+                    </div>
+                </section>
         </div>
 
         <!-- Content: SMK3 -->
@@ -809,7 +809,7 @@
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">{{ __('sertifikasi.client_data') }} LSSMK3
                         BBSPJIKKP YOK3</h3>
-                    <p class="text-gray-700">
+                            <p class="text-gray-700">
                         {{ __('sertifikasi.client_data_desc') }}
                     </p>
                 </div>
@@ -825,8 +825,8 @@
                     <p>
                         Lembaga Sertifikasi Sistem Manajemen Lingkungan BBSPJIKKP JECA (LSSML BBSPJIKKP JECA) melaksanakan
                         kegiatan sertifikasi <strong>ISO 14001:2015</strong> dan telah terakreditasi oleh KAN.
-                    </p>
-                </div>
+                            </p>
+                        </div>
 
                 <h3 class="text-2xl font-semibold text-gray-800 mb-4">{{ __('sertifikasi.scope_ems') }}</h3>
 
@@ -836,8 +836,8 @@
                         <li>Produk karet dan plastik</li>
                         <li>Makanan, minuman dan tembakau</li>
                         <li>Kimia, produk kimia dan serat</li>
-                    </ul>
-                </div>
+                            </ul>
+                        </div>
 
                 <div class="prose max-w-none text-gray-700 space-y-4 mb-8">
                     <p>
@@ -896,8 +896,8 @@
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
                     <h3 class="text-xl font-semibold text-gray-900 mb-4">Kalender SML</h3>
 
-                </div>
-            </section>
+                    </div>
+                </section>
         </div>
 
         <!-- Content: SIH -->
@@ -1011,7 +1011,7 @@
                 <!-- Persyaratan Teknis -->
                 <div class="mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">Persyaratan Teknis, meliputi:</h4>
-                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="bg-gray-50 p-6 rounded-lg">
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
                             <li>Bahan baku</li>
                             <li>Bahan penolong</li>
@@ -1024,14 +1024,14 @@
                             <li>Kemasan; (untuk SIH 22220.1:2020 dan SIH 11050.1:2020)</li>
                             <li>Limbah; dan</li>
                             <li>Emisi gas rumah kaca</li>
-                        </ul>
-                    </div>
+                            </ul>
+                        </div>
                 </div>
 
                 <!-- Persyaratan Manajemen -->
                 <div class="mb-6">
                     <h4 class="text-xl font-semibold text-gray-800 mb-3">Persyaratan Manajemen, meliputi:</h4>
-                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="bg-gray-50 p-6 rounded-lg">
                         <ul class="list-disc pl-6 space-y-2 text-gray-700">
                             <li>Kebijakan dan organisasi</li>
                             <li>Perencanaan strategis</li>
@@ -1039,9 +1039,9 @@
                             <li>Tinjauan manajemen</li>
                             <li>Tanggung jawab sosial perusahaan; dan</li>
                             <li>Ketenagakerjaan</li>
-                        </ul>
+                            </ul>
+                        </div>
                     </div>
-                </div>
 
                 <!-- Persyaratan Dokumen -->
                 <div class="mb-8">
@@ -1062,8 +1062,8 @@
                             <li>Salinan perencanaan strategis, pelaksanaan dan pemantauan penerapan Industri Hijau; dan</li>
                             <li>Salinan laporan kegiatan tanggung jawab sosial perusahaan</li>
                         </ul>
-                    </div>
-                </div>
+                        </div>
+                        </div>
 
                 <!-- Dokumen dan Link -->
                 <div class="space-y-4 mb-8">
@@ -1097,8 +1097,8 @@
                             <span
                                 class="text-blue-600 hover:text-blue-800 font-semibold">{{ __('sertifikasi.certification_procedure') }}</span>
                         </a>
+                        </div>
                     </div>
-                </div>
 
                 <!-- Data Klien -->
                 <div class="bg-white border rounded-lg p-6 shadow-sm mb-8">
@@ -1116,9 +1116,9 @@
             <section class="mb-8">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Sertifikasi Personil</h2>
                 <p class="text-gray-700">Konten Sertifikasi Personil akan ditambahkan di sini.</p>
-            </section>
+                </section>
+            </div>
         </div>
-    </div>
 
     @push('scripts')
         <script>

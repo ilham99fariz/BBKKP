@@ -124,7 +124,7 @@
     </div>
 
     <!-- CKEditor 4 -->
-    <script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
     <script>
         CKEDITOR.replace('content', {
             height: 500,
@@ -145,9 +145,10 @@
                 { name: 'tools', items: ['Maximize', 'ShowBlocks'] },
                 { name: 'about', items: ['About'] }
             ],
+            filebrowserImageUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}',
             filebrowserUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}',
             filebrowserUploadMethod: 'form',
-            extraPlugins: 'uploadimage'
+            allowedContent: true
         });
     </script>
 @endsection

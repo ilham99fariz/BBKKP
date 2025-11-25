@@ -204,24 +204,40 @@ class PageContentController extends Controller
             'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        if ($request->hasFile('upload')) {
-            $image = $request->file('upload');
-            $filename = time() . '_' . $image->getClientOriginalName();
-            $path = $image->storeAs('pages', $filename, 'public');
+        try {
+            if ($request->hasFile('upload')) {
+                $image = $request->file('upload');
+                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $image->getClientOriginalName());
+                $path = $image->storeAs('pages', $filename, 'public');
 
-            // CKEditor 4 expects specific response format
-            $url = Storage::url($path);
-            
+                // CKEditor 4 expects specific response format
+                $url = Storage::url($path);
+                
+                // Format response untuk CKEditor 4 (filebrowser)
+                $funcNum = $request->input('CKEditorFuncNum');
+                
+                if ($funcNum) {
+                    // Response untuk filebrowser
+                    return "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction({$funcNum}, '{$url}', '');</script>";
+                }
+                
+                // Response untuk uploadimage plugin (JSON)
+                return response()->json([
+                    'uploaded' => true,
+                    'url' => $url
+                ]);
+            }
+
             return response()->json([
-                'uploaded' => true,
-                'url' => $url
-            ]);
+                'uploaded' => false,
+                'error' => ['message' => 'No file uploaded']
+            ], 400);
+        } catch (\Exception $e) {
+            return response()->json([
+                'uploaded' => false,
+                'error' => ['message' => 'Upload failed: ' . $e->getMessage()]
+            ], 400);
         }
-
-        return response()->json([
-            'uploaded' => false,
-            'error' => ['message' => 'Upload failed']
-        ], 400);
     }
 }
 

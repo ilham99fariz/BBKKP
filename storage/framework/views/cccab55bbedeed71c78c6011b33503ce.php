@@ -1,56 +1,57 @@
-@extends('layouts.app')
 
-@section('title', $page->title)
 
-@section('content')
+<?php $__env->startSection('title', $page->title); ?>
+
+<?php $__env->startSection('content'); ?>
     <!-- Hero Section -->
-    @if($page->hero_image || $page->hero_title || $page->hero_subtitle)
+    <?php if($page->hero_image || $page->hero_title || $page->hero_subtitle): ?>
         <section class="relative text-white py-20 min-h-[400px] flex items-center">
-            @if($page->hero_image)
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ Storage::url($page->hero_image) }}')"></div>
+            <?php if($page->hero_image): ?>
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('<?php echo e(Storage::url($page->hero_image)); ?>')"></div>
                 <!-- Overlay untuk readability teks -->
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            @else
+            <?php else: ?>
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800"></div>
-            @endif
+            <?php endif; ?>
             <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-3xl">
-                    @if($page->hero_title)
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->hero_title }}</h1>
-                    @else
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->title }}</h1>
-                    @endif
-                    @if($page->hero_subtitle)
-                        <p class="text-xl drop-shadow-md">{{ $page->hero_subtitle }}</p>
-                    @endif
+                    <?php if($page->hero_title): ?>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"><?php echo e($page->hero_title); ?></h1>
+                    <?php else: ?>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg"><?php echo e($page->title); ?></h1>
+                    <?php endif; ?>
+                    <?php if($page->hero_subtitle): ?>
+                        <p class="text-xl drop-shadow-md"><?php echo e($page->hero_subtitle); ?></p>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
-    @else
+    <?php else: ?>
         <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold">{{ $page->title }}</h1>
+                <h1 class="text-4xl font-bold"><?php echo e($page->title); ?></h1>
             </div>
         </div>
-    @endif
+    <?php endif; ?>
 
     <!-- Main Content -->
     <section class="py-12">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                @if (!$page->hero_title)
-                    <h1 class="text-3xl font-bold text-gray-900 mb-8">{{ $page->title }}</h1>
-                @endif
+                <?php if(!$page->hero_title): ?>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-8"><?php echo e($page->title); ?></h1>
+                <?php endif; ?>
 
                 <div class="prose prose-lg max-w-none">
-                    {!! $page->content !!}
+                    <?php echo $page->content; ?>
+
                 </div>
             </div>
         </div>
     </section>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@push('styles')
+<?php $__env->startPush('styles'); ?>
     <style>
         .prose h2 {
             @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
@@ -101,4 +102,6 @@
             @apply border border-gray-300 px-4 py-2;
         }
     </style>
-@endpush
+<?php $__env->stopPush(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH E:\BBKKP\resources\views/pages/dynamic/show.blade.php ENDPATH**/ ?>
