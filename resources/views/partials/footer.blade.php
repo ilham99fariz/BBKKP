@@ -21,7 +21,7 @@
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-phone mr-2"></i>
-                        <span>+62 811-2827-821</span>
+                        <span>+628112827821</span>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-envelope mr-2"></i>

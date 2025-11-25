@@ -5,19 +5,23 @@
 @section('content')
     <!-- Hero Section -->
     @if($page->hero_image || $page->hero_title || $page->hero_subtitle)
-        <section class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <section class="relative text-white py-20 min-h-[400px] flex items-center">
             @if($page->hero_image)
-                <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('{{ Storage::url($page->hero_image) }}')"></div>
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ Storage::url($page->hero_image) }}')"></div>
+                <!-- Overlay untuk readability teks -->
+                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            @else
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800"></div>
             @endif
             <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-3xl">
                     @if($page->hero_title)
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ $page->hero_title }}</h1>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->hero_title }}</h1>
                     @else
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4">{{ $page->title }}</h1>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->title }}</h1>
                     @endif
                     @if($page->hero_subtitle)
-                        <p class="text-xl text-blue-100">{{ $page->hero_subtitle }}</p>
+                        <p class="text-xl drop-shadow-md">{{ $page->hero_subtitle }}</p>
                     @endif
                 </div>
             </div>

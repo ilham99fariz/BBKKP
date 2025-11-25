@@ -155,6 +155,17 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'update' => 'admin.dynamic-pages.update',
         'destroy' => 'admin.dynamic-pages.destroy',
     ]);
+
+    // Page Content Routes (for categorized content)
+    Route::prefix('page-content')->name('admin.page-content.')->group(function () {
+        Route::get('/{type}', [App\Http\Controllers\Admin\PageContentController::class, 'index'])->name('index');
+        Route::get('/{type}/create', [App\Http\Controllers\Admin\PageContentController::class, 'create'])->name('create');
+        Route::post('/{type}', [App\Http\Controllers\Admin\PageContentController::class, 'store'])->name('store');
+        Route::get('/{type}/{page}/edit', [App\Http\Controllers\Admin\PageContentController::class, 'edit'])->name('edit');
+        Route::put('/{type}/{page}', [App\Http\Controllers\Admin\PageContentController::class, 'update'])->name('update');
+        Route::delete('/{type}/{page}', [App\Http\Controllers\Admin\PageContentController::class, 'destroy'])->name('destroy');
+        Route::post('/{type}/upload', [App\Http\Controllers\Admin\PageContentController::class, 'upload'])->name('upload');
+    });
 });
 
 // Login Admin khusus (url terpisah)
