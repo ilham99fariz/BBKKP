@@ -83,6 +83,8 @@ Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class,
 // Pengujian Routes
 Route::get('/pengujian', [PengujianController::class, 'index'])->name('pengujian.index');
 Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'])->name('pengujian.produk-kulit');
+// Proses Pengujian (informasi alur dan dokumen)
+Route::view('/pengujian/proses', 'pages.pengujian.proses-pengujian')->name('pengujian.proses');
 
 // Kalibrasi Routes
 Route::view('/kalibrasi', 'pages.kalibrasi.index')->name('kalibrasi.index');
@@ -171,6 +173,10 @@ Route::prefix('halal-center')->name('halal.')->group(function () {
     Route::view('/peraturan-dan-pedoman', 'pages.halal-center.regulations')->name('regulations');
     Route::view('/faq', 'pages.halal-center.faq')->name('faq');
 });
+
+// PDF proxy download route (same-origin attachment response)
+Route::get('/pdf/download/{key}', [App\Http\Controllers\PdfProxyController::class, 'download'])
+    ->name('pdf.download');
 
 // Dynamic Pages Route (MUST BE LAST - catch-all route)
 Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.page');
