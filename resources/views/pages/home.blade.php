@@ -47,7 +47,8 @@
                         {{ __('home.from_testing_to_trust') }}
                     </h2>
                     <p class="text-lg text-gray-700 mb-4">
-                        {{ __('home.maintaining_quality') }} <span class="text-green-600 font-semibold">{{ __('common.industry') }}</span>
+                        {{ __('home.maintaining_quality') }} <span
+                            class="text-green-600 font-semibold">{{ __('common.industry') }}</span>
                     </p>
                     <p class="text-base text-gray-600 leading-relaxed">
                         {{ __('home.vision_description') }}
@@ -70,27 +71,33 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($services->take(4) as $service)
-                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
+                    <div
+                        class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
                         <div class="text-center">
                             @if ($service->icon)
                                 <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
-                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
+                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}"
+                                        class="w-full h-full object-cover">
                                 </div>
                             @else
-                                <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
+                                <div
+                                    class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
                                     <i class="fas fa-cog text-blue-600 text-2xl"></i>
                                 </div>
                             @endif
                             <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
                             <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
-                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">{{ __('home.learn_more') }} <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="{{ route('services.show', $service) }}"
+                                class="text-blue-600 font-semibold hover:text-blue-700">{{ __('home.learn_more') }} <i
+                                    class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 @endforeach
             </div>
             <div class="text-center mt-12">
-                <a href="{{ route('services.index') }}" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">{{ __('home.view_all_services') }}</a>
-            </div>                                            
+                <a href="{{ route('services.index') }}"
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">{{ __('home.view_all_services') }}</a>
+            </div>
         </div>
     </section>
 
@@ -216,9 +223,8 @@
                                                         d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.782 1.402 8.174L12 18.896l-7.336 3.853 1.402-8.174L.132 9.211l8.2-1.193z" />
                                                 </svg>
                                             @else
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    stroke="currentColor" class="w-5 h-5 text-gray-300"
-                                                    viewBox="0 0 24 24">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                    class="w-5 h-5 text-gray-300" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118L12 17.347l-3.962 2.552c-.785.57-1.84-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L3.678 9.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
                                                 </svg>
@@ -245,23 +251,35 @@
                     {{ __('home.partners_subtitle') }}
                 </p>
 
-                <!-- Kotak besar berisi semua logo -->
-                <div class="bg-gray-50 rounded-3xl shadow-lg p-8">
+                <!-- Kotak besar berisi carousel logo -->
+                <div class="bg-gray-50 rounded-3xl shadow-lg p-8 relative">
+                    <div id="partners-carousel" class="overflow-hidden cursor-grab select-none"
+                        aria-label="{{ __('home.our_partners') }}">
+                        <div id="partners-track" class="flex items-center gap-10 w-max py-2">
+                            @foreach (range(1, 2) as $loopIndex)
+                                @foreach ($partners as $partner)
+                                    <div
+                                        class="flex-shrink-0 w-44 h-20 flex items-center justify-center bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                        @if (!empty($partner->website_url))
+                                            <a href="{{ $partner->website_url }}" target="_blank" rel="noopener"
+                                                class="flex items-center justify-center w-full h-full px-4">
+                                                <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
+                                                    class="max-h-14 object-contain grayscale hover:grayscale-0 transition duration-300">
+                                            </a>
+                                        @else
+                                            <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
+                                                class="max-h-14 object-contain grayscale hover:grayscale-0 transition duration-300 px-4">
+                                        @endif
+                                    </div>
+                                @endforeach
+                            @endforeach
+                        </div>
+                    </div>
                     <div
-                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
-                        @foreach ($partners as $partner)
-                            <div class="flex items-center justify-center">
-                                @if (!empty($partner->website_url))
-                                    <a href="{{ $partner->website_url }}" target="_blank" rel="noopener">
-                                        <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
-                                            class="max-h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
-                                    </a>
-                                @else
-                                    <img src="{{ $partner->logo_url }}" alt="{{ $partner->name }}"
-                                        class="max-h-16 object-contain grayscale hover:grayscale-0 transition duration-300">
-                                @endif
-                            </div>
-                        @endforeach
+                        class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent">
+                    </div>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent">
                     </div>
                 </div>
             </div>
@@ -272,13 +290,14 @@
 
     <!-- CTA Section -->
     <!-- Atau Bisa Seperti Di Bawah Ini -->
-    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
+    </script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection
 
 @push('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const slider = document.getElementById('services-slider');
             if (!slider) return;
 
@@ -307,7 +326,10 @@
                     const btn = document.createElement('button');
                     btn.className = 'w-3 h-3 rounded-full transition-all duration-200 bg-gray-300';
                     btn.addEventListener('click', () => {
-                        slider.scrollTo({ left: i * slider.clientWidth, behavior: 'smooth' });
+                        slider.scrollTo({
+                            left: i * slider.clientWidth,
+                            behavior: 'smooth'
+                        });
                     });
                     dotsContainer.appendChild(btn);
                 }
@@ -321,19 +343,29 @@
                 const left = slider.scrollLeft;
                 const page = Math.round(left / slider.clientWidth);
                 const dots = dotsContainer.querySelectorAll('button');
-                dots.forEach((d, i) => d.className = i === page ? 'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' : 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
+                dots.forEach((d, i) => d.className = i === page ?
+                    'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' :
+                    'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
             }
 
             // Prev/Next scroll by one viewport-width (page)
             prevBtn && prevBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: -slider.clientWidth,
+                    behavior: 'smooth'
+                });
             });
             nextBtn && nextBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                });
             });
 
             // Pointer drag for desktop
-            let isDown = false, startX = 0, scrollLeft = 0;
+            let isDown = false,
+                startX = 0,
+                scrollLeft = 0;
             slider.addEventListener('pointerdown', (e) => {
                 isDown = true;
                 slider.setPointerCapture(e.pointerId);
@@ -349,10 +381,15 @@
             });
             slider.addEventListener('pointerup', (e) => {
                 isDown = false;
-                try { slider.releasePointerCapture(e.pointerId); } catch (er) {}
+                try {
+                    slider.releasePointerCapture(e.pointerId);
+                } catch (er) {}
                 slider.classList.remove('cursor-grabbing');
             });
-            slider.addEventListener('pointercancel', () => { isDown = false; slider.classList.remove('cursor-grabbing'); });
+            slider.addEventListener('pointercancel', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+            });
 
             // Update dots on resize and scroll
             window.addEventListener('resize', updateDots);
@@ -367,11 +404,106 @@
             // autoplay (optional) - slow interval
             let autoplay = setInterval(() => {
                 if (document.hidden) return;
-                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                });
             }, 7000);
             slider.addEventListener('mouseenter', () => clearInterval(autoplay));
-            slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
+            slider.addEventListener('mouseleave', () => {
+                autoplay = setInterval(() => slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                }), 7000);
+            });
         });
     </script>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('partners-carousel');
+            const track = document.getElementById('partners-track');
+            if (!carousel || !track) return;
+
+            let segmentWidth = track.scrollWidth / 2;
+            const speed = 0.4;
+            let animationId = null;
+
+            const updateSegmentWidth = () => {
+                segmentWidth = track.scrollWidth / 2;
+            };
+
+            const loop = () => {
+                carousel.scrollLeft += speed;
+                if (carousel.scrollLeft >= segmentWidth) {
+                    carousel.scrollLeft -= segmentWidth;
+                }
+                animationId = requestAnimationFrame(loop);
+            };
+
+            const start = () => {
+                if (!animationId) {
+                    animationId = requestAnimationFrame(loop);
+                }
+            };
+
+            const stop = () => {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            };
+
+            start();
+
+            window.addEventListener('resize', () => {
+                const ratio = carousel.scrollLeft / segmentWidth;
+                updateSegmentWidth();
+                carousel.scrollLeft = segmentWidth * ratio;
+            });
+
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            carousel.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                carousel.setPointerCapture(e.pointerId);
+                startX = e.clientX;
+                scrollLeft = carousel.scrollLeft;
+                carousel.classList.add('cursor-grabbing');
+                stop();
+            });
+
+            carousel.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                const walk = startX - e.clientX;
+                carousel.scrollLeft = scrollLeft + walk;
+            });
+
+            const endDrag = (e) => {
+                if (!isDown) return;
+                isDown = false;
+                carousel.classList.remove('cursor-grabbing');
+                try {
+                    carousel.releasePointerCapture(e.pointerId);
+                } catch (error) {}
+                start();
+            };
+
+            carousel.addEventListener('pointerup', endDrag);
+            carousel.addEventListener('pointerleave', endDrag);
+            carousel.addEventListener('pointercancel', endDrag);
+
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', start);
+
+            carousel.addEventListener('wheel', (e) => {
+                stop();
+                carousel.scrollLeft += e.deltaY || e.deltaX;
+                start();
+            }, {
+                passive: true
+            });
+        });
+    </script>
 @endpush
