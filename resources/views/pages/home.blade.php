@@ -20,12 +20,12 @@
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('services.index') }}"
-                    class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition">
-                    Lihat Layanan Kami
+                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    {{ __('home.view_our_services') }}
                 </a>
                 <a href="{{ route('contact.show') }}"
                     class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
-                    Hubungi Kami
+                    {{ __('home.contact_us') }}
                 </a>
             </div>
         </div>
@@ -44,14 +44,13 @@
                 <!-- Right Side - Content -->
                 <div>
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        Dari Pengujian ke Kepercayaan
+                        {{ __('home.from_testing_to_trust') }}
                     </h2>
                     <p class="text-lg text-gray-700 mb-4">
-                        Menjaga Mutu, Mendukung Daya Saing <span class="text-green-600 font-semibold">Industri</span>
+                        {{ __('home.maintaining_quality') }} <span class="text-green-600 font-semibold">{{ __('common.industry') }}</span>
                     </p>
                     <p class="text-base text-gray-600 leading-relaxed">
-                        Menjadi balai besar yang akuntabel, kolaboratif dan berorientasi pelayanan dalam mewujudkan industri
-                        nasional bidang kulit, karet, dan plastik yang mandiri dan berdaya saing
+                        {{ __('home.vision_description') }}
                     </p>
                 </div>
             </div>
@@ -63,53 +62,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    {{ $settings['services_title'] ?? 'Layanan Kami' }}
-                            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                                @foreach ($services->take(4) as $service)
-                                    <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
-                                        <div class="text-center">
-                                            @if ($service->icon)
-                                                <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
-                                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
-                                                </div>
-                                            @else
-                                                <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                                                    <i class="fas fa-cog text-blue-600 text-2xl"></i>
-                                                </div>
-                                            @endif
-                                            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
-                                            <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
-                                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
-                                        </div>
-                                    </div>
-                                @endforeach
-                <!-- Next Button (desktop only) -->
-                <button id="services-next" aria-label="Selanjutnya"
-                    class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-
-                <!-- Slider (native scroll: touch + pointer drag) -->
-                <div id="services-slider" class="no-scrollbar overflow-x-auto scroll-smooth -mx-2 px-2 py-4" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
-                    <div class="flex items-stretch gap-4">
-                        @foreach ($services as $service)
-                            <div class="flex-shrink-0 px-2 scroll-snap-start w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                                <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full">
-                                    <div class="text-center">
-                                        @if ($service->icon)
-                                            <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
-                                                <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
-                                            </div>
-                                        @else
-                                            <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                                                <i class="fas fa-cog text-blue-600 text-2xl"></i>
-                                            </div>
-                                        @endif
-                                        <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
-                                        <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
-                                        <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
-                                    </div>
-=======
+                    {{ $settings['services_title'] ?? __('home.our_services') }}
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    {{ $settings['services_subtitle'] ?? __('home.services_subtitle') }}
+                </p>
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($services->take(4) as $service)
                     <div class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
@@ -117,7 +75,6 @@
                             @if ($service->icon)
                                 <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
                                     <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}" class="w-full h-full object-cover">
->>>>>>> cf3dded2beb73db048e19ef4c278623006c68c61
                                 </div>
                             @else
                                 <div class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
@@ -126,21 +83,14 @@
                             @endif
                             <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
                             <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
-                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut <i class="fas fa-arrow-right ml-1"></i></a>
+                            <a href="{{ route('services.show', $service) }}" class="text-blue-600 font-semibold hover:text-blue-700">{{ __('home.learn_more') }} <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
-<<<<<<< HEAD
-                </div>
-
-                <!-- Dots (optional) -->
-                <div id="services-dots" class="flex justify-center mt-8 space-x-2"></div>
-=======
                 @endforeach
->>>>>>> cf3dded2beb73db048e19ef4c278623006c68c61
             </div>
             <div class="text-center mt-12">
-                <a href="{{ route('services.index') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">Lihat Semua Layanan</a>
-            </div>
+                <a href="{{ route('services.index') }}" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">{{ __('home.view_all_services') }}</a>
+            </div>                                            
         </div>
     </section>
 
@@ -150,10 +100,10 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    {{ $settings['news_title'] ?? 'Berita & Update' }}
+                    {{ $settings['news_title'] ?? __('home.news_updates') }}
                 </h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    {{ $settings['news_subtitle'] ?? 'Ikuti perkembangan terbaru dari kami' }}
+                    {{ $settings['news_subtitle'] ?? __('home.news_subtitle') }}
                 </p>
             </div>
 
@@ -182,7 +132,7 @@
                             <p class="text-gray-700 mb-6">{{ Str::limit(strip_tags($featured->content), 180) }}</p>
                             <a href="{{ route('news.show', $featured) }}"
                                 class="text-blue-600 font-semibold hover:text-blue-700">
-                                Baca Selengkapnya <i class="fas fa-arrow-right ml-1"></i>
+                                {{ __('home.read_more') }} <i class="fas fa-arrow-right ml-1"></i>
                             </a>
                         </div>
                     </div>
@@ -208,7 +158,7 @@
                                 <p class="text-gray-600 text-sm line-clamp-3">{{ $article->excerpt }}</p>
                                 <a href="{{ route('news.show', $article) }}"
                                     class="text-blue-600 text-sm font-medium hover:text-blue-700">
-                                    Baca Selengkapnya
+                                    {{ __('home.read_more') }}
                                 </a>
                             </div>
                         </div>
@@ -218,8 +168,8 @@
 
             <div class="text-center mt-12">
                 <a href="{{ route('news.index') }}"
-                    class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-                    Lihat Semua Berita
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
+                    {{ __('home.view_all_news') }}
                 </a>
             </div>
         </div>
@@ -235,7 +185,7 @@
         <section class="bg-gray-50 py-16">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-center text-green-700 mb-10">
-                    Apa Kata Pelanggan Kami
+                    {{ __('home.what_our_customers_say') }}
                 </h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     @foreach ($testimonials as $testimonial)
@@ -290,9 +240,9 @@
     @if ($partners->count() > 0)
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Mitra Kami</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">{{ __('home.our_partners') }}</h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
-                    Kami bangga bermitra dengan berbagai organisasi terkemuka.
+                    {{ __('home.partners_subtitle') }}
                 </p>
 
                 <!-- Kotak besar berisi semua logo -->
@@ -321,7 +271,9 @@
 
 
     <!-- CTA Section -->
-
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection
 
 @push('scripts')
@@ -421,4 +373,5 @@
             slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
         });
     </script>
+    
 @endpush

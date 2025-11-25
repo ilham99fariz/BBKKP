@@ -58,12 +58,12 @@
                     <input type="file" 
                            id="icon" 
                            name="icon" 
-                           accept="image/*"
+                               accept=".jpeg,.jpg,.png,.gif,.svg,.webp"
                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('icon') border-red-500 @enderror">
                     @error('icon')
                         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
                     @enderror
-                    <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, SVG. Maksimal 2MB</p>
+                        <p class="text-sm text-gray-500 mt-1">Format yang didukung: PNG, JPG, JPEG, GIF, SVG, WEBP (Maks 2MB)</p>
                 </div>
                 
                 <div>

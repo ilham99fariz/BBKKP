@@ -46,80 +46,82 @@
 
         <!-- Menu Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Profil Singkat -->
-            <a href="{{ route('about.profil-singkat') }}" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
-                        <div class="h-full flex items-center justify-center text-white">
-                            <i class="fas fa-building text-6xl"></i>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Singkat</h2>
-                        <p class="text-gray-600">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
-                    </div>
-                </div>
-            </a>
-
             <!-- Tonggak Sejarah -->
             <a href="{{ route('about.tonggak-sejarah') }}" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-history text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tonggak Sejarah</h2>
-                        <p class="text-gray-600">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
+                        <p class="text-gray-600 flex-1">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
                     </div>
                 </div>
             </a>
 
+        <!-- Profil Singkat -->
+            <a href="{{ route('about.profil-singkat') }}" class="group">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="h-full flex items-center justify-center text-white">
+                            <i class="fas fa-building text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-1">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Singkat</h2>
+                        <p class="text-gray-600 flex-1">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
+                    </div>
+                </div>
+            </a>
+
+            
+
             <!-- Profil Pejabat -->
             <a href="{{ route('about.profil-pejabat') }}" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-users text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Pejabat</h2>
-                        <p class="text-gray-600">Pimpinan dan pejabat struktural BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">Struktur Pimpinan dan pejabat struktural BBSPJIKP.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Struktur Organisasi -->
             <a href="{{ route('about.struktur-organisasi') }}" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-sitemap text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Struktur Organisasi</h2>
-                        <p class="text-gray-600">Susunan organisasi dan tata kerja BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">Susunan organisasi dan tata kerja BBSPJIKP.</p>
                     </div>
                 </div>
             </a>
 
             <!-- Makna Logo -->
             <a href="{{ route('about.makna-logo') }}" class="group">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105">
-                    <div class="h-48 bg-blue-600">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    <div class="h-48 overflow-hidden">
+                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-certificate text-6xl"></i>
                         </div>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 flex flex-col">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Makna Logo</h2>
                         <p class="text-gray-600">Filosofi dan arti di balik logo BBSPJIKP.</p>
                     </div>
@@ -127,4 +129,8 @@
             </a>
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
+
 @endsection

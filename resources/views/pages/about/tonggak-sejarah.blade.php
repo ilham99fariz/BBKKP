@@ -338,10 +338,77 @@
                             </div>
                         </div>
 
+                        <!-- Kepala Balai dari Masa ke Masa -->
+                        <div class="mt-12">
+                            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Kepala Balai dari Masa ke Masa</h2>
+                            <p class="text-gray-600 mb-6">Selama kurun waktu 66 tahun sejak tahun 1953 telah terjadi perubahan Pimpinan Balai sebanyak sebelas kali.</p>
+
+                            @php
+                                $firstRow = range(1,4);
+                                $secondRow = range(5,8);
+                                $thirdRow = range(9,11);
+                            @endphp
+
+                            <!-- Row 1: 4 images -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+                                @foreach ($firstRow as $idx)
+                                    <figure class="relative rounded-lg overflow-hidden shadow hover:shadow-lg">
+                                        <a href="{{ file_exists(public_path("images/kepala-{$idx}.jpg")) ? asset("images/kepala-{$idx}.jpg") : '#' }}" class="block group">
+                                            @if (file_exists(public_path("images/kepala-{$idx}.jpg")))
+                                                <img src="{{ asset("images/kepala-{$idx}.jpg") }}" alt="Kepala Balai ke-{{ $idx }}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                            @else
+                                                <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400">Foto Kepala Balai ke-{{ $idx }} belum tersedia</div>
+                                            @endif
+                                            <figcaption class="p-2 text-sm text-gray-700 text-center">Kepala Balai ke-{{ $idx }}</figcaption>
+                                        </a>
+                                    </figure>
+                                @endforeach
+                            </div>
+
+                            <!-- Row 2: 4 images -->
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
+                                @foreach ($secondRow as $idx)
+                                    <figure class="relative rounded-lg overflow-hidden shadow hover:shadow-lg">
+                                        <a href="{{ file_exists(public_path("images/kepala-{$idx}.jpg")) ? asset("images/kepala-{$idx}.jpg") : '#' }}" class="block group">
+                                            @if (file_exists(public_path("images/kepala-{$idx}.jpg")))
+                                                <img src="{{ asset("images/kepala-{$idx}.jpg") }}" alt="Kepala Balai ke-{{ $idx }}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                            @else
+                                                <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400">Foto Kepala Balai ke-{{ $idx }} belum tersedia</div>
+                                            @endif
+                                            <figcaption class="p-2 text-sm text-gray-700 text-center">Kepala Balai ke-{{ $idx }}</figcaption>
+                                        </a>
+                                    </figure>
+                                @endforeach
+                            </div>
+
+                            <!-- Row 3: 3 images -->
+                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                @foreach ($thirdRow as $idx)
+                                    <figure class="relative rounded-lg overflow-hidden shadow hover:shadow-lg">
+                                        <a href="{{ file_exists(public_path("images/kepala-{$idx}.jpg")) ? asset("images/kepala-{$idx}.jpg") : '#' }}" class="block group">
+                                            @if (file_exists(public_path("images/kepala-{$idx}.jpg")))
+                                                <img src="{{ asset("images/kepala-{$idx}.jpg") }}" alt="Kepala Balai ke-{{ $idx }}" class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105">
+                                            @else
+                                                <div class="w-full h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-gray-400">Foto Kepala Balai ke-{{ $idx }} belum tersedia</div>
+                                            @endif
+                                            <figcaption class="p-2 text-sm text-gray-700 text-center">Kepala Balai ke-{{ $idx }}</figcaption>
+                                        </a>
+                                    </figure>
+                                @endforeach
+                            </div>
+                                <!-- Pesan mengenai Kepala Balai saat ini (ditambahkan) -->
+                                <div class="mt-6">
+                                    <p class="text-gray-600">Hagung Eko Pawoko, S.T.P., M.Sc. resmi menjabat sebagai Kepala Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik sejak 31 Maret 2023 menggantikan Bapak Agus Kuntoro. Sebelumnya Beliau pernah menjabat sebagai Pejabat Fungsional Widyaiswara (2012-2023) di Balai Diklat Industri (BDI) Yogyakarta dan Pelaksana di instansi yang sama (2006-2012).</p>
+                                </div>
+                        </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        <!-- Atau Bisa Seperti Di Bawah Ini -->
+        <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice--> 
 @endsection

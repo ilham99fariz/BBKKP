@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'page_title' => 'Testing Services - BBSPJIKP',
+    'page_description' => 'Testing services for leather, rubber, and plastic industries with national and international standards',
+    'hero_title' => 'TESTING SERVICES FOR LEATHER, RUBBER, AND PLASTIC INDUSTRIES',
+    'detail_testing' => 'Detail Testing',
+    'test_request' => 'Test Request',
+    'testing' => 'Testing',
+    'testing_description' => 'Ensuring product quality and reliability through testing according to national and international standards',
+    'providing_services' => 'Providing services in the field of:',
+    'testing_services_list_1' => 'Testing of leather, leather products and footwear',
+    'testing_services_list_2' => 'Testing of rubber, rubber products, plastic and plastic products as well as footwear',
+    'testing_services_list_3' => 'Environmental quality testing, water and wastewater',
+    'testing_services_list_4' => 'Testing of outer tires and inner tires for motorized vehicles and cars',
+    'facilities' => 'Facilities',
+    'facility_1' => 'Leather, Rubber, and Plastic Product Testing Laboratory, including tire testing',
+    'facility_2' => 'Environmental Testing Laboratory',
+    'testing_scope' => 'Testing Scope',
+    'test_rate' => 'Test Rate',
+    'sop_testing' => 'SOP Testing',
+    'sop_testing_services' => 'SOP Testing Services and Calibration',
+    'completion_time' => 'Completion Time',
+    'completion_time_desc' => '7 - 14 working days. According to the type of commodity/equipment and test parameters/calibration magnitude.',
+    'download' => 'Download',
+    'Complete information regarding testing service rates can be downloaded through the following document:' => 'Complete information regarding testing service rates can be downloaded through the following document:',
+];

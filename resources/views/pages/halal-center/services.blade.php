@@ -53,121 +53,40 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden">
             <div class="p-8">
-                <!-- Jenis Layanan -->
-                <section class="mb-12">
-                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Jenis Layanan</h2>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Pemeriksaan Dokumen -->
-                        <div class="bg-white border rounded-lg p-6">
-                            <div class="w-12 h-12 bg-blue-100 rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-file-alt text-blue-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-3">Pemeriksaan Dokumen</h3>
-                            <p class="text-gray-600">Pemeriksaan kelengkapan dan kesesuaian dokumen untuk sertifikasi halal</p>
-                        </div>
+                <div class="bg-white shadow-lg rounded-lg p-8">
+    <h1 class="text-xl md:text-4xl font-bold text-gray-900 mb-8">Layanan LPH</h1>
 
-                        <!-- Audit Lapangan -->
-                        <div class="bg-white border rounded-lg p-6">
-                            <div class="w-12 h-12 bg-green-100 rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-clipboard-check text-green-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-3">Audit Lapangan</h3>
-                            <p class="text-gray-600">Pemeriksaan langsung ke lokasi produksi untuk verifikasi sistem jaminan halal</p>
-                        </div>
+    <!-- RUANG LINGKUP PEMERIKSAAN -->
+    <section class="mb-12">
+        <h2 class="text-xl semi-bold mb-4">RUANG LINGKUP PEMERIKSAAN</h2>
+        <p class="text-gray-700 leading-relaxed">
+            LPH BBSPJIKKP dapat melayani pelaksanaan pemeriksaan dan/atau pengujian kehalalan produk
+            dengan ruang lingkup: Makanan, Minuman, Obat, Kosmetik, Produk Kimiawi, Barang Gunaan,
+            Jasa Pengolahan, Jasa Penyimpanan, Jasa Pengemasan, Jasa Pendistribusian, Jasa Penjualan,
+            dan Jasa Penyajian.
+        </p>
+    </section>
 
-                        <!-- Pengujian Laboratorium -->
-                        <div class="bg-white border rounded-lg p-6">
-                            <div class="w-12 h-12 bg-purple-100 rounded-lg mb-4 flex items-center justify-center">
-                                <i class="fas fa-flask text-purple-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-semibold mb-3">Pengujian Laboratorium</h3>
-                            <p class="text-gray-600">Pengujian kehalalan produk di laboratorium terakreditasi</p>
-                        </div>
-                    </div>
-                </section>
+    <!-- PENGUJIAN PRODUK HALAL -->
+    <section class="mb-12">
+        <h2 class="text-xl semi-bold mb-4">PENGUJIAN PRODUK HALAL</h2>
+        <p class="text-gray-700 leading-relaxed">
+            LPH BBSPJIKKP bekerjasama dengan Laboratorium LPPOM MUI dan Laboratorium Penelitian
+            dan Pengujian Terpadu Universitas Gadjah Mada (Terakreditasi ISO 17025) untuk melakukan
+            pengujian produk halal pada makanan dan minuman yang meliputi:
+        </p>
 
-                <!-- Ruang Lingkup -->
-                <section class="mb-12">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Ruang Lingkup</h2>
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Produk yang Dilayani</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Produk kulit dan turunannya</li>
-                                <li>Produk plastik dan kemasan</li>
-                                <li>Produk karet dan komponennya</li>
-                                <li>Bahan tambahan dan penolong</li>
-                            </ul>
-                        </div>
-                        <div class="bg-gray-50 p-6 rounded-lg">
-                            <h3 class="text-xl font-semibold mb-4">Cakupan Pemeriksaan</h3>
-                            <ul class="list-disc list-inside text-gray-600 space-y-2">
-                                <li>Bahan baku dan tambahan</li>
-                                <li>Proses produksi</li>
-                                <li>Peralatan produksi</li>
-                                <li>Sistem jaminan halal</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Biaya dan Waktu -->
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Biaya dan Waktu Layanan</h2>
-                    <div class="overflow-x-auto">
-                        <table class="min-w-full">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Jenis Layanan
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Estimasi Waktu
-                                    </th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                        Biaya
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        Pemeriksaan Dokumen
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        3-5 hari kerja
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        Sesuai ketentuan
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        Audit Lapangan
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        1-3 hari kerja
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        Sesuai ketentuan
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                        Pengujian Laboratorium
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        5-10 hari kerja
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                        Sesuai parameter
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
+        <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
+            <li>Pengujian cemaran daging babi pada produk bakso dan nugget dengan metode RT-PCR.</li>
+            <li>Pengujian identifikasi gelatin babi pada produk cangkang kapsul dengan metode RT-PCR.</li>
+            <li>Pengujian kadar alkohol (ethanol) pada produk minuman dengan metode Gas Chromatography.</li>
+        </ul>
+    </section>
+</div>
             </div>
         </div>
     </div>
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection

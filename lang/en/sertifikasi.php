@@ -1,0 +1,31 @@
+<?php
+
+return [
+    'page_title' => 'Certification Services - BBSPJIKP',
+    'page_description' => 'Product certification, quality management system, and personnel certification services by BBSPJIKKP',
+    'hero_title' => 'Certification',
+    'product_certification' => 'Product Certification (SPPT SNI)',
+    'smm' => 'SMM',
+    'smk3' => 'SMK3',
+    'sml' => 'SML',
+    'sih' => 'SIH',
+    'personnel_certification' => 'Personnel Certification',
+    'product_certification_title' => 'PRODUCT CERTIFICATION',
+    'certificate_title' => 'PRODUCT CERTIFICATE',
+    'scope' => 'Scope',
+    'download_form' => 'Download Application Form',
+    'download_additional_form' => 'Download Additional Form - Overseas SPPT SNI Application',
+    'client_rights_obligations' => 'Client Rights and Obligations',
+    'logo_usage' => 'Logo License and SPPT SNI Usage Guidelines',
+    'audit_procedure' => 'Audit and Evaluation Procedure',
+    'certification_procedure' => 'Procedure for Granting, Rejection, Maintenance, Reduction/Expansion, Suspension, Recovery and Revocation of Certification',
+    'client_data' => 'Client Data',
+    'certification_scheme' => 'Certification Scheme',
+    'client_data_desc' => 'To obtain information regarding client data, please submit an information request in accordance with the Information Request Procedure. The information request form can be downloaded here.',
+    'certification_scheme_desc' => 'To obtain Product Certification Scheme information according to scope, please submit an information request in accordance with the Information Request Procedure. The information request form can be downloaded here.',
+    'scope_qms' => 'Quality management system certification scope:',
+    'scope_ohs' => 'Occupational health and safety management system certification scope:',
+    'scope_ems' => 'Environmental management system certification scope:',
+    'scope_green' => 'Green industry certification scope:',
+];
+
