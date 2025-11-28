@@ -5,18 +5,6 @@
     'Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk
     mendukung perkembangan industri nasional'); ?>
 
-<?php $__env->startPush('styles'); ?>
-<style>
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-</style>
-<?php $__env->stopPush(); ?>
-
 <?php $__env->startSection('content'); ?>
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
@@ -65,7 +53,8 @@
 
                     </h2>
                     <p class="text-lg text-gray-700 mb-4">
-                        <?php echo e(__('home.maintaining_quality')); ?> <span class="text-green-600 font-semibold"><?php echo e(__('common.industry')); ?></span>
+                        <?php echo e(__('home.maintaining_quality')); ?> <span
+                            class="text-green-600 font-semibold"><?php echo e(__('common.industry')); ?></span>
                     </p>
                     <p class="text-base text-gray-600 leading-relaxed">
                         <?php echo e(__('home.vision_description')); ?>
@@ -89,131 +78,48 @@
 
                 </p>
             </div>
-
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <?php $__currentLoopData = $services->take(4); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $service): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <div class="bg-white rounded-lg shadow hover:shadow-xl transition overflow-hidden h-full flex flex-col">
-                        
+                    <div
+                        class="bg-white rounded-lg shadow hover:shadow-xl transition h-full flex flex-col overflow-hidden">
                         <?php if($service->icon): ?>
-                            <img 
-                                src="<?php echo e(Storage::url($service->icon)); ?>" 
-                                alt="<?php echo e($service->title); ?>"
-                                class="w-full h-48 object-cover"
-                            >
+                            <div class="w-full h-48 overflow-hidden">
+                                <img src="<?php echo e(Storage::url($service->icon)); ?>" alt="<?php echo e($service->title); ?>"
+                                    class="w-full h-full object-cover">
+                            </div>
                         <?php else: ?>
                             <div class="bg-blue-100 w-full h-48 flex items-center justify-center">
                                 <i class="fas fa-cog text-blue-600 text-4xl"></i>
                             </div>
                         <?php endif; ?>
-
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">
-                                <?php echo e($service->title); ?>
-
-                            </h3>
-
-                            <p class="text-gray-600 mb-4 line-clamp-3">
-                                <?php echo e(Str::limit($service->description, 120)); ?>
-
-                            </p>
-
-                            <a href="<?php echo e(route('services.show', $service)); ?>" 
-                            class="text-blue-600 font-semibold hover:text-blue-700 mt-auto">
-                                <?php echo e(__('home.learn_more')); ?> 
-                                <i class="fas fa-arrow-right ml-1"></i>
-                            </a>
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center line-clamp-2"><?php echo e($service->title); ?></h3>
+                            <p class="text-gray-600 mb-4 text-center line-clamp-3 flex-grow"><?php echo e(Str::limit($service->description, 120)); ?></p>
+                            <?php
+                                $lowerTitle = Str::lower($service->title);
+                                if (Str::contains($lowerTitle, 'pengujian')) {
+                                    $url = url('/pengujian');
+                                } elseif (Str::contains($lowerTitle, 'kalibrasi')) {
+                                    $url = url('/kalibrasi');
+                                } elseif (Str::contains($lowerTitle, 'sertifikasi')) {
+                                    $url = url('/sertifikasi');
+                                } else {
+                                    $url = route('services.show', $service);
+                                }
+                            ?>
+                            <a href="<?php echo e($url); ?>"
+                                class="text-blue-600 font-semibold hover:text-blue-700 text-center block mt-auto"><?php echo e(__('home.learn_more')); ?> <i
+                                    class="fas fa-arrow-right ml-1"></i></a>
                         </div>
-
                     </div>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
-
             <div class="text-center mt-12">
-                <a href="<?php echo e(route('services.index')); ?>" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition"><?php echo e(__('home.view_all_services')); ?></a>
-            </div>                                            
-        </div>
-    </section>
-
-    <!-- Layanan Content Section with Slider -->
-    <?php if(isset($layananContents) && $layananContents->count() > 0): ?>
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    Layanan Kami
-                </h2>
-                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    Berbagai layanan profesional yang kami sediakan untuk mendukung kebutuhan industri Anda
-                </p>
-            </div>
-
-            <!-- Slider Container -->
-            <div class="relative">
-                <!-- Navigation Buttons -->
-                <button id="layanan-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full shadow-lg p-3 hover:bg-blue-50 transition-all duration-200 hover:scale-110">
-                    <i class="fas fa-chevron-left text-blue-600 text-xl"></i>
-                </button>
-                <button id="layanan-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full shadow-lg p-3 hover:bg-blue-50 transition-all duration-200 hover:scale-110">
-                    <i class="fas fa-chevron-right text-blue-600 text-xl"></i>
-                </button>
-
-                <!-- Slider -->
-                <div id="layanan-slider" class="overflow-x-hidden scrollbar-hide scroll-smooth flex gap-6 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
-                    <?php $__currentLoopData = $layananContents; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $layanan): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <div class="layanan-slide flex-shrink-0 w-full sm:w-1/2 md:w-1/3 lg:w-1/4">
-                            <div class="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full flex flex-col group">
-                                <!-- Image -->
-                                <?php if($layanan->hero_image): ?>
-                                    <div class="relative h-48 overflow-hidden">
-                                        <img src="<?php echo e(Storage::url($layanan->hero_image)); ?>" 
-                                             alt="<?php echo e($layanan->title); ?>"
-                                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                                    </div>
-                                <?php else: ?>
-                                    <div class="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center">
-                                        <i class="fas fa-cogs text-white text-5xl"></i>
-                                    </div>
-                                <?php endif; ?>
-
-                                <!-- Content -->
-                                <div class="p-6 flex flex-col flex-grow">
-                                    <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-600 transition-colors">
-                                        <?php echo e($layanan->title); ?>
-
-                                    </h3>
-
-                                    <?php if($layanan->hero_title): ?>
-                                        <p class="text-sm text-blue-600 font-semibold mb-2">
-                                            <?php echo e($layanan->hero_title); ?>
-
-                                        </p>
-                                    <?php endif; ?>
-
-                                    <?php if($layanan->content): ?>
-                                        <div class="text-gray-600 mb-4 line-clamp-3 text-sm">
-                                            <?php echo Str::limit(strip_tags($layanan->content), 120); ?>
-
-                                        </div>
-                                    <?php endif; ?>
-
-                                    <a href="<?php echo e(route('dynamic.page', $layanan->slug)); ?>" 
-                                       class="mt-auto text-blue-600 font-semibold hover:text-blue-700 inline-flex items-center group/link">
-                                        Pelajari Lebih Lanjut
-                                        <i class="fas fa-arrow-right ml-2 group-hover/link:translate-x-1 transition-transform"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                </div>
-
-                <!-- Dots Indicator -->
-                <div id="layanan-dots" class="flex justify-center gap-2 mt-6"></div>
+                <a href="<?php echo e(route('services.index')); ?>"
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition"><?php echo e(__('home.view_all_services')); ?></a>
             </div>
         </div>
     </section>
-    <?php endif; ?>
 
     <!-- News Section -->
     <!-- News Section -->
@@ -346,9 +252,8 @@
                                                         d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.782 1.402 8.174L12 18.896l-7.336 3.853 1.402-8.174L.132 9.211l8.2-1.193z" />
                                                 </svg>
                                             <?php else: ?>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                    stroke="currentColor" class="w-5 h-5 text-gray-300"
-                                                    viewBox="0 0 24 24">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                    class="w-5 h-5 text-gray-300" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                         d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118L12 17.347l-3.962 2.552c-.785.57-1.84-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L3.678 9.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
                                                 </svg>
@@ -376,33 +281,35 @@
 
                 </p>
 
-                <!-- Partner Slider -->
-                <div class="relative">
-                    <!-- Navigation Buttons -->
-                    <button id="partner-prev" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white rounded-full shadow-lg p-2 hover:bg-gray-50 transition-all duration-200">
-                        <i class="fas fa-chevron-left text-gray-600 text-lg"></i>
-                    </button>
-                    <button id="partner-next" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white rounded-full shadow-lg p-2 hover:bg-gray-50 transition-all duration-200">
-                        <i class="fas fa-chevron-right text-gray-600 text-lg"></i>
-                    </button>
-
-                    <!-- Slider Container -->
-                    <div id="partner-slider" class="overflow-x-hidden scrollbar-hide scroll-smooth flex gap-8 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
-                        <?php $__currentLoopData = $partners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            <div class="partner-slide flex-shrink-0 w-32 sm:w-40 md:w-48">
-                                <div class="flex items-center justify-center h-24 bg-gray-50 rounded-lg p-4 hover:bg-gray-100 transition duration-300">
-                                    <?php if(!empty($partner->website_url)): ?>
-                                        <a href="<?php echo e($partner->website_url); ?>" target="_blank" rel="noopener" class="w-full h-full flex items-center justify-center">
+                <!-- Kotak besar berisi carousel logo -->
+                <div class="bg-gray-50 rounded-3xl shadow-lg p-8 relative">
+                    <div id="partners-carousel" class="overflow-hidden cursor-grab select-none"
+                        aria-label="<?php echo e(__('home.our_partners')); ?>">
+                        <div id="partners-track" class="flex items-center gap-10 w-max py-2">
+                            <?php $__currentLoopData = range(1, 2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $loopIndex): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $partners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $partner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div
+                                        class="flex-shrink-0 w-44 h-20 flex items-center justify-center bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                                        <?php if(!empty($partner->website_url)): ?>
+                                            <a href="<?php echo e($partner->website_url); ?>" target="_blank" rel="noopener"
+                                                class="flex items-center justify-center w-full h-full px-4">
+                                                <img src="<?php echo e($partner->logo_url); ?>" alt="<?php echo e($partner->name); ?>"
+                                                    class="max-h-14 object-contain grayscale hover:grayscale-0 transition duration-300">
+                                            </a>
+                                        <?php else: ?>
                                             <img src="<?php echo e($partner->logo_url); ?>" alt="<?php echo e($partner->name); ?>"
-                                                class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300">
-                                        </a>
-                                    <?php else: ?>
-                                        <img src="<?php echo e($partner->logo_url); ?>" alt="<?php echo e($partner->name); ?>"
-                                            class="max-h-16 max-w-full object-contain grayscale hover:grayscale-0 transition duration-300">
-                                    <?php endif; ?>
-                                </div>
-                            </div>
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                                class="max-h-14 object-contain grayscale hover:grayscale-0 transition duration-300 px-4">
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
+                    </div>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 to-transparent">
+                    </div>
+                    <div
+                        class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 to-transparent">
                     </div>
                 </div>
             </div>
@@ -412,259 +319,15 @@
 
 
     <!-- CTA Section -->
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD">
+    </script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startPush('scripts'); ?>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Layanan Slider
-            const layananSlider = document.getElementById('layanan-slider');
-            if (layananSlider) {
-                const layananPrevBtn = document.getElementById('layanan-prev');
-                const layananNextBtn = document.getElementById('layanan-next');
-                const layananDotsContainer = document.getElementById('layanan-dots');
-
-                function getLayananItems() {
-                    return Array.from(layananSlider.querySelectorAll('.layanan-slide'));
-                }
-
-                function layananItemsPerView() {
-                    const w = window.innerWidth;
-                    if (w >= 1024) return 4;
-                    if (w >= 768) return 3;
-                    if (w >= 640) return 2;
-                    return 1;
-                }
-
-                function updateLayananDots() {
-                    const items = getLayananItems();
-                    const per = layananItemsPerView();
-                    const pages = Math.max(1, Math.ceil(items.length / per));
-                    layananDotsContainer.innerHTML = '';
-                    for (let i = 0; i < pages; i++) {
-                        const btn = document.createElement('button');
-                        btn.className = 'w-3 h-3 rounded-full transition-all duration-200 bg-gray-300 hover:bg-gray-400';
-                        btn.addEventListener('click', () => {
-                            const items = getLayananItems();
-                            if (!items.length) return;
-                            const itemWidth = items[0].offsetWidth;
-                            const gap = 24;
-                            layananSlider.scrollTo({ left: i * (itemWidth + gap) * per, behavior: 'smooth' });
-                        });
-                        layananDotsContainer.appendChild(btn);
-                    }
-                    updateLayananActiveDot();
-                }
-
-                function updateLayananActiveDot() {
-                    const items = getLayananItems();
-                    if (!items.length) return;
-                    const per = layananItemsPerView();
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 24; // gap-6 = 24px
-                    const scrollLeft = layananSlider.scrollLeft;
-                    const page = Math.round(scrollLeft / ((itemWidth + gap) * per));
-                    const dots = layananDotsContainer.querySelectorAll('button');
-                    dots.forEach((d, i) => {
-                        d.className = i === page 
-                            ? 'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' 
-                            : 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200 hover:bg-gray-400';
-                    });
-                }
-
-                layananPrevBtn && layananPrevBtn.addEventListener('click', () => {
-                    const items = getLayananItems();
-                    if (!items.length) return;
-                    const per = layananItemsPerView();
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 24;
-                    layananSlider.scrollBy({ left: -(itemWidth + gap) * per, behavior: 'smooth' });
-                });
-
-                layananNextBtn && layananNextBtn.addEventListener('click', () => {
-                    const items = getLayananItems();
-                    if (!items.length) return;
-                    const per = layananItemsPerView();
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 24;
-                    layananSlider.scrollBy({ left: (itemWidth + gap) * per, behavior: 'smooth' });
-                });
-
-                // Touch/Swipe support
-                let isDown = false, startX = 0, scrollLeft = 0;
-                layananSlider.addEventListener('mousedown', (e) => {
-                    isDown = true;
-                    layananSlider.style.cursor = 'grabbing';
-                    startX = e.pageX - layananSlider.offsetLeft;
-                    scrollLeft = layananSlider.scrollLeft;
-                });
-                layananSlider.addEventListener('mouseleave', () => {
-                    isDown = false;
-                    layananSlider.style.cursor = 'grab';
-                });
-                layananSlider.addEventListener('mouseup', () => {
-                    isDown = false;
-                    layananSlider.style.cursor = 'grab';
-                });
-                layananSlider.addEventListener('mousemove', (e) => {
-                    if (!isDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - layananSlider.offsetLeft;
-                    const walk = (x - startX) * 2;
-                    layananSlider.scrollLeft = scrollLeft - walk;
-                });
-
-                // Touch events
-                layananSlider.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].pageX - layananSlider.offsetLeft;
-                    scrollLeft = layananSlider.scrollLeft;
-                });
-                layananSlider.addEventListener('touchmove', (e) => {
-                    const x = e.touches[0].pageX - layananSlider.offsetLeft;
-                    const walk = (x - startX) * 2;
-                    layananSlider.scrollLeft = scrollLeft - walk;
-                });
-
-                layananSlider.style.cursor = 'grab';
-
-                window.addEventListener('resize', updateLayananDots);
-                layananSlider.addEventListener('scroll', () => {
-                    window.requestAnimationFrame(updateLayananActiveDot);
-                });
-
-                updateLayananDots();
-
-                // Autoplay
-                let layananAutoplay = setInterval(() => {
-                    if (document.hidden) return;
-                    const items = getLayananItems();
-                    if (!items.length) return;
-                    const per = layananItemsPerView();
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 24;
-                    const maxScroll = layananSlider.scrollWidth - layananSlider.clientWidth;
-                    if (layananSlider.scrollLeft >= maxScroll - 10) {
-                        layananSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        layananSlider.scrollBy({ left: (itemWidth + gap) * per, behavior: 'smooth' });
-                    }
-                }, 5000);
-
-                layananSlider.addEventListener('mouseenter', () => clearInterval(layananAutoplay));
-                layananSlider.addEventListener('mouseleave', () => {
-                    layananAutoplay = setInterval(() => {
-                        if (document.hidden) return;
-                        const items = getLayananItems();
-                        if (!items.length) return;
-                        const per = layananItemsPerView();
-                        const itemWidth = items[0].offsetWidth;
-                        const gap = 24;
-                        const maxScroll = layananSlider.scrollWidth - layananSlider.clientWidth;
-                        if (layananSlider.scrollLeft >= maxScroll - 10) {
-                            layananSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            layananSlider.scrollBy({ left: (itemWidth + gap) * per, behavior: 'smooth' });
-                        }
-                    }, 5000);
-                });
-            }
-
-            // Partner Slider
-            const partnerSlider = document.getElementById('partner-slider');
-            if (partnerSlider) {
-                const partnerPrevBtn = document.getElementById('partner-prev');
-                const partnerNextBtn = document.getElementById('partner-next');
-
-                function getPartnerItems() {
-                    return Array.from(partnerSlider.querySelectorAll('.partner-slide'));
-                }
-
-                partnerPrevBtn && partnerPrevBtn.addEventListener('click', () => {
-                    const items = getPartnerItems();
-                    if (!items.length) return;
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 32; // gap-8 = 32px
-                    partnerSlider.scrollBy({ left: -(itemWidth + gap) * 3, behavior: 'smooth' });
-                });
-
-                partnerNextBtn && partnerNextBtn.addEventListener('click', () => {
-                    const items = getPartnerItems();
-                    if (!items.length) return;
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 32;
-                    partnerSlider.scrollBy({ left: (itemWidth + gap) * 3, behavior: 'smooth' });
-                });
-
-                // Touch/Swipe support
-                let partnerIsDown = false, partnerStartX = 0, partnerScrollLeft = 0;
-                partnerSlider.addEventListener('mousedown', (e) => {
-                    partnerIsDown = true;
-                    partnerSlider.style.cursor = 'grabbing';
-                    partnerStartX = e.pageX - partnerSlider.offsetLeft;
-                    partnerScrollLeft = partnerSlider.scrollLeft;
-                });
-                partnerSlider.addEventListener('mouseleave', () => {
-                    partnerIsDown = false;
-                    partnerSlider.style.cursor = 'grab';
-                });
-                partnerSlider.addEventListener('mouseup', () => {
-                    partnerIsDown = false;
-                    partnerSlider.style.cursor = 'grab';
-                });
-                partnerSlider.addEventListener('mousemove', (e) => {
-                    if (!partnerIsDown) return;
-                    e.preventDefault();
-                    const x = e.pageX - partnerSlider.offsetLeft;
-                    const walk = (x - partnerStartX) * 2;
-                    partnerSlider.scrollLeft = partnerScrollLeft - walk;
-                });
-
-                partnerSlider.addEventListener('touchstart', (e) => {
-                    partnerStartX = e.touches[0].pageX - partnerSlider.offsetLeft;
-                    partnerScrollLeft = partnerSlider.scrollLeft;
-                });
-                partnerSlider.addEventListener('touchmove', (e) => {
-                    const x = e.touches[0].pageX - partnerSlider.offsetLeft;
-                    const walk = (x - partnerStartX) * 2;
-                    partnerSlider.scrollLeft = partnerScrollLeft - walk;
-                });
-
-                partnerSlider.style.cursor = 'grab';
-
-                // Autoplay
-                let partnerAutoplay = setInterval(() => {
-                    if (document.hidden) return;
-                    const items = getPartnerItems();
-                    if (!items.length) return;
-                    const itemWidth = items[0].offsetWidth;
-                    const gap = 32;
-                    const maxScroll = partnerSlider.scrollWidth - partnerSlider.clientWidth;
-                    if (partnerSlider.scrollLeft >= maxScroll - 10) {
-                        partnerSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                    } else {
-                        partnerSlider.scrollBy({ left: (itemWidth + gap) * 3, behavior: 'smooth' });
-                    }
-                }, 4000);
-
-                partnerSlider.addEventListener('mouseenter', () => clearInterval(partnerAutoplay));
-                partnerSlider.addEventListener('mouseleave', () => {
-                    partnerAutoplay = setInterval(() => {
-                        if (document.hidden) return;
-                        const items = getPartnerItems();
-                        if (!items.length) return;
-                        const itemWidth = items[0].offsetWidth;
-                        const gap = 32;
-                        const maxScroll = partnerSlider.scrollWidth - partnerSlider.clientWidth;
-                        if (partnerSlider.scrollLeft >= maxScroll - 10) {
-                            partnerSlider.scrollTo({ left: 0, behavior: 'smooth' });
-                        } else {
-                            partnerSlider.scrollBy({ left: (itemWidth + gap) * 3, behavior: 'smooth' });
-                        }
-                    }, 4000);
-                });
-            }
-
-            // Services Slider (existing code)
+        document.addEventListener('DOMContentLoaded', function() {
             const slider = document.getElementById('services-slider');
             if (!slider) return;
 
@@ -693,7 +356,10 @@
                     const btn = document.createElement('button');
                     btn.className = 'w-3 h-3 rounded-full transition-all duration-200 bg-gray-300';
                     btn.addEventListener('click', () => {
-                        slider.scrollTo({ left: i * slider.clientWidth, behavior: 'smooth' });
+                        slider.scrollTo({
+                            left: i * slider.clientWidth,
+                            behavior: 'smooth'
+                        });
                     });
                     dotsContainer.appendChild(btn);
                 }
@@ -707,19 +373,29 @@
                 const left = slider.scrollLeft;
                 const page = Math.round(left / slider.clientWidth);
                 const dots = dotsContainer.querySelectorAll('button');
-                dots.forEach((d, i) => d.className = i === page ? 'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' : 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
+                dots.forEach((d, i) => d.className = i === page ?
+                    'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' :
+                    'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
             }
 
             // Prev/Next scroll by one viewport-width (page)
             prevBtn && prevBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: -slider.clientWidth,
+                    behavior: 'smooth'
+                });
             });
             nextBtn && nextBtn.addEventListener('click', () => {
-                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                });
             });
 
             // Pointer drag for desktop
-            let isDown = false, startX = 0, scrollLeft = 0;
+            let isDown = false,
+                startX = 0,
+                scrollLeft = 0;
             slider.addEventListener('pointerdown', (e) => {
                 isDown = true;
                 slider.setPointerCapture(e.pointerId);
@@ -735,10 +411,15 @@
             });
             slider.addEventListener('pointerup', (e) => {
                 isDown = false;
-                try { slider.releasePointerCapture(e.pointerId); } catch (er) {}
+                try {
+                    slider.releasePointerCapture(e.pointerId);
+                } catch (er) {}
                 slider.classList.remove('cursor-grabbing');
             });
-            slider.addEventListener('pointercancel', () => { isDown = false; slider.classList.remove('cursor-grabbing'); });
+            slider.addEventListener('pointercancel', () => {
+                isDown = false;
+                slider.classList.remove('cursor-grabbing');
+            });
 
             // Update dots on resize and scroll
             window.addEventListener('resize', updateDots);
@@ -753,13 +434,108 @@
             // autoplay (optional) - slow interval
             let autoplay = setInterval(() => {
                 if (document.hidden) return;
-                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+                slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                });
             }, 7000);
             slider.addEventListener('mouseenter', () => clearInterval(autoplay));
-            slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
+            slider.addEventListener('mouseleave', () => {
+                autoplay = setInterval(() => slider.scrollBy({
+                    left: slider.clientWidth,
+                    behavior: 'smooth'
+                }), 7000);
+            });
         });
     </script>
-    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.getElementById('partners-carousel');
+            const track = document.getElementById('partners-track');
+            if (!carousel || !track) return;
+
+            let segmentWidth = track.scrollWidth / 2;
+            const speed = 0.4;
+            let animationId = null;
+
+            const updateSegmentWidth = () => {
+                segmentWidth = track.scrollWidth / 2;
+            };
+
+            const loop = () => {
+                carousel.scrollLeft += speed;
+                if (carousel.scrollLeft >= segmentWidth) {
+                    carousel.scrollLeft -= segmentWidth;
+                }
+                animationId = requestAnimationFrame(loop);
+            };
+
+            const start = () => {
+                if (!animationId) {
+                    animationId = requestAnimationFrame(loop);
+                }
+            };
+
+            const stop = () => {
+                if (animationId) {
+                    cancelAnimationFrame(animationId);
+                    animationId = null;
+                }
+            };
+
+            start();
+
+            window.addEventListener('resize', () => {
+                const ratio = carousel.scrollLeft / segmentWidth;
+                updateSegmentWidth();
+                carousel.scrollLeft = segmentWidth * ratio;
+            });
+
+            let isDown = false;
+            let startX = 0;
+            let scrollLeft = 0;
+
+            carousel.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                carousel.setPointerCapture(e.pointerId);
+                startX = e.clientX;
+                scrollLeft = carousel.scrollLeft;
+                carousel.classList.add('cursor-grabbing');
+                stop();
+            });
+
+            carousel.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                const walk = startX - e.clientX;
+                carousel.scrollLeft = scrollLeft + walk;
+            });
+
+            const endDrag = (e) => {
+                if (!isDown) return;
+                isDown = false;
+                carousel.classList.remove('cursor-grabbing');
+                try {
+                    carousel.releasePointerCapture(e.pointerId);
+                } catch (error) {}
+                start();
+            };
+
+            carousel.addEventListener('pointerup', endDrag);
+            carousel.addEventListener('pointerleave', endDrag);
+            carousel.addEventListener('pointercancel', endDrag);
+
+            carousel.addEventListener('mouseenter', stop);
+            carousel.addEventListener('mouseleave', start);
+
+            carousel.addEventListener('wheel', (e) => {
+                stop();
+                carousel.scrollLeft += e.deltaY || e.deltaX;
+                start();
+            }, {
+                passive: true
+            });
+        });
+    </script>
 <?php $__env->stopPush(); ?>
 
 <?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\alamak\resources\views/pages/home.blade.php ENDPATH**/ ?>

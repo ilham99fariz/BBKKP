@@ -72,23 +72,34 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($services->take(4) as $service)
                     <div
-                        class="bg-white rounded-lg shadow p-6 hover:shadow-xl transition h-full flex flex-col justify-between">
-                        <div class="text-center">
-                            @if ($service->icon)
-                                <div class="w-16 h-16 mx-auto mb-4 overflow-hidden rounded-full">
-                                    <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}"
-                                        class="w-full h-full object-cover">
-                                </div>
-                            @else
-                                <div
-                                    class="bg-blue-100 w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full">
-                                    <i class="fas fa-cog text-blue-600 text-2xl"></i>
-                                </div>
-                            @endif
-                            <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $service->title }}</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">{{ Str::limit($service->description, 120) }}</p>
-                            <a href="{{ route('services.show', $service) }}"
-                                class="text-blue-600 font-semibold hover:text-blue-700">{{ __('home.learn_more') }} <i
+                        class="bg-white rounded-lg shadow hover:shadow-xl transition h-full flex flex-col overflow-hidden">
+                        @if ($service->icon)
+                            <div class="w-full h-48 overflow-hidden">
+                                <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}"
+                                    class="w-full h-full object-cover">
+                            </div>
+                        @else
+                            <div class="bg-blue-100 w-full h-48 flex items-center justify-center">
+                                <i class="fas fa-cog text-blue-600 text-4xl"></i>
+                            </div>
+                        @endif
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center line-clamp-2">{{ $service->title }}</h3>
+                            <p class="text-gray-600 mb-4 text-center line-clamp-3 flex-grow">{{ Str::limit($service->description, 120) }}</p>
+                            @php
+                                $lowerTitle = Str::lower($service->title);
+                                if (Str::contains($lowerTitle, 'pengujian')) {
+                                    $url = url('/pengujian');
+                                } elseif (Str::contains($lowerTitle, 'kalibrasi')) {
+                                    $url = url('/kalibrasi');
+                                } elseif (Str::contains($lowerTitle, 'sertifikasi')) {
+                                    $url = url('/sertifikasi');
+                                } else {
+                                    $url = route('services.show', $service);
+                                }
+                            @endphp
+                            <a href="{{ $url }}"
+                                class="text-blue-600 font-semibold hover:text-blue-700 text-center block mt-auto">{{ __('home.learn_more') }} <i
                                     class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>

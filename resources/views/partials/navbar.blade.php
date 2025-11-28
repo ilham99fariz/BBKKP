@@ -239,8 +239,6 @@
                         <a href="/ikm"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
                             Kepuasan Masyarakat</a>
-                        <a href="{{ route('contact.show') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
                     </div>
                 </div>
 
@@ -306,6 +304,8 @@
                         <a href="/makna-logo"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Makna
                             Logo</a>
+                        <a href="{{ route('contact.show') }}"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
                     </div>
                 </div>
 
@@ -648,10 +648,6 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Indeks Kepuasan Masyarakat
                     </a>
-                    <a href="{{ route('contact.show') }}"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Kontak
-                    </a>
                 </div>
             </div>
 
@@ -727,6 +723,10 @@
                     <a href="/makna-logo"
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Makna Logo
+                    </a>
+                    <a href="{{ route('contact.show') }}"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Kontak
                     </a>
                 </div>
             </div>

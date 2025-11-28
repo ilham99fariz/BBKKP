@@ -178,6 +178,8 @@
                         </div>
                     </div>
                     
+                    @endif
+
                     <!-- Media dan Informasi -->
                     <div>
                         <button @click="openMenus.mediaInformasi = !openMenus.mediaInformasi" 

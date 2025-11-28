@@ -13,7 +13,7 @@ class ContactController extends Controller
      */
     public function show()
     {
-        return view('pages.standards.contact');
+        return view('pages.about.contact');
     }
 
     /**
