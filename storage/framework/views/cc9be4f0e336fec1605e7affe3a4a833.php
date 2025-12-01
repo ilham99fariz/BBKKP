@@ -236,9 +236,6 @@
                         <a href="/survey-layanan-pelanggan"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
                             Layanan Pelanggan</a>
-                        <a href="/ikm"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
-                            Kepuasan Masyarakat</a>
                     </div>
                 </div>
 

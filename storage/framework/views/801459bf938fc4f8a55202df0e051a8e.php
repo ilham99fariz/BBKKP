@@ -179,6 +179,36 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     
                     <div>
+                        <label for="purpose" class="block text-sm font-medium text-gray-700 mb-2">Keperluan *</label>
+                        <select id="purpose"
+                                name="purpose"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent <?php $__errorArgs = ['purpose'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>">
+                            <option value="" disabled <?php echo e(old('purpose') ? '' : 'selected'); ?>>Pilih keperluan</option>
+                            <option value="kunjungan" <?php echo e(old('purpose') == 'kunjungan' ? 'selected' : ''); ?>>Kunjungan</option>
+                            <option value="ajuan_layanan" <?php echo e(old('purpose') == 'ajuan_layanan' ? 'selected' : ''); ?>>Ajuan Layanan</option>
+                            <option value="lainnya" <?php echo e(old('purpose') == 'lainnya' ? 'selected' : ''); ?>>Lainnya</option>
+                        </select>
+                        <?php $__errorArgs = ['purpose'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                            <p class="text-red-500 text-sm mt-1"><?php echo e($message); ?></p>
+                        <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+                    </div>
+                    
+                    <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan *</label>
                         <textarea id="message" 
                                   name="message" 
