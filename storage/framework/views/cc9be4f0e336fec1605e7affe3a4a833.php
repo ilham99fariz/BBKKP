@@ -9,25 +9,13 @@
 <nav class="bg-white shadow-lg sticky top-0 z-50" x-data="navbarData()">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="<?php echo e(route('home')); ?>" class="flex items-center">
-                    <img 
-                        class="h-8 sm:h-10 md:h-12 w-auto object-contain"
-                        src="<?php echo e(asset('images/logobalai.png')); ?>" 
-                        alt="Logo"
-                    >
+                <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
+                    <img class="h-8 w-auto sm:h-10" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo">
+                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
                 </a>
             </div>
-
-            <!-- Logo -->
-            <!-- <div class="flex items-center">
-                <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center">
-                    <img class="h-8 w-auto sm:h-10" src="<?php echo e(asset('images/logobalai.png')); ?>" alt="Logo"> -->
-                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
-                <!-- </a>
-            </div> -->
 
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-1">
@@ -248,9 +236,6 @@
                         <a href="/survey-layanan-pelanggan"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
                             Layanan Pelanggan</a>
-                        <!-- <a href="/ikm"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
-                            Kepuasan Masyarakat</a> -->
                     </div>
                 </div>
 
@@ -316,7 +301,7 @@
                         <a href="/makna-logo"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Makna
                             Logo</a>
-                            <a href="<?php echo e(route('contact.show')); ?>"
+                        <a href="<?php echo e(route('contact.show')); ?>"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
                     </div>
                 </div>
@@ -657,10 +642,10 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Survey Layanan Pelanggan
                     </a>
-                    <!-- <a href="/ikm"
+                    <a href="/ikm"
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Indeks Kepuasan Masyarakat
-                    </a> -->
+                    </a>
                 </div>
             </div>
 

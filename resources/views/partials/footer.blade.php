@@ -17,15 +17,15 @@
                 <div class="space-y-2 text-white text-sm">
                     <div class="flex items-start">
                         <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
-                        <span>Jl. Sukonandi No.9, Yogyakarta<br>Indonesia 55166</span>
+                        <a href="https://maps.app.goo.gl/FtS4PNQ56YYLv4z86" target="_blank" class="hover:text-blue-200 transition-colors duration-200">Jl. Sukonandi No.9, Yogyakarta<br>Indonesia 55166</a>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-phone mr-2"></i>
-                        <span>+628112827821</span>
+                        <span>+62 (274) 512-929</span>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-envelope mr-2"></i>
-                        <span>bbkkp_jogja@yahoo.com</span>
+                        <a href="mailto:bbkkp_jogja@yahoo.com" class="hover:text-blue-200 transition-colors duration-200">bbkkp_jogja@yahoo.com</a>
                     </div>
                 </div>
 
@@ -51,8 +51,11 @@
 
             <!-- PROFIL -->
             <div>
-                <h3 class="text-base font-bold mb-4 uppercase">Profil</h3>
-                <ul class="space-y-2 text-sm">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Profil
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sejarah</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Visi dan
@@ -75,8 +78,11 @@
 
             <!-- LAYANAN UTAMA & LAYANAN EDUKASI -->
             <div>
-                <h3 class="text-base font-bold mb-4 uppercase">Layanan Utama</h3>
-                <ul class="space-y-2 text-sm mb-6">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Layanan Utama
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm mb-6 footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Audit
                             Teknologi</a></li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pengujian</a>
@@ -109,8 +115,11 @@
                             Percepatan Layanan</a></li>
                 </ul>
 
-                <h3 class="text-base font-bold mb-4 uppercase">Layanan Edukasi</h3>
-                <ul class="space-y-2 text-sm">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Layanan Edukasi
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">PKL/Magang</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kunjungan</a>
@@ -120,8 +129,11 @@
 
             <!-- LAYANAN HALAL & ZONA INTEGRITAS -->
             <div>
-                <h3 class="text-base font-bold mb-4 uppercase">Layanan Halal</h3>
-                <ul class="space-y-2 text-sm mb-6">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Layanan Halal
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm mb-6 footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tentang LPH</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan LPH</a>
@@ -134,8 +146,11 @@
                             Yang Sering Terkait Halal</a></li>
                 </ul>
 
-                <h3 class="text-base font-bold mb-4 uppercase">Zona Integritas</h3>
-                <ul class="space-y-2 text-sm">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Zona Integritas
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Komitmen</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peta
@@ -151,8 +166,11 @@
 
             <!-- INFORMASI PUBLIK & HUBUNGI KAMI -->
             <div>
-                <h3 class="text-base font-bold mb-4 uppercase">Informasi Publik</h3>
-                <ul class="space-y-2 text-sm mb-6">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Informasi Publik
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm mb-6 footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Berita</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Agenda
@@ -175,8 +193,11 @@
                             Penanganan Bencana</a></li>
                 </ul>
 
-                <h3 class="text-base font-bold mb-4 uppercase">Hubungi Kami</h3>
-                <ul class="space-y-2 text-sm">
+                <h3 class="text-base font-bold mb-4 uppercase flex justify-between items-center cursor-pointer lg:cursor-default" onclick="toggleFooterDropdown(this)">
+                    Hubungi Kami
+                    <i class="fas fa-chevron-down lg:hidden transition-transform duration-200"></i>
+                </h3>
+                <ul class="space-y-2 text-sm footer-dropdown-content">
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Buku Tamu</a>
                     </li>
                     <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Keluhan dan
@@ -202,19 +223,19 @@
                 <!-- Social Media Links -->
                 <div class="flex items-center space-x-1">
                     <span class="text-sm mr-3 font-semibold">Media Sosial</span>
-                    <a href="https://www.instagram.com/"
+                    <a href="https://www.instagram.com/bbkkp.kemenperin/"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="https://x.com/"
+                    <a href="https://x.com/BbkkpKemenperin"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-x-twitter"></i>
                     </a>
-                    <a href="https://www.facebook.com/"
+                    <a href="https://www.facebook.com/bbkkp.yogyakarta"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-facebook-f"></i>
                     </a>
-                    <a href="https://www.youtube.com/"
+                    <a href="https://www.youtube.com/c/BBKKPKemenperin"
                         class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-youtube"></i>
                     </a>
@@ -223,6 +244,43 @@
         </div>
     </div>
 </footer>
+
+<style>
+    @media (max-width: 1023px) {
+        .footer-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .footer-dropdown-content.active {
+            max-height: 1000px;
+            transition: max-height 0.5s ease-in;
+        }
+    }
+    @media (min-width: 1024px) {
+        .footer-dropdown-content {
+            max-height: none !important;
+        }
+    }
+</style>
+
+<script>
+    function toggleFooterDropdown(element) {
+        if (window.innerWidth < 1024) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+    }
+</script>
+
 </body>
 
 </html>

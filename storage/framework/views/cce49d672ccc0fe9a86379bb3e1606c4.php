@@ -57,6 +57,14 @@
                         $adminRole = session('admin_role', 'superadmin');
                         $isMediaAdmin = $adminRole === 'media';
                     ?>
+                    <?php
+                        // Unread messages count for sidebar badge
+                        try {
+                            $unreadMessages = \App\Models\ContactMessage::where('is_read', false)->count();
+                        } catch (\Throwable $e) {
+                            $unreadMessages = 0;
+                        }
+                    ?>
                     
                     <?php if(!$isMediaAdmin): ?>
                     <!-- Layanan -->
@@ -127,8 +135,7 @@
                             </a>
                         </div>
                     </div>
-                    <?php endif; ?>
-                    
+
                     <?php if(!$isMediaAdmin): ?>
                     <!-- Standar Pelayanan -->
                     <div>
@@ -179,6 +186,8 @@
                         </div>
                     </div>
                     
+                    <?php endif; ?>
+
                     <!-- Media dan Informasi -->
                     <div>
                         <button @click="openMenus.mediaInformasi = !openMenus.mediaInformasi" 
@@ -212,6 +221,8 @@
                             </a>
                         </div>
                     </div>
+                    
+                    <!-- Kunjungan / Pesan (dipindah ke bawah Halal Center) -->
                     <?php endif; ?>
                     
                     <?php if(!$isMediaAdmin): ?>
@@ -285,6 +296,16 @@
                         </div>
                     </div>
                     <?php endif; ?>
+
+                    <!-- Kunjungan / Pesan (di bawah Halal Center) -->
+                    <a href="<?php echo e(route('admin.messages.index')); ?>" 
+                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg <?php echo e(request()->routeIs('admin.messages.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'); ?>">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <span>Kunjungan / Pesan</span>
+                        <?php if($unreadMessages > 0): ?>
+                            <span class="ml-auto inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-600 text-white"><?php echo e($unreadMessages); ?></span>
+                        <?php endif; ?>
+                    </a>
                     
                     <?php if(!$isMediaAdmin): ?>
                     <a href="<?php echo e(route('admin.testimonials.index')); ?>" 

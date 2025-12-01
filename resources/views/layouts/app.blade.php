@@ -29,6 +29,29 @@
         [x-cloak] {
             display: none !important;
         }
+
+        /* Custom styling for accessibility widget on mobile */
+        @media (max-width: 768px) {
+            #accessibility-widget,
+            .accessibility-button,
+            [id*="resvoice"],
+            [class*="resvoice"],
+            [id*="widget"],
+            [class*="widget"] {
+                width: 55px !important;
+                height: 55px !important;
+                min-width: 55px !important;
+                min-height: 55px !important;
+            }
+            
+            #accessibility-widget img,
+            .accessibility-button img,
+            [id*="resvoice"] img,
+            [class*="resvoice"] img {
+                max-width: 30px !important;
+                max-height: 30px !important;
+            }
+        }
     </style>
 </head>
 

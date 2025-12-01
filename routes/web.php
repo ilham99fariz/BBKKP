@@ -95,6 +95,12 @@ Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionControl
 Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
 
+    // Messages / Kunjungan
+    Route::get('/messages', [App\Http\Controllers\Admin\ContactMessageController::class, 'index'])->name('admin.messages.index');
+    Route::get('/messages/{message}', [App\Http\Controllers\Admin\ContactMessageController::class, 'show'])->name('admin.messages.show');
+    Route::post('/messages/{message}/mark-read', [App\Http\Controllers\Admin\ContactMessageController::class, 'markRead'])->name('admin.messages.mark-read');
+    Route::post('/messages/{message}/reply', [App\Http\Controllers\Admin\ContactMessageController::class, 'reply'])->name('admin.messages.reply');
+
     Route::resource('services', AdminServiceController::class)->names([
         'index' => 'admin.services.index',
         'create' => 'admin.services.create',
