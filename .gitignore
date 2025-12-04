@@ -44,3 +44,5 @@ yarn-error.log
 storage/*.key
 .phpstorm.meta.php
 _ide_helper.php
+storage/framework/views/
+storage/app/public/

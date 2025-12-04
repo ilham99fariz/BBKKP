@@ -15,6 +15,9 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ServiceRatingController;
+use App\Http\Controllers\Admin\CurveRatingController;
+use App\Http\Controllers\Admin\IpkRatingController;
 use App\Http\Controllers\Admin\SurveyController;
 
 /*
@@ -84,6 +87,8 @@ Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class,
 // Pengujian Routes
 Route::get('/pengujian', [PengujianController::class, 'index'])->name('pengujian.index');
 Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'])->name('pengujian.produk-kulit');
+// Proses Pengujian (informasi alur dan dokumen)
+Route::view('/pengujian/proses', 'pages.pengujian.proses-pengujian')->name('pengujian.proses');
 
 // Kalibrasi Routes
 Route::view('/kalibrasi', 'pages.kalibrasi.index')->name('kalibrasi.index');
@@ -165,6 +170,36 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/settings', [SettingController::class, 'index'])->name('admin.settings.index');
     Route::put('/settings', [SettingController::class, 'update'])->name('admin.settings.update');
 
+    Route::resource('service-ratings', ServiceRatingController::class)->names([
+        'index' => 'admin.service-ratings.index',
+        'create' => 'admin.service-ratings.create',
+        'store' => 'admin.service-ratings.store',
+        'show' => 'admin.service-ratings.show',
+        'edit' => 'admin.service-ratings.edit',
+        'update' => 'admin.service-ratings.update',
+        'destroy' => 'admin.service-ratings.destroy',
+    ]);
+
+    Route::resource('curve-ratings', CurveRatingController::class)->names([
+        'index' => 'admin.curve-ratings.index',
+        'create' => 'admin.curve-ratings.create',
+        'store' => 'admin.curve-ratings.store',
+        'show' => 'admin.curve-ratings.show',
+        'edit' => 'admin.curve-ratings.edit',
+        'update' => 'admin.curve-ratings.update',
+        'destroy' => 'admin.curve-ratings.destroy',
+    ]);
+
+    Route::resource('ipk-ratings', IpkRatingController::class)->names([
+        'index' => 'admin.ipk-ratings.index',
+        'create' => 'admin.ipk-ratings.create',
+        'store' => 'admin.ipk-ratings.store',
+        'show' => 'admin.ipk-ratings.show',
+        'edit' => 'admin.ipk-ratings.edit',
+        'update' => 'admin.ipk-ratings.update',
+        'destroy' => 'admin.ipk-ratings.destroy',
+    ]);
+
     Route::resource('dynamic-pages', AdminDynamicPageController::class)->names([
         'index' => 'admin.dynamic-pages.index',
         'create' => 'admin.dynamic-pages.create',
@@ -203,6 +238,10 @@ Route::prefix('halal-center')->name('halal.')->group(function () {
     Route::view('/peraturan-dan-pedoman', 'pages.halal-center.regulations')->name('regulations');
     Route::view('/faq', 'pages.halal-center.faq')->name('faq');
 });
+
+// PDF proxy download route (same-origin attachment response)
+Route::get('/pdf/download/{key}', [App\Http\Controllers\PdfProxyController::class, 'download'])
+    ->name('pdf.download');
 
 // Dynamic Pages Route (MUST BE LAST - catch-all route)
 Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.page');
