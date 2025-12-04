@@ -20,13 +20,24 @@
                     @method('PUT')
 
                     <div class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div>
                                 <label for="name" class="block text-sm font-medium text-gray-700">Nama Indikator</label>
                                 <input type="text" name="name" id="name" value="{{ old('name', $serviceRating->name) }}"
                                     class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
                                     placeholder="Contoh: Indeks Kepuasan Masyarakat" required>
                                 @error('name')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="tooltip_label" class="block text-sm font-medium text-gray-700">Label Tooltip</label>
+                                <input type="text" name="tooltip_label" id="tooltip_label" value="{{ old('tooltip_label', $serviceRating->tooltip_label) }}"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                                    placeholder="Contoh: Nilai IKM">
+                                <p class="mt-1 text-xs text-gray-500">Opsional. Jika kosong, akan menggunakan label tahun</p>
+                                @error('tooltip_label')
                                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                                 @enderror
                             </div>

@@ -16,6 +16,8 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ServiceRatingController;
+use App\Http\Controllers\Admin\CurveRatingController;
+use App\Http\Controllers\Admin\IpkRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,6 +157,26 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'edit' => 'admin.service-ratings.edit',
         'update' => 'admin.service-ratings.update',
         'destroy' => 'admin.service-ratings.destroy',
+    ]);
+
+    Route::resource('curve-ratings', CurveRatingController::class)->names([
+        'index' => 'admin.curve-ratings.index',
+        'create' => 'admin.curve-ratings.create',
+        'store' => 'admin.curve-ratings.store',
+        'show' => 'admin.curve-ratings.show',
+        'edit' => 'admin.curve-ratings.edit',
+        'update' => 'admin.curve-ratings.update',
+        'destroy' => 'admin.curve-ratings.destroy',
+    ]);
+
+    Route::resource('ipk-ratings', IpkRatingController::class)->names([
+        'index' => 'admin.ipk-ratings.index',
+        'create' => 'admin.ipk-ratings.create',
+        'store' => 'admin.ipk-ratings.store',
+        'show' => 'admin.ipk-ratings.show',
+        'edit' => 'admin.ipk-ratings.edit',
+        'update' => 'admin.ipk-ratings.update',
+        'destroy' => 'admin.ipk-ratings.destroy',
     ]);
 
     Route::resource('dynamic-pages', AdminDynamicPageController::class)->names([

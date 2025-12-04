@@ -303,6 +303,18 @@
                         <i class="fas fa-chart-bar mr-3"></i>
                         Rating Layanan
                     </a>
+                    
+                    <a href="{{ route('admin.curve-ratings.index') }}" 
+                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.curve-ratings.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-chart-line mr-3"></i>
+                        Curve Rating
+                    </a>
+                    
+                    <a href="{{ route('admin.ipk-ratings.index') }}" 
+                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.ipk-ratings.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-balance-scale mr-3"></i>
+                        Skor IPK
+                    </a>
                     @endif
                     
                     <a href="{{ route('admin.settings.index') }}" 
