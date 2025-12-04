@@ -124,8 +124,10 @@
     </div>
 
     <!-- CKEditor 4 -->
-    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    <script src="https://cdn.ckeditor.com/4.22.1/standard-all/ckeditor.js"></script>
     <script>
+        const ckUploadUrl = "{{ route('admin.page-content.upload', ['type' => $type]) }}?_token={{ csrf_token() }}";
+
         CKEDITOR.replace('content', {
             height: 500,
             language: 'id',
@@ -145,9 +147,11 @@
                 { name: 'tools', items: ['Maximize', 'ShowBlocks'] },
                 { name: 'about', items: ['About'] }
             ],
-            filebrowserImageUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}',
-            filebrowserUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}',
+            filebrowserImageUploadUrl: ckUploadUrl,
+            filebrowserUploadUrl: ckUploadUrl,
             filebrowserUploadMethod: 'form',
+            extraPlugins: 'uploadimage,image2,justify',
+            removePlugins: 'easyimage,cloudservices,image',
             allowedContent: true
         });
     </script>

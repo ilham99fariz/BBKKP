@@ -52,6 +52,11 @@
                 max-height: 30px !important;
             }
         }
+            .accordion { margin: 20px 0; }
+            .ac-item { border-bottom: 1px solid #ddd; padding:5px 0; }
+            .ac-item h5 { cursor:pointer; padding:10px; background:#f5f5f5; }
+            .ac-content { display:none; padding:10px; }
+            .ac-content.open { display:block; }
     </style>
 </head>
 
@@ -99,6 +104,16 @@
     </script>
 
     <!-- WhatsApp Floating Button -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".ac-item h5").forEach(header => {
+                header.addEventListener("click", () => {
+                    header.nextElementSibling.classList.toggle("open");
+                });
+            });
+        });
+    </script>
 
 </body>
 

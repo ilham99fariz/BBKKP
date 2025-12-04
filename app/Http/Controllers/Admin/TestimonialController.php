@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Testimonial;
+use App\Models\SurveyResponse;
 use Illuminate\Http\Request;
 
 class TestimonialController extends Controller
@@ -13,7 +14,34 @@ class TestimonialController extends Controller
      */
     public function index()
     {
-        $testimonials = Testimonial::ordered()->paginate(10);
+        // Prefer survey responses as source for testimonials if available
+        $surveyCount = SurveyResponse::count();
+
+        if ($surveyCount > 0) {
+            // Paginate survey responses and map fields to what the testimonial view expects
+            $paginator = SurveyResponse::latest()->paginate(10);
+
+            $paginator->getCollection()->transform(function ($item) {
+                return (object) [
+                    'id' => null,
+                    'survey_id' => $item->id,
+                    'is_survey' => true,
+                    'client_name' => $item->fullname ?? 'Anonymous',
+                    'client_company' => $item->company ?? null,
+                    'content' => $item->feedback ?? '',
+                    'rating' => $item->rating ?? 0,
+                    'is_approved' => true,
+                    'sort_order' => 0,
+                    'image' => null,
+                    'show_on_home' => $item->show_on_home ?? false,
+                ];
+            });
+
+            $testimonials = $paginator;
+        } else {
+            $testimonials = Testimonial::ordered()->paginate(10);
+        }
+
         return view('admin.testimonials.index', compact('testimonials'));
     }
 

@@ -405,6 +405,9 @@
     <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
     
+    <!-- CKEditor 4 Full -->
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+    
     {{-- <!-- WhatsApp Floating Button -->
     @include('components.whatsapp-button') --}}
 </body>

@@ -84,27 +84,42 @@
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <div class="flex space-x-2">
-                                    <a href="{{ route('admin.testimonials.edit', $testimonial) }}"
-                                        class="text-indigo-600 hover:text-indigo-900">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form action="{{ route('admin.testimonials.toggle-approval', $testimonial) }}" method="POST" class="inline">
-                                        @csrf
-                                        <button type="submit" 
-                                                class="text-{{ $testimonial->is_approved ? 'yellow' : 'green' }}-600 hover:text-{{ $testimonial->is_approved ? 'yellow' : 'green' }}-900"
-                                                title="{{ $testimonial->is_approved ? 'Batalkan Persetujuan' : 'Setujui' }}">
-                                            <i class="fas fa-{{ $testimonial->is_approved ? 'times' : 'check' }}"></i>
-                                        </button>
-                                    </form>
-                                    <form action="{{ route('admin.testimonials.destroy', $testimonial) }}" method="POST"
-                                        class="inline"
-                                        onsubmit="return confirm('Apakah Anda yakin ingin menghapus testimoni ini?')">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="text-red-600 hover:text-red-900">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </form>
+                                    @if(isset($testimonial->is_survey) && $testimonial->is_survey === true)
+                                        {{-- Survey item: allow only toggle visibility and delete --}}
+                                        <form action="{{ route('admin.surveys.toggle-visibility', $testimonial->survey_id) }}" method="POST" class="inline">
+                                            @csrf
+                                            <button type="submit" class="text-{{ $testimonial->show_on_home ? 'green' : 'gray' }}-600 hover:text-{{ $testimonial->show_on_home ? 'green' : 'gray' }}-900"
+                                                    title="{{ ($testimonial->show_on_home ?? false) ? 'Sembunyikan di beranda' : 'Tampilkan di beranda' }}">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                        </form>
+
+                                        <form action="{{ route('admin.surveys.destroy', $testimonial->survey_id) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus survey ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    @else
+                                        {{-- Regular Testimonial actions --}}
+                                        <a href="{{ route('admin.testimonials.edit', $testimonial) }}" class="text-indigo-600 hover:text-indigo-900">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <form action="{{ route('admin.testimonials.toggle-approval', $testimonial) }}" method="POST" class="inline">
+                                            @csrf
+                                            <button type="submit" class="text-{{ $testimonial->is_approved ? 'yellow' : 'green' }}-600 hover:text-{{ $testimonial->is_approved ? 'yellow' : 'green' }}-900" title="{{ $testimonial->is_approved ? 'Batalkan Persetujuan' : 'Setujui' }}">
+                                                <i class="fas fa-{{ $testimonial->is_approved ? 'times' : 'check' }}"></i>
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('admin.testimonials.destroy', $testimonial) }}" method="POST" class="inline" onsubmit="return confirm('Apakah Anda yakin ingin menghapus testimoni ini?')">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="text-red-600 hover:text-red-900">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
