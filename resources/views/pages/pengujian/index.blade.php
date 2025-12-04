@@ -54,6 +54,10 @@
                         class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition">
                         {{ __('pengujian.test_request') }}
                     </a>
+                    <a href="{{ route('pengujian.proses') }}"
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-semibold transition">
+                        {{ __('pengujian.proses_info') ?? 'Prosedur Pengujian' }}
+                    </a>
                 </div>
             </div>
         </div>
@@ -1076,13 +1080,39 @@
                 <p class="text-gray-700 mb-4">
                     {{ __('Complete information regarding testing service rates can be downloaded through the following document:') }}
                 </p>
-                <a href="https://bbkkp.kemenperin.go.id/storage/files/page/tarif/Kep.%2040%20Penetapan%20Tarif%20Jasa%20Layanan%20BLU%20BBSPJIKKP%202025%20uji.pdf"
-                    target="_blank" rel="noopener noreferrer"
+                <button type="button"
+                    onclick="openPdfModalTarif('https://bbkkp.kemenperin.go.id/storage/files/page/tarif/Kep.%2040%20Penetapan%20Tarif%20Jasa%20Layanan%20BLU%20BBSPJIKKP%202025%20uji.pdf','tarif')"
                     class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold transition">
-                    <i class="fas fa-download mr-2"></i>{{ __('pengujian.download') }} {{ __('pengujian.test_rate') }}
-                </a>
+                    <i class="fas fa-eye mr-2"></i>Preview Dokumen
+                </button>
             </div>
         </section>
+
+        <!-- Inline PDF Modal for Tarif Uji (preview with Save/Open controls) -->
+        <div id="pdfModalTarif" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl shadow-xl w-full max-w-5xl h-[90vh] relative overflow-hidden flex flex-col">
+                <div class="flex items-center justify-between p-4 border-b border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ __('pengujian.test_rate') }} - Preview</h3>
+
+                    <div class="flex items-center gap-2">
+                        <button id="pdfDownloadBtnTarif" type="button" class="hidden sm:inline-flex items-center px-3 py-1 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm">
+                            <i class="fas fa-download mr-2"></i>Save
+                        </button>
+                        <button id="pdfOpenBtnTarif" onclick="openPdfInNewTabTarif()" class="inline-flex items-center px-3 py-1 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm">
+                            <i class="fas fa-external-link-alt mr-2"></i>Open
+                        </button>
+                        <button onclick="closePdfModalTarif()" 
+                            class="flex-shrink-0 inline-flex items-center justify-center h-8 w-8 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <iframe id="pdfFrameTarif" src="" class="flex-1 w-full" style="border: none;"></iframe>
+            </div>
+        </div>
 
         <!-- Section SOP Pengujian -->
         <section id="sop-pengujian" class="mb-16">
@@ -1098,11 +1128,11 @@
 
                 <div class="bg-white border rounded-lg p-6 shadow-sm">
                     <h3 class="text-xl font-semibold text-gray-900 mb-3">SOP Layanan Jasa Pengujian</h3>
-                    <a href="https://bbkkp.kemenperin.go.id/storage/files/page/SOP%20Layanan%20Jasa%20Pengujian.pdf"
-                        target="_blank" rel="noopener noreferrer"
+                    <button type="button"
+                        onclick="openPdfModalTarif('https://bbkkp.kemenperin.go.id/storage/files/page/SOP%20Layanan%20Jasa%20Pengujian.pdf','sop')"
                         class="inline-block bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-semibold transition">
-                        <i class="fas fa-download mr-2"></i>Unduh
-                    </a>
+                        <i class="fas fa-eye mr-2"></i>Preview Dokumen
+                    </button>
                 </div>
             </div>
         </section>
@@ -1146,6 +1176,101 @@
                     });
                 });
             });
+        </script>
+
+        <script>
+            let currentPdfUrlTarif = null;
+            let currentPdfKeyTarif = '';
+            function openPdfModalTarif(url, key = '') {
+                // keep a current url and key reference
+                currentPdfUrlTarif = url;
+                currentPdfKeyTarif = key;
+                const frame = document.getElementById('pdfFrameTarif');
+                const modal = document.getElementById('pdfModalTarif');
+                if (!frame || !modal) return;
+                frame.src = url + "#zoom=100";
+                modal.classList.remove('hidden');
+                document.body.classList.add('overflow-hidden');
+
+                // update buttons
+                const dl = document.getElementById('pdfDownloadBtnTarif');
+                const openBtn = document.getElementById('pdfOpenBtnTarif');
+                if (dl) {
+                    dl.classList.remove('hidden');
+                    dl.onclick = function(e) { e.preventDefault(); downloadPdfTarif(); };
+                }
+                if (openBtn) {
+                    openBtn.dataset.url = url;
+                }
+            }
+
+            function closePdfModalTarif() {
+                currentPdfUrlTarif = null;
+                const frame = document.getElementById('pdfFrameTarif');
+                const modal = document.getElementById('pdfModalTarif');
+                if (frame) frame.src = "";
+                if (modal) modal.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+
+                const dl = document.getElementById('pdfDownloadBtnTarif');
+                if (dl) {
+                    dl.classList.add('hidden');
+                    dl.onclick = null;
+                }
+            }
+
+            function openPdfInNewTabTarif() {
+                const url = currentPdfUrlTarif || document.getElementById('pdfOpenBtnTarif').dataset.url;
+                if (!url) return;
+                window.open(url, '_blank', 'noopener');
+            }
+
+            async function downloadPdfTarif() {
+                const url = currentPdfUrlTarif || document.getElementById('pdfOpenBtnTarif').dataset.url;
+                if (!url) return;
+
+                // If we have a proxy key, use same-origin proxy route to force attachment
+                if (currentPdfKeyTarif) {
+                    const proxyUrl = '/pdf/download/' + encodeURIComponent(currentPdfKeyTarif);
+                    // navigate to proxy URL to trigger download (keeps it same-origin)
+                    window.location.href = proxyUrl;
+                    return;
+                }
+
+                // Fallback: try fetch+blob download
+                try {
+                    const resp = await fetch(url, { method: 'GET', mode: 'cors' });
+                    if (!resp.ok) throw new Error('Network response was not ok');
+                    const blob = await resp.blob();
+                    const filename = (url.split('/').pop() || 'document.pdf').split('?')[0];
+                    const blobUrl = URL.createObjectURL(blob);
+
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+
+                    setTimeout(() => URL.revokeObjectURL(blobUrl), 20000);
+                } catch (err) {
+                    console.warn('Programmatic download failed, opening in new tab. Error:', err);
+                    window.open(url, '_blank', 'noopener');
+                }
+            }
+
+            // Close modal when clicking on backdrop and ESC handling
+            (function() {
+                const modal = document.getElementById('pdfModalTarif');
+                if (!modal) return;
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) closePdfModalTarif();
+                });
+
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') closePdfModalTarif();
+                });
+            })();
         </script>
     @endpush
 @endsection

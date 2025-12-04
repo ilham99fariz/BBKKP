@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="oAVzB7PhhKff5uOy21OUflHRGRLI2zKGNuPnOQ8m">
+
+    <title>Beranda - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET</title>
+    <meta name="description" content="Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk
+    mendukung perkembangan industri nasional">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="http://127.0.0.1:8000/build/assets/app-f0adbc54.css" /><link rel="modulepreload" href="http://127.0.0.1:8000/build/assets/app-cc83df79.js" /><link rel="stylesheet" href="http://127.0.0.1:8000/build/assets/app-f0adbc54.css" /><script type="module" src="http://127.0.0.1:8000/build/assets/app-cc83df79.js"></script>    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    <div id="app">
+        <!-- Navigation -->
+        <!-- Tambahkan ini di bagian <head> layout Anda -->
+<style>
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
+
+<!-- Navigation -->
+<nav class="bg-white shadow-lg sticky top-0 z-50" x-data="navbarData()">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="http://127.0.0.1:8000" class="flex-shrink-0 flex items-center">
+                    <img class="h-8 w-auto sm:h-10" src="http://127.0.0.1:8000/images/logobalai.png" alt="Logo">
+                    <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden lg:flex items-center space-x-1">
+                <a href="http://127.0.0.1:8000"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 text-blue-600 font-semibold">
+                    Beranda
+                </a>
+
+                <!-- Layanan Dropdown -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a href="http://127.0.0.1:8000/layanan"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        Layanan
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- Invisible bridge to prevent cursor gap -->
+                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                        @mouseleave="open = false"></div>
+                    <div x-show="open" x-cloak
+                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="http://127.0.0.1:8000/pengujian"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengujian</a>
+                        <a href="http://127.0.0.1:8000/kalibrasi"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kalibrasi</a>
+
+                        <!-- Sertifikasi -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true"
+                            @mouseleave="open = false">
+                            <a href="http://127.0.0.1:8000/sertifikasi"
+                                class="px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                <span>Sertifikasi</span>
+                                <svg class="h-3 w-3 transition-transform duration-200" :class="open ? 'rotate-90' : ''"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <!-- Invisible bridge for submenu -->
+                            <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak x-transition
+                                class="absolute left-full top-0 ml-1 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                <a href="http://127.0.0.1:8000/sertifikasi"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sertifikasi
+                                    Produk (SPPT SNI)</a>
+                                <a href="http://127.0.0.1:8000/sertifikasi#smm"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SMM</a>
+                                <a href="http://127.0.0.1:8000/sertifikasi#smk3"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SMK3</a>
+                                <a href="http://127.0.0.1:8000/sertifikasi#sml"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SML</a>
+                                <a href="http://127.0.0.1:8000/sertifikasi#sih"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">SIH</a>
+                                <a href="http://127.0.0.1:8000/sertifikasi#personil"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sertifikasi
+                                    Personil</a>
+                            </div>
+                        </div>
+
+                        <!-- Bimbingan Teknis / Konsultansi -->
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" @mouseenter="open = true" @mouseleave="open = false"
+                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                Bimbingan Teknis / Konsultansi
+                                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Invisible bridge for submenu -->
+                            <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak
+                                class="absolute left-full top-0 ml-1 pl-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                <a href="/audit-teknologi"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Audit
+                                    Teknologi</a>
+                                <a href="/indi-4-0"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">INDI
+                                    4.0</a>
+                                <a href="/tkdn"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">TKDN</a>
+                                <a href="/sistem-manajemen-sni-iso"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sistem
+                                    Manajemen (SNI/ISO)</a>
+                                <a href="/penyusunan-dokumen"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Penyusunan
+                                    Dokumen</a>
+                            </div>
+                        </div>
+
+                        <a href="/inspeksi"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Inspeksi</a>
+
+                        <!-- Verifikasi dan Validasi -->
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" @mouseenter="open = true" @mouseleave="open = false"
+                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                Verifikasi dan Validasi
+                                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Invisible bridge for submenu -->
+                            <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak
+                                class="absolute left-full top-0 ml-1 pl-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                <a href="/grk"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">GRK</a>
+                                <a href="/tkdn-validasi"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">TKDN</a>
+                            </div>
+                        </div>
+
+                        <!-- Uji Profisiensi -->
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" @mouseenter="open = true" @mouseleave="open = false"
+                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                Uji Profisiensi
+                                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Invisible bridge for submenu -->
+                            <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak
+                                class="absolute left-full top-0 ml-1 pl-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                <a href="/uji-profsiensi-kalibrasi"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kalibrasi</a>
+                                <a href="/uji-profsiensi-pengujian"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengujian</a>
+                            </div>
+                        </div>
+
+                        <a href="/pelatihan-teknis"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pelatihan
+                            Teknis</a>
+                        <a href="/produsen-bahan-acuan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Produsen
+                            Bahan Acuan</a>
+
+                        <!-- Edukasi -->
+                        <div class="relative" x-data="{ open: false }">
+                            <button @click="open = !open" @mouseenter="open = true" @mouseleave="open = false"
+                                class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 flex items-center justify-between">
+                                Edukasi
+                                <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                            <!-- Invisible bridge for submenu -->
+                            <div class="absolute left-full top-0 w-4 h-full" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak
+                                class="absolute left-full top-0 ml-1 pl-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                <a href="/magang-pkl"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Magang
+                                    / PKL</a>
+                                <a href="/kunjungan"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kunjungan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standar Pelayanan Dropdown -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a href="http://127.0.0.1:8000/standar-layanan"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        Standar Pelayanan
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- Invisible bridge to prevent cursor gap -->
+                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                        @mouseleave="open = false"></div>
+                    <div x-show="open" x-cloak
+                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="/standar-pelayanan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Standar
+                            Pelayanan</a>
+                        <a href="/maklumat-pelayanan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Maklumat
+                            Pelayanan</a>
+                        <a href="/tarif-layanan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tarif
+                            Layanan</a>
+                        <a href="/tarif-percepatan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tarif
+                            Percepatan</a>
+                        <a href="/spm"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Standar
+                            Pelayanan Minimum (SPM)</a>
+                        <a href="/survey-layanan-pelanggan"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
+                            Layanan Pelanggan</a>
+                        <a href="/ikm"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Indeks
+                            Kepuasan Masyarakat</a>
+                        <a href="http://127.0.0.1:8000/kontak"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
+                    </div>
+                </div>
+
+                <!-- Media dan Informasi Dropdown -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a href="http://127.0.0.1:8000/media-informasi"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        Media dan Informasi
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- Invisible bridge to prevent cursor gap -->
+                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                        @mouseleave="open = false"></div>
+                    <div x-show="open" x-cloak
+                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="/keterbukaan-informasi-publik"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Keterbukaan
+                            Informasi Publik</a>
+                        <a href="http://127.0.0.1:8000/berita"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">BBSPJIKKP
+                            News</a>
+                        <a href="/publikasi"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publikasi</a>
+                        <a href="/pengumuman"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengumuman</a>
+                    </div>
+                </div>
+
+                <!-- Tentang Kami Dropdown -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <a href="http://127.0.0.1:8000/tentang-kami"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        Tentang Kami
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <!-- Invisible bridge to prevent cursor gap -->
+                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                        @mouseleave="open = false"></div>
+                    <div x-show="open" x-cloak
+                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="/tonggak-sejarah"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tonggak
+                            Sejarah</a>
+                        <a href="/profil-singkat"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Profil
+                            Singkat BBSPJIKKP (Visi, Misi, Tata Nilai, Moto, Tupoksi)</a>
+                        <a href="/profil-pejabat"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Profil
+                            Pejabat</a>
+                        <a href="/struktur-organisasi"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Struktur
+                            Organisasi</a>
+                        <a href="/makna-logo"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Makna
+                            Logo</a>
+                    </div>
+                </div>
+
+                <a href="/halal-center"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                    Halal Center
+                </a>
+
+                <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
+                    Daftar Layanan
+                </a>
+
+                <!-- Language Switcher -->
+                <div class="relative ml-2" x-data="{ open: false }" @mouseenter="open = true"
+                    @mouseleave="open = false">
+                    <button type="button"
+                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                        <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                        ID
+                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div x-show="open" x-cloak x-transition
+                        class="absolute right-0 mt-2 w-40 bg-white shadow-xl rounded-lg py-2 z-50"
+                        @mouseenter="open = true" @mouseleave="open = false">
+                        <a href="http://127.0.0.1:8000/language/id"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 bg-blue-50 text-blue-600">
+                            🇮🇩 Bahasa Indonesia
+                        </a>
+                        <a href="http://127.0.0.1:8000/language/en"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 ">
+                            🇬🇧 English
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="flex items-center lg:hidden">
+                <button @click="mobileOpen = !mobileOpen" type="button"
+                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                    aria-controls="mobile-menu" :aria-expanded="mobileOpen.toString()">
+                    <span class="sr-only">Buka menu</span>
+                    <!-- Icon Hamburger -->
+                    <svg x-show="!mobileOpen" class="block h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                    <!-- Icon Close -->
+                    <svg x-show="mobileOpen" x-cloak class="block h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile overlay -->
+    <div x-show="mobileOpen" x-cloak @click="mobileOpen = false"
+        class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" x-transition:enter="ease-out duration-300"
+        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+        x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0">
+    </div>
+
+    <!-- Mobile Navigation Drawer (Right Side) -->
+    <div x-show="mobileOpen" x-cloak id="mobile-menu"
+        class="fixed inset-y-0 right-0 z-50 w-80 bg-white shadow-2xl lg:hidden overflow-y-auto"
+        x-transition:enter="transform transition ease-in-out duration-300" x-transition:enter-start="translate-x-full"
+        x-transition:enter-end="translate-x-0" x-transition:leave="transform transition ease-in-out duration-300"
+        x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full">
+
+        <!-- Drawer header -->
+        <div class="flex items-center justify-between px-4 py-4 border-b border-gray-200 bg-blue-50">
+            <span class="text-lg font-semibold text-gray-900">Menu Navigasi</span>
+            <button @click="mobileOpen = false" type="button"
+                class="p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <span class="sr-only">Tutup menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Items -->
+        <div class="px-4 py-4 space-y-1">
+            <a href="http://127.0.0.1:8000"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 bg-blue-100 text-blue-600">
+                Beranda
+            </a>
+
+            <!-- Mobile Layanan Dropdown -->
+            <div class="space-y-1">
+                <button @click="layananOpen = !layananOpen" type="button"
+                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    <span>Layanan</span>
+                    <svg class="h-5 w-5 transition-transform duration-200" :class="layananOpen ? 'rotate-180' : ''"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="layananOpen" x-cloak class="pl-4 mt-1 space-y-1">
+                    <a href="http://127.0.0.1:8000/layanan"
+                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
+                        Semua Layanan
+                    </a>
+                    <a href="http://127.0.0.1:8000/pengujian"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Pengujian
+                    </a>
+                    <a href="http://127.0.0.1:8000/kalibrasi"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Kalibrasi
+                    </a>
+
+                    <!-- Sub-menu Sertifikasi -->
+                    <div>
+                        <div class="flex items-center justify-between">
+                            <a href="http://127.0.0.1:8000/sertifikasi"
+                                class="flex-1 px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Sertifikasi
+                            </a>
+                            <button @click="sertifikasiOpen = !sertifikasiOpen" type="button"
+                                class="px-2 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                <svg class="h-4 w-4 transition-transform duration-200"
+                                    :class="sertifikasiOpen ? 'rotate-180' : ''" fill="currentColor"
+                                    viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                        <div x-show="sertifikasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
+                            <a href="http://127.0.0.1:8000/sertifikasi"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Sertifikasi Produk (SPPT SNI)
+                            </a>
+                            <a href="http://127.0.0.1:8000/sertifikasi#smm"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                SMM
+                            </a>
+                            <a href="http://127.0.0.1:8000/sertifikasi#smk3"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                SMK3
+                            </a>
+                            <a href="http://127.0.0.1:8000/sertifikasi#sml"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                SML
+                            </a>
+                            <a href="http://127.0.0.1:8000/sertifikasi#sih"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                SIH
+                            </a>
+                            <a href="http://127.0.0.1:8000/sertifikasi#personil"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Sertifikasi Personil
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sub-menu Bimbingan Teknis / Konsultansi -->
+                    <div>
+                        <button @click="bimbinganOpen = !bimbinganOpen" type="button"
+                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                            <span>Bimbingan Teknis / Konsultansi</span>
+                            <svg class="h-4 w-4 transition-transform duration-200"
+                                :class="bimbinganOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="bimbinganOpen" x-cloak class="pl-6 mt-1 space-y-1">
+                            <a href="/audit-teknologi"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Audit Teknologi
+                            </a>
+                            <a href="/indi-4-0"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                INDI 4.0
+                            </a>
+                            <a href="/tkdn"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                TKDN
+                            </a>
+                            <a href="/sistem-manajemen-sni-iso"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Sistem Manajemen (SNI/ISO)
+                            </a>
+                            <a href="/penyusunan-dokumen"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Penyusunan Dokumen
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="/inspeksi"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Inspeksi
+                    </a>
+
+                    <!-- Sub-menu Verifikasi dan Validasi -->
+                    <div>
+                        <button @click="verifikasiOpen = !verifikasiOpen" type="button"
+                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                            <span>Verifikasi dan Validasi</span>
+                            <svg class="h-4 w-4 transition-transform duration-200"
+                                :class="verifikasiOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="verifikasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
+                            <a href="/grk"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                GRK
+                            </a>
+                            <a href="/tkdn-validasi"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                TKDN
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Sub-menu Uji Profisiensi -->
+                    <div>
+                        <button @click="ujiOpen = !ujiOpen" type="button"
+                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                            <span>Uji Profisiensi</span>
+                            <svg class="h-4 w-4 transition-transform duration-200" :class="ujiOpen ? 'rotate-180' : ''"
+                                fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="ujiOpen" x-cloak class="pl-6 mt-1 space-y-1">
+                            <a href="/uji-profsiensi-kalibrasi"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Kalibrasi
+                            </a>
+                            <a href="/uji-profsiensi-pengujian"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Pengujian
+                            </a>
+                        </div>
+                    </div>
+
+                    <a href="/pelatihan-teknis"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Pelatihan Teknis
+                    </a>
+                    <a href="/produsen-bahan-acuan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Produsen Bahan Acuan
+                    </a>
+
+                    <!-- Sub-menu Edukasi -->
+                    <div>
+                        <button @click="edukasiOpen = !edukasiOpen" type="button"
+                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                            <span>Edukasi</span>
+                            <svg class="h-4 w-4 transition-transform duration-200"
+                                :class="edukasiOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div x-show="edukasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
+                            <a href="/magang-pkl"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Magang / PKL
+                            </a>
+                            <a href="/kunjungan"
+                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                                Kunjungan
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Standar Pelayanan Dropdown -->
+            <div class="space-y-1">
+                <button @click="standarOpen = !standarOpen" type="button"
+                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    <span>Standar Pelayanan</span>
+                    <svg class="h-5 w-5 transition-transform duration-200" :class="standarOpen ? 'rotate-180' : ''"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="standarOpen" x-cloak class="pl-4 mt-1 space-y-1">
+                    <a href="http://127.0.0.1:8000/standar-layanan"
+                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
+                        Semua Standar Pelayanan
+                    </a>
+                    <a href="/standar-pelayanan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Standar Pelayanan
+                    </a>
+                    <a href="/maklumat-pelayanan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Maklumat Pelayanan
+                    </a>
+                    <a href="/tarif-layanan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Tarif Layanan
+                    </a>
+                    <a href="/tarif-percepatan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Tarif Percepatan
+                    </a>
+                    <a href="/spm"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Standar Pelayanan Minimum (SPM)
+                    </a>
+                    <a href="/survey-layanan-pelanggan"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Survey Layanan Pelanggan
+                    </a>
+                    <a href="/ikm"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Indeks Kepuasan Masyarakat
+                    </a>
+                    <a href="http://127.0.0.1:8000/kontak"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Kontak
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Media dan Informasi Dropdown -->
+            <div class="space-y-1">
+                <button @click="mediaOpen = !mediaOpen" type="button"
+                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    <span>Media dan Informasi</span>
+                    <svg class="h-5 w-5 transition-transform duration-200" :class="mediaOpen ? 'rotate-180' : ''"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="mediaOpen" x-cloak class="pl-4 mt-1 space-y-1">
+                    <a href="http://127.0.0.1:8000/media-informasi"
+                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
+                        Semua Media & Informasi
+                    </a>
+                    <a href="/keterbukaan-informasi-publik"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Keterbukaan Informasi Publik
+                    </a>
+                    <a href="http://127.0.0.1:8000/berita"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        BBSPJIKKP News
+                    </a>
+                    <a href="/publikasi"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Publikasi
+                    </a>
+                    <a href="/pengumuman"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Pengumuman
+                    </a>
+                </div>
+            </div>
+
+            <!-- Mobile Tentang Kami Dropdown -->
+            <div class="space-y-1">
+                <button @click="tentangOpen = !tentangOpen" type="button"
+                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    <span>Tentang Kami</span>
+                    <svg class="h-5 w-5 transition-transform duration-200" :class="tentangOpen ? 'rotate-180' : ''"
+                        fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <div x-show="tentangOpen" x-cloak class="pl-4 mt-1 space-y-1">
+                    <a href="http://127.0.0.1:8000/tentang-kami"
+                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
+                        Profil & Tentang Kami
+                    </a>
+                    <a href="/tonggak-sejarah"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Tonggak Sejarah
+                    </a>
+                    <a href="/profil-singkat"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Profil Singkat BBSPJIKKP
+                    </a>
+                    <a href="/profil-pejabat"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Profil Pejabat
+                    </a>
+                    <a href="/struktur-organisasi"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Struktur Organisasi
+                    </a>
+                    <a href="/makna-logo"
+                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
+                        Makna Logo
+                    </a>
+                </div>
+            </div>
+
+            <a href="/halal-center"
+                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                Halal Center
+            </a>
+
+            <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
+                class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 text-center mt-4">
+                Daftar Layanan
+            </a>
+
+            <!-- Language Switcher Mobile -->
+            <div class="mt-4 border-t border-gray-200 pt-4">
+                <div class="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+                    Bahasa
+                </div>
+                <a href="http://127.0.0.1:8000/language/id"
+                    class="block px-3 py-2 rounded-md text-base font-medium bg-blue-50 text-blue-600">
+                    🇮🇩 Bahasa Indonesia
+                </a>
+                <a href="http://127.0.0.1:8000/language/en"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                    🇬🇧 English
+                </a>
+            </div>
+
+            <!-- Mobile Admin Login (Uncomment if needed) -->
+            <!--                                                                 <a href="http://127.0.0.1:8000/login"
+                                                                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-green-600 hover:bg-green-700 text-center mt-2">
+                                                                    Login Admin
+                                                                </a>
+             -->
+
+            <!--  -->
+        </div>
+    </div>
+</nav>
+
+<!-- Alpine.js Script - Tambahkan ini sebelum </body> di layout utama Anda -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<script>
+    function navbarData() {
+        return {
+            mobileOpen: false,
+            layananOpen: false,
+            sertifikasiOpen: false,
+            bimbinganOpen: false,
+            verifikasiOpen: false,
+            ujiOpen: false,
+            edukasiOpen: false,
+            standarOpen: false,
+            mediaOpen: false,
+            tentangOpen: false
+        }
+    }
+</script>
+
+        <!-- Main Content -->
+        <main>
+                <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
+                Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk mendukung perkembangan industri nasional
+            </p>
+            <p class="text-lg mb-10 text-blue-200 max-w-3xl mx-auto">
+                Kami berkomitmen untuk memberikan pelayanan terbaik dalam bidang standardisasi dan pelayanan jasa industri kulit, plastik, dan karet dengan standar internasional.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="http://127.0.0.1:8000/layanan"
+                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Lihat Layanan Kami
+                </a>
+                <a href="http://127.0.0.1:8000/kontak"
+                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gradient-to-br from-white via-white to-blue-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Image -->
+                <div class="flex justify-center lg:justify-start">
+                    <img src="http://127.0.0.1:8000/images/logobalai.png" alt="Logo BBSPJIKP" class="w-full max-w-md">
+                    <!-- Atau jika menggunakan path langsung -->
+                    <!-- <img src="/path/to/your/image.png" alt="Logo BBSPJIKP" class="w-full max-w-md"> -->
+                </div>
+
+                <!-- Right Side - Content -->
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                        Dari Pengujian ke Kepercayaan
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-4">
+                        Menjaga Mutu, Mendukung Daya Saing Industri <span class="text-green-600 font-semibold">Industri</span>
+                    </p>
+                    <p class="text-base text-gray-600 leading-relaxed">
+                        Menjadi balai besar yang akuntabel, kolaboratif dan berorientasi pelayanan dalam mewujudkan industri nasional bidang kulit, karet, dan plastik yang mandiri dan berdaya saing
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (carousel + grid) -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Layanan Kami
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Kami menyediakan berbagai layanan berkualitas tinggi untuk mendukung industri Anda
+                </p>
+            </div>
+
+            <!-- Static grid (top) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                            </div>
+
+            <!-- Carousel slider (scrollable) -->
+            <div class="relative">
+                <button id="services-prev" aria-label="Sebelumnya" class="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="services-next" aria-label="Selanjutnya" class="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-3 hover:bg-blue-50 transition">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <div id="services-slider" class="no-scrollbar overflow-x-auto scroll-smooth -mx-2 px-2 py-4" style="scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;">
+                    <div class="flex items-stretch gap-4">
+                                            </div>
+                </div>
+
+                <!-- Dots (optional) -->
+                <div id="services-dots" class="flex justify-center mt-8 space-x-2"></div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="http://127.0.0.1:8000/layanan" class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">Lihat Semua Layanan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <!-- News Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Berita &amp; Update
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Ikuti perkembangan terbaru dari kami
+                </p>
+            </div>
+
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Featured News (besar di kiri) -->
+                
+                <!-- Other News (kecil di kanan) -->
+                <div class="space-y-6">
+                                    </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="http://127.0.0.1:8000/berita"
+                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">
+                    Lihat Semua Berita
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Testimonials Section -->
+
+    <!-- Testimonials Section -->
+    
+
+
+
+    
+
+
+    <!-- CTA Section -->
+    <!-- Atau Bisa Seperti Di Bawah Ini -->
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
+        </main>
+
+        <!-- Footer -->
+        <!-- Footer -->
+<footer class="bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <!-- Company Info -->
+            <div class="col-span-1 lg:col-span-1">
+                <div class="flex items-center mb-4">
+                    <!-- <div class="h-12 w-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fas fa-cog text-blue-500 text-2xl"></i>
+                    </div> -->
+                    <img class="h-15 w-auto sm:h-17" src="http://127.0.0.1:8000/images/logobalai-hitamputih.png" alt="Logo">
+                    <!-- <span class="ml-3 text-lg font-bold">BBSPJIKKP</span> -->
+                </div>
+                <p class="text-white text-sm mb-4 leading-relaxed">
+                    Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik
+                </p>
+                <div class="space-y-2 text-white text-sm">
+                    <div class="flex items-start">
+                        <i class="fas fa-map-marker-alt mr-2 mt-1"></i>
+                        <span>Jl. Sukonandi No.9, Yogyakarta<br>Indonesia 55166</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        <span>+62 811-2827-821</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope mr-2"></i>
+                        <span>bbkkp_jogja@yahoo.com</span>
+                    </div>
+                </div>
+
+                <!-- Jam Pelayanan -->
+                <div class="mt-6">
+                    <h4 class="font-semibold mb-2 text-sm">Jam Pelayanan</h4>
+                    <div class="text-xs space-y-1">
+                        <div class="flex items-center">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>Senin - Kamis: 08:00 - 15:30</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-clock mr-2"></i>
+                            <span>Jumat: 08:00 - 16:00</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="far fa-calendar-times mr-2"></i>
+                            <span>Sabtu, Ahad: Tutup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFIL -->
+            <div>
+                <h3 class="text-base font-bold mb-4 uppercase">Profil</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sejarah</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Visi dan
+                            Misi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tugas Pokok dan
+                            Fungsi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Motto</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Maklumat
+                            Pelayanan</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan
+                            Mutu</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Struktur
+                            Organisasi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Profil Singkat
+                            Penjabat</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sumber Daya</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- LAYANAN UTAMA & LAYANAN EDUKASI -->
+            <div>
+                <h3 class="text-base font-bold mb-4 uppercase">Layanan Utama</h3>
+                <ul class="space-y-2 text-sm mb-6">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Audit
+                            Teknologi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pengujian</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sertifikasi</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kalibrasi</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Konsultansi</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pelatihan
+                            Teknis</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Produsen Bahan
+                            Acuan (PBA)</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan
+                            INDI 4.0</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan
+                            TKDN</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
+                            Verifikasi dan Validasi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
+                            Inspeksi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Uji
+                            Profisiensi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
+                            Sertifikasi Profesi</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Standar
+                            Playanan Publik</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tarif
+                            Percepatan Layanan</a></li>
+                </ul>
+
+                <h3 class="text-base font-bold mb-4 uppercase">Layanan Edukasi</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">PKL/Magang</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kunjungan</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- LAYANAN HALAL & ZONA INTEGRITAS -->
+            <div>
+                <h3 class="text-base font-bold mb-4 uppercase">Layanan Halal</h3>
+                <ul class="space-y-2 text-sm mb-6">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tentang LPH</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan LPH</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Proses
+                            Sertifikasi Halal</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peraturan dan
+                            Pedoman Halal</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pertanyaan
+                            Yang Sering Terkait Halal</a></li>
+                </ul>
+
+                <h3 class="text-base font-bold mb-4 uppercase">Zona Integritas</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Komitmen</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peta
+                            Jalan</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Gratifikasi</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Laporan
+                            Pelanggaran</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Benturan
+                            Kepentingan</a></li>
+                </ul>
+            </div>
+
+            <!-- INFORMASI PUBLIK & HUBUNGI KAMI -->
+            <div>
+                <h3 class="text-base font-bold mb-4 uppercase">Informasi Publik</h3>
+                <ul class="space-y-2 text-sm mb-6">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Berita</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Agenda
+                            Pimpinan</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Penjabat
+                            Pengelola Informasi dan Dokumentasi (PPID)</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar
+                            Informasi Publik (DIP)</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar
+                            Informasi Yang Dikecualikan (DIK)</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi
+                            Berkala</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi
+                            Setiap Saat</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan
+                            Informasi Publik</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kode Etik
+                            Pelayanan Publik</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">SOP
+                            Penanganan Bencana</a></li>
+                </ul>
+
+                <h3 class="text-base font-bold mb-4 uppercase">Hubungi Kami</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Buku Tamu</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Keluhan dan
+                            Pengaduan</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Survey
+                            Pelanggan</a></li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kontak</a>
+                    </li>
+                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan
+                            Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Social Media & Copyright -->
+        <div class="border-t border-blue-400 mt-8 pt-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-white text-sm mb-4 md:mb-0 text-center md:text-left">
+                    © 2025 - Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik. All
+                    Rights Reserved.
+                </div>
+
+                <!-- Social Media Links -->
+                <div class="flex items-center space-x-1">
+                    <span class="text-sm mr-3 font-semibold">Media Sosial</span>
+                    <a href="https://www.instagram.com/"
+                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://x.com/"
+                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/"
+                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.youtube.com/"
+                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+
+</html>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('services-slider');
+            if (!slider) return;
+
+            const prevBtn = document.getElementById('services-prev');
+            const nextBtn = document.getElementById('services-next');
+            const dotsContainer = document.getElementById('services-dots');
+
+            function getItems() {
+                return Array.from(slider.querySelectorAll('.flex > .flex-shrink-0, .flex > [class*="w-"]'));
+            }
+
+            function itemsPerView() {
+                const w = window.innerWidth;
+                if (w >= 1024) return 4;
+                if (w >= 768) return 3;
+                if (w >= 640) return 2;
+                return 1;
+            }
+
+            function updateDots() {
+                const items = getItems();
+                const per = itemsPerView();
+                const pages = Math.max(1, Math.ceil(items.length / per));
+                dotsContainer.innerHTML = '';
+                for (let i = 0; i < pages; i++) {
+                    const btn = document.createElement('button');
+                    btn.className = 'w-3 h-3 rounded-full transition-all duration-200 bg-gray-300';
+                    btn.addEventListener('click', () => {
+                        slider.scrollTo({ left: i * slider.clientWidth, behavior: 'smooth' });
+                    });
+                    dotsContainer.appendChild(btn);
+                }
+                updateActiveDot();
+            }
+
+            function updateActiveDot() {
+                const items = getItems();
+                if (!items.length) return;
+                const per = itemsPerView();
+                const left = slider.scrollLeft;
+                const page = Math.round(left / slider.clientWidth);
+                const dots = dotsContainer.querySelectorAll('button');
+                dots.forEach((d, i) => d.className = i === page ? 'w-8 h-3 rounded-full bg-blue-600 transition-all duration-200' : 'w-3 h-3 rounded-full bg-gray-300 transition-all duration-200');
+            }
+
+            // Prev/Next scroll by one viewport-width (page)
+            prevBtn && prevBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: -slider.clientWidth, behavior: 'smooth' });
+            });
+            nextBtn && nextBtn.addEventListener('click', () => {
+                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+            });
+
+            // Pointer drag for desktop
+            let isDown = false, startX = 0, scrollLeft = 0;
+            slider.addEventListener('pointerdown', (e) => {
+                isDown = true;
+                slider.setPointerCapture(e.pointerId);
+                startX = e.clientX;
+                scrollLeft = slider.scrollLeft;
+                slider.classList.add('cursor-grabbing');
+            });
+            slider.addEventListener('pointermove', (e) => {
+                if (!isDown) return;
+                const x = e.clientX;
+                const walk = startX - x;
+                slider.scrollLeft = scrollLeft + walk;
+            });
+            slider.addEventListener('pointerup', (e) => {
+                isDown = false;
+                try { slider.releasePointerCapture(e.pointerId); } catch (er) {}
+                slider.classList.remove('cursor-grabbing');
+            });
+            slider.addEventListener('pointercancel', () => { isDown = false; slider.classList.remove('cursor-grabbing'); });
+
+            // Update dots on resize and scroll
+            window.addEventListener('resize', updateDots);
+            slider.addEventListener('scroll', () => {
+                // throttle via requestAnimationFrame
+                window.requestAnimationFrame(updateActiveDot);
+            });
+
+            // init
+            updateDots();
+
+            // autoplay (optional) - slow interval
+            let autoplay = setInterval(() => {
+                if (document.hidden) return;
+                slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' });
+            }, 7000);
+            slider.addEventListener('mouseenter', () => clearInterval(autoplay));
+            slider.addEventListener('mouseleave', () => { autoplay = setInterval(() => slider.scrollBy({ left: slider.clientWidth, behavior: 'smooth' }), 7000); });
+        });
+    </script>
+    
+</body>
+</html>

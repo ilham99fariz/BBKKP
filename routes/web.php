@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ServiceRatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -145,6 +146,16 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
 
     Route::get('/settings', [SettingController::class, 'index'])->name('admin.settings.index');
     Route::put('/settings', [SettingController::class, 'update'])->name('admin.settings.update');
+
+    Route::resource('service-ratings', ServiceRatingController::class)->names([
+        'index' => 'admin.service-ratings.index',
+        'create' => 'admin.service-ratings.create',
+        'store' => 'admin.service-ratings.store',
+        'show' => 'admin.service-ratings.show',
+        'edit' => 'admin.service-ratings.edit',
+        'update' => 'admin.service-ratings.update',
+        'destroy' => 'admin.service-ratings.destroy',
+    ]);
 
     Route::resource('dynamic-pages', AdminDynamicPageController::class)->names([
         'index' => 'admin.dynamic-pages.index',

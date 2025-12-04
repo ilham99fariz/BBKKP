@@ -172,31 +172,156 @@
 <div class="bg-[#2F8CD1] text-white rounded-xl p-5 w-fit ml-10 shadow-md">
     <h3 class="text-lg font-bold mb-3">Daftar Audit Halal</h3>
 
-    <ul class="space-y-1">
-        <li class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-white rounded-full"></span>
-            @php $audit202223 = public_path('files/Daftar-Audit-LPH-BBSPJIKKP-2022-2023-per20250801.pdf'); @endphp
-                <a href="{{ asset('files/Daftar-Audit-LPH-BBSPJIKKP-2022-2023-per20250801.pdf') }}" class="hover:underline flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0l-4-4m4 4l4-4"/></svg>
-                    <span>Tahun 2022–2023</span>
-                </a>
+    <ul class="space-y-3">
+
+        <!-- PREVIEW FILE 2022–2023 -->
+        <li class="flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-white rounded-full"></span>
+                <button 
+                    onclick="openPdfPreview('{{ asset('files/Daftar-Audit-LPH-BBSPJIKKP-2022-2023-per20250801.pdf') }}')"
+                    class="hover:underline text-white">
+                    Tahun 2022–2023
+                </button>
+            </div>
         </li>
 
-        <li class="flex items-center gap-2">
-            <span class="w-2 h-2 bg-white rounded-full"></span>
-            @php $audit2024 = public_path('files/Daftar-Audit-LPH-BBSPJIKKP-2024-per20250801.pdf'); @endphp
-                <a href="{{ asset('files/Daftar-Audit-LPH-BBSPJIKKP-2024-per20250801.pdf') }}" class="hover:underline flex items-center gap-2" target="_blank" rel="noopener noreferrer">
-                    <class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v12m0 0l-4-4m4 4l4-4"/></svg>
-                    <span>Tahun 2024</span>
-                </a>
+        <!-- PREVIEW FILE 2024 -->
+        <li class="flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+                <span class="w-2 h-2 bg-white rounded-full"></span>
+                <button 
+                    onclick="openPdfPreview('{{ asset('files/Daftar-Audit-LPH-BBSPJIKKP-2024-per20250801.pdf') }}')"
+                    class="hover:underline text-white">
+                    Tahun 2024
+                </button>
+            </div>
         </li>
+
     </ul>
 </div>
-                </section>
+
+<!-- MODAL PREVIEW PDF -->
+<div id="pdfModal" class="hidden fixed inset-0 bg-black bg-opacity-60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-5xl h-[90vh] relative overflow-hidden flex flex-col">
+        <!-- Header dengan Close Button -->
+        <div class="flex items-center justify-between p-4 border-b border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-900">PDF Preview</h3>
+
+            <div class="flex items-center gap-2">
+                <button id="pdfDownloadBtn" type="button" class="hidden sm:inline-flex items-center px-3 py-1 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm">
+                    <i class="fas fa-download mr-2"></i>Save
+                </button>
+                <button id="pdfOpenBtn" onclick="openPdfInNewTab()" class="inline-flex items-center px-3 py-1 rounded-md bg-gray-100 text-gray-700 hover:bg-gray-200 text-sm">
+                    <i class="fas fa-external-link-alt mr-2"></i>Open
+                </button>
+                <button onclick="closePdfPreview()" 
+                    class="flex-shrink-0 inline-flex items-center justify-center h-8 w-8 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
             </div>
         </div>
+
+        <!-- PDF VIEWER -->
+        <iframe id="pdfFrame" 
+            src="" 
+            class="flex-1 w-full"
+            style="border: none;">
+        </iframe>
     </div>
+</div>
+<script>
+    let currentPdfUrl = null;
+    function openPdfPreview(url) {
+        // Tambahkan #zoom=100 untuk memastikan bisa zoom
+        currentPdfUrl = url;
+        const frame = document.getElementById('pdfFrame');
+        frame.src = url + "#zoom=100";
+        document.getElementById('pdfModal').classList.remove('hidden');
+
+        // update download/open buttons
+        const dl = document.getElementById('pdfDownloadBtn');
+        const openBtn = document.getElementById('pdfOpenBtn');
+        if (dl) {
+            // show download button and attach handler
+            dl.classList.remove('hidden');
+            dl.onclick = function (e) {
+                e.preventDefault();
+                downloadPdf();
+            };
+        }
+        if (openBtn) {
+            openBtn.dataset.url = url;
+        }
+    }
+
+    function closePdfPreview() {
+        currentPdfUrl = null;
+        document.getElementById('pdfModal').classList.add('hidden');
+        const frame = document.getElementById('pdfFrame');
+        if (frame) frame.src = "";
+
+        const dl = document.getElementById('pdfDownloadBtn');
+        if (dl) {
+            dl.classList.add('hidden');
+            dl.onclick = null;
+        }
+    }
+
+    function openPdfInNewTab() {
+        const url = currentPdfUrl || document.getElementById('pdfOpenBtn').dataset.url;
+        if (!url) return;
+        window.open(url, '_blank', 'noopener');
+    }
+
+    async function downloadPdf() {
+        const url = currentPdfUrl || document.getElementById('pdfOpenBtn').dataset.url;
+        if (!url) return;
+        // Try to fetch the file and trigger an in-window download via blob+anchor.
+        // Many mobile browsers ignore 'download' on cross-origin links; if that fails,
+        // fall back to opening the file in a new tab so the user can save it.
+        try {
+            const resp = await fetch(url, { method: 'GET', mode: 'cors' });
+            if (!resp.ok) throw new Error('Network response was not ok');
+            const blob = await resp.blob();
+            const filename = (url.split('/').pop() || 'document.pdf').split('?')[0];
+            const blobUrl = URL.createObjectURL(blob);
+
+            // Create an anchor with download attribute and click it
+            const a = document.createElement('a');
+            a.href = blobUrl;
+            a.download = filename;
+            // For iOS Safari, anchor download may be ignored; attempt click anyway
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+
+            // Revoke the blob URL after a short delay
+            setTimeout(() => URL.revokeObjectURL(blobUrl), 20000);
+        } catch (err) {
+            console.warn('Programmatic download failed, opening in new tab. Error:', err);
+            // Fallback: open original URL in new tab (user can save from there)
+            window.open(url, '_blank', 'noopener');
+        }
+    }
+</script>
+                    </div>
+                </section>
+            </div>
+        </div>  
+
     <!-- Atau Bisa Seperti Di Bawah Ini -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
+
+    <!-- Close modal jika klik area gelap -->
+    <script>
+        document.getElementById('pdfModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePdfPreview();
+            }
+        });
+    </script>
 @endsection

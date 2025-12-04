@@ -40,6 +40,9 @@
 
         <!-- Footer -->
         @include('partials.footer')
+
+        <!-- WhatsApp Button Component -->
+        <x-whatsapp-button />
     </div>
 
     <!-- Scripts -->
