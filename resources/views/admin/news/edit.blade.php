@@ -62,7 +62,8 @@
                 <textarea name="content" 
                           id="content" 
                           rows="10"
-                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror">{{ old('content', $news->content ?? '') }}</textarea>
+                          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror"
+                          required>{{ old('content', $news->content ?? '') }}</textarea>
                 @error('content')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
                 @enderror
@@ -196,13 +197,8 @@
                     Batal
                 </a>
                 <button type="submit" 
-                        id="submitBtn"
                         class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
-                    <i class="fas fa-save mr-2"></i>
-                    <span id="btnText">{{ isset($news) ? 'Update Berita' : 'Simpan Berita' }}</span>
-                    <span id="btnLoading" class="hidden">
-                        <i class="fas fa-spinner fa-spin mr-2"></i>Menyimpan...
-                    </span>
+                    <i class="fas fa-save mr-2"></i>{{ isset($news) ? 'Update Berita' : 'Simpan Berita' }}
                 </button>
             </div>
         </form>
@@ -227,11 +223,12 @@ function previewImage(event) {
 }
 </script>
 
-<!-- CKEditor 5 -->
-<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+<!-- Rich text editor using CKEditor 5 super-build -->
+<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/super-build/ckeditor.js"></script>
 <script>
     let editorInstance;
-    
+    const uploadUrl = "{{ route('admin.news.upload-image') }}?_token={{ csrf_token() }}";
+
     ClassicEditor
         .create(document.querySelector('#content'), {
             toolbar: {
@@ -258,60 +255,17 @@ function previewImage(event) {
                     { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
                 ]
             },
-            fontSize: {
-                options: [
-                    'tiny',
-                    'small',
-                    'default',
-                    'big',
-                    'huge'
-                ]
-            },
-            fontFamily: {
-                options: [
-                    'default',
-                    'Arial, Helvetica, sans-serif',
-                    'Courier New, Courier, monospace',
-                    'Georgia, serif',
-                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                    'Tahoma, Geneva, sans-serif',
-                    'Times New Roman, Times, serif',
-                    'Trebuchet MS, Helvetica, sans-serif',
-                    'Verdana, Geneva, sans-serif'
-                ]
-            },
             image: {
                 toolbar: [
-                    'imageStyle:inline',
-                    'imageStyle:block',
-                    'imageStyle:side',
-                    '|',
-                    'toggleImageCaption',
-                    'imageTextAlternative',
-                    '|',
-                    'linkImage'
+                    'imageStyle:inline', 'imageStyle:block', 'imageStyle:side', '|',
+                    'toggleImageCaption', 'imageTextAlternative', '|', 'linkImage'
                 ]
             },
             table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells',
-                    'tableCellProperties',
-                    'tableProperties'
-                ]
+                contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
             },
-            link: {
-                decorators: {
-                    openInNewTab: {
-                        mode: 'manual',
-                        label: 'Open in a new tab',
-                        attributes: {
-                            target: '_blank',
-                            rel: 'noopener noreferrer'
-                        }
-                    }
-                }
+            ckfinder: {
+                uploadUrl: uploadUrl
             },
             language: 'id',
             placeholder: 'Tulis konten berita di sini...',
@@ -320,78 +274,36 @@ function previewImage(event) {
         .then(editor => {
             editorInstance = editor;
             window.editor = editor;
-            
-            console.log('CKEditor initialized successfully');
-            
-            // Set min height
+
+            // set editor area min height
             editor.editing.view.change(writer => {
                 writer.setStyle('min-height', '400px', editor.editing.view.document.getRoot());
             });
+            // Ensure toolbar visible in case global CSS is missing
+            setTimeout(() => {
+                const tb = document.querySelector('.ck-toolbar');
+                console.log('CKEditor toolbar presence (edit):', !!tb, tb);
+                if (tb) {
+                    tb.style.display = 'flex';
+                    tb.style.zIndex = '9999';
+                    tb.style.visibility = 'visible';
+                    tb.style.opacity = '1';
+                }
+            }, 400);
         })
         .catch(error => {
             console.error('Error initializing CKEditor:', error);
-            alert('Gagal memuat editor. Silakan refresh halaman.');
         });
-    
-    // Handle form submission
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form');
-        const submitBtn = document.getElementById('submitBtn');
-        const btnText = document.getElementById('btnText');
-        const btnLoading = document.getElementById('btnLoading');
-        
-        if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                console.log('Submit button clicked');
-                
-                // Check if editor is ready
-                if (!editorInstance) {
-                    alert('Editor belum siap. Silakan tunggu sebentar dan coba lagi.');
-                    return false;
-                }
-                
-                // Get data from CKEditor
-                const editorData = editorInstance.getData();
-                console.log('Editor data length:', editorData.length);
-                
-                // Update textarea value
-                const contentTextarea = document.querySelector('#content');
-                contentTextarea.value = editorData;
-                
-                // Validate content
-                if (!editorData || editorData.trim() === '' || editorData === '<p>&nbsp;</p>' || editorData === '<p></p>') {
-                    alert('Konten berita tidak boleh kosong!');
-                    return false;
-                }
-                
-                // Show loading state
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    if (btnText) btnText.classList.add('hidden');
-                    if (btnLoading) btnLoading.classList.remove('hidden');
-                }
-                
-                console.log('Form is valid, submitting...');
-                
-                // Submit the form
-                form.submit();
-            });
-        }
-    });
 </script>
 
 <style>
-    .ck-editor__editable {
-        min-height: 400px;
-    }
-    .ck.ck-editor__main > .ck-editor__editable {
-        background-color: #ffffff;
-    }
+    /* Force toolbar visible if Tailwind/app.css missing */
     .ck.ck-toolbar {
+        display: flex !important;
+        z-index: 9999 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
         background-color: #f8f9fa !important;
         border: 1px solid #d1d5db !important;
     }
 </style>
-@endsection

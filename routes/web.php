@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SurveyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,9 @@ Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionControl
     ->middleware('guest')
     ->name('admin.login');
 
+//survey routes
+Route::post('/survey-submit', [\App\Http\Controllers\SurveyController::class, 'store'])->name('survey.submit');
+
 // Admin Routes
 Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
@@ -124,6 +128,10 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::post('/news/{news}/toggle-publish', [AdminNewsController::class, 'togglePublish'])
         ->name('admin.news.toggle-publish');
 
+    // Upload image from CKEditor 5 in news content
+    Route::post('/news/upload-image', [AdminNewsController::class, 'uploadImage'])
+        ->name('admin.news.upload-image');
+
     Route::resource('testimonials', TestimonialController::class)->names([
         'index' => 'admin.testimonials.index',
         'create' => 'admin.testimonials.create',
@@ -136,6 +144,13 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
 
     Route::post('/testimonials/{testimonial}/toggle-approval', [TestimonialController::class, 'toggleApproval'])
         ->name('admin.testimonials.toggle-approval');
+
+    // Admin actions for survey responses displayed in testimonials listing
+    Route::delete('/surveys/{id}', [App\Http\Controllers\Admin\SurveyController::class, 'destroy'])
+        ->name('admin.surveys.destroy');
+
+    Route::post('/surveys/{id}/toggle-visibility', [App\Http\Controllers\Admin\SurveyController::class, 'toggleVisibility'])
+        ->name('admin.surveys.toggle-visibility');
 
     Route::resource('partners', PartnerController::class)->names([
         'index' => 'admin.partners.index',

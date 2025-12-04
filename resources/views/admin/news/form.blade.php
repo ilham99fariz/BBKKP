@@ -227,11 +227,13 @@ function previewImage(event) {
 }
 </script>
 
-<!-- CKEditor 5 -->
-<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/classic/ckeditor.js"></script>
+<!-- CKEditor 5 Super-build (agar mendukung Source Editing & HTML Embed) -->
+<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/super-build/ckeditor.js"></script>
 <script>
     let editorInstance;
     
+    const uploadUrl = "{{ route('admin.news.upload-image') }}?_token={{ csrf_token() }}";
+
     ClassicEditor
         .create(document.querySelector('#content'), {
             toolbar: {
@@ -244,6 +246,7 @@ function previewImage(event) {
                     'alignment', '|',
                     'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
                     'insertTable', 'mediaEmbed', 'horizontalLine', '|',
+                    'htmlEmbed', '|',
                     'undo', 'redo', '|',
                     'sourceEditing'
                 ],
@@ -301,6 +304,13 @@ function previewImage(event) {
                     'tableProperties'
                 ]
             },
+            // CKEditor 5 super-build menggunakan CKFinder upload adapter
+            ckfinder: {
+                uploadUrl: uploadUrl
+            },
+            htmlEmbed: {
+                showPreviews: true
+            },
             link: {
                 decorators: {
                     openInNewTab: {
@@ -315,7 +325,8 @@ function previewImage(event) {
             },
             language: 'id',
             placeholder: 'Tulis konten berita di sini...',
-            minHeight: '400px'
+            minHeight: '400px',
+            // Keep default plugins provided by the super-build so uploads and source editing work
         })
         .then(editor => {
             editorInstance = editor;
@@ -392,6 +403,31 @@ function previewImage(event) {
     .ck.ck-toolbar {
         background-color: #f8f9fa !important;
         border: 1px solid #d1d5db !important;
+        display: flex !important;
+        z-index: 9999 !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+
+    /* Ensure toolbar items are visible when Tailwind or missing app.css affects layout */
+    .ck-toolbar {
+        display: flex !important;
+        align-items: center !important;
     }
 </style>
+<script>
+    // Diagnostic: ensure toolbar visible after initialization
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            const tb = document.querySelector('.ck-toolbar');
+            console.log('CKEditor toolbar presence (form):', !!tb, tb);
+            if (tb) {
+                tb.style.display = 'flex';
+                tb.style.zIndex = '9999';
+                tb.style.visibility = 'visible';
+                tb.style.opacity = '1';
+            }
+        }, 800);
+    });
+</script>
 @endsection

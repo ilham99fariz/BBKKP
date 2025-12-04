@@ -791,5 +791,4 @@
             tentangOpen: false
         }
     }
-</script>
-<?php /**PATH C:\alamak\resources\views/partials/navbar.blade.php ENDPATH**/ ?>
+</script><?php /**PATH C:\alamak\resources\views/partials/navbar.blade.php ENDPATH**/ ?>
