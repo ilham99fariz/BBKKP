@@ -107,6 +107,22 @@
                     </div>
                     
                     <div>
+                        <label for="purpose" class="block text-sm font-medium text-gray-700 mb-2">Keperluan *</label>
+                        <select id="purpose"
+                                name="purpose"
+                                required
+                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('purpose') border-red-500 @enderror">
+                            <option value="" disabled {{ old('purpose') ? '' : 'selected' }}>Pilih keperluan</option>
+                            <option value="kunjungan" {{ old('purpose') == 'kunjungan' ? 'selected' : '' }}>Kunjungan</option>
+                            <option value="ajuan_layanan" {{ old('purpose') == 'ajuan_layanan' ? 'selected' : '' }}>Ajuan Layanan</option>
+                            <option value="lainnya" {{ old('purpose') == 'lainnya' ? 'selected' : '' }}>Lainnya</option>
+                        </select>
+                        @error('purpose')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    
+                    <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan *</label>
                         <textarea id="message" 
                                   name="message" 
@@ -137,7 +153,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Alamat</h3>
-                                <p class="text-gray-600">Jl. Raya Industri No. 123<br>Jakarta Selatan 12345<br>Indonesia</p>
+                                <a href="https://maps.app.goo.gl/FtS4PNQ56YYLv4z86" target="_blank" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Jl. Sukonandi No.9, Semaki, Kec. Umbulharjo,<br>Kota Yogyakarta, Daerah Istimewa Yogyakarta<br>55166, Indonesia</a>
                             </div>
                         </div>
                         
@@ -147,7 +163,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Telepon</h3>
-                                <p class="text-gray-600">+62 21 1234 5678</p>
+                                <p class="text-gray-600">+62 (274) 512-929</p>
                             </div>
                         </div>
                         
@@ -157,7 +173,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Email</h3>
-                                <p class="text-gray-600">info@balaiindustri.go.id</p>
+                                <a href="mailto:bbkkp_jogja@yahoo.com" class="text-gray-600 hover:text-blue-600 transition-colors duration-200">bbkkp_jogja@yahoo.com</a>
                             </div>
                         </div>
                         
@@ -167,7 +183,7 @@
                             </div>
                             <div>
                                 <h3 class="font-semibold text-gray-900">Jam Operasional</h3>
-                                <p class="text-gray-600">Senin - Jumat: 08:00 - 17:00<br>Sabtu: 08:00 - 12:00</p>
+                                <p class="text-gray-600">Senin - Kamis: 08:00 - 15:30<br>Jum'at: 08:00 - 16:00<br>Sabtu - Minggu: Tutup</p>
                             </div>
                         </div>
                     </div>

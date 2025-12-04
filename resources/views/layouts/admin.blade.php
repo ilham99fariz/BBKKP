@@ -56,6 +56,14 @@
                         $adminRole = session('admin_role', 'superadmin');
                         $isMediaAdmin = $adminRole === 'media';
                     @endphp
+                    @php
+                        // Unread messages count for sidebar badge
+                        try {
+                            $unreadMessages = \App\Models\ContactMessage::where('is_read', false)->count();
+                        } catch (\Throwable $e) {
+                            $unreadMessages = 0;
+                        }
+                    @endphp
                     
                     @if(!$isMediaAdmin)
                     <!-- Layanan -->
@@ -126,8 +134,7 @@
                             </a>
                         </div>
                     </div>
-                    @endif
-                    
+
                     @if(!$isMediaAdmin)
                     <!-- Standar Pelayanan -->
                     <div>
@@ -178,6 +185,8 @@
                         </div>
                     </div>
                     
+                    @endif
+
                     <!-- Media dan Informasi -->
                     <div>
                         <button @click="openMenus.mediaInformasi = !openMenus.mediaInformasi" 
@@ -211,6 +220,8 @@
                             </a>
                         </div>
                     </div>
+                    
+                    <!-- Kunjungan / Pesan (dipindah ke bawah Halal Center) -->
                     @endif
                     
                     @if(!$isMediaAdmin)
@@ -284,6 +295,16 @@
                         </div>
                     </div>
                     @endif
+
+                    <!-- Kunjungan / Pesan (di bawah Halal Center) -->
+                    <a href="{{ route('admin.messages.index') }}" 
+                       class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.messages.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-envelope mr-3"></i>
+                        <span>Kunjungan / Pesan</span>
+                        @if($unreadMessages > 0)
+                            <span class="ml-auto inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-red-600 text-white">{{ $unreadMessages }}</span>
+                        @endif
+                    </a>
                     
                     @if(!$isMediaAdmin)
                     <a href="{{ route('admin.testimonials.index') }}" 
@@ -401,6 +422,9 @@
     
     <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    
+    <!-- CKEditor 4 Full -->
+    <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
     
     {{-- <!-- WhatsApp Floating Button -->
     @include('components.whatsapp-button') --}}

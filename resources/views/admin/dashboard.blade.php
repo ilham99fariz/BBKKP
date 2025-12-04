@@ -68,6 +68,19 @@
                 </div>
             </div>
         </div>
+        
+        <div class="bg-white rounded-lg shadow p-6">
+            <div class="flex items-center">
+                <div class="p-3 rounded-full bg-teal-100 text-teal-600">
+                    <i class="fas fa-chart-bar text-2xl"></i>
+                </div>
+                <div class="ml-4">
+                    <p class="text-sm font-medium text-gray-500">Kunjungan / Pesan</p>
+                    <p class="text-2xl font-semibold text-gray-900">{{ ($stats['visits'] ?? 0) + ($stats['messages'] ?? 0) }}</p>
+                    <p class="text-xs text-gray-500">{{ $stats['visits'] ?? 0 }} kunjungan · {{ $stats['messages'] ?? 0 }} pesan</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">

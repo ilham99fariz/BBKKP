@@ -144,4 +144,45 @@ class NewsController extends Controller
         return redirect()->route('admin.news.index')
             ->with('success', 'Berita berhasil dihapus!');
     }
+
+    /**
+     * Handle image upload from CKEditor 5 (simpleUpload adapter)
+     */
+    public function uploadImage(Request $request)
+    {
+        $request->validate([
+            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
+        ]);
+
+        try {
+            if ($request->hasFile('upload')) {
+                $image = $request->file('upload');
+                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $image->getClientOriginalName());
+                $path = $image->storeAs('news-content', $filename, 'public');
+
+                $url = Storage::url($path);
+
+                // Format response yang diharapkan CKEditor 5 CKFinder upload adapter
+                return response()->json([
+                    'uploaded' => 1,
+                    'fileName' => $filename,
+                    'url' => $url,
+                ]);
+            }
+
+            return response()->json([
+                'uploaded' => 0,
+                'error' => [
+                    'message' => 'Tidak ada file yang diupload.',
+                ],
+            ], 400);
+        } catch (\Exception $e) {
+            return response()->json([
+                'uploaded' => 0,
+                'error' => [
+                    'message' => 'Gagal mengupload gambar: ' . $e->getMessage(),
+                ],
+            ], 500);
+        }
+    }
 }

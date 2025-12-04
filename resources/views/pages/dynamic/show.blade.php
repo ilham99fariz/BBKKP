@@ -42,7 +42,7 @@
                     <h1 class="text-3xl font-bold text-gray-900 mb-8">{{ $page->title }}</h1>
                 @endif
 
-                <div class="prose prose-lg max-w-none">
+                <div id="accordion-container" class="prose prose-lg max-w-none">
                     {!! $page->content !!}
                 </div>
             </div>
@@ -100,5 +100,58 @@
         .prose td {
             @apply border border-gray-300 px-4 py-2;
         }
+
+        /* Accordion Styles - Override prose if needed */
+        #accordion-container .accordion .ac-item {
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        #accordion-container .accordion .ac-item h5 {
+            background: #f5f5f5;
+            padding: 12px;
+            cursor: pointer;
+            margin: 0 !important;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+
+        #accordion-container .accordion .ac-item h5:hover {
+            background: #e8e8e8;
+        }
+
+        #accordion-container .accordion .ac-item .ac-content {
+            display: none;
+            padding: 15px;
+            background: white;
+        }
+
+        #accordion-container .accordion .ac-item.active .ac-content {
+            display: block;
+        }
     </style>
+@endpush
+
+@push('scripts')
+<script>
+    // Initialize accordion for dynamic content
+    document.addEventListener("DOMContentLoaded", function () {
+        const accordionContainer = document.getElementById('accordion-container');
+        
+        if (accordionContainer) {
+            // Use event delegation to handle dynamically loaded content
+            accordionContainer.addEventListener('click', function(e) {
+                // Check if clicked element is an h5 inside ac-item
+                const h5 = e.target.closest('.accordion .ac-item h5');
+                
+                if (h5) {
+                    const acItem = h5.parentElement;
+                    acItem.classList.toggle('active');
+                }
+            });
+        }
+    });
+</script>
 @endpush
