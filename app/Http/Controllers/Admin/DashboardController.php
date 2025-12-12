@@ -8,6 +8,7 @@ use App\Models\News;
 use App\Models\Testimonial;
 use App\Models\Partner;
 use App\Models\DynamicPage;
+use App\Models\ContactMessage;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -26,6 +27,8 @@ class DashboardController extends Controller
             'partners' => Partner::count(),
             'dynamic_pages' => DynamicPage::count(),
             'active_dynamic_pages' => DynamicPage::where('is_active', true)->count(),
+            'visits' => ContactMessage::where('is_read', false)->count(),
+            'messages' => ContactMessage::where('is_read', true)->count(),
         ];
 
         $recentNews = News::latest()->take(5)->get();

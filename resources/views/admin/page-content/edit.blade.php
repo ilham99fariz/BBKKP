@@ -155,6 +155,8 @@
     <!-- CKEditor 4 -->
     <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
     <script>
+        CKEDITOR.dtd.$removeEmpty['iframe'] = false;
+        
         var editor = CKEDITOR.replace('content', {
             height: 500,
             language: 'id',
@@ -162,7 +164,9 @@
             filebrowserUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}?_token={{ csrf_token() }}',
             filebrowserUploadMethod: 'form',
             allowedContent: true,
-            extraAllowedContent: 'table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*)',
+            extraAllowedContent: 'iframe[*]{*}(*);table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*)',
+            removePlugins: 'iframe',
+            extraPlugins: '',
             toolbar: [
                 { name: 'document', items: ['Source', '-', 'NewPage', 'Preview', 'Print'] },
                 { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },

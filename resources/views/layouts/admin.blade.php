@@ -25,18 +25,27 @@
     
     <style>
         [x-cloak] { display: none !important; }
+        
+        /* Hide scrollbar but keep scroll functionality */
+        .hide-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;  /* Chrome, Safari and Opera */
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-gray-100" x-data="{ sidebarOpen: false }">
     <div class="flex h-screen">
         <!-- Sidebar -->
-        <div class="bg-gray-800 text-white w-64 fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0" 
+        <div class="bg-gray-800 text-white w-64 fixed inset-y-0 left-0 z-50 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 flex flex-col" 
              :class="{ '-translate-x-full': !sidebarOpen, 'translate-x-0': sidebarOpen }">
-            <div class="flex items-center justify-center h-16 bg-gray-900">
+            <div class="flex items-center justify-center h-16 bg-gray-900 flex-shrink-0">
                 <h1 class="text-xl font-bold">Admin Panel</h1>
             </div>
             
-            <nav class="mt-8" x-data="{ 
+            <nav class="flex-1 overflow-y-auto mt-8 pb-8 hide-scrollbar" x-data="{ 
                 openMenus: {
                     layanan: {{ (request()->routeIs('admin.page-content.*') && request()->route('type') == 'layanan') ? 'true' : 'false' }},
                     standarPelayanan: {{ (request()->routeIs('admin.page-content.*') && request()->route('type') == 'standar-pelayanan') ? 'true' : 'false' }},
