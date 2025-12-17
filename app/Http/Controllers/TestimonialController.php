@@ -9,6 +9,16 @@ use Illuminate\Support\Str;
 class TestimonialController extends Controller
 {
     /**
+     * Public listing of approved testimonials.
+     */
+    public function index()
+    {
+        $testimonials = Testimonial::approved()->ordered()->paginate(9);
+
+        return view('pages.testimonials.index', compact('testimonials'));
+    }
+
+    /**
      * Submit testimonial from public form.
      */
     public function submit(Request $request)

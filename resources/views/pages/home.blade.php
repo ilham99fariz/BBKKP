@@ -196,24 +196,138 @@
 
 
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials Section (Form + List) -->
+    <section class="bg-gray-50 py-16" id="testimonials">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-green-700 mb-4">
+                {{ __('home.what_our_customers_say') }}
+            </h2>
+            <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+                Berikan pengalaman Anda bersama kami. Testimoni akan ditinjau terlebih dahulu oleh admin sebelum
+                ditampilkan di beranda.
+            </p>
 
-    <!-- Testimonials Section -->
-    @if ($testimonials->count())
-        <section class="bg-gray-50 py-16">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-center text-green-700 mb-10">
-                    {{ __('home.what_our_customers_say') }}
-                </h2>
+            {{-- Form kirim testimoni (publik) --}}
+            <div class="max-w-3xl mx-auto mb-12">
+                <div class="bg-white shadow-lg rounded-2xl p-6 md:p-8">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4 text-center">
+                        Kirim Testimoni Anda
+                    </h3>
+
+                    @if (session('success'))
+                        <div class="mb-4 rounded-md bg-green-50 p-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0">
+                                    <svg class="h-5 w-5 text-green-400" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
+                                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.707a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293A1 1 0 006.293 10.7l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="ml-3">
+                                    <p class="text-sm font-medium text-green-800">
+                                        {{ session('success') }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('testimonials.submit') }}" method="POST" enctype="multipart/form-data"
+                        class="space-y-5">
+                        @csrf
+
+                        <div>
+                            <label for="client_name" class="block text-sm font-medium text-gray-700 mb-1">
+                                Nama <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="client_name" id="client_name"
+                                value="{{ old('client_name') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('client_name') border-red-500 @enderror"
+                                required>
+                            @error('client_name')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="client_company" class="block text-sm font-medium text-gray-700 mb-1">
+                                Perusahaan (opsional)
+                            </label>
+                            <input type="text" name="client_company" id="client_company"
+                                value="{{ old('client_company') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('client_company') border-red-500 @enderror">
+                            @error('client_company')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="content" class="block text-sm font-medium text-gray-700 mb-1">
+                                Testimoni <span class="text-red-500">*</span>
+                            </label>
+                            <textarea name="content" id="content" rows="4"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('content') border-red-500 @enderror"
+                                required>{{ old('content') }}</textarea>
+                            @error('content')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">
+                                Rating Layanan <span class="text-red-500">*</span>
+                            </label>
+                            <select name="rating" id="rating"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('rating') border-red-500 @enderror"
+                                required>
+                                <option value="">Pilih Rating</option>
+                                <option value="1" {{ old('rating') == '1' ? 'selected' : '' }}>1 Bintang</option>
+                                <option value="2" {{ old('rating') == '2' ? 'selected' : '' }}>2 Bintang</option>
+                                <option value="3" {{ old('rating') == '3' ? 'selected' : '' }}>3 Bintang</option>
+                                <option value="4" {{ old('rating') == '4' ? 'selected' : '' }}>4 Bintang</option>
+                                <option value="5" {{ old('rating') == '5' ? 'selected' : '' }}>5 Bintang</option>
+                            </select>
+                            @error('rating')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="image" class="block text-sm font-medium text-gray-700 mb-1">
+                                Lampiran / bukti review (opsional)
+                            </label>
+                            <input type="file" name="image" id="image"
+                                accept=".jpeg,.jpg,.png,.gif,.svg,.webp"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('image') border-red-500 @enderror">
+                            @error('image')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                            <p class="mt-1 text-xs text-gray-500">Format: JPEG, PNG, JPG, GIF, SVG, WEBP. Maksimal 2MB.</p>
+                        </div>
+
+                        <div class="pt-2">
+                            <button type="submit"
+                                class="w-full md:w-auto inline-flex justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                                Kirim Testimoni
+                            </button>
+                        </div>
+
+                        <p class="text-xs text-gray-500 mt-2">
+                            Testimoni Anda akan ditinjau oleh admin terlebih dahulu sebelum dipublikasikan di halaman ini.
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+            {{-- Daftar testimoni yang sudah disetujui admin --}}
+            @if ($testimonials->count())
                 <div class="grid md:grid-cols-3 gap-8">
                     @foreach ($testimonials as $testimonial)
                         <div
                             class="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl transition">
-                            <p class="text-gray-700 italic mb-4">
-                                “{{ $testimonial->content }}”
-                            </p>
-                            <div class="mt-auto">
-                                {{-- Nama dan perusahaan --}}
+                            <div class="mb-3">
                                 <p class="font-semibold text-green-700">
                                     {{ $testimonial->client_name }}
                                 </p>
@@ -222,34 +336,60 @@
                                         {{ $testimonial->client_company }}
                                     </p>
                                 @endif
-
-                                {{-- Rating bintang --}}
-                                @if (!empty($testimonial->rating))
-                                    <div class="flex items-center mt-2">
-                                        @for ($i = 1; $i <= 5; $i++)
-                                            @if ($i <= $testimonial->rating)
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                    class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.782 1.402 8.174L12 18.896l-7.336 3.853 1.402-8.174L.132 9.211l8.2-1.193z" />
-                                                </svg>
-                                            @else
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                                                    class="w-5 h-5 text-gray-300" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118L12 17.347l-3.962 2.552c-.785.57-1.84-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L3.678 9.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
-                                                </svg>
-                                            @endif
-                                        @endfor
-                                    </div>
-                                @endif
                             </div>
+
+                            @if (!empty($testimonial->image))
+                                <div class="mb-4">
+                                    <img src="{{ Storage::url($testimonial->image) }}" alt="Lampiran review"
+                                        class="w-full h-48 object-cover rounded-xl border border-gray-100 shadow-sm">
+                                </div>
+                            @endif
+
+                            <p class="text-gray-700 italic mb-4">
+                                “{{ $testimonial->content }}”
+                            </p>
+
+                            {{-- Rating bintang --}}
+                            @if (!empty($testimonial->rating))
+                                <div class="flex items-center mt-auto">
+                                    @for ($i = 1; $i <= 5; $i++)
+                                        @if ($i <= $testimonial->rating)
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                                class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24">
+                                                <path
+                                                    d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.782 1.402 8.174L12 18.896l-7.336 3.853 1.402-8.174L.132 9.211l8.2-1.193z" />
+                                            </svg>
+                                        @else
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+                                                class="w-5 h-5 text-gray-300" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.518 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.974 2.888a1 1 0 00-.364 1.118l1.518 4.674c.3.921-.755 1.688-1.54 1.118L12 17.347l-3.962 2.552c-.785.57-1.84-.197-1.54-1.118l1.518-4.674a1 1 0 00-.364-1.118L3.678 9.1c-.783-.57-.38-1.81.588-1.81h4.915a1 1 0 00.95-.69l1.518-4.674z" />
+                                            </svg>
+                                        @endif
+                                    @endfor
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
-            </div>
-        </section>
-    @endif
+                <div class="text-center mt-10">
+                    <a href="{{ route('testimonials.index') }}"
+                        class="inline-flex items-center px-6 py-2.5 border border-green-600 text-green-700 rounded-md font-semibold hover:bg-green-50 transition">
+                        Lihat semua testimoni
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            @else
+                <p class="text-center text-gray-500">
+                    Belum ada testimoni yang dipublikasikan.
+                </p>
+            @endif
+        </div>
+    </section>
 
 
 
