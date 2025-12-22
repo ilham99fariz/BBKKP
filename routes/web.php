@@ -82,6 +82,7 @@ Route::prefix('tentang-kami')->name('about.')->group(function () {
 Route::get('/kontak', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/kontak', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::get('/testimonials', [App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
 Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class, 'submit'])->name('testimonials.submit');
 
 // Pengujian Routes
