@@ -14,11 +14,11 @@
 
         <!-- Content -->
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <!-- Breadcrumb -->
-            <nav class="flex mb-8" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <!-- Breadcrumb di pojok kiri atas -->
+            <nav class="absolute top-6 left-4 sm:left-6 flex items-center mb-0" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm sm:text-base">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
                             Home
                         </a>
@@ -33,7 +33,7 @@
             </nav>
 
             <!-- Header Text -->
-            <div class="text-center">
+            <div class="text-center pt-14 sm:pt-2">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Media dan Informasi</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Kumpulan berita, publikasi, pengumuman, serta informasi resmi dari BBSPJIKKP

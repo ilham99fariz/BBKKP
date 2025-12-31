@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PengujianController;
@@ -10,11 +9,10 @@ use App\Http\Controllers\DynamicPageController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DynamicPageController as AdminDynamicPageController;
-use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\NewsController as AdminNewsController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\PartnerController;
-use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ServiceRatingController;
 use App\Http\Controllers\Admin\CurveRatingController;
 use App\Http\Controllers\Admin\IpkRatingController;
@@ -36,12 +34,8 @@ Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('l
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
-//Layanan
-Route::get('/layanan', [ServiceController::class, 'index'])->name('services.index');
-Route::get('/layanan/{service}', [ServiceController::class, 'show'])->name('services.show');
 
-//Layanan
-Route::view('/sertifikasi', 'pages.services.sertifikasi')->name('services.sertifikasi');
+Route::view('/layanan', 'pages.services.index')->name('services.index');
 
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show');
@@ -54,30 +48,22 @@ Route::view('/keterbukaan-informasi-publik', 'pages.media.keterbukaan-informasi-
 Route::view('/publikasi', 'pages.media.publication')->name('media.publication');
 Route::view('/pengumuman', 'pages.media.announcement')->name('media.announcement');
 
-// Standar Pelayanan subpages
-Route::view('/standar-pelayanan', 'pages.standards.standar-pelayanan')->name('standards.standar');
-Route::view('/maklumat-pelayanan', 'pages.standards.maklumat-pelayanan')->name('standards.maklumat');
-Route::view('/tarif-layanan', 'pages.standards.tarif-layanan')->name('standards.tarif');
-Route::view('/tarif-percepatan', 'pages.standards.tarif-percepatan')->name('standards.tarif_percepatan');
-Route::view('/spm', 'pages.standards.spm')->name('standards.spm');
-Route::view('/survey-layanan-pelanggan', 'pages.standards.survey-layanan-pelanggan')->name('standards.survey');
-Route::view('/ikm', 'pages.standards.ikm')->name('standards.ikm');
+// Standar Pelayanan subpages - Hapus route statis ini karena menggunakan dynamic pages
+// Route::view('/standar-pelayanan', 'pages.standards.standar-pelayanan')->name('standards.standar');
+// Route::view('/maklumat-pelayanan', 'pages.standards.maklumat-pelayanan')->name('standards.maklumat');
+// Route::view('/tarif-layanan', 'pages.standards.tarif-layanan')->name('standards.tarif');
+// Route::view('/tarif-percepatan', 'pages.standards.tarif-percepatan')->name('standards.tarif_percepatan');
+// Route::view('/spm', 'pages.standards.spm')->name('standards.spm');
+// Route::view('/survey-layanan-pelanggan', 'pages.standards.survey-layanan-pelanggan')->name('standards.survey');
+// Route::view('/ikm', 'pages.standards.ikm')->name('standards.ikm');
 
-// About Routes
-Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');
-Route::view('/tonggak-sejarah', 'pages.about.tonggak-sejarah')->name('tonggak-sejarah');
-Route::view('/profil-pejabat', 'pages.about.profil-pejabat')->name('profil-pejabat');
-Route::view('/struktur-organisasi', 'pages.about.struktur-organisasi')->name('struktur-organisasi');
-Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
-Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
-Route::prefix('tentang-kami')->name('about.')->group(function () {
-    Route::view('/', 'pages.about.index')->name('index');
-    Route::view('/profil-singkat', 'pages.about.profil-singkat')->name('profil-singkat');
-    Route::view('/tonggak-sejarah', 'pages.about.tonggak-sejarah')->name('tonggak-sejarah');
-    Route::view('/profil-pejabat', 'pages.about.profil-pejabat')->name('profil-pejabat');
-    Route::view('/struktur-organisasi', 'pages.about.struktur-organisasi')->name('struktur-organisasi');
-    Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
-});
+// About Routes - Halaman index tetap menggunakan view statis, subpage menggunakan dynamic pages
+Route::view('/tentang-kami', 'pages.about.index')->name('about.index');
+// Subpage tentang kami menggunakan dynamic pages
+// Route::view('/tonggak-sejarah', 'pages.about.tonggak-sejarah')->name('tonggak-sejarah');
+// Route::view('/profil-pejabat', 'pages.about.profil-pejabat')->name('profil-pejabat');
+// Route::view('/struktur-organisasi', 'pages.about.struktur-organisasi')->name('struktur-organisasi');
+// Route::view('/makna-logo', 'pages.about.makna-logo')->name('makna-logo');
 
 Route::get('/kontak', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/kontak', [ContactController::class, 'submit'])->name('contact.submit');
@@ -91,13 +77,6 @@ Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'
 // Proses Pengujian (informasi alur dan dokumen)
 Route::view('/pengujian/proses', 'pages.pengujian.proses-pengujian')->name('pengujian.proses');
 
-// Kalibrasi Routes
-Route::view('/kalibrasi', 'pages.kalibrasi.index')->name('kalibrasi.index');
-
-Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'createAdmin'])
-    ->middleware('guest')
-    ->name('admin.login');
-
 //survey routes
 Route::post('/survey-submit', [\App\Http\Controllers\SurveyController::class, 'store'])->name('survey.submit');
 
@@ -110,16 +89,6 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/messages/{message}', [App\Http\Controllers\Admin\ContactMessageController::class, 'show'])->name('admin.messages.show');
     Route::post('/messages/{message}/mark-read', [App\Http\Controllers\Admin\ContactMessageController::class, 'markRead'])->name('admin.messages.mark-read');
     Route::post('/messages/{message}/reply', [App\Http\Controllers\Admin\ContactMessageController::class, 'reply'])->name('admin.messages.reply');
-
-    Route::resource('services', AdminServiceController::class)->names([
-        'index' => 'admin.services.index',
-        'create' => 'admin.services.create',
-        'store' => 'admin.services.store',
-        'show' => 'admin.services.show',
-        'edit' => 'admin.services.edit',
-        'update' => 'admin.services.update',
-        'destroy' => 'admin.services.destroy',
-    ]);
 
     Route::resource('news', AdminNewsController::class)->names([
         'index' => 'admin.news.index',
@@ -138,10 +107,8 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::post('/news/upload-image', [AdminNewsController::class, 'uploadImage'])
         ->name('admin.news.upload-image');
 
-    Route::resource('testimonials', TestimonialController::class)->names([
+    Route::resource('testimonials', TestimonialController::class)->except(['create', 'store'])->names([
         'index' => 'admin.testimonials.index',
-        'create' => 'admin.testimonials.create',
-        'store' => 'admin.testimonials.store',
         'show' => 'admin.testimonials.show',
         'edit' => 'admin.testimonials.edit',
         'update' => 'admin.testimonials.update',
@@ -167,9 +134,6 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'update' => 'admin.partners.update',
         'destroy' => 'admin.partners.destroy',
     ]);
-
-    Route::get('/settings', [SettingController::class, 'index'])->name('admin.settings.index');
-    Route::put('/settings', [SettingController::class, 'update'])->name('admin.settings.update');
 
     Route::resource('service-ratings', ServiceRatingController::class)->names([
         'index' => 'admin.service-ratings.index',
@@ -201,15 +165,17 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'destroy' => 'admin.ipk-ratings.destroy',
     ]);
 
-    Route::resource('dynamic-pages', AdminDynamicPageController::class)->names([
-        'index' => 'admin.dynamic-pages.index',
-        'create' => 'admin.dynamic-pages.create',
-        'store' => 'admin.dynamic-pages.store',
-        'show' => 'admin.dynamic-pages.show',
-        'edit' => 'admin.dynamic-pages.edit',
-        'update' => 'admin.dynamic-pages.update',
-        'destroy' => 'admin.dynamic-pages.destroy',
+    // Slider Management Routes
+    Route::resource('sliders', SliderController::class)->except(['show'])->names([
+        'index' => 'admin.sliders.index',
+        'create' => 'admin.sliders.create',
+        'store' => 'admin.sliders.store',
+        'edit' => 'admin.sliders.edit',
+        'update' => 'admin.sliders.update',
+        'destroy' => 'admin.sliders.destroy',
     ]);
+    Route::post('/sliders/reorder', [SliderController::class, 'reorder'])->name('admin.sliders.reorder');
+    Route::post('/sliders/{slider}/toggle-active', [SliderController::class, 'toggleActive'])->name('admin.sliders.toggle-active');
 
     // Page Content Routes (for categorized content)
     Route::prefix('page-content')->name('admin.page-content.')->group(function () {
@@ -223,6 +189,10 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     });
 });
 
+// PDF proxy download route (same-origin attachment response)
+Route::get('/pdf/download/{key}', [App\Http\Controllers\PdfProxyController::class, 'download'])
+    ->name('pdf.download');
+
 // Login Admin khusus (url terpisah)
 Route::get('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'getLoginAdmin'])->name('admin.login');
 Route::post('admin/login', [App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'postLoginAdmin'])->name('admin.login.submit');
@@ -233,16 +203,13 @@ require __DIR__ . '/auth.php';
 // Halal Center Routes
 Route::prefix('halal-center')->name('halal.')->group(function () {
     Route::view('/', 'pages.halal-center.index')->name('index');
-    Route::view('/tentang-lph', 'pages.halal-center.about')->name('about');
-    Route::view('/layanan', 'pages.halal-center.services')->name('services');
-    Route::view('/proses-sertifikasi', 'pages.halal-center.certification-process')->name('certification-process');
-    Route::view('/peraturan-dan-pedoman', 'pages.halal-center.regulations')->name('regulations');
+    Route::view('/tentang-lph', 'pages.halal-center.tentang-lph')->name('about');
+    Route::view('/layanan', 'pages.halal-center.layanan-lph')->name('services');
+    Route::view('/proses-sertifikasi', 'pages.halal-center.proses-sertifikasi')->name('certification-process');
+    Route::view('/peraturan-dan-pedoman', 'pages.halal-center.peraturan-pedoman')->name('regulations');
     Route::view('/faq', 'pages.halal-center.faq')->name('faq');
 });
 
-// PDF proxy download route (same-origin attachment response)
-Route::get('/pdf/download/{key}', [App\Http\Controllers\PdfProxyController::class, 'download'])
-    ->name('pdf.download');
-
 // Dynamic Pages Route (MUST BE LAST - catch-all route)
-Route::get('/{slug}', [DynamicPageController::class, 'show'])->name('dynamic.page');
+Route::get('/{slug}', [App\Http\Controllers\DynamicPageController::class, 'show'])->name('dynamic.page');
+

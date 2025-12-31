@@ -8,7 +8,9 @@
             <h1 class="text-3xl font-bold">{{ $page->title }}</h1>
         </div>
         <div class="w-full">
-            {!! $page->content !!}
+            <div class="max-w-4xl mx-auto px-8 sm:px-10 lg:px-16">
+                {!! $page->content !!}
+            </div>
         </div>
     </div>
 @endsection
@@ -19,6 +21,14 @@
     .prose, .prose-lg {
         max-width: none !important;
         width: 100% !important;
+    }
+
+    /* Gambar - Responsive dengan padding */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 20px auto !important;
     }
 
     /* Iframe Google Form - Full Size */

@@ -5,9 +5,10 @@
 @section('content')
     <!-- Hero Section -->
     @if($page->hero_image || $page->hero_title || $page->hero_subtitle)
-        <section class="relative text-white py-20 min-h-[400px] flex items-center">
+        <section class="relative text-white py-12 min-h-[280px] flex items-center">
             @if($page->hero_image)
-                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ Storage::url($page->hero_image) }}')"></div>
+                <div class="absolute inset-0 bg-cover bg-center"
+                    style="background-image: url('{{ Storage::url($page->hero_image) }}')"></div>
                 <!-- Overlay untuk readability teks -->
                 <div class="absolute inset-0 bg-black bg-opacity-40"></div>
             @else
@@ -16,33 +17,33 @@
             <div class="container mx-auto px-4 relative z-10">
                 <div class="max-w-3xl">
                     @if($page->hero_title)
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->hero_title }}</h1>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-3 drop-shadow-lg">{{ $page->hero_title }}</h1>
                     @else
-                        <h1 class="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">{{ $page->title }}</h1>
+                        <h1 class="text-3xl md:text-4xl font-bold mb-3 drop-shadow-lg">{{ $page->title }}</h1>
                     @endif
                     @if($page->hero_subtitle)
-                        <p class="text-xl drop-shadow-md">{{ $page->hero_subtitle }}</p>
+                        <p class="text-lg drop-shadow-md">{{ $page->hero_subtitle }}</p>
                     @endif
                 </div>
             </div>
         </section>
     @else
-        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+        <div class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-8">
             <div class="container mx-auto px-4">
-                <h1 class="text-4xl font-bold">{{ $page->title }}</h1>
+                <h1 class="text-3xl font-bold">{{ $page->title }}</h1>
             </div>
         </div>
     @endif
 
     <!-- Main Content -->
-    <section class="py-12">
+    <section class="py-8">
         <div class="w-full">
-            <div class="max-w-7xl mx-auto px-4 mb-8">
+            <div class="max-w-6xl mx-auto px-8 mb-4">
                 @if (!$page->hero_title)
                     <h1 class="text-3xl font-bold text-gray-900">{{ $page->title }}</h1>
                 @endif
             </div>
-            <div id="accordion-container" class="w-full">
+            <div id="accordion-container" class="w-full max-w-6xl mx-auto px-8">
                 {!! $page->content !!}
             </div>
         </div>
@@ -100,7 +101,8 @@
             @apply border border-gray-300 px-4 py-2;
         }
 
-        .prose, .prose-lg {
+        .prose,
+        .prose-lg {
             max-width: none !important;
             width: 100% !important;
         }
@@ -207,44 +209,44 @@
 @endpush
 
 @push('scripts')
-<script>
-    // Initialize accordion for dynamic content
-    document.addEventListener("DOMContentLoaded", function () {
-        const accordionContainer = document.getElementById('accordion-container');
-        
-        if (accordionContainer) {
-            // Use event delegation to handle dynamically loaded content
-            accordionContainer.addEventListener('click', function(e) {
-                // Check if clicked element is an h5 inside ac-item
-                const h5 = e.target.closest('.accordion .ac-item h5');
-                
-                if (h5) {
-                    const acItem = h5.parentElement;
-                    acItem.classList.toggle('active');
-                }
-            });
+    <script>
+        // Initialize accordion for dynamic content
+        document.addEventListener("DOMContentLoaded", function () {
+            const accordionContainer = document.getElementById('accordion-container');
 
-            // Fix Google Forms iframe - remove restrictive sandbox attributes
-            const iframes = accordionContainer.querySelectorAll('iframe');
-            iframes.forEach(function(iframe) {
-                // Remove sandbox attribute if exists
-                if (iframe.hasAttribute('sandbox')) {
-                    iframe.removeAttribute('sandbox');
-                }
-                
-                // Ensure Google Forms can run JavaScript
-                if (iframe.src && iframe.src.includes('docs.google.com/forms')) {
-                    // Add allow attributes for better compatibility
-                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-                    
-                    // Ensure embedded parameter exists
-                    if (!iframe.src.includes('embedded=true')) {
-                        const separator = iframe.src.includes('?') ? '&' : '?';
-                        iframe.src = iframe.src + separator + 'embedded=true';
+            if (accordionContainer) {
+                // Use event delegation to handle dynamically loaded content
+                accordionContainer.addEventListener('click', function (e) {
+                    // Check if clicked element is an h5 inside ac-item
+                    const h5 = e.target.closest('.accordion .ac-item h5');
+
+                    if (h5) {
+                        const acItem = h5.parentElement;
+                        acItem.classList.toggle('active');
                     }
-                }
-            });
-        }
-    });
-</script>
+                });
+
+                // Fix Google Forms iframe - remove restrictive sandbox attributes
+                const iframes = accordionContainer.querySelectorAll('iframe');
+                iframes.forEach(function (iframe) {
+                    // Remove sandbox attribute if exists
+                    if (iframe.hasAttribute('sandbox')) {
+                        iframe.removeAttribute('sandbox');
+                    }
+
+                    // Ensure Google Forms can run JavaScript
+                    if (iframe.src && iframe.src.includes('docs.google.com/forms')) {
+                        // Add allow attributes for better compatibility
+                        iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+
+                        // Ensure embedded parameter exists
+                        if (!iframe.src.includes('embedded=true')) {
+                            const separator = iframe.src.includes('?') ? '&' : '?';
+                            iframe.src = iframe.src + separator + 'embedded=true';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 @endpush

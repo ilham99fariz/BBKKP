@@ -96,7 +96,7 @@
                         @endif
                         <input type="file" id="hero_image" name="hero_image" accept=".jpeg,.jpg,.png,.gif,.webp"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, WEBP. Maksimal 2MB</p>
+                        <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, WEBP. Maksimal 8MB</p>
                     </div>
 
                     <div>

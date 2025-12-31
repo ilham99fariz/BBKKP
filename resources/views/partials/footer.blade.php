@@ -673,20 +673,19 @@
                 <!-- Social Media Links -->
                 <div class="flex items-center space-x-1">
                     <span class="text-sm mr-3 font-semibold">Media Sosial</span>
-                    <a href="https://www.instagram.com/bbkkp.kemenperin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                    <a href="https://www.instagram.com/bbkkp.kemenperin?igsh=bHhzeWF2cjJidDJv"
+                        class="bg-white text-pink-500 hover:bg-blue-200 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-instagram"></i>
                     </a>
                     <a href="https://x.com/BbkkpKemenperin"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
-                        <i class="fab fa-x-twitter"></i>
-                    </a>
+                        class="bg-white text-blue-500 hover:bg-blue-200 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-x"></i>
                     <a href="https://www.facebook.com/bbkkp.yogyakarta"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        class="bg-white text-blue-500 hover:bg-blue-200 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="http://www.youtube.com/@BBKKPKemenperin"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        class="bg-white text-red-500 hover:bg-blue-400 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>

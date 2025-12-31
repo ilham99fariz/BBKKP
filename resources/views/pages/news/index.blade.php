@@ -14,11 +14,11 @@
 
         <!-- Content -->
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <!-- Breadcrumb -->
-            <nav class="flex mb-8" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <!-- Breadcrumb di pojok kiri atas -->
+            <nav class="absolute top-6 left-4 sm:left-6 flex items-center mb-0" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm sm:text-base">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
                             Beranda
                         </a>
@@ -37,12 +37,11 @@
                             <span class="text-gray-300">Berita & Update</span>
                         </div>
                     </li>
-
                 </ol>
             </nav>
 
             <!-- Header Text -->
-            <div class="text-center">
+            <div class="text-center pt-14 sm:pt-16">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Berita & Update</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Kumpulan berita dan update terbaru dari BBSPJIKP
@@ -56,29 +55,29 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse($news as $article)
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all transform hover:scale-105 duration-300 flex flex-col">
                 @if($article->image)
-                <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover">
+                <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}" class="w-full h-48 object-cover transition-transform duration-300">
                 @else
-                <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                <div class="w-full h-48 bg-gray-200 flex items-center justify-center transition-transform duration-300">
                     <i class="fas fa-newspaper text-gray-400 text-4xl"></i>
                 </div>
                 @endif
-                <div class="p-6">
+                <div class="p-6 flex flex-col flex-grow">
                     <div class="flex items-center text-sm text-gray-500 mb-3">
                         <i class="fas fa-calendar-alt mr-2"></i>
                         <span>{{ $article->published_at->format('d M Y') }}</span>
                         <span class="mx-2">•</span>
                         <i class="fas fa-user mr-2"></i>
                         <span>{{ $article->author }}</span>
-                        <span class="mx-2">•</span>
-                        <i class="fas fa-eye mr-2"></i>
-                        <span>{{ $article->views }} views</span>
+                        {{-- <span class="mx-2">•</span> --}}
+                        {{-- <i class="fas fa-eye mr-2"></i>
+                        <span>{{ $article->views }} views</span> --}}
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-3 line-clamp-2">{{ $article->title }}</h3>
-                    <p class="text-gray-600 mb-4 line-clamp-3">{{ $article->excerpt }}</p>
+                    <p class="text-gray-600 mb-4 line-clamp-3 flex-grow">{{ $article->excerpt }}</p>
                     <a href="{{ route('news.show', $article) }}" 
-                       class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200">
+                       class="text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200 inline-block">
                         Baca Selengkapnya <i class="fas fa-arrow-right ml-1"></i>
                     </a>
                 </div>
@@ -104,7 +103,7 @@
 </section>
 
 <!-- Newsletter Subscription -->
-<section class="py-20 bg-blue-600 text-white">
+{{-- <section class="py-20 bg-blue-600 text-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-4xl font-bold mb-4">Dapatkan Update Terbaru</h2>
         <p class="text-xl mb-8 text-blue-100">
@@ -122,7 +121,7 @@
             </form>
         </div>
     </div>
-</section>
+</section> --}}
 <!-- Atau Bisa Seperti Di Bawah Ini -->
 <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
 <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->

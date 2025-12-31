@@ -5,11 +5,11 @@
 
 @section('content')
 <!-- Page Header -->
-<section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+<section class="bg-gradient-to-r from-blue-600 to-blue-900 text-white py-6">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
+        <div class="text-left">
             <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ $news->title }}</h1>
-            <div class="flex items-center justify-center text-blue-100 space-x-6">
+            <div class="flex items-center text-blue-100 space-x-6">
                 <div class="flex items-center">
                     <i class="fas fa-calendar-alt mr-2"></i>
                     <span>{{ $news->published_at->format('d M Y') }}</span>
@@ -18,18 +18,18 @@
                     <i class="fas fa-user mr-2"></i>
                     <span>{{ $news->author }}</span>
                 </div>
-                <div class="flex items-center">
+                {{-- <div class="flex items-center">
                     <i class="fas fa-eye mr-2"></i>
                     <span>{{ $news->views }} views</span>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
 </section>
 
 <!-- Article Content -->
-<section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<section class="py-10 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12">
             <!-- Main Content -->
             <div class="lg:col-span-3">
