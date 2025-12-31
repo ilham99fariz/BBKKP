@@ -51,7 +51,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/Pengujian1.jpg') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/Pengujian2.png') }}" alt="Pengujian"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -121,7 +121,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/Pengujian1.jpg') }}" alt="Inspeksi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -136,7 +136,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/valiverif.jpg') }}" alt="Verifikasi dan Validasi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -152,7 +152,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/Pengujian4.png') }}" alt="Uji Profisiensi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -165,9 +165,9 @@
             <!-- Pelatihan Teknis -->
             <a href="{{ url('/pelatihan-teknis') }}" class="group">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hiddSen transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/pelatihan.jpg') }}" alt="Pelatihan Teknis"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -183,7 +183,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/produsen.jpg') }}" alt="Produsen Bahan Acuan"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -199,7 +199,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/edukasi.jpg') }}" alt="Edukasi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">

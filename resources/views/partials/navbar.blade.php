@@ -95,7 +95,7 @@
                         </svg>
                     </a>
                     <!-- Invisible bridge to prevent cursor gap -->
-                    {{-- <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
                         @mouseleave="open = false"></div>
                     <div x-show="open" x-cloak
                         class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
@@ -118,7 +118,7 @@
                         <a href="{{ route('dynamic.page', 'survey-layanan-pelanggan') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
                             Layanan Pelanggan</a>
-                    </div> --}}
+                    </div>
                 </div>
 
                 <!-- Media dan Informasi Dropdown -->

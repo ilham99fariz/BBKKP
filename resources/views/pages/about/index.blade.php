@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-tentangkami.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/gedungdepan.png') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -51,7 +51,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/sejarah.jpg') }}" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-history text-6xl"></i>
@@ -87,7 +87,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/profilpejabat.jpg') }}" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-users text-6xl"></i>
@@ -105,7 +105,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/struktur.jpg') }}" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-sitemap text-6xl"></i>
@@ -124,7 +124,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/tumbhnailprofil.jpg') }}" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         <div class="h-full flex items-center justify-center text-white">
                             <i class="fas fa-certificate text-6xl"></i>
@@ -143,7 +143,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/kontak.jpg') }}" alt="FAQ"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">

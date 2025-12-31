@@ -51,7 +51,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/standarpelayanan.png') }}" alt="Standar Pelayanan"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -67,7 +67,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH"
+                        <img src="{{ asset('images/maklumat.png') }}" alt="Maklumat Pelayanan"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -83,7 +83,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-tentangkami.png') }}" alt="Proses Sertifikasi"
+                        <img src="{{ asset('images/tarifpelayanan.jpg') }}" alt="Tarif Layanan"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -98,7 +98,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman"
+                        <img src="{{ asset('images/tarifpercepatan.jpg') }}" alt="Peraturan dan Pedoman"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -113,7 +113,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/spm.png') }}" alt="Standar Pelayanan Minimum"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -129,7 +129,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ"
+                        <img src="{{ asset('images/surveypelanggan.jpg') }}" alt="Survey Pelanggan"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">

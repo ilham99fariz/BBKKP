@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/halalcenter.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -51,7 +51,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH"
+                        <img src="{{ asset('images/halalcenter.jpg') }}" alt="Tentang LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -66,7 +66,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH"
+                        <img src="{{ asset('images/layananlph.jpg') }}" alt="Layanan LPH"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -81,7 +81,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Proses Sertifikasi"
+                        <img src="{{ asset('images/prosessertif.jpg') }}" alt="Proses Sertifikasi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -98,7 +98,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman"
+                        <img src="{{ asset('images/pedoman.jpg') }}" alt="Peraturan dan Pedoman"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">

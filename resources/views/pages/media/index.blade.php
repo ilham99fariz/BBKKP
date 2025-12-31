@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-tentangkami.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/mediainformasi.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -48,22 +48,28 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- informasi Publik -->
             <a href="{{ route('media.keterbukaan-informasi-publik') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Keterbukaan Informasi Publik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/informasipublik.jpg') }}" alt="Keterbukaan Informasi Publik"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">keterbukaan Informasi Publik</h2>
-                        <p class="text-gray-600 flex-1">Dokumen dan informasi publik yang wajib tersedia bagi masyarakat.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">keterbukaan Informasi
+                            Publik</h2>
+                        <p class="text-gray-600 flex-1">Dokumen dan informasi publik yang wajib tersedia bagi masyarakat.
+                        </p>
                     </div>
                 </div>
             </a>
 
             <!-- News -->
             <a href="{{ route('news.index') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/berita.png') }}" alt="Berita"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">BBSPJIKKP News</h2>
@@ -74,9 +80,11 @@
 
             <!-- Publikasi -->
             <a href="{{ route('media.publication') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/joker.jpg') }}" alt="Publikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/publikasi.jpeg') }}" alt="Publikasi"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Publikasi</h2>
@@ -87,9 +95,11 @@
 
             <!-- Pengumuman -->
             <a href="{{ route('media.announcement') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/pengumuman.jpg') }}" alt="Pengumuman"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pengumuman</h2>
@@ -98,12 +108,13 @@
                 </div>
             </a>
             <!-- <a href="{{ route('media.index') }}" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow opacity-0 pointer-events-none">
-                <-- spacer to keep grid even on some breakpoints -->
-            <!-- </a> --> 
+                                                                        <-- spacer to keep grid even on some breakpoints -->
+            <!-- </a> -->
 
         </div>
     </div>
     <!-- Atau Bisa Seperti Di Bawah Ini -->
-    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"
+        api-key-resvoice="bzbTAKXD"></script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection
