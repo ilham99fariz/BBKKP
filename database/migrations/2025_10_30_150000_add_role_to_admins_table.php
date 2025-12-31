@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('admins', function (Blueprint $table) {
-            $table->string('role')->default('superadmin')->after('password');
+            if (!Schema::hasColumn('admins', 'role')) {
+                $table->string('role')->default('superadmin')->after('password');
+            }
         });
     }
 

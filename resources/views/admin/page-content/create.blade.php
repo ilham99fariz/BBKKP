@@ -85,7 +85,7 @@
                         <label for="hero_image" class="block text-sm font-medium text-gray-700 mb-2">Gambar Hero</label>
                         <input type="file" id="hero_image" name="hero_image" accept=".jpeg,.jpg,.png,.gif,.webp"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                        <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, WEBP. Maksimal 2MB</p>
+                        <p class="text-sm text-gray-500 mt-1">Format: JPG, PNG, WEBP. Maksimal 8MB</p>
                     </div>
 
                     <div>
@@ -144,6 +144,8 @@
     <!-- CKEditor 4 -->
     <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
     <script>
+        CKEDITOR.dtd.$removeEmpty['iframe'] = false;
+        
         var editor = CKEDITOR.replace('content', {
             height: 500,
             language: 'id',
@@ -151,7 +153,9 @@
             filebrowserUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}?_token={{ csrf_token() }}',
             filebrowserUploadMethod: 'form',
             allowedContent: true,
-            extraAllowedContent: 'table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*)',
+            extraAllowedContent: 'iframe[*]{*}(*);table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*)',
+            removePlugins: 'iframe',
+            extraPlugins: '',
             toolbar: [
                 { name: 'document', items: ['Source', '-', 'NewPage', 'Preview', 'Print'] },
                 { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },

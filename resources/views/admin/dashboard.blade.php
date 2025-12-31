@@ -9,11 +9,12 @@
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center">
                 <div class="p-3 rounded-full bg-blue-100 text-blue-600">
-                    <i class="fas fa-cogs text-2xl"></i>
+                    <i class="fas fa-images text-2xl"></i>
                 </div>
                 <div class="ml-4">
-                    <p class="text-sm font-medium text-gray-500">Total Layanan</p>
-                    <p class="text-2xl font-semibold text-gray-900">{{ $stats['services'] }}</p>
+                    <p class="text-sm font-medium text-gray-500">Total Slider</p>
+                    <p class="text-2xl font-semibold text-gray-900">{{ $stats['sliders'] ?? 0 }}</p>
+                    <p class="text-xs text-gray-500">Hero carousel</p>
                 </div>
             </div>
         </div>
@@ -68,7 +69,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="bg-white rounded-lg shadow p-6">
             <div class="flex items-center">
                 <div class="p-3 rounded-full bg-teal-100 text-teal-600">
@@ -76,8 +77,11 @@
                 </div>
                 <div class="ml-4">
                     <p class="text-sm font-medium text-gray-500">Kunjungan / Pesan</p>
-                    <p class="text-2xl font-semibold text-gray-900">{{ ($stats['visits'] ?? 0) + ($stats['messages'] ?? 0) }}</p>
-                    <p class="text-xs text-gray-500">{{ $stats['visits'] ?? 0 }} kunjungan · {{ $stats['messages'] ?? 0 }} pesan</p>
+                    <p class="text-2xl font-semibold text-gray-900">
+                        {{ ($stats['visits'] ?? 0) + ($stats['messages'] ?? 0) }}
+                    </p>
+                    <p class="text-xs text-gray-500">{{ $stats['visits'] ?? 0 }} kunjungan · {{ $stats['messages'] ?? 0 }}
+                        pesan</p>
                 </div>
             </div>
         </div>
@@ -151,8 +155,8 @@
                         <div class="flex items-start space-x-3">
                             <div class="flex-shrink-0">
                                 @if ($testimonial->image)
-                                    <img src="{{ Storage::url($testimonial->image) }}"
-                                        alt="{{ $testimonial->client_name }}" class="h-10 w-10 rounded-full object-cover">
+                                    <img src="{{ Storage::url($testimonial->image) }}" alt="{{ $testimonial->client_name }}"
+                                        class="h-10 w-10 rounded-full object-cover">
                                 @else
                                     <div class="h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center">
                                         <i class="fas fa-user text-gray-400"></i>
@@ -199,18 +203,7 @@
     <!-- Quick Actions -->
     <div class="mt-8 bg-white rounded-lg shadow p-6">
         <h3 class="text-lg font-medium text-gray-900 mb-4">Aksi Cepat</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            <a href="{{ route('admin.services.create') }}"
-                class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                <div class="p-2 bg-blue-100 rounded-lg mr-3">
-                    <i class="fas fa-plus text-blue-600"></i>
-                </div>
-                <div>
-                    <p class="font-medium text-gray-900">Tambah Layanan</p>
-                    <p class="text-sm text-gray-500">Buat layanan baru</p>
-                </div>
-            </a>
-
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a href="{{ route('admin.news.create') }}"
                 class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                 <div class="p-2 bg-green-100 rounded-lg mr-3">
@@ -222,14 +215,14 @@
                 </div>
             </a>
 
-            <a href="{{ route('admin.testimonials.create') }}"
+            <a href="{{ route('admin.sliders.create') }}"
                 class="flex items-center p-4 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-200">
-                <div class="p-2 bg-yellow-100 rounded-lg mr-3">
-                    <i class="fas fa-plus text-yellow-600"></i>
+                <div class="p-2 bg-indigo-100 rounded-lg mr-3">
+                    <i class="fas fa-plus text-indigo-600"></i>
                 </div>
                 <div>
-                    <p class="font-medium text-gray-900">Tambah Testimoni</p>
-                    <p class="text-sm text-gray-500">Tambah testimoni klien</p>
+                    <p class="font-medium text-gray-900">Tambah Slider</p>
+                    <p class="text-sm text-gray-500">Tambah gambar slider beranda</p>
                 </div>
             </a>
 

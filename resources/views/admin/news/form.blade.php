@@ -61,7 +61,7 @@
                 </label>
                 <textarea name="content" 
                           id="content" 
-                          rows="10"
+                          rows="15"
                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror">{{ old('content', $news->content ?? '') }}</textarea>
                 @error('content')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -90,24 +90,24 @@
                 <!-- Position -->
                 <div>
                     <label for="position" class="block text-sm font-medium text-gray-700 mb-2">
-                        Posisi Tampilan
+                        Posisi Tampilan Beranda <span class="text-red-500">*</span>
                     </label>
                     <select name="position" 
                             id="position"
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('position') border-red-500 @enderror">
-                        <option value="">Regular (Grid Biasa)</option>
+                        <option value="">Regular (Tidak Ditampilkan di Beranda Utama)</option>
                         <option value="1" {{ old('position', $news->position ?? '') == 1 ? 'selected' : '' }}>
-                            Position 1 - Featured (Tampil Besar)
+                            Position 1 - Featured (Tampilan Besar Kiri)
                         </option>
                         <option value="2" {{ old('position', $news->position ?? '') == 2 ? 'selected' : '' }}>
-                            Position 2 - Priority (Sedang Kanan Atas)
+                            Position 2 - Priority (Tampilan Kanan Atas)
                         </option>
                         <option value="3" {{ old('position', $news->position ?? '') == 3 ? 'selected' : '' }}>
-                            Position 3 - Priority (Sedang Kanan Bawah)
+                            Position 3 - Priority (Tampilan Kanan Tengah/Bawah)
                         </option>
                     </select>
                     <p class="mt-1 text-xs text-gray-500">
-                        <i class="fas fa-info-circle"></i> Atur prioritas tampilan berita di halaman utama
+                        <i class="fas fa-info-circle"></i> <strong>Maksimal 4 berita</strong> yang tampil di beranda: 1 Featured + 3 Priority. Jika kosong, berita terbaru akan diambil otomatis.
                     </p>
                     @error('position')
                         <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -227,207 +227,80 @@ function previewImage(event) {
 }
 </script>
 
-<!-- CKEditor 5 Super-build (agar mendukung Source Editing & HTML Embed) -->
-<script src="https://cdn.ckeditor.com/ckeditor5/40.1.0/super-build/ckeditor.js"></script>
+<!-- CKEditor 4 (full) -->
+<script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
 <script>
     let editorInstance;
-    
-    const uploadUrl = "{{ route('admin.news.upload-image') }}?_token={{ csrf_token() }}";
 
-    ClassicEditor
-        .create(document.querySelector('#content'), {
-            toolbar: {
-                items: [
-                    'heading', '|',
-                    'bold', 'italic', 'underline', 'strikethrough', '|',
-                    'link', 'uploadImage', 'blockQuote', 'codeBlock', '|',
-                    'bulletedList', 'numberedList', '|',
-                    'outdent', 'indent', '|',
-                    'alignment', '|',
-                    'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', '|',
-                    'insertTable', 'mediaEmbed', 'horizontalLine', '|',
-                    'htmlEmbed', '|',
-                    'undo', 'redo', '|',
-                    'sourceEditing'
-                ],
-                shouldNotGroupWhenFull: true
-            },
-            heading: {
-                options: [
-                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                    { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' }
-                ]
-            },
-            fontSize: {
-                options: [
-                    'tiny',
-                    'small',
-                    'default',
-                    'big',
-                    'huge'
-                ]
-            },
-            fontFamily: {
-                options: [
-                    'default',
-                    'Arial, Helvetica, sans-serif',
-                    'Courier New, Courier, monospace',
-                    'Georgia, serif',
-                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                    'Tahoma, Geneva, sans-serif',
-                    'Times New Roman, Times, serif',
-                    'Trebuchet MS, Helvetica, sans-serif',
-                    'Verdana, Geneva, sans-serif'
-                ]
-            },
-            image: {
-                toolbar: [
-                    'imageStyle:inline',
-                    'imageStyle:block',
-                    'imageStyle:side',
-                    '|',
-                    'toggleImageCaption',
-                    'imageTextAlternative',
-                    '|',
-                    'linkImage'
-                ]
-            },
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells',
-                    'tableCellProperties',
-                    'tableProperties'
-                ]
-            },
-            // CKEditor 5 super-build menggunakan CKFinder upload adapter
-            ckfinder: {
-                uploadUrl: uploadUrl
-            },
-            htmlEmbed: {
-                showPreviews: true
-            },
-            link: {
-                decorators: {
-                    openInNewTab: {
-                        mode: 'manual',
-                        label: 'Open in a new tab',
-                        attributes: {
-                            target: '_blank',
-                            rel: 'noopener noreferrer'
-                        }
-                    }
-                }
-            },
-            language: 'id',
-            placeholder: 'Tulis konten berita di sini...',
-            minHeight: '400px',
-            // Keep default plugins provided by the super-build so uploads and source editing work
-        })
-        .then(editor => {
-            editorInstance = editor;
-            window.editor = editor;
-            
-            console.log('CKEditor initialized successfully');
-            
-            // Set min height
-            editor.editing.view.change(writer => {
-                writer.setStyle('min-height', '400px', editor.editing.view.document.getRoot());
-            });
-        })
-        .catch(error => {
-            console.error('Error initializing CKEditor:', error);
-            alert('Gagal memuat editor. Silakan refresh halaman.');
-        });
-    
-    // Handle form submission
     document.addEventListener('DOMContentLoaded', function() {
+        const textarea = document.getElementById('content');
+        if (!textarea) {
+            console.error('Textarea #content tidak ditemukan');
+            return;
+        }
+
+        if (typeof CKEDITOR === 'undefined') {
+            alert('CKEditor gagal dimuat. Silakan refresh halaman.');
+            return;
+        }
+
+        editorInstance = CKEDITOR.replace('content', {
+            height: 400,
+            toolbar: [
+                { name: 'document', items: ['Source', '-', 'NewPage', 'Preview'] },
+                { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },
+                { name: 'editing', items: ['Find', 'Replace', '-', 'SelectAll'] },
+                '/',
+                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat'] },
+                { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+                { name: 'links', items: ['Link', 'Unlink', 'Anchor'] },
+                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe'] },
+                '/',
+                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                { name: 'colors', items: ['TextColor', 'BGColor'] },
+                { name: 'tools', items: ['Maximize', 'ShowBlocks'] }
+            ],
+            allowedContent: true,
+            extraAllowedContent: '*(*);*{*}',
+            filebrowserUploadUrl: "{{ route('admin.news.upload-image') }}?_token={{ csrf_token() }}",
+            filebrowserUploadMethod: 'form',
+            language: 'id',
+            uiColor: '#f8f9fa'
+        });
+
+        // Pastikan textarea tersinkron saat submit
         const form = document.querySelector('form');
         const submitBtn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
         const btnLoading = document.getElementById('btnLoading');
-        
+
         if (form) {
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                console.log('Submit button clicked');
-                
-                // Check if editor is ready
-                if (!editorInstance) {
-                    alert('Editor belum siap. Silakan tunggu sebentar dan coba lagi.');
-                    return false;
+            form.addEventListener('submit', function() {
+                if (editorInstance && editorInstance.updateElement) {
+                    editorInstance.updateElement();
                 }
-                
-                // Get data from CKEditor
-                const editorData = editorInstance.getData();
-                console.log('Editor data length:', editorData.length);
-                
-                // Update textarea value
-                const contentTextarea = document.querySelector('#content');
-                contentTextarea.value = editorData;
-                
-                // Validate content
-                if (!editorData || editorData.trim() === '' || editorData === '<p>&nbsp;</p>' || editorData === '<p></p>') {
-                    alert('Konten berita tidak boleh kosong!');
-                    return false;
-                }
-                
-                // Show loading state
                 if (submitBtn) {
                     submitBtn.disabled = true;
                     if (btnText) btnText.classList.add('hidden');
                     if (btnLoading) btnLoading.classList.remove('hidden');
                 }
-                
-                console.log('Form is valid, submitting...');
-                
-                // Submit the form
-                form.submit();
             });
         }
     });
 </script>
 
 <style>
-    .ck-editor__editable {
+    .cke_chrome {
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+    }
+    .cke_top {
+        background: #f8f9fa;
+        border-bottom: 1px solid #d1d5db;
+    }
+    .cke_contents {
         min-height: 400px;
-    }
-    .ck.ck-editor__main > .ck-editor__editable {
-        background-color: #ffffff;
-    }
-    .ck.ck-toolbar {
-        background-color: #f8f9fa !important;
-        border: 1px solid #d1d5db !important;
-        display: flex !important;
-        z-index: 9999 !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    /* Ensure toolbar items are visible when Tailwind or missing app.css affects layout */
-    .ck-toolbar {
-        display: flex !important;
-        align-items: center !important;
+        background: #ffffff;
     }
 </style>
-<script>
-    // Diagnostic: ensure toolbar visible after initialization
-    document.addEventListener('DOMContentLoaded', function() {
-        setTimeout(() => {
-            const tb = document.querySelector('.ck-toolbar');
-            console.log('CKEditor toolbar presence (form):', !!tb, tb);
-            if (tb) {
-                tb.style.display = 'flex';
-                tb.style.zIndex = '9999';
-                tb.style.visibility = 'visible';
-                tb.style.opacity = '1';
-            }
-        }, 800);
-    });
-</script>
 @endsection

@@ -8,17 +8,17 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/halalcenter.jpg') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
         <!-- Content -->
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <!-- Breadcrumb -->
-            <nav class="flex mb-8" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <!-- Breadcrumb di pojok kiri atas -->
+            <nav class="absolute top-6 left-4 sm:left-6 flex items-center mb-0" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3 text-sm sm:text-base">
                     <li class="inline-flex items-center">
-                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white">
+                        <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
                             Home
                         </a>
@@ -33,7 +33,7 @@
             </nav>
 
             <!-- Header Text -->
-            <div class="text-center">
+            <div class="text-center pt-14 sm:pt-2">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Halal Center</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Lembaga Pemeriksa Halal Balai Besar Standarisasi dan Pelayanan Jasa Industri Kulit, Karet dan Plastik
@@ -48,22 +48,26 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- About LPH -->
             <a href="{{ route('halal.about') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Tentang LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/halalcenter.jpg') }}" alt="Tentang LPH"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tentang LPH</h2>
                         <p class="text-gray-600">Informasi mengenai peran dan fungsi Lembaga Pemeriksa Halal BBSPJIKP.</p>
                     </div>
                 </div>
-            </a>    
+            </a>
 
             <!-- Services -->
             <a href="{{ route('halal.services') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Layanan LPH" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/layananlph.jpg') }}" alt="Layanan LPH"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Layanan LPH</h2>
@@ -74,35 +78,44 @@
 
             <!-- Certification Process -->
             <a href="{{ route('halal.certification-process') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Proses Sertifikasi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/prosessertif.jpg') }}" alt="Proses Sertifikasi"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Proses Sertifikasi</h2>
-                        <p class="text-gray-600 flex-1">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Proses Sertifikasi
+                        </h2>
+                        <p class="text-gray-600 flex-1">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.
+                        </p>
                     </div>
                 </div>
             </a>
 
             <!-- Regulations -->
             <a href="{{ route('halal.regulations') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="Peraturan dan Pedoman" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/pedoman.jpg') }}" alt="Peraturan dan Pedoman"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Peraturan & Pedoman</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Peraturan & Pedoman
+                        </h2>
                         <p class="text-gray-600 flex-1">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
                     </div>
                 </div>
             </a>
 
             <!-- FAQ -->
-            <a href="{{ route('halal.faq') }}" class="group h-full flex">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+            <a href="{{ url('faq') }}" class="group h-full flex">
+                <div
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/bg-random.webp') }}" alt="FAQ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <img src="{{ asset('images/faq.jpg') }}" alt="FAQ"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">FAQ</h2>
@@ -113,6 +126,7 @@
         </div>
     </div>
     <!-- Atau Bisa Seperti Di Bawah Ini -->
-    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js" api-key-resvoice="bzbTAKXD"></script>
+    <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"
+        api-key-resvoice="bzbTAKXD"></script>
     <!-- ganti key api-key-resvoice dengan key yang ada di responsive voice-->
 @endsection

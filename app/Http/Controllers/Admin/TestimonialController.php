@@ -46,42 +46,6 @@ class TestimonialController extends Controller
     }
 
     /**
-     * Show the form for creating a new testimonial.
-     */
-    public function create()
-    {
-        return view('admin.testimonials.create');
-    }
-
-    /**
-     * Store a newly created testimonial.
-     */
-    public function store(Request $request)
-    {
-        $request->validate([
-            'client_name' => 'required|string|max:255',
-            'client_company' => 'nullable|string|max:255',
-            'content' => 'required|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'is_approved' => 'boolean',
-            'rating' => 'required|integer|min:1|max:5',
-            'sort_order' => 'integer|min:0',
-        ]);
-
-        $data = $request->all();
-        $data['is_approved'] = $request->has('is_approved');
-
-        if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('testimonials', 'public');
-        }
-
-        Testimonial::create($data);
-
-        return redirect()->route('admin.testimonials.index')
-            ->with('success', 'Testimoni berhasil ditambahkan.');
-    }
-
-    /**
      * Show the form for editing the specified testimonial.
      */
     public function edit(Testimonial $testimonial)

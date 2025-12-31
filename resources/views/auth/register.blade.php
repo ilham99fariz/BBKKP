@@ -124,7 +124,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <a href="{{ route('login') }}" class="text-sm text-gray-600 hover:text-gray-900">
+                    <a href="{{ route('admin.login') }}" class="text-sm text-gray-600 hover:text-gray-900">
                         Sudah punya akun? Masuk di sini
                     </a>
                 </div>

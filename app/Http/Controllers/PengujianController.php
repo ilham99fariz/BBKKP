@@ -12,15 +12,10 @@ class PengujianController extends Controller
      */
     public function index()
     {
-        // Try to get dynamic page with slug 'pengujian'
-        $page = DynamicPage::where('slug', 'pengujian')->active()->first();
+        // Get dynamic page with slug 'pengujian' or fail with 404
+        $page = DynamicPage::where('slug', 'pengujian')->active()->firstOrFail();
         
-        if ($page) {
-            return view('pages.dynamic.show', compact('page'));
-        }
-        
-        // Fallback to static view if no dynamic page found
-        return view('pages.pengujian.index');
+        return view('pages.dynamic.show', compact('page'));
     }
 
     /**
@@ -28,14 +23,9 @@ class PengujianController extends Controller
      */
     public function produkKulit()
     {
-        // Try to get dynamic page with slug 'pengujian-produk-kulit'
-        $page = DynamicPage::where('slug', 'pengujian-produk-kulit')->active()->first();
+        // Get dynamic page with slug 'pengujian-produk-kulit' or fail with 404
+        $page = DynamicPage::where('slug', 'pengujian-produk-kulit')->active()->firstOrFail();
         
-        if ($page) {
-            return view('pages.dynamic.show', compact('page'));
-        }
-        
-        // Fallback to static view if no dynamic page found
-        return view('pages.pengujian.produk-kulit');
+        return view('pages.dynamic.show', compact('page'));
     }
 }

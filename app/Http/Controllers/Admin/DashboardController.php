@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
 use App\Models\News;
 use App\Models\Testimonial;
 use App\Models\Partner;
 use App\Models\DynamicPage;
+use App\Models\ContactMessage;
+use App\Models\HomepageSlider;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -18,7 +19,7 @@ class DashboardController extends Controller
     public function index()
     {
         $stats = [
-            'services' => Service::count(),
+            'sliders' => HomepageSlider::count(),
             'news' => News::count(),
             'published_news' => News::where('is_published', true)->count(),
             'testimonials' => Testimonial::count(),
@@ -26,6 +27,8 @@ class DashboardController extends Controller
             'partners' => Partner::count(),
             'dynamic_pages' => DynamicPage::count(),
             'active_dynamic_pages' => DynamicPage::where('is_active', true)->count(),
+            'visits' => ContactMessage::where('is_read', false)->count(),
+            'messages' => ContactMessage::where('is_read', true)->count(),
         ];
 
         $recentNews = News::latest()->take(5)->get();

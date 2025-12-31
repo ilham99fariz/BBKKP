@@ -13,23 +13,16 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        // Admin 1 - Superadmin
+        // Hapus semua admin selain email target
+        Admin::where('email', '!=', 'admin@balaiindustri.go.id')->delete();
+
+        // Buat admin utama
         Admin::updateOrCreate(
             ['email' => 'admin@balaiindustri.go.id'],
             [
                 'name' => 'Super Admin',
                 'password' => Hash::make('minda1937'),
                 'role' => 'superadmin',
-            ]
-        );
-
-        // Admin 2 - Media Admin (hanya akses media & informasi)
-        Admin::updateOrCreate(
-            ['email' => 'media@balaiindustri.go.id'],
-            [
-                'name' => 'Media Admin',
-                'password' => Hash::make('adminmesi'),
-                'role' => 'media',
             ]
         );
     }

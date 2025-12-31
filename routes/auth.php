@@ -12,15 +12,12 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
-
-    Route::post('register', [RegisteredUserController::class, 'store']);
-
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
-
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    // Register dan user login dihapus - hanya ada admin login
+    // Route bernama 'login' yang redirect ke admin login
+    Route::get('/login', function () {
+        return redirect()->route('admin.login');
+    })->name('login');
+    // Route::redirect('register', '/admin/login', 301);
 
     Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
                 ->name('password.request');

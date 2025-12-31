@@ -6,30 +6,87 @@
     mendukung perkembangan industri nasional')
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                {{ $settings['hero_title'] ?? 'BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET' }}
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 text-blue-100 max-w-4xl mx-auto">
-                {{ $settings['hero_subtitle'] ?? 'Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi untuk mendukung perkembangan industri nasional' }}
-            </p>
-            <p class="text-lg mb-10 text-blue-200 max-w-3xl mx-auto">
-                {{ $settings['hero_description'] ?? 'Kami berkomitmen untuk memberikan pelayanan terbaik dalam bidang standardisasi dan pelayanan jasa industri kulit, plastik, dan karet dengan standar internasional.' }}
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="{{ route('services.index') }}"
-                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
-                    {{ __('home.view_our_services') }}
-                </a>
-                <a href="{{ route('contact.show') }}"
-                    class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition">
-                    {{ __('home.contact_us') }}
-                </a>
+    
+    <!-- Hero Slider Section (NEW - Image Based) -->
+    <section class="relative w-full overflow-hidden bg-gray-900" id="hero-slider">
+        @if($sliders->count() > 0)
+            <div class="relative h-[400px] md:h-[500px] lg:h-[600px]">
+                @foreach($sliders as $index => $slider)
+                    <div class="slider-item absolute inset-0 transition-opacity duration-[1500ms] ease-in-out {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}" 
+                         data-slide="{{ $index }}">
+                        <img src="{{ Storage::url($slider->image) }}" 
+                             alt="{{ $slider->title ?? 'Slider Image' }}" 
+                             class="w-full h-full object-cover">
+                        
+                        @if($slider->title || $slider->description || $slider->link_url)
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
+                                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-20 w-full">
+                                    <div class="max-w-3xl">
+                                        @if($slider->title)
+                                            <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+                                                {{ $slider->title }}
+                                            </h2>
+                                        @endif
+                                        @if($slider->description)
+                                            <p class="text-lg md:text-xl text-white/90 mb-6">
+                                                {{ $slider->description }}
+                                            </p>
+                                        @endif
+                                        @if($slider->link_url && $slider->link_text)
+                                            <a href="{{ $slider->link_url }}" 
+                                               class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
+                                                {{ $slider->link_text }}
+                                            </a>
+                                        @endif
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
+
+                @if($sliders->count() > 1)
+                    <!-- Previous Button -->
+                    <button id="slider-prev" 
+                            class="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 backdrop-blur-sm text-white p-3 rounded-full transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Next Button -->
+                    <button id="slider-next" 
+                            class="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/30 hover:bg-white/50 backdrop-blur-sm text-white p-3 rounded-full transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dots Navigation -->
+                    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+                        @foreach($sliders as $index => $slider)
+                            <button class="slider-dot w-3 h-3 rounded-full transition-all {{ $index === 0 ? 'bg-white w-8' : 'bg-white/50' }}" 
+                                    data-slide="{{ $index }}">
+                            </button>
+                        @endforeach
+                    </div>
+                @endif
             </div>
-        </div>
+        @else
+            <!-- Fallback jika belum ada slider -->
+            <div class="h-[500px] md:h-[600px] bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center">
+                <div class="text-center text-white px-4">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET
+                    </h1>
+                    <p class="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto">
+                        Menyediakan layanan standardisasi dan pelayanan jasa industri berkualitas tinggi
+                    </p>
+                </div>
+            </div>
+        @endif
     </section>
+
 
     <section class="py-20 bg-gradient-to-br from-white via-white to-blue-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -59,55 +116,78 @@
     </section>
 
     <!-- Services Section (native scroll slider with arrows + swipe) -->
-    <section class="py-20 bg-gray-50">
+    <section id="services" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    {{ $settings['services_title'] ?? __('home.our_services') }}
+                    {{ __('home.our_services') }}
                 </h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    {{ $settings['services_subtitle'] ?? __('home.services_subtitle') }}
+                    {{ __('home.services_subtitle') }}
                 </p>
             </div>
+            @php
+                $servicesData = [
+                    [
+                        'title' => 'Pengujian',
+                        'description' => 'Layanan Pengujian Menjamin mutu dan keandalan produk melalui pengujian sesuai standar nasional dan internasional.',
+                        'image' => 'images/Pengujian1.jpg',
+                        'slug' => 'pengujian'
+                    ],
+                    [
+                        'title' => 'Kalibrasi',
+                        'description' => 'Laboratorium Kalibrasi BBSPJIKKP berorientasi pada kepuasan pelanggan dalam membantu pertumbuhan dunia usaha khususnya industri kecil, menengah, maupun besar.',
+                        'image' => 'images/kalibrasiB.jpg',
+                        'slug' => 'kalibrasi'
+                    ],
+                    [
+                        'title' => 'Sertifikasi',
+                        'description' => 'Sertifikasi BBSPJIKKP menawarkan solusi sertifikasi yang terintegrasi dan terpadu untuk industri kulit, plastik, dan karet.',
+                        'image' => 'images/Sertifikasi1.png',
+                        'slug' => 'sertifikasi'
+                    ],
+                    [
+                        'title' => 'Bimbingan Teknis & Konsultasi',
+                        'description' => 'Bimbingan Teknis & Konsultasi menawarkan layanan konsultasi dan bimbingan teknis yang terintegrasi untuk membantu tim Anda mencapai tujuan produksi.',
+                        'image' => 'images/konsultasi.png',
+                        'slug' => 'bimbingan-teknis-konsultasi'
+                    ],
+                ];
+            @endphp
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                @foreach ($services->take(4) as $service)
+                @foreach ($servicesData as $service)
                     <div
                         class="bg-white rounded-lg shadow hover:shadow-xl transition h-full flex flex-col overflow-hidden">
-                        @if ($service->icon)
-                            <div class="w-full h-48 overflow-hidden">
-                                <img src="{{ Storage::url($service->icon) }}" alt="{{ $service->title }}"
-                                    class="w-full h-full object-cover">
-                            </div>
-                        @else
-                            <div class="bg-blue-100 w-full h-48 flex items-center justify-center">
-                                <i class="fas fa-cog text-blue-600 text-4xl"></i>
-                            </div>
-                        @endif
+                        <div class="w-full h-48 overflow-hidden relative">
+                            @if(isset($service['image']))
+                                <img src="{{ asset($service['image']) }}" 
+                                     alt="{{ $service['title'] }}" 
+                                     class="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                                     onerror="this.parentElement.innerHTML='<div class=\'bg-gradient-to-br from-blue-100 to-blue-200 w-full h-full flex items-center justify-center\'><i class=\'fas fa-file-image text-blue-400 text-5xl\'></i></div>'">
+                            @else
+                                <div class="bg-gradient-to-br from-blue-100 to-blue-200 w-full h-full flex items-center justify-center">
+                                    <i class="fas fa-file-image text-blue-400 text-5xl"></i>
+                                </div>
+                            @endif
+                        </div>
                         <div class="p-6 flex flex-col flex-grow">
-                            <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center line-clamp-2">{{ $service->title }}</h3>
-                            <p class="text-gray-600 mb-4 text-center line-clamp-3 flex-grow">{{ Str::limit($service->description, 120) }}</p>
-                            @php
-                                $lowerTitle = Str::lower($service->title);
-                                if (Str::contains($lowerTitle, 'pengujian')) {
-                                    $url = url('/pengujian');
-                                } elseif (Str::contains($lowerTitle, 'kalibrasi')) {
-                                    $url = url('/kalibrasi');
-                                } elseif (Str::contains($lowerTitle, 'sertifikasi')) {
-                                    $url = url('/sertifikasi');
-                                } else {
-                                    $url = route('services.show', $service);
-                                }
-                            @endphp
-                            <a href="{{ $url }}"
+                            <h3 class="text-xl font-semibold text-gray-900 mb-3 text-center line-clamp-2">{{ $service['title'] }}</h3>
+                            <p class="text-gray-600 mb-4 text-center line-clamp-3 flex-grow">{{ $service['description'] }}</p>
+                            <a href="{{ url('/' . $service['slug']) }}"
                                 class="text-blue-600 font-semibold hover:text-blue-700 text-center block mt-auto">{{ __('home.learn_more') }} <i
                                     class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 @endforeach
             </div>
+            
+            <!-- View All Services Button -->
             <div class="text-center mt-12">
                 <a href="{{ route('services.index') }}"
-                    class="border-2 border-blue-600 text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition">{{ __('home.view_all_services') }}</a>
+                    class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
+                    Lihat Semua Layanan
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -118,22 +198,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                    {{ $settings['news_title'] ?? __('home.news_updates') }}
+                    {{ __('home.news_updates') }}
                 </h2>
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-                    {{ $settings['news_subtitle'] ?? __('home.news_subtitle') }}
+                    {{ __('home.news_subtitle') }}
                 </p>
             </div>
 
             @php
                 $featured = $news->first();
-                $others = $news->skip(1);
+                $others = $news->skip(1)->take(4);
             @endphp
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Featured News (besar di kiri) -->
+                <!-- Featured News (Position 1 - Tampilan Besar) -->
                 @if ($featured)
-                    <div class="lg:col-span-2 bg-white rounded-lg shadow hover:shadow-xl overflow-hidden transition">
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow-lg hover:shadow-xl overflow-hidden transition-all transform hover:scale-[1.02] duration-300">
                         @if ($featured->image)
                             <img src="{{ Storage::url($featured->image) }}" alt="{{ $featured->title }}"
                                 class="w-full h-96 object-cover">
@@ -143,40 +223,47 @@
                             </div>
                         @endif
                         <div class="p-8">
-                            <div class="text-sm text-gray-500 mb-2">
-                                {{ $featured->published_at->format('d M Y') }} • {{ $featured->author }}
+                            <div class="flex items-center text-sm text-gray-500 mb-3">
+                                <i class="fas fa-calendar-alt mr-2"></i>
+                                <span>{{ $featured->published_at->format('d M Y') }}</span>
+                                <span class="mx-2">•</span>
+                                <i class="fas fa-user mr-2"></i>
+                                <span>{{ $featured->author }}</span>
                             </div>
-                            <h3 class="text-3xl font-bold text-gray-900 mb-4">{{ $featured->title }}</h3>
-                            <p class="text-gray-700 mb-6">{{ Str::limit(strip_tags($featured->content), 180) }}</p>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4 leading-tight">{{ $featured->title }}</h3>
+                            <p class="text-gray-700 mb-6 text-lg">{{ Str::limit(strip_tags($featured->content), 200) }}</p>
                             <a href="{{ route('news.show', $featured) }}"
-                                class="text-blue-600 font-semibold hover:text-blue-700">
-                                {{ __('home.read_more') }} <i class="fas fa-arrow-right ml-1"></i>
+                                class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200">
+                                {{ __('home.read_more') }} <i class="fas fa-arrow-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 @endif
 
-                <!-- Other News (kecil di kanan) -->
+                <!-- Priority News (Position 2, 3 - Tampilan Sedang) -->
                 <div class="space-y-6">
                     @foreach ($others as $article)
-                        <div class="flex gap-4 bg-white rounded-lg shadow hover:shadow-lg overflow-hidden transition">
+                        <div class="flex gap-4 bg-white rounded-lg shadow-lg hover:shadow-xl overflow-hidden transition-all transform hover:scale-[1.02] duration-300">
                             @if ($article->image)
                                 <img src="{{ Storage::url($article->image) }}" alt="{{ $article->title }}"
-                                    class="w-32 h-32 object-cover">
+                                    class="w-32 h-32 object-cover flex-shrink-0">
                             @else
-                                <div class="w-32 h-32 bg-gray-200 flex items-center justify-center">
+                                <div class="w-32 h-32 bg-gray-200 flex items-center justify-center flex-shrink-0">
                                     <i class="fas fa-newspaper text-gray-400 text-2xl"></i>
                                 </div>
                             @endif
-                            <div class="p-4 flex-1">
-                                <h4 class="text-lg font-semibold text-gray-900 leading-snug mb-1 line-clamp-2">
+                            <div class="p-4 flex-1 flex flex-col">
+                                <div class="flex items-center text-xs text-gray-500 mb-2">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    <span>{{ $article->published_at->format('d M Y') }}</span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-900 leading-snug mb-2 line-clamp-2">
                                     {{ $article->title }}
                                 </h4>
-                                <p class="text-sm text-gray-500 mb-2">{{ $article->published_at->format('d M Y') }}</p>
-                                <p class="text-gray-600 text-sm line-clamp-3">{{ $article->excerpt }}</p>
+                                <p class="text-gray-600 text-sm line-clamp-2 flex-grow mb-3">{{ $article->excerpt }}</p>
                                 <a href="{{ route('news.show', $article) }}"
-                                    class="text-blue-600 text-sm font-medium hover:text-blue-700">
-                                    {{ __('home.read_more') }}
+                                    class="text-blue-600 text-sm font-semibold hover:text-blue-700 inline-flex items-center transition-colors duration-200">
+                                    {{ __('home.read_more') }} <i class="fas fa-arrow-right ml-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -447,6 +534,103 @@
 @endsection
 
 @push('scripts')
+    {{-- Hero Slider Script --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliderItems = document.querySelectorAll('.slider-item');
+            const sliderDots = document.querySelectorAll('.slider-dot');
+            const prevBtn = document.getElementById('slider-prev');
+            const nextBtn = document.getElementById('slider-next');
+            
+            if (sliderItems.length === 0) return;
+            
+            let currentSlide = 0;
+            const totalSlides = sliderItems.length;
+            let autoplayInterval;
+
+            function showSlide(index) {
+                // Hide all slides
+                sliderItems.forEach((item, i) => {
+                    if (i === index) {
+                        item.classList.remove('opacity-0', 'z-0');
+                        item.classList.add('opacity-100', 'z-10');
+                    } else {
+                        item.classList.remove('opacity-100', 'z-10');
+                        item.classList.add('opacity-0', 'z-0');
+                    }
+                });
+
+                // Update dots
+                sliderDots.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.add('bg-white', 'w-8');
+                        dot.classList.remove('bg-white/50');
+                    } else {
+                        dot.classList.remove('bg-white', 'w-8');
+                        dot.classList.add('bg-white/50');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function startAutoplay() {
+                if (totalSlides > 1) {
+                    autoplayInterval = setInterval(nextSlide, 7000); // Auto slide setiap 7 detik
+                }
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            // Event listeners
+            if (nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    stopAutoplay();
+                    nextSlide();
+                    startAutoplay();
+                });
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', () => {
+                    stopAutoplay();
+                    prevSlide();
+                    startAutoplay();
+                });
+            }
+
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    stopAutoplay();
+                    currentSlide = index;
+                    showSlide(currentSlide);
+                    startAutoplay();
+                });
+            });
+
+            // Pause on hover
+            const sliderSection = document.getElementById('hero-slider');
+            if (sliderSection) {
+                sliderSection.addEventListener('mouseenter', stopAutoplay);
+                sliderSection.addEventListener('mouseleave', startAutoplay);
+            }
+
+            // Start autoplay
+            startAutoplay();
+        });
+    </script>
+
+    {{-- Services Slider Script --}}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const slider = document.getElementById('services-slider');

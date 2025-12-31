@@ -37,7 +37,6 @@ class PageContentController extends Controller
                 'survey-layanan-pelanggan' => 'Survey Layanan Pelanggan',
             ],
             'media-informasi' => [
-                'berita' => 'Berita',
                 'publikasi' => 'Publikasi',
                 'pengumuman' => 'Pengumuman',
             ],
@@ -98,7 +97,7 @@ class PageContentController extends Controller
             'slug' => 'nullable|string|max:255|unique:dynamic_pages,slug',
             'content' => 'nullable|string',
             'category' => 'required|string|in:' . implode(',', $categoryKeys),
-            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
             'hero_title' => 'nullable|string|max:255',
             'hero_subtitle' => 'nullable|string|max:500',
             'sort_order' => 'nullable|integer|min:0',
@@ -152,7 +151,7 @@ class PageContentController extends Controller
             'slug' => 'nullable|string|max:255|unique:dynamic_pages,slug,' . $page->id,
             'content' => 'nullable|string',
             'category' => 'required|string|in:' . implode(',', $categoryKeys),
-            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
             'hero_title' => 'nullable|string|max:255',
             'hero_subtitle' => 'nullable|string|max:500',
             'sort_order' => 'nullable|integer|min:0',
@@ -201,7 +200,7 @@ class PageContentController extends Controller
     public function upload(Request $request, $type)
     {
         $request->validate([
-            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
         ]);
 
         try {
