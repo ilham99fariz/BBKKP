@@ -79,7 +79,7 @@
             </a>
 
             <!-- Publikasi -->
-            <a href="{{ route('media.publication') }}" class="group h-full flex">
+            <a href="{{ url('/publikasi') }}" class="group h-full flex">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
@@ -94,7 +94,7 @@
             </a>
 
             <!-- Pengumuman -->
-            <a href="{{ route('media.announcement') }}" class="group h-full flex">
+            <a href="{{ url('/pengumuman') }}" class="group h-full flex">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
@@ -108,7 +108,7 @@
                 </div>
             </a>
             <!-- <a href="{{ route('media.index') }}" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow opacity-0 pointer-events-none">
-                                                                        <-- spacer to keep grid even on some breakpoints -->
+                                                                                        <-- spacer to keep grid even on some breakpoints -->
             <!-- </a> -->
 
         </div>

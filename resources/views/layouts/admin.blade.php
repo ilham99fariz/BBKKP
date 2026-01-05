@@ -359,6 +359,12 @@
                             <i class="fas fa-balance-scale mr-3"></i>
                             Skor IPK
                         </a>
+
+                        <a href="{{ route('admin.surveys.index') }}"
+                            class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.surveys.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                            <i class="fas fa-poll-h mr-3"></i>
+                            Survey Langganan
+                        </a>
                     @endif
 
                     {{-- Slider Beranda --}}
@@ -446,9 +452,9 @@
     <div x-show="sidebarOpen" x-cloak @click="sidebarOpen = false"
         class="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden"></div>
 
-    <!-- Accessibility Widget -->
+    {{-- <!-- Accessibility Widget -->
     <script type="text/javascript" src="https://web.animemusic.us/widget_disabilitas.js"
-        api-key-resvoice="bzbTAKXD"></script>
+        api-key-resvoice="bzbTAKXD"></script> --}}
 
     <!-- CKEditor 4 Full -->
     <script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>

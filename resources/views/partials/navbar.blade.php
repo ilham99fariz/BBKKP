@@ -115,7 +115,7 @@
                         <a href="{{ route('dynamic.page', 'spm') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Standar
                             Pelayanan Minimum (SPM)</a>
-                        <a href="{{ route('dynamic.page', 'survey-layanan-pelanggan') }}"
+                        <a href="{{ url('/survey') }}"
                             class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
                             Layanan Pelanggan</a>
                     </div>
@@ -520,7 +520,7 @@
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Standar Pelayanan Minimum (SPM)
                     </a>
-                    <a href="/survey-layanan-pelanggan"
+                    <a href="/survey"
                         class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
                         Survey Layanan Pelanggan
                     </a>

@@ -1,109 +1,13 @@
-<div class="bg-white shadow-lg rounded-lg overflow-hidden p-8">
-    <h1 class="text-3xl font-bold text-gray-900 mb-8">Pertanyaan Paling Sering</h1>
+<div style="background-color: #ffffff; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+     <p><span style="font-size:26px;"><strong>Struktur Organisasi</strong></span></p>
 
-    <!-- FAQ Accordion -->
-    <div class="space-y-4">
-    <!-- FAQ 1 -->
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
-        <button class="accordion-button w-full text-left px-6 py-4 bg-white hover:bg-gray-50 flex items-center justify-between">
-            <span class="text-lg font-medium text-gray-900">Siapa yang Menerbitkan Sertifikat Halal ?</span>
-            <i class="fas fa-chevron-right text-gray-400 transition-transform"></i>
-        </button>
-        <div class="accordion-content hidden px-6 py-4 bg-gray-50 border-t border-gray-200">
-            <p class="text-gray-700 leading-relaxed">
-                Sertifikat Halal adalah pengakuan kehalalan suatu Produk yang diterbitkan oleh BPJPH berdasarkan fatwa halal tertulis atau penetapan kehalalan Produk oleh MUI, MUI Provinsi, MUI Kabupaten/Kota, Majelis Permusyawaratan Ulama Aceh, atau Komite Fatwa Produk Halal - <em>UU No. 6 Tahun 2023</em> -
-            </p>
-        </div>
-    </div>
+     <p>&nbsp;</p>
 
-    <!-- FAQ 2 -->
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
-        <button class="accordion-button w-full text-left px-6 py-4 bg-white hover:bg-gray-50 flex items-center justify-between">
-            <span class="text-lg font-medium text-gray-900">Kapan Boleh Mencantumkan Label Halal ?</span>
-            <i class="fas fa-chevron-right text-gray-400 transition-transform"></i>
-        </button>
-        <div class="accordion-content hidden px-6 py-4 bg-gray-50 border-t border-gray-200">
-            <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
-                <li>Label Halal adalah tanda kehalalan suatu produk. Label Halal wajib dicantumkan pada kemasan produk, bagian tertentu dari produk, dan/atau tempat tertentu dari produk setelah memperoleh sertifikat halal. Untuk outlet restoran, label halal dipasang hanya pada outlet yang telah masuk dalam lingkup sertifikat halal yang telah diterbitkan. Label Halal ditetapkan oleh BPJPH. - <em>UU No. 33 Tahun 2014</em> -</li>
-                <li>Label halal Indonesia merupakan sebuah rangkaian yang terdiri atas Logo Halal Indonesia yang disertai dengan nomor Sertifikat Halal yang ditampilkan dalam satu kesatuan. Adapun label halal yang lama masih bisa digunakan sampai dengan 2 Februari 2026 dalam rangka menghabiskan stok kemasan. - <em>Kep. Ka. BPJPH No. 88 Tahun 2022</em> -</li>
-            </ul>
-        </div>
-    </div>
+     <p><span style="font-size:14px;">Berdasarkan Peraturan Menteri Perindustrian Nomor 1 Tahun 2022 tentang
+               &quot;Organisasi dan Tata Kerja Unit Pelaksana Teknis di Lingkungan Badan Standardisasi dan Kebijakan
+               Jasa Industri&quot;, Struktur Organisasi Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit,
+               Karet, dan Plastik:</span></p>
 
-    <!-- FAQ 3 -->
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
-        <button class="accordion-button w-full text-left px-6 py-4 bg-white hover:bg-gray-50 flex items-center justify-between">
-            <span class="text-lg font-medium text-gray-900">Apa itu LPH ?</span>
-            <i class="fas fa-chevron-right text-gray-400 transition-transform"></i>
-        </button>
-        <div class="accordion-content hidden px-6 py-4 bg-gray-50 border-t border-gray-200">
-            <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed">
-                <li>LPH atau Lembaga Pemeriksa Halal adalah lembaga yang melakukan kegiatan pemeriksaan dan/atau pengujian terhadap kehalalan Produk berdasarkan standar yang telah ditetapkan oleh BPJPH meliputi pemeriksaan keabsahan dokumen dan pemeriksaan produk di lokasi usaha pada saat proses produksi. LPH harus terakreditasi oleh BPJPH, dan saat ini terdapat 2 kategori yaitu LPH Pratama dan LPH Utama. – <em>PP 39 Tahun 2021 dan PMA No. 12 Tahun 2021</em> –</li>
-                <li>LPH Utama memiliki ruang lingkup pemeriksaan untuk seluruh pelaku usaha skala mikro, kecil, menengah, maupun besar dalam negeri dan luar negeri. LPH Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet dan Plastik (LPH BBSPJIKKP) saat ini sedang dalam proses untuk mendapatkan akreditasi sebagai LPH Utama dari BPJPH.</li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- FAQ 4 -->
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
-        <button class="accordion-button w-full text-left px-6 py-4 bg-white hover:bg-gray-50 flex items-center justify-between">
-            <span class="text-lg font-medium text-gray-900">Ketetapan Halal atau Sertifikat Halal ?</span>
-            <i class="fas fa-chevron-right text-gray-400 transition-transform"></i>
-        </button>
-        <div class="accordion-content hidden px-6 py-4 bg-gray-50 border-t border-gray-200">
-            <ul class="list-disc list-inside space-y-3 text-gray-700 leading-relaxed mb-4">
-                <li>Ketetapan Halal (KH) atau Keputusan Penetapan Halal Produk adalah penetapan kehalalan produk yang diterbitkan oleh MUI atau Komite Fatwa Produk Halal sebagai dasar penerbitan sertifikat halal.</li>
-                <li>Sertifikat Halal merupakan pengakuan kehalalan suatu produk yang diterbitkan oleh BPJPH berdasarkan fatwa halal tertulis atau penetapan kehalalan produk.</li>
-            </ul>
-            <p class="text-gray-700 leading-relaxed">
-                Jadi, jika produk Anda baru memperoleh <strong>Ketetapan Halal</strong>, maka proses sertifikasi belum selesai. Masih ada satu tahap lagi yaitu penerbitan <strong>Sertifikat Halal</strong> oleh BPJPH agar nomor sertifikat halal terbit dan label halal dapat dicantumkan.
-            </p>
-        </div>
-    </div>
-
-    <!-- FAQ 5 -->
-    <div class="border border-gray-200 rounded-lg overflow-hidden">
-        <button class="accordion-button w-full text-left px-6 py-4 bg-white hover:bg-gray-50 flex items-center justify-between">
-            <span class="text-lg font-medium text-gray-900">Berapa Lama Masa Berlaku Sertifikat Halal ?</span>
-            <i class="fas fa-chevron-right text-gray-400 transition-transform"></i>
-        </button>
-        <div class="accordion-content hidden px-6 py-4 bg-gray-50 border-t border-gray-200">
-            <p class="text-gray-700 leading-relaxed">
-                Saat ini, <strong>Sertifikat Halal berlaku sejak diterbitkan oleh BPJPH dan tetap berlaku selama tidak terdapat perubahan komposisi bahan dan/atau proses produk halal.</strong> Dalam hal terdapat perubahan komposisi bahan dan/atau proses produk halal (PPH) maka Pelaku Usaha wajib memperbarui Sertifikat Halal. – <em>UU No. 6 Tahun 2023</em> –
-            </p>
-        </div>
-    </div>
-    </div>
+     <p><img src="http://127.0.0.1:8000/storage/pages/1767113542_struktur.png"
+               style="width: 500px; height: 293px; margin: 20px 30px;" /></p>
 </div>
-
-<script>
-document.querySelectorAll('.accordion-button').forEach(button => {
-    button.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        const icon = this.querySelector('i');
-        
-        // Close all other accordions
-        document.querySelectorAll('.accordion-content').forEach(item => {
-            if (item !== content) {
-                item.classList.add('hidden');
-            }
-        });
-        document.querySelectorAll('.accordion-button i').forEach(i => {
-            if (i !== icon) {
-                i.classList.remove('fa-chevron-down');
-                i.classList.add('fa-chevron-right');
-            }
-        });
-        
-        // Toggle current accordion
-        content.classList.toggle('hidden');
-        if (content.classList.contains('hidden')) {
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-right');
-        } else {
-            icon.classList.remove('fa-chevron-right');
-            icon.classList.add('fa-chevron-down');
-        }
-    });
-});
-</script>

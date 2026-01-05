@@ -16,6 +16,8 @@ class DynamicPage extends Model
         'hero_image',
         'hero_title',
         'hero_subtitle',
+        'attachment_file',
+        'attachment_name',
         'type',
         'category',
         'sort_order',
@@ -39,5 +41,10 @@ class DynamicPage extends Model
     public function scopeByType($query, $type)
     {
         return $query->where('type', $type);
+    }
+
+    public function attachments()
+    {
+        return $this->hasMany(PageAttachment::class, 'dynamic_page_id')->orderBy('sort_order');
     }
 }

@@ -406,6 +406,16 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Lapor Button -->
+                <div class="mt-6">
+                    <a href="https://lapor.go.id/" target="_blank" rel="noopener noreferrer" 
+                       class="inline-block transition-transform duration-200 hover:scale-105">
+                        <img src="{{ asset('images/logolapor.png') }}" 
+                             alt="LAPOR!" 
+                             class="h-20 w-auto">
+                    </a>
+                </div>
             </div>
 
             <!-- PROFIL -->
