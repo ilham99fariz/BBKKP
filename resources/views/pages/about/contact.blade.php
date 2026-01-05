@@ -174,9 +174,24 @@
                                     <i class="fas fa-clock text-blue-600"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Jam Operasional</h3>
-                                    <p class="text-gray-600">Senin - Kamis: 08:00 - 15:30<br>Jum'at: 08:00 - 16:00<br>Sabtu
-                                        - Minggu: Tutup</p>
+                                    <h3 class="font-semibold text-gray-900 mb-3">Jam Operasional</h3>
+                                    <div class="space-y-2 max-w-sm">
+                                        <div
+                                            class="flex items-center bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">
+                                            <span class="text-gray-700 w-32">Senin - Kamis</span>
+                                            <span class="font-semibold text-blue-600">08:00 - 15:30</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">
+                                            <span class="text-gray-700 w-32">Jum'at</span>
+                                            <span class="font-semibold text-blue-600">08:00 - 16:00</span>
+                                        </div>
+                                        <div
+                                            class="flex items-center bg-red-50 px-4 py-2 rounded-lg border-l-4 border-red-600">
+                                            <span class="text-gray-700 w-32">Sabtu - Minggu</span>
+                                            <span class="font-semibold text-red-600">Tutup</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

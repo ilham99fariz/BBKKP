@@ -100,6 +100,91 @@
                     </div>
 
                     <div>
+                        <label for="attachment_files" class="block text-sm font-medium text-gray-700 mb-2">File Lampiran (PDF/Dokumen) - Bisa Lebih Dari 1</label>
+                        
+                        <!-- Existing Attachments -->
+                        @if ($page->attachments->count() > 0)
+                            <div class="mb-4 space-y-2">
+                                <p class="text-sm font-medium text-gray-700">File yang ada saat ini:</p>
+                                @foreach ($page->attachments as $attachment)
+                                    <div class="flex items-center justify-between p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                        <div class="flex items-center">
+                                            @php
+                                                $mimeType = $attachment->mime_type;
+                                                $icon = 'fas fa-file';
+                                                $iconColor = 'text-gray-500';
+                                                
+                                                if (strpos($mimeType, 'pdf') !== false) {
+                                                    $icon = 'fas fa-file-pdf';
+                                                    $iconColor = 'text-red-600';
+                                                } elseif (strpos($mimeType, 'word') !== false || strpos($mimeType, 'document') !== false) {
+                                                    $icon = 'fas fa-file-word';
+                                                    $iconColor = 'text-blue-600';
+                                                } elseif (strpos($mimeType, 'spreadsheet') !== false || strpos($mimeType, 'excel') !== false) {
+                                                    $icon = 'fas fa-file-excel';
+                                                    $iconColor = 'text-green-600';
+                                                } elseif (strpos($mimeType, 'presentation') !== false) {
+                                                    $icon = 'fas fa-file-powerpoint';
+                                                    $iconColor = 'text-orange-600';
+                                                }
+                                            @endphp
+                                            <i class="{{ $icon }} {{ $iconColor }} text-xl mr-3"></i>
+                                            <div>
+                                                <p class="text-sm font-medium text-gray-900">{{ $attachment->original_name }}</p>
+                                                <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
+                                            </div>
+                                        </div>
+                                        <a href="{{ $attachment->getFileUrlAttribute() }}" target="_blank" 
+                                           class="text-xs text-blue-600 hover:text-blue-800">Lihat</a>
+                                    </div>
+                                @endforeach
+                                <p class="text-xs text-gray-500 mt-2">Untuk mengganti file, upload file baru di bawah. File lama akan otomatis terhapus.</p>
+                            </div>
+                        @endif
+
+                        <!-- Atau tampilkan old attachment_file jika ada -->
+                        @if ($page->attachment_file && $page->attachments->count() == 0)
+                            <div class="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+                                <div class="flex items-center">
+                                    <i class="fas fa-file-pdf text-red-600 text-2xl mr-3"></i>
+                                    <div>
+                                        <p class="text-sm font-medium text-gray-900">{{ $page->attachment_name ?: basename($page->attachment_file) }}</p>
+                                        <a href="{{ Storage::url($page->attachment_file) }}" target="_blank" 
+                                           class="text-xs text-blue-600 hover:text-blue-800">Lihat file</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+
+                        <input type="file" id="attachment_files" name="attachment_files[]" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <p class="text-sm text-gray-500 mt-1">Format: PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX. Maksimal 50MB per file</p>
+                        <div id="file-preview" class="mt-3 space-y-2"></div>
+                        @error('attachment_files')
+                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <script>
+                        document.getElementById('attachment_files').addEventListener('change', function(e) {
+                            const preview = document.getElementById('file-preview');
+                            preview.innerHTML = '';
+                            
+                            Array.from(this.files).forEach(file => {
+                                const size = (file.size / 1024 / 1024).toFixed(2);
+                                const div = document.createElement('div');
+                                div.className = 'flex items-center gap-2 p-2 bg-blue-50 rounded';
+                                div.innerHTML = `
+                                    <i class="fas fa-file-pdf text-red-500"></i>
+                                    <span class="text-sm font-medium">${file.name}</span>
+                                    <span class="text-xs text-gray-500">(${size}MB)</span>
+                                `;
+                                preview.appendChild(div);
+                            });
+                        });
+                    </script>
+
+                    <div>
                         <label for="content" class="block text-sm font-medium text-gray-700 mb-2">Konten Halaman</label>
                         <textarea id="content" name="content" rows="20"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('content') border-red-500 @enderror">{{ old('content', $page->content) }}</textarea>
@@ -162,9 +247,10 @@
             language: 'id',
             filebrowserImageUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}?_token={{ csrf_token() }}',
             filebrowserUploadUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}?_token={{ csrf_token() }}',
+            filebrowserBrowseUrl: '{{ route("admin.page-content.upload", ["type" => $type]) }}?_token={{ csrf_token() }}',
             filebrowserUploadMethod: 'form',
             allowedContent: true,
-            extraAllowedContent: 'iframe[*]{*}(*);table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*)',
+            extraAllowedContent: 'iframe[*]{*}(*);table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*);a[*]{*}(*)',
             removePlugins: 'iframe',
             extraPlugins: '',
             toolbar: [
@@ -180,7 +266,10 @@
                 { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
                 { name: 'colors', items: ['TextColor', 'BGColor'] },
                 { name: 'tools', items: ['Maximize', 'ShowBlocks'] }
-            ]
+            ],
+            // Custom config untuk file upload
+            filebrowserWindowWidth: '800',
+            filebrowserWindowHeight: '600'
         });
 
         // Initialize accordion in preview

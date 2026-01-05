@@ -132,7 +132,7 @@
             </a>
 
             <!-- Verifikasi dan Validasi -->
-            <a href="{{ url('/verifikasi-dan-validasi') }}" class="group">
+            <a href="{{ url('/verifikasi-validasi') }}" class="group">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">

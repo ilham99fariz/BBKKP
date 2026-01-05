@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\DynamicPage;
 use Illuminate\Http\Request;
+use App\Models\PageAttachment;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -100,6 +101,8 @@ class PageContentController extends Controller
             'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
             'hero_title' => 'nullable|string|max:255',
             'hero_subtitle' => 'nullable|string|max:500',
+            'attachment_files' => 'nullable|array',
+            'attachment_files.*' => 'file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:51200',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
@@ -114,7 +117,25 @@ class PageContentController extends Controller
             $data['hero_image'] = $request->file('hero_image')->store('pages', 'public');
         }
 
-        DynamicPage::create($data);
+        $page = DynamicPage::create($data);
+
+        // Handle multiple attachments
+        if ($request->hasFile('attachment_files')) {
+            foreach ($request->file('attachment_files') as $file) {
+                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                $filePath = $file->storeAs('pages/attachments', $filename, 'public');
+                
+                PageAttachment::create([
+                    'dynamic_page_id' => $page->id,
+                    'file_path' => $filePath,
+                    'file_name' => pathinfo($filename, PATHINFO_FILENAME),
+                    'original_name' => $file->getClientOriginalName(),
+                    'mime_type' => $file->getMimeType(),
+                    'file_size' => $file->getSize(),
+                    'sort_order' => 0,
+                ]);
+            }
+        }
 
         return redirect()->route('admin.page-content.index', ['type' => $type, 'category' => $request->category])
             ->with('success', 'Konten halaman berhasil dibuat.');
@@ -154,6 +175,8 @@ class PageContentController extends Controller
             'hero_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
             'hero_title' => 'nullable|string|max:255',
             'hero_subtitle' => 'nullable|string|max:500',
+            'attachment_files' => 'nullable|array',
+            'attachment_files.*' => 'file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx|max:51200',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
@@ -167,6 +190,31 @@ class PageContentController extends Controller
                 Storage::disk('public')->delete($page->hero_image);
             }
             $data['hero_image'] = $request->file('hero_image')->store('pages', 'public');
+        }
+
+        // Handle multiple attachments
+        if ($request->hasFile('attachment_files')) {
+            // Delete old attachments
+            foreach ($page->attachments as $attachment) {
+                Storage::disk('public')->delete($attachment->file_path);
+                $attachment->delete();
+            }
+
+            // Add new attachments
+            foreach ($request->file('attachment_files') as $file) {
+                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                $filePath = $file->storeAs('pages/attachments', $filename, 'public');
+                
+                PageAttachment::create([
+                    'dynamic_page_id' => $page->id,
+                    'file_path' => $filePath,
+                    'file_name' => pathinfo($filename, PATHINFO_FILENAME),
+                    'original_name' => $file->getClientOriginalName(),
+                    'mime_type' => $file->getMimeType(),
+                    'file_size' => $file->getSize(),
+                    'sort_order' => 0,
+                ]);
+            }
         }
 
         $page->update($data);
@@ -195,19 +243,36 @@ class PageContentController extends Controller
     }
 
     /**
-     * Handle image upload from CKEditor
+     * Handle file upload from CKEditor (images and documents)
      */
     public function upload(Request $request, $type)
     {
-        $request->validate([
-            'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
-        ]);
+        // Check if it's an image or document
+        $fileType = $request->file('upload') ? $request->file('upload')->getMimeType() : null;
+        
+        if ($fileType && str_starts_with($fileType, 'image/')) {
+            // Validate image
+            $request->validate([
+                'upload' => 'required|image|mimes:jpeg,png,jpg,gif,webp|max:8192',
+            ]);
+        } else {
+            // Validate document (PDF, Word, Excel, etc)
+            $request->validate([
+                'upload' => 'required|file|mimes:pdf,doc,docx,xls,xlsx,ppt,pptx,zip,rar|max:51200',
+            ]);
+        }
 
         try {
             if ($request->hasFile('upload')) {
-                $image = $request->file('upload');
-                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $image->getClientOriginalName());
-                $path = $image->storeAs('pages', $filename, 'public');
+                $file = $request->file('upload');
+                $filename = time() . '_' . preg_replace('/[^a-zA-Z0-9._-]/', '_', $file->getClientOriginalName());
+                
+                // Store in different folders based on file type
+                if (str_starts_with($fileType, 'image/')) {
+                    $path = $file->storeAs('pages/images', $filename, 'public');
+                } else {
+                    $path = $file->storeAs('pages/documents', $filename, 'public');
+                }
 
                 // CKEditor 4 expects specific response format
                 $url = Storage::url($path);
@@ -223,7 +288,8 @@ class PageContentController extends Controller
                 // Response untuk uploadimage plugin (JSON)
                 return response()->json([
                     'uploaded' => true,
-                    'url' => $url
+                    'url' => $url,
+                    'fileName' => $filename
                 ]);
             }
 

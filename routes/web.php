@@ -16,7 +16,9 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\ServiceRatingController;
 use App\Http\Controllers\Admin\CurveRatingController;
 use App\Http\Controllers\Admin\IpkRatingController;
-use App\Http\Controllers\Admin\SurveyController;
+use App\Http\Controllers\Admin\SurveyController as AdminSurveyController;
+use App\Http\Controllers\SurveyController as PublicSurveyController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,10 @@ use App\Http\Controllers\Admin\SurveyController;
 // Language Switching
 Route::get('/language/{locale}', [LanguageController::class, 'switch'])->name('language.switch');
 
+// Survey Public
+Route::get('/survey', [PublicSurveyController::class, 'index'])->name('survey.index');
+Route::post('/survey', [PublicSurveyController::class, 'store'])->name('survey.store');
+
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
@@ -45,8 +51,9 @@ Route::view('/standar-layanan', 'pages.standards.index')->name('standards.index'
 Route::view('/media-informasi', 'pages.media.index')->name('media.index');
 // Keterbukaan Informasi Publik page
 Route::view('/keterbukaan-informasi-publik', 'pages.media.keterbukaan-informasi-publik')->name('media.keterbukaan-informasi-publik');
-Route::view('/publikasi', 'pages.media.publication')->name('media.publication');
-Route::view('/pengumuman', 'pages.media.announcement')->name('media.announcement');
+
+// Publikasi dan Pengumuman sudah menggunakan dynamic pages
+// Akses melalui route dinamis dengan slug: /publikasi, /pengumuman
 
 // Standar Pelayanan subpages - Hapus route statis ini karena menggunakan dynamic pages
 // Route::view('/standar-pelayanan', 'pages.standards.standar-pelayanan')->name('standards.standar');
@@ -78,7 +85,7 @@ Route::get('/pengujian/produk-kulit', [PengujianController::class, 'produkKulit'
 Route::view('/pengujian/proses', 'pages.pengujian.proses-pengujian')->name('pengujian.proses');
 
 //survey routes
-Route::post('/survey-submit', [\App\Http\Controllers\SurveyController::class, 'store'])->name('survey.submit');
+Route::post('/survey-submit', [PublicSurveyController::class, 'store'])->name('survey.submit');
 
 // Admin Routes
 Route::prefix('admin')->middleware(['admin'])->group(function () {
@@ -118,11 +125,17 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::post('/testimonials/{testimonial}/toggle-approval', [TestimonialController::class, 'toggleApproval'])
         ->name('admin.testimonials.toggle-approval');
 
-    // Admin actions for survey responses displayed in testimonials listing
-    Route::delete('/surveys/{id}', [App\Http\Controllers\Admin\SurveyController::class, 'destroy'])
+    // Survey Langganan
+    Route::get('/surveys', [AdminSurveyController::class, 'index'])
+        ->name('admin.surveys.index');
+    
+    Route::get('/surveys/{id}', [AdminSurveyController::class, 'show'])
+        ->name('admin.surveys.show');
+
+    Route::delete('/surveys/{id}', [AdminSurveyController::class, 'destroy'])
         ->name('admin.surveys.destroy');
 
-    Route::post('/surveys/{id}/toggle-visibility', [App\Http\Controllers\Admin\SurveyController::class, 'toggleVisibility'])
+    Route::post('/surveys/{id}/toggle-visibility', [AdminSurveyController::class, 'toggleVisibility'])
         ->name('admin.surveys.toggle-visibility');
 
     Route::resource('partners', PartnerController::class)->names([

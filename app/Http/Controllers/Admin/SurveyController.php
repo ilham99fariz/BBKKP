@@ -3,39 +3,43 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\SurveyResponse;
+use App\Models\CustomerSurvey;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
 {
-    /**
-     * Delete a survey response
-     */
-    public function destroy($id)
+    public function index()
     {
-        $survey = SurveyResponse::find($id);
-        if (!$survey) {
-            return redirect()->back()->with('error', 'Survey tidak ditemukan.');
-        }
-
-        $survey->delete();
-
-        return redirect()->route('admin.testimonials.index')->with('success', 'Survey berhasil dihapus.');
+        $surveys = CustomerSurvey::orderBy('created_at', 'desc')->paginate(20);
+        return view('admin.survey.index', compact('surveys'));
     }
 
-    /**
-     * Toggle show_on_home flag
-     */
+    public function show($id)
+    {
+        $survey = CustomerSurvey::findOrFail($id);
+        return view('admin.survey.show', compact('survey'));
+    }
+
+    public function destroy($id)
+    {
+        $survey = CustomerSurvey::findOrFail($id);
+        $survey->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Survey berhasil dihapus.'
+        ]);
+    }
+
     public function toggleVisibility($id)
     {
-        $survey = SurveyResponse::find($id);
-        if (!$survey) {
-            return redirect()->back()->with('error', 'Survey tidak ditemukan.');
-        }
-
+        $survey = CustomerSurvey::findOrFail($id);
         $survey->show_on_home = !$survey->show_on_home;
         $survey->save();
 
-        return redirect()->route('admin.testimonials.index')->with('success', 'Visibility survey diperbarui.');
+        return response()->json([
+            'success' => true,
+            'message' => 'Status visibility berhasil diubah.'
+        ]);
     }
 }

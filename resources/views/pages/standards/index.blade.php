@@ -8,7 +8,7 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/bg-random.webp') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/standarpelayanan.png') }}" alt="Header Background" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -125,7 +125,7 @@
             </a>
 
             <!-- survei Pelanggan -->
-            <a href="{{ url('/survey-layanan-pelanggan') }}" class="group h-full flex">
+            <a href="{{ url('/survey') }}" class="group h-full flex">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">

@@ -27,6 +27,30 @@
     </div>
 </section>
 
+@push('scripts')
+<script>
+    function copyNewsLink() {
+        const link = "{{ request()->url() }}";
+        navigator.clipboard.writeText(link).then(() => {
+            const status = document.getElementById('copy-status');
+            if (status) {
+                status.classList.remove('hidden');
+                status.textContent = 'Link berhasil disalin.';
+                setTimeout(() => status.classList.add('hidden'), 3000);
+            }
+        }).catch(() => {
+            const status = document.getElementById('copy-status');
+            if (status) {
+                status.classList.remove('hidden');
+                status.classList.replace('text-green-600', 'text-red-600');
+                status.textContent = 'Gagal menyalin link. Silakan salin manual.';
+                setTimeout(() => status.classList.add('hidden'), 3000);
+            }
+        });
+    }
+</script>
+@endpush
+
 <!-- Article Content -->
 <section class="py-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,23 +70,34 @@
                 <!-- Share Buttons -->
                 <div class="mt-12 pt-8 border-t border-gray-200">
                     <h3 class="text-lg font-semibold text-gray-900 mb-4">Bagikan Artikel Ini</h3>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}" 
+                    <div class="flex flex-wrap gap-3">
+                        <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(request()->url()) }}"
                            target="_blank"
-                           class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                           class="inline-flex items-center bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200">
                             <i class="fab fa-facebook-f mr-2"></i>Facebook
                         </a>
-                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($news->title) }}" 
+                        <a href="https://twitter.com/intent/tweet?url={{ urlencode(request()->url()) }}&text={{ urlencode($news->title) }}"
                            target="_blank"
-                           class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition-colors duration-200">
+                           class="inline-flex items-center bg-sky-400 text-white px-4 py-2 rounded-lg hover:bg-sky-500 transition-colors duration-200">
                             <i class="fab fa-twitter mr-2"></i>Twitter
                         </a>
-                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->url()) }}" 
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ urlencode(request()->url()) }}"
                            target="_blank"
-                           class="bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-200">
+                           class="inline-flex items-center bg-blue-700 text-white px-4 py-2 rounded-lg hover:bg-blue-800 transition-colors duration-200">
                             <i class="fab fa-linkedin-in mr-2"></i>LinkedIn
                         </a>
+                        <button type="button"
+                                onclick="copyNewsLink()"
+                                class="inline-flex items-center bg-gray-200 text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-200">
+                            <i class="fas fa-link mr-2"></i>Salin Link
+                        </button>
+                        <a href="https://wa.me/?text={{ urlencode($news->title . ' - ' . request()->url()) }}"
+                           target="_blank"
+                           class="inline-flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors duration-200">
+                            <i class="fab fa-whatsapp mr-2"></i>WhatsApp
+                        </a>
                     </div>
+                    <p id="copy-status" class="text-sm text-green-600 mt-2 hidden">Link berhasil disalin.</p>
                 </div>
             </div>
             
