@@ -19,184 +19,43 @@
 
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center space-x-1">
-                <a href="{{ route('home') }}"
-                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 {{ request()->routeIs('home') ? 'text-blue-600 font-semibold' : '' }}">
-                    Beranda
-                </a>
-
-                <!-- Layanan Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('services.index') }}"
-                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
-                        Layanan
-                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- Invisible bridge to prevent cursor gap -->
-                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
-                        @mouseleave="open = false"></div>
-                    <div x-show="open" x-cloak
-                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
-                        @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ url('/pengujian') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengujian</a>
-
-                        <a href="{{ url('/kalibrasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kalibrasi</a>
-
-                        <!-- Sertifikasi -->
-                        <a href="{{ url('/sertifikasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Sertifikasi</a>
-
-                        <!-- Bimbingan Teknis & Konsultansi -->
-                        <a href="{{ url('/bimbingan-teknis-konsultasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Bimbingan
-                            Teknis & Konsultasi</a>
-
-                        <a href="{{ url('/inspeksi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Inspeksi</a>
-
-                        <!-- Verifikasi dan Validasi -->
-                        <a href="{{ url('/verifikasi-validasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Verifikasi
-                            dan Validasi</a>
-
-                        <!-- Uji Profisiensi -->
-                        <a href="{{ url('/uji-profisiensi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Uji
-                            Profisiensi</a>
-
-                        <a href="{{ url('/pelatihan-teknis') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pelatihan
-                            Teknis</a>
-
-                        <a href="{{ url('/produsen-bahan-acuan') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Produsen
-                            Bahan Acuan</a>
-
-                        <!-- Edukasi -->
-                        <a href="{{ url('/edukasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Edukasi</a>
-                    </div>
-                </div>
-
-                <!-- Standar Pelayanan Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('standards.index') }}"
-                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
-                        Standar Pelayanan
-                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- Invisible bridge to prevent cursor gap -->
-                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
-                        @mouseleave="open = false"></div>
-                    <div x-show="open" x-cloak
-                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
-                        @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('dynamic.page', 'standar-pelayanan') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Standar
-                            Pelayanan</a>
-                        <a href="{{ route('dynamic.page', 'maklumat-pelayanan') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Maklumat
-                            Pelayanan</a>
-                        <a href="{{ route('dynamic.page', 'tarif-layanan') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tarif
-                            Layanan</a>
-                        <a href="{{ route('dynamic.page', 'tarif-percepatan') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tarif
-                            Percepatan</a>
-                        <a href="{{ route('dynamic.page', 'spm') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Standar
-                            Pelayanan Minimum (SPM)</a>
-                        <a href="{{ url('/survey') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Survey
-                            Layanan Pelanggan</a>
-                    </div>
-                </div>
-
-                <!-- Media dan Informasi Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('media.index') }}"
-                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
-                        Media dan Informasi
-                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- Invisible bridge to prevent cursor gap -->
-                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
-                        @mouseleave="open = false"></div>
-                    <div x-show="open" x-cloak
-                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
-                        @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('dynamic.page', 'keterbukaan-informasi-publik') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Keterbukaan
-                            Informasi Publik</a>
-                        <a href="{{ route('news.index') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">BBSPJIKKP
-                            News</a>
-                        <a href="{{ route('dynamic.page', 'publikasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Publikasi</a>
-                        <a href="{{ route('dynamic.page', 'pengumuman') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Pengumuman</a>
-                    </div>
-                </div>
-
-                <!-- Tentang Kami Dropdown -->
-                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('about.index') }}"
-                        class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
-                        Tentang Kami
-                        <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd"
-                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </a>
-                    <!-- Invisible bridge to prevent cursor gap -->
-                    <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
-                        @mouseleave="open = false"></div>
-                    <div x-show="open" x-cloak
-                        class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
-                        @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ url('/tonggak-sejarah') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Tonggak
-                            Sejarah</a>
-                        <a href="{{ url('/profil-singkat') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Profil
-                            Singkat BBSPJIKKP</a>
-                        <a href="{{ url('/profil-pejabat') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Profil
-                            Pejabat</a>
-                        <a href="{{ url('/struktur-organisasi') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Struktur
-                            Organisasi</a>
-                        <a href="{{ url('/makna-logo') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Makna
-                            Logo</a>
-                        <a href="{{ route('contact.show') }}"
-                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">Kontak</a>
-                    </div>
-                </div>
-
-                <a href="{{ route('dynamic.page', 'halal-center') }}"
-                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                    Halal Center
-                </a>
-
-                <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
-                    class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">
-                    Daftar Layanan
-                </a>
+                <!-- Dynamic Menu Items from Database -->
+                @foreach($navbarMenus as $menu)
+                    @if($menu->children->isNotEmpty())
+                        <!-- Dropdown Menu -->
+                        <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                            <a href="{{ $menu->full_url }}"
+                                class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center">
+                                {{ $menu->title }}
+                                <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </a>
+                            <!-- Invisible bridge to prevent cursor gap -->
+                            <div class="absolute top-full left-0 right-0 h-4" @mouseenter="open = true"
+                                @mouseleave="open = false"></div>
+                            <div x-show="open" x-cloak
+                                class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
+                                @mouseenter="open = true" @mouseleave="open = false">
+                                @foreach($menu->children as $child)
+                                    <a href="{{ $child->full_url }}"
+                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                                        {{ $child->title }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @else
+                        <!-- Direct Link -->
+                        <a href="{{ $menu->full_url }}"
+                            class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200"
+                            @if($menu->open_new_tab) target="_blank" rel="noopener noreferrer" @endif>
+                            {{ $menu->title }}
+                        </a>
+                    @endif
+                @endforeach
 
                 <!-- Language Switcher -->
                 <div class="relative ml-2" x-data="{ open: false }" @mouseenter="open = true"
@@ -281,347 +140,40 @@
 
         <!-- Mobile Menu Items -->
         <div class="px-4 py-4 space-y-1">
-            <a href="{{ route('home') }}"
-                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 {{ request()->routeIs('home') ? 'bg-blue-100 text-blue-600' : '' }}">
-                Beranda
-            </a>
-
-            <!-- Mobile Layanan Dropdown -->
-            <div class="space-y-1">
-                <button @click="layananOpen = !layananOpen" type="button"
-                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span>Layanan</span>
-                    <svg class="h-5 w-5 transition-transform duration-200" :class="layananOpen ? 'rotate-180' : ''"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div x-show="layananOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                    <a href="{{ url('/sertifikasi') }}"
-                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
-                        Semua Layanan
-                    </a>
-                    <a href="{{ url('/pengujian') }}"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Pengujian
-                    </a>
-                    <a href="{{ url('/kalibrasi') }}"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Kalibrasi
-                    </a>
-
-                    <!-- Sub-menu Sertifikasi -->
-                    {{-- <div>
-                        <div class="flex items-center justify-between">
-                            <a href="{{ url('/sertifikasi') }}"
-                                class="flex-1 px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Sertifikasi
-                            </a>
-                            <button @click="sertifikasiOpen = !sertifikasiOpen" type="button"
-                                class="px-2 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                <svg class="h-4 w-4 transition-transform duration-200"
-                                    :class="sertifikasiOpen ? 'rotate-180' : ''" fill="currentColor"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div x-show="sertifikasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="{{ url('/sertifikasi') }}"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Sertifikasi Produk (SPPT SNI)
-                            </a>
-                            <a href="{{ url('/sertifikasi') }}#smm"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                SMM
-                            </a>
-                            <a href="{{ url('/sertifikasi') }}#smk3"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                SMK3
-                            </a>
-                            <a href="{{ url('/sertifikasi') }}#sml"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md\">
-                                SML
-                            </a>
-                            <a href=\"{{ url('/sertifikasi') }}#sih\" class=\"block px-3 py-2 text-xs text-gray-600
-                                hover:bg-blue-50 hover:text-blue-600 rounded-md\">
-                                SIH
-                            </a>
-                            <a href=\"{{ url('/sertifikasi') }}#personil\" class=\"block px-3 py-2 text-xs text-gray-600
-                                hover:bg-blue-50 hover:text-blue-600 rounded-md\">
-                                Sertifikasi Personil
-                            </a>
-                        </div>
-                    </div> --}}
-
-                    <!-- Sub-menu Bimbingan Teknis / Konsultansi -->
-                    {{-- <div>
-                        <button @click="bimbinganOpen = !bimbinganOpen" type="button"
-                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                            <span>Bimbingan Teknis / Konsultansi</span>
-                            <svg class="h-4 w-4 transition-transform duration-200"
-                                :class="bimbinganOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        {{-- <div x-show="bimbinganOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="/audit-teknologi"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Audit Teknologi
-                            </a>
-                            <a href="/indi-4-0"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                INDI 4.0
-                            </a>
-                            <a href="/tkdn"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                TKDN
-                            </a>
-                            <a href="/sistem-manajemen-sni-iso"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Sistem Manajemen (SNI/ISO)
-                            </a>
-                            <a href="/penyusunan-dokumen"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Penyusunan Dokumen
-                            </a>
-                        </div> --}}
-                        {{--
-                    </div> --}}
-
-                    <a href="/inspeksi"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Inspeksi
-                    </a>
-
-                    <!-- Sub-menu Verifikasi dan Validasi -->
-                    {{-- <div>
-                        <button @click="verifikasiOpen = !verifikasiOpen" type="button"
-                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                            <span>Verifikasi dan Validasi</span>
-                            <svg class="h-4 w-4 transition-transform duration-200"
-                                :class="verifikasiOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                        </button>
-                        <div x-show="verifikasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="/grk"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                GRK
-                            </a>
-                            <a href="/tkdn-validasi"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                TKDN
-                            </a>
-                        </div>
-                    </div> --}}
-
-                    <!-- Sub-menu Uji Profisiensi -->
-                    {{-- <div>
-                        <button @click="ujiOpen = !ujiOpen" type="button"
-                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                            <span>Uji Profisiensi</span>
-                            <svg class="h-4 w-4 transition-transform duration-200" :class="ujiOpen ? 'rotate-180' : ''"
+            <!-- Dynamic Mobile Menu -->
+            @foreach($navbarMenus as $menu)
+                @if($menu->children->isNotEmpty())
+                    <!-- Mobile Dropdown -->
+                    <div class="space-y-1">
+                        <button @click="toggleMenu('{{ 'menu_' . $menu->id }}')" type="button"
+                            class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
+                            <span>{{ $menu->title }}</span>
+                            <svg class="h-5 w-5 transition-transform duration-200" :class="openMenus['{{ 'menu_' . $menu->id }}'] ? 'rotate-180' : ''"
                                 fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                     clip-rule="evenodd" />
                             </svg>
-                        </button> --}}
-                        {{-- <div x-show="ujiOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="/uji-profsiensi"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Kalibrasi
-                            </a>
-                            <a href="/uji-profsiensi-pengujian"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Pengujian
-                            </a>
-                        </div> --}}
-                    </div>
-
-                    <a href="/pelatihan-teknis"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Pelatihan Teknis
-                    </a>
-                    <a href="/produsen-bahan-acuan"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Produsen Bahan Acuan
-                    </a>
-
-                    <!-- Sub-menu Edukasi -->
-                    <div>
-                        <button @click="edukasiOpen = !edukasiOpen" type="button"
-                            class="w-full flex items-center justify-between px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                            <span>Edukasi</span>
-                            <svg class="h-4 w-4 transition-transform duration-200"
-                                :class="edukasiOpen ? 'rotate-180' : ''" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd" />
-                            </svg>
                         </button>
-                        <div x-show="edukasiOpen" x-cloak class="pl-6 mt-1 space-y-1">
-                            <a href="/magang-pkl"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Magang / PKL
-                            </a>
-                            <a href="/kunjungan"
-                                class="block px-3 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                                Kunjungan
-                            </a>
+                        <div x-show="openMenus['{{ 'menu_' . $menu->id }}']" x-cloak class="pl-4 mt-1 space-y-1">
+                            @foreach($menu->children as $child)
+                                <a href="{{ $child->full_url }}"
+                                    class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md"
+                                    @if($child->open_new_tab) target="_blank" rel="noopener noreferrer" @endif>
+                                    {{ $child->title }}
+                                </a>
+                            @endforeach
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Mobile Standar Pelayanan Dropdown -->
-            <div class="space-y-1">
-                <button @click="standarOpen = !standarOpen" type="button"
-                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span>Standar Pelayanan</span>
-                    <svg class="h-5 w-5 transition-transform duration-200" :class="standarOpen ? 'rotate-180' : ''"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div x-show="standarOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                    <a href="{{ route('standards.index') }}"
-                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
-                        Semua Standar Pelayanan
+                @else
+                    <!-- Mobile Direct Link -->
+                    <a href="{{ $menu->full_url }}"
+                        class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600"
+                        @if($menu->open_new_tab) target="_blank" rel="noopener noreferrer" @endif>
+                        {{ $menu->title }}
                     </a>
-                    <a href="/standar-pelayanan"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Standar Pelayanan
-                    </a>
-                    <a href="/maklumat-pelayanan"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Maklumat Pelayanan
-                    </a>
-                    <a href="/tarif-layanan"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Tarif Layanan
-                    </a>
-                    <a href="/tarif-percepatan"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Tarif Percepatan
-                    </a>
-                    <a href="/spm"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Standar Pelayanan Minimum (SPM)
-                    </a>
-                    <a href="/survey"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Survey Layanan Pelanggan
-                    </a>
-                    <a href="/ikm"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Indeks Kepuasan Masyarakat
-                    </a>
-                </div>
-            </div>
-
-            <!-- Mobile Media dan Informasi Dropdown -->
-            <div class="space-y-1">
-                <button @click="mediaOpen = !mediaOpen" type="button"
-                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span>Media dan Informasi</span>
-                    <svg class="h-5 w-5 transition-transform duration-200" :class="mediaOpen ? 'rotate-180' : ''"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div x-show="mediaOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                    <a href="{{ route('media.index') }}"
-                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
-                        Semua Media & Informasi
-                    </a>
-                    <a href="/keterbukaan-informasi-publik"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Keterbukaan Informasi Publik
-                    </a>
-                    <a href="{{ route('news.index') }}"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        BBSPJIKKP News
-                    </a>
-                    <a href="/publikasi"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Publikasi
-                    </a>
-                    <a href="/pengumuman"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Pengumuman
-                    </a>
-                </div>
-            </div>
-
-            <!-- Mobile Tentang Kami Dropdown -->
-            <div class="space-y-1">
-                <button @click="tentangOpen = !tentangOpen" type="button"
-                    class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                    <span>Tentang Kami</span>
-                    <svg class="h-5 w-5 transition-transform duration-200" :class="tentangOpen ? 'rotate-180' : ''"
-                        fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <div x-show="tentangOpen" x-cloak class="pl-4 mt-1 space-y-1">
-                    <a href="{{ route('about.index') }}"
-                        class="block px-3 py-2 text-sm font-semibold text-blue-600 hover:bg-blue-50 hover:text-blue-700 rounded-md">
-                        Profil & Tentang Kami
-                    </a>
-                    <a href="/tonggak-sejarah"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Tonggak Sejarah
-                    </a>
-                    <a href="/profil-singkat"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Profil Singkat BBSPJIKKP
-                    </a>
-                    <a href="/profil-pejabat"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Profil Pejabat
-                    </a>
-                    <a href="/struktur-organisasi"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Struktur Organisasi
-                    </a>
-                    <a href="/makna-logo"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Makna Logo
-                    </a>
-                    <a href="{{ route('contact.show') }}"
-                        class="block px-3 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md">
-                        Kontak
-                    </a>
-                </div>
-            </div>
-
-            <a href="/halal-center"
-                class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
-                Halal Center
-            </a>
-
-            <a href="https://jis.id/" target="_blank" rel="noopener noreferrer"
-                class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700 text-center mt-4">
-                Daftar Layanan
-            </a>
-
-            <!-- Language Switcher Mobile -->
+                @endif
+            @endforeach
             <div class="mt-4 border-t border-gray-200 pt-4">
                 <div class="px-3 mb-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">
                     {{ __('common.language') }}
@@ -661,15 +213,10 @@
     function navbarData() {
         return {
             mobileOpen: false,
-            layananOpen: false,
-            sertifikasiOpen: false,
-            bimbinganOpen: false,
-            verifikasiOpen: false,
-            ujiOpen: false,
-            edukasiOpen: false,
-            standarOpen: false,
-            mediaOpen: false,
-            tentangOpen: false
+            openMenus: {},
+            toggleMenu(menuKey) {
+                this.openMenus[menuKey] = !this.openMenus[menuKey];
+            }
         }
     }
 </script>

@@ -164,7 +164,7 @@
                                 <div>
                                     <h3 class="font-semibold text-gray-900">Email</h3>
                                     <a href="mailto:bbkkp_jogja@yahoo.com"
-                                        class="text-gray-600 hover:text-blue-600 transition-colors duration-200">bbkkp_jogja@yahoo.com</a>
+                                        class="text-gray-600 hover:text-blue-600 transition-colors duration-200">bbkkp_jogja@kemenprin.id</a>
                                 </div>
                             </div>
 

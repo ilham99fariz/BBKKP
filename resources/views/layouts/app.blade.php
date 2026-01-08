@@ -522,7 +522,7 @@
     </style>
 </head>
 
-<body class="font-sans antialiased bg-gray-50">
+<body class="font-sans antialiased bg-gray-50" @isset($page) data-page-slug="{{ $page->slug }}" @endisset>
     <div id="app">
         <!-- Navigation -->
         @include('partials.navbar')

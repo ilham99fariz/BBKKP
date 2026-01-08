@@ -92,6 +92,26 @@
                             Aktifkan partner ini
                         </label>
                     </div>
+
+                    <!-- Display on Homepage -->
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div class="flex items-start">
+                            <input type="checkbox" 
+                                   name="display_on_homepage" 
+                                   id="display_on_homepage" 
+                                   value="1"
+                                   {{ old('display_on_homepage', true) ? 'checked' : '' }}
+                                   class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded mt-1">
+                            <div class="ml-3">
+                                <label for="display_on_homepage" class="block text-sm font-medium text-gray-900">
+                                    Tampilkan di Beranda
+                                </label>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    Centang untuk menampilkan partner ini di carousel beranda. Maksimal 20 partner akan ditampilkan.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Actions -->

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\ServiceRating;
 use App\Models\CurveRating;
 use App\Models\IpkRating;
+use App\Http\View\Composers\MenuComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // Set default string length for MySQL
         Schema::defaultStringLength(191);
+
+        // Register MenuComposer to share menu data with all views
+        View::composer('*', MenuComposer::class);
 
         // Share service ratings, curve ratings, and IPK ratings with footer
         View::composer('partials.footer', function ($view) {

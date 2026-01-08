@@ -14,11 +14,13 @@ class Partner extends Model
         'logo',
         'website_url',
         'is_active',
+        'display_on_homepage',
         'sort_order'
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
+        'display_on_homepage' => 'boolean',
     ];
 
     /**

@@ -109,7 +109,7 @@
             </a>
 
             <!-- SPM -->
-            <a href="{{ url('/spm') }}" class="group h-full flex">
+            <a href="{{ url('/standar-pelayanan-minimum') }}" class="group h-full flex">
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">

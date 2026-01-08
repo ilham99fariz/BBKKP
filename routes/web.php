@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\CurveRatingController;
 use App\Http\Controllers\Admin\IpkRatingController;
 use App\Http\Controllers\Admin\SurveyController as AdminSurveyController;
 use App\Http\Controllers\SurveyController as PublicSurveyController;
+use App\Http\Controllers\Admin\MenuItemController;
 
 
 /*
@@ -41,7 +42,7 @@ Route::post('/survey', [PublicSurveyController::class, 'store'])->name('survey.s
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::view('/layanan', 'pages.services.index')->name('services.index');
+Route::view('/layanan', 'pages.services.Layanan')->name('services.index');
 
 Route::get('/berita', [NewsController::class, 'index'])->name('news.index');
 Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show');
@@ -75,6 +76,7 @@ Route::view('/tentang-kami', 'pages.about.index')->name('about.index');
 Route::get('/kontak', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/kontak', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::get('/testimoni', [App\Http\Controllers\TestimonialController::class, 'form'])->name('testimonials.form');
 Route::get('/testimonials', [App\Http\Controllers\TestimonialController::class, 'index'])->name('testimonials.index');
 Route::post('/testimonials', [App\Http\Controllers\TestimonialController::class, 'submit'])->name('testimonials.submit');
 
@@ -129,6 +131,9 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
     Route::get('/surveys', [AdminSurveyController::class, 'index'])
         ->name('admin.surveys.index');
     
+    Route::get('/surveys/export', [AdminSurveyController::class, 'export'])
+        ->name('admin.surveys.export');
+    
     Route::get('/surveys/{id}', [AdminSurveyController::class, 'show'])
         ->name('admin.surveys.show');
 
@@ -147,6 +152,9 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         'update' => 'admin.partners.update',
         'destroy' => 'admin.partners.destroy',
     ]);
+    
+    Route::post('/partners/toggle-homepage', [PartnerController::class, 'toggleHomepage'])
+        ->name('admin.partners.toggle-homepage');
 
     Route::resource('service-ratings', ServiceRatingController::class)->names([
         'index' => 'admin.service-ratings.index',
@@ -200,6 +208,16 @@ Route::prefix('admin')->middleware(['admin'])->group(function () {
         Route::delete('/{type}/{page}', [App\Http\Controllers\Admin\PageContentController::class, 'destroy'])->name('destroy');
         Route::post('/{type}/upload', [App\Http\Controllers\Admin\PageContentController::class, 'upload'])->name('upload');
     });
+    
+    // Menu Items Management
+    Route::resource('menu-items', MenuItemController::class)->names([
+        'index' => 'admin.menu-items.index',
+        'create' => 'admin.menu-items.create',
+        'store' => 'admin.menu-items.store',
+        'edit' => 'admin.menu-items.edit',
+        'update' => 'admin.menu-items.update',
+        'destroy' => 'admin.menu-items.destroy',
+    ]);
 });
 
 // PDF proxy download route (same-origin attachment response)

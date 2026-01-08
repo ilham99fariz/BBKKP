@@ -82,6 +82,13 @@
                         }
                     @endphp
 
+                    {{-- Pengaturan Menu --}}
+                    <a href="{{ route('admin.menu-items.index') }}"
+                        class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.menu-items.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
+                        <i class="fas fa-bars mr-3"></i>
+                        Pengaturan Menu
+                    </a>
+
                     @if(!$isMediaAdmin)
                         <!-- Layanan -->
                         <div>
@@ -363,7 +370,7 @@
                         <a href="{{ route('admin.surveys.index') }}"
                             class="flex items-center px-4 py-2 text-sm font-medium rounded-lg {{ request()->routeIs('admin.surveys.*') ? 'bg-gray-700 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }}">
                             <i class="fas fa-poll-h mr-3"></i>
-                            Survey Langganan
+                            Survey layanan Pelanggan
                         </a>
                     @endif
 
@@ -373,6 +380,7 @@
                         <i class="fas fa-images mr-3"></i>
                         Slider Beranda
                     </a>
+                    
 
                     {{-- Pengaturan Website (OLD - Deprecated) --}}
                     {{-- <a href="{{ route('admin.settings.index') }}"
