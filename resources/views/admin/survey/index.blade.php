@@ -12,6 +12,42 @@
         </div>
     </div>
 
+    <!-- Filter dan Export -->
+    <div class="mb-6 bg-white rounded-lg shadow p-6">
+        <div class="flex flex-col md:flex-row gap-4 items-end">
+            <div class="flex-1">
+                <form method="GET" action="{{ route('admin.surveys.index') }}" class="flex gap-3 items-end">
+                    <div class="flex-1">
+                        <label for="year" class="block text-sm font-medium text-gray-700 mb-2">Filter Tahun</label>
+                        <select id="year" name="year" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                            <option value="">-- Semua Tahun --</option>
+                            @foreach($years as $year)
+                                <option value="{{ $year }}" @if(request('year') == $year) selected @endif>
+                                    {{ $year }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                        <i class="fas fa-filter mr-2"></i>Filter
+                    </button>
+                </form>
+            </div>
+            <form method="GET" action="{{ route('admin.surveys.export') }}" class="flex gap-2">
+                <input type="hidden" name="year" value="{{ request('year') }}">
+                <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                    <i class="fas fa-download mr-2"></i>Export Excel
+                </button>
+            </form>
+        </div>
+        @if(request('year'))
+            <p class="text-sm text-gray-600 mt-3">
+                Menampilkan survey dari tahun <strong>{{ request('year') }}</strong>
+                <a href="{{ route('admin.surveys.index') }}" class="text-blue-600 hover:underline ml-2">Lihat semua</a>
+            </p>
+        @endif
+    </div>
+
     <!-- Surveys Table -->
     <div class="bg-white rounded-lg shadow overflow-hidden">
         <div class="overflow-x-auto">

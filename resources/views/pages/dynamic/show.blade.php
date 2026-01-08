@@ -43,49 +43,132 @@
                     <h1 class="text-3xl font-bold text-gray-900">{{ $page->title }}</h1>
                 @endif
 
-                {{-- Menampilkan Attachment Files dengan Preview Modal --}}
+                {{-- Menampilkan Attachment Files --}}
                 @if ($page->attachments->count() > 0)
-                    <div class="mt-8 mb-8">
-                        <h3 class="text-lg font-bold text-gray-900 mb-4">📎 File Lampiran</h3>
-                        <div class="space-y-3">
-                            @foreach ($page->attachments as $attachment)
-                                <button 
-                                   onclick="openPreviewModal('{{ $attachment->original_name }}', '{{ $attachment->getFileUrlAttribute() }}', '{{ $attachment->mime_type }}')"
-                                   class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-600 rounded-lg hover:shadow-md transition-all text-left">
-                                    <div class="flex items-center flex-1">
-                                        @php
-                                            $mimeType = $attachment->mime_type;
-                                            $icon = 'fas fa-file';
-                                            $iconColor = 'text-gray-500';
-                                            
-                                            if (strpos($mimeType, 'pdf') !== false) {
-                                                $icon = 'fas fa-file-pdf';
-                                                $iconColor = 'text-red-600';
-                                            } elseif (strpos($mimeType, 'word') !== false || strpos($mimeType, 'document') !== false) {
-                                                $icon = 'fas fa-file-word';
-                                                $iconColor = 'text-blue-600';
-                                            } elseif (strpos($mimeType, 'spreadsheet') !== false || strpos($mimeType, 'excel') !== false) {
-                                                $icon = 'fas fa-file-excel';
-                                                $iconColor = 'text-green-600';
-                                            } elseif (strpos($mimeType, 'presentation') !== false) {
-                                                $icon = 'fas fa-file-powerpoint';
-                                                $iconColor = 'text-orange-600';
-                                            }
-                                        @endphp
-                                        <i class="{{ $icon }} {{ $iconColor }} text-2xl mr-4"></i>
-                                        <div class="min-w-0">
-                                            <p class="text-sm font-semibold text-gray-900 truncate">{{ $attachment->original_name }}</p>
-                                            <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
+                    @php
+                        // Halaman yang auto-embed PDF di iframe
+                        $autoEmbedPdfPages = ['standar-pelayanan-minimum', 'spm', 'tarif-layanan'];
+                        $shouldAutoEmbedPdf = in_array($page->slug, $autoEmbedPdfPages);
+                        
+                        if ($shouldAutoEmbedPdf) {
+                            $pdfFiles = $page->attachments->filter(function($att) {
+                                return strpos($att->mime_type, 'pdf') !== false;
+                            });
+                            $nonPdfFiles = $page->attachments->filter(function($att) {
+                                return strpos($att->mime_type, 'pdf') === false;
+                            });
+                        }
+                    @endphp
+
+                    @if ($shouldAutoEmbedPdf)
+                        {{-- Mode Auto-Embed untuk halaman tertentu --}}
+                        
+                        {{-- PDF Files - Auto Embed dengan iframe --}}
+                        @if ($pdfFiles->count() > 0)
+                            <div class="mt-8 mb-8">
+                                @foreach ($pdfFiles as $pdf)
+                                    <div class="mb-6">
+                                        <div class="flex items-center justify-between mb-3">
+                                            <h3 class="text-lg font-bold text-gray-900">
+                                                <i class="fas fa-file-pdf text-red-600 mr-2"></i>{{ $pdf->original_name }}
+                                            </h3>
+                                            <a href="{{ $pdf->getFileUrlAttribute() }}" target="_blank" 
+                                               class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
+                                                <i class="fas fa-download mr-2"></i> Download
+                                            </a>
                                         </div>
+                                        <iframe src="{{ $pdf->getFileUrlAttribute() }}" 
+                                                class="w-full border-2 border-gray-200 rounded-lg shadow-lg"
+                                                style="height: 800px; min-height: 600px;">
+                                        </iframe>
                                     </div>
-                                    <i class="fas fa-eye text-blue-600 text-lg ml-4 flex-shrink-0"></i>
-                                </button>
-                            @endforeach
+                                @endforeach
+                            </div>
+                        @endif
+
+                        {{-- Non-PDF Files - Button modal --}}
+                        @if ($nonPdfFiles->count() > 0)
+                            <div class="mt-8 mb-8">
+                                <h3 class="text-lg font-bold text-gray-900 mb-4">📎 File Lampiran Lainnya</h3>
+                                <div class="space-y-3">
+                                    @foreach ($nonPdfFiles as $attachment)
+                                        <button
+                                            onclick="openPreviewModal('{{ $attachment->original_name }}', '{{ $attachment->getFileUrlAttribute() }}', '{{ $attachment->mime_type }}')"
+                                            class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-600 rounded-lg hover:shadow-md transition-all text-left">
+                                            <div class="flex items-center flex-1">
+                                                @php
+                                                    $mimeType = $attachment->mime_type;
+                                                    $icon = 'fas fa-file';
+                                                    $iconColor = 'text-gray-500';
+
+                                                    if (strpos($mimeType, 'word') !== false || strpos($mimeType, 'document') !== false) {
+                                                        $icon = 'fas fa-file-word';
+                                                        $iconColor = 'text-blue-600';
+                                                    } elseif (strpos($mimeType, 'spreadsheet') !== false || strpos($mimeType, 'excel') !== false) {
+                                                        $icon = 'fas fa-file-excel';
+                                                        $iconColor = 'text-green-600';
+                                                    } elseif (strpos($mimeType, 'presentation') !== false) {
+                                                        $icon = 'fas fa-file-powerpoint';
+                                                        $iconColor = 'text-orange-600';
+                                                    }
+                                                @endphp
+                                                <i class="{{ $icon }} {{ $iconColor }} text-2xl mr-4"></i>
+                                                <div class="min-w-0">
+                                                    <p class="text-sm font-semibold text-gray-900 truncate">{{ $attachment->original_name }}</p>
+                                                    <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
+                                                </div>
+                                            </div>
+                                            <i class="fas fa-eye text-blue-600 text-lg ml-4 flex-shrink-0"></i>
+                                        </button>
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    @else
+                        {{-- Mode Default (Button Modal) untuk halaman lain seperti Publikasi --}}
+                        <div class="mt-8 mb-8">
+                            <h3 class="text-lg font-bold text-gray-900 mb-4">📎 File Lampiran</h3>
+                            <div class="space-y-3">
+                                @foreach ($page->attachments as $attachment)
+                                    <button
+                                        onclick="openPreviewModal('{{ $attachment->original_name }}', '{{ $attachment->getFileUrlAttribute() }}', '{{ $attachment->mime_type }}')"
+                                        class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-600 rounded-lg hover:shadow-md transition-all text-left">
+                                        <div class="flex items-center flex-1">
+                                            @php
+                                                $mimeType = $attachment->mime_type;
+                                                $icon = 'fas fa-file';
+                                                $iconColor = 'text-gray-500';
+
+                                                if (strpos($mimeType, 'pdf') !== false) {
+                                                    $icon = 'fas fa-file-pdf';
+                                                    $iconColor = 'text-red-600';
+                                                } elseif (strpos($mimeType, 'word') !== false || strpos($mimeType, 'document') !== false) {
+                                                    $icon = 'fas fa-file-word';
+                                                    $iconColor = 'text-blue-600';
+                                                } elseif (strpos($mimeType, 'spreadsheet') !== false || strpos($mimeType, 'excel') !== false) {
+                                                    $icon = 'fas fa-file-excel';
+                                                    $iconColor = 'text-green-600';
+                                                } elseif (strpos($mimeType, 'presentation') !== false) {
+                                                    $icon = 'fas fa-file-powerpoint';
+                                                    $iconColor = 'text-orange-600';
+                                                }
+                                            @endphp
+                                            <i class="{{ $icon }} {{ $iconColor }} text-2xl mr-4"></i>
+                                            <div class="min-w-0">
+                                                <p class="text-sm font-semibold text-gray-900 truncate">{{ $attachment->original_name }}</p>
+                                                <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
+                                            </div>
+                                        </div>
+                                        <i class="fas fa-eye text-blue-600 text-lg ml-4 flex-shrink-0"></i>
+                                    </button>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endif
 
                     <!-- Preview Modal -->
-                    <div id="previewModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+                    <div id="previewModal"
+                        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
                         <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col">
                             <!-- Modal Header -->
                             <div class="flex items-center justify-between p-4 border-b border-gray-200">
@@ -110,10 +193,12 @@
 
                             <!-- Modal Footer -->
                             <div class="flex items-center justify-between p-4 border-t border-gray-200">
-                                <a id="downloadBtn" href="#" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                                <a id="downloadBtn" href="#" target="_blank"
+                                    class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                                     <i class="fas fa-download mr-2"></i> Download
                                 </a>
-                                <button onclick="closePreviewModal()" class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition">
+                                <button onclick="closePreviewModal()"
+                                    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition">
                                     Tutup
                                 </button>
                             </div>
@@ -133,48 +218,48 @@
                             // Tentukan jenis preview berdasarkan mime type
                             if (mimeType.includes('pdf')) {
                                 modalContent.innerHTML = `
-                                    <iframe src="${fileUrl}" class="w-full h-96 border-none rounded-lg"></iframe>
-                                `;
+                                            <iframe src="${fileUrl}" class="w-full h-96 border-none rounded-lg"></iframe>
+                                        `;
                             } else if (mimeType.includes('word') || mimeType.includes('document')) {
                                 modalContent.innerHTML = `
-                                    <div class="text-center py-12">
-                                        <i class="fas fa-file-word text-6xl text-blue-600 mb-3"></i>
-                                        <p class="text-gray-600 mb-4">File Word tidak bisa dipreview secara langsung</p>
-                                        <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                            <i class="fas fa-download mr-2"></i> Download File
-                                        </a>
-                                    </div>
-                                `;
+                                            <div class="text-center py-12">
+                                                <i class="fas fa-file-word text-6xl text-blue-600 mb-3"></i>
+                                                <p class="text-gray-600 mb-4">File Word tidak bisa dipreview secara langsung</p>
+                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                                    <i class="fas fa-download mr-2"></i> Download File
+                                                </a>
+                                            </div>
+                                        `;
                             } else if (mimeType.includes('spreadsheet') || mimeType.includes('excel')) {
                                 modalContent.innerHTML = `
-                                    <div class="text-center py-12">
-                                        <i class="fas fa-file-excel text-6xl text-green-600 mb-3"></i>
-                                        <p class="text-gray-600 mb-4">File Excel tidak bisa dipreview secara langsung</p>
-                                        <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                            <i class="fas fa-download mr-2"></i> Download File
-                                        </a>
-                                    </div>
-                                `;
+                                            <div class="text-center py-12">
+                                                <i class="fas fa-file-excel text-6xl text-green-600 mb-3"></i>
+                                                <p class="text-gray-600 mb-4">File Excel tidak bisa dipreview secara langsung</p>
+                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                                    <i class="fas fa-download mr-2"></i> Download File
+                                                </a>
+                                            </div>
+                                        `;
                             } else if (mimeType.includes('presentation')) {
                                 modalContent.innerHTML = `
-                                    <div class="text-center py-12">
-                                        <i class="fas fa-file-powerpoint text-6xl text-orange-600 mb-3"></i>
-                                        <p class="text-gray-600 mb-4">File PowerPoint tidak bisa dipreview secara langsung</p>
-                                        <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                            <i class="fas fa-download mr-2"></i> Download File
-                                        </a>
-                                    </div>
-                                `;
+                                            <div class="text-center py-12">
+                                                <i class="fas fa-file-powerpoint text-6xl text-orange-600 mb-3"></i>
+                                                <p class="text-gray-600 mb-4">File PowerPoint tidak bisa dipreview secara langsung</p>
+                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                                    <i class="fas fa-download mr-2"></i> Download File
+                                                </a>
+                                            </div>
+                                        `;
                             } else {
                                 modalContent.innerHTML = `
-                                    <div class="text-center py-12">
-                                        <i class="fas fa-file text-6xl text-gray-600 mb-3"></i>
-                                        <p class="text-gray-600 mb-4">File tidak bisa dipreview secara langsung</p>
-                                        <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                            <i class="fas fa-download mr-2"></i> Download File
-                                        </a>
-                                    </div>
-                                `;
+                                            <div class="text-center py-12">
+                                                <i class="fas fa-file text-6xl text-gray-600 mb-3"></i>
+                                                <p class="text-gray-600 mb-4">File tidak bisa dipreview secara langsung</p>
+                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                                                    <i class="fas fa-download mr-2"></i> Download File
+                                                </a>
+                                            </div>
+                                        `;
                             }
 
                             modal.classList.remove('hidden');
@@ -188,14 +273,14 @@
                         }
 
                         // Tutup modal jika klik di luar konten
-                        document.getElementById('previewModal').addEventListener('click', function(e) {
+                        document.getElementById('previewModal').addEventListener('click', function (e) {
                             if (e.target === this) {
                                 closePreviewModal();
                             }
                         });
 
                         // Tutup modal dengan tombol Escape
-                        document.addEventListener('keydown', function(e) {
+                        document.addEventListener('keydown', function (e) {
                             if (e.key === 'Escape') {
                                 closePreviewModal();
                             }
@@ -357,8 +442,24 @@
             color: #333;
         }
 
+        /* Image gallery (auto-generated for Tonggak Sejarah) */
+        #accordion-container .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 18px;
+            margin: 12px 0 20px;
+            align-items: start;
+        }
+
+        #accordion-container .image-gallery .image-item img {
+            width: 100% !important;
+            height: auto !important;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
         /* List styling */
-        #accordion-container ol, 
+        #accordion-container ol,
         #accordion-container ul {
             margin: 1em 0;
             padding-left: 2.5em;
@@ -396,8 +497,8 @@
         }
 
         /* Nested lists */
-        #accordion-container li > ol,
-        #accordion-container li > ul {
+        #accordion-container li>ol,
+        #accordion-container li>ul {
             margin-top: 0.5em;
             margin-bottom: 0;
         }
@@ -450,13 +551,29 @@
             line-height: 1.8;
         }
 
+        /* Force all images to display inline-block and allow horizontal layout */
+        #accordion-container img {
+            display: inline-block !important;
+            vertical-align: top !important;
+            margin-right: 16px !important;
+            margin-bottom: 16px !important;
+            height: auto !important;
+            max-width: calc(25% - 16px) !important;
+        }
+
+        /* Remove default block behavior from paragraphs containing only images */
+        #accordion-container p:has(> img:only-child) {
+            display: inline !important;
+            margin: 0 !important;
+        }
+
         /* Emphasis styling - matched to CKEditor */
-        #accordion-container em, 
+        #accordion-container em,
         #accordion-container i {
             font-style: italic;
         }
 
-        #accordion-container strong, 
+        #accordion-container strong,
         #accordion-container b {
             font-weight: bold;
         }
@@ -531,8 +648,8 @@
         }
 
 
-            font-size: 1.1rem;
-            transition: background 0.3s;
+        font-size: 1.1rem;
+        transition: background 0.3s;
         }
 
         #accordion-container .accordion .ac-item h5:hover {
@@ -558,6 +675,56 @@
             const accordionContainer = document.getElementById('accordion-container');
 
             if (accordionContainer) {
+                // Auto-build image gallery for specific pages
+                const pageSlug = document.body.getAttribute('data-page-slug') || '';
+                const galleryPages = ['tonggak-sejarah', 'verifikasi-validasi'];
+                
+                if(galleryPages.includes(pageSlug)){
+                    (function buildImageGalleries(root){
+                        const children = Array.from(root.children);
+                        let i = 0;
+                        function isImageOnlyBlock(el){
+                            if(!el) return false;
+                            if(!['P','DIV'].includes(el.tagName)) return false;
+                            const imgs = el.querySelectorAll('img');
+                            if(imgs.length === 0) return false;
+                            const textLen = (el.textContent || '').replace(/\s+/g,'').length;
+                            return textLen <= 2;
+                        }
+                        while(i < children.length){
+                            const group = [];
+                            while(i < children.length && isImageOnlyBlock(children[i])){
+                                group.push(children[i]);
+                                i++;
+                            }
+                            if(group.length >= 2){
+                                const gallery = document.createElement('div');
+                                gallery.className = 'image-gallery';
+                                group.forEach(function(block){
+                                    const imgs = Array.from(block.querySelectorAll('img'));
+                                    imgs.forEach(function(img){
+                                        img.removeAttribute('width');
+                                        img.removeAttribute('height');
+                                        img.style.width = '';
+                                        img.style.height = '';
+                                        const item = document.createElement('div');
+                                        item.className = 'image-item';
+                                        item.appendChild(img);
+                                        gallery.appendChild(item);
+                                    });
+                                    block.remove();
+                                });
+                                const refNode = children[i] || null;
+                                root.insertBefore(gallery, refNode);
+                            }else{
+                                i++;
+                            }
+                        }
+                    })(accordionContainer);
+                    console.log('Image gallery initialized for page: ' + pageSlug);
+                }
+
+
                 // Use event delegation to handle dynamically loaded content
                 accordionContainer.addEventListener('click', function (e) {
                     // Check if clicked element is an h5 inside ac-item

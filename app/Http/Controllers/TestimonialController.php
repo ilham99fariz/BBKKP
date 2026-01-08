@@ -9,6 +9,14 @@ use Illuminate\Support\Str;
 class TestimonialController extends Controller
 {
     /**
+     * Show testimonial form page.
+     */
+    public function form()
+    {
+        return view('pages.testimonials.form');
+    }
+
+    /**
      * Public listing of approved testimonials.
      */
     public function index()
@@ -41,7 +49,7 @@ class TestimonialController extends Controller
 
         Testimonial::create($data);
 
-        return redirect()->back()
-            ->with('success', 'Terima kasih! Testimoni Anda telah dikirim dan akan ditinjau terlebih dahulu sebelum ditampilkan.');
+        return redirect()->route('testimonials.form')
+            ->with('testimonial_success', 'Terima kasih! Testimoni Anda telah dikirim dan akan ditinjau terlebih dahulu sebelum ditampilkan.');
     }
 }

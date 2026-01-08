@@ -188,6 +188,17 @@
             extraAllowedContent: 'iframe[*]{*}(*);table[*]{*}(*);thead[*]{*}(*);tbody[*]{*}(*);tr[*]{*}(*);th[*]{*}(*);td[*]{*}(*);div[*]{*}(*);button[*]{*}(*);a[*]{*}(*)',
             removePlugins: 'iframe',
             extraPlugins: '',
+            bodyClass: 'ckeditor-content',
+            on: {
+                instanceReady: function (evt) {
+                    // Tambah CSS agar gambar default inline-block dan bisa disusun menyamping
+                    evt.editor.document.appendStyleText(
+                        '.ckeditor-content img{display:inline-block;margin:0 16px 16px 0;height:auto;max-width:100%;}' +
+                        '.ckeditor-content figure{display:inline-block;margin:0 16px 16px 0;}' +
+                        '.ckeditor-content p{overflow:visible;}'
+                    );
+                }
+            },
             toolbar: [
                 { name: 'document', items: ['Source', '-', 'NewPage', 'Preview', 'Print'] },
                 { name: 'clipboard', items: ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo'] },

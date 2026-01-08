@@ -17,7 +17,7 @@ class HomeController extends Controller
   public function index()
 {
     $testimonials = Testimonial::approved()->ordered()->take(3)->get();
-    $partners = Partner::active()->ordered()->get();
+    $partners = Partner::active()->where('display_on_homepage', true)->ordered()->take(20)->get();
     $sliders = HomepageSlider::getActiveSliders(); // Load active sliders
 
     // Featured News (Position 1 - Tampilan Besar)

@@ -23,6 +23,8 @@
                             Website</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-20">
                             Status</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Tampil di Beranda</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-16">
                             Urutan</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-24">Aksi
@@ -73,6 +75,18 @@
                                     </span>
                                 @endif
                             </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <label class="flex items-center cursor-pointer">
+                                    <input type="checkbox" 
+                                           id="display_{{ $partner->id }}"
+                                           {{ $partner->display_on_homepage ? 'checked' : '' }}
+                                           onchange="toggleDisplayOnHomepage({{ $partner->id }})"
+                                           class="w-4 h-4 text-green-600 rounded focus:ring-2 focus:ring-green-500">
+                                    <span class="ml-2 text-sm text-gray-600">
+                                        {{ $partner->display_on_homepage ? 'Ya' : 'Tidak' }}
+                                    </span>
+                                </label>
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                 {{ $partner->sort_order }}
                             </td>
@@ -103,7 +117,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-6 py-12 text-center">
+                            <td colspan="6" class="px-6 py-12 text-center">
                                 <div class="text-gray-500">
                                     <i class="fas fa-handshake text-4xl mb-4"></i>
                                     <p class="text-lg font-medium">Belum ada partner</p>
@@ -122,4 +136,58 @@
             </div>
         @endif
     </div>
+
+    <script>
+        function toggleDisplayOnHomepage(partnerId) {
+            const checkbox = document.getElementById(`display_${partnerId}`);
+            const isChecked = checkbox.checked;
+            
+            // Send AJAX request to update
+            fetch(`{{ route('admin.partners.toggle-homepage') }}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    partner_id: partnerId,
+                    display_on_homepage: isChecked
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Update the label text
+                    const label = checkbox.nextElementSibling;
+                    label.textContent = isChecked ? ' Ya' : ' Tidak';
+                    
+                    // Show success message
+                    showNotification('Status berhasil diperbarui', 'success');
+                } else {
+                    checkbox.checked = !isChecked;
+                    showNotification('Gagal memperbarui status', 'error');
+                }
+            })
+            .catch(error => {
+                checkbox.checked = !isChecked;
+                showNotification('Terjadi kesalahan', 'error');
+                console.error('Error:', error);
+            });
+        }
+
+        function showNotification(message, type) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-4 py-3 rounded-lg text-white z-50 ${
+                type === 'success' ? 'bg-green-500' : 'bg-red-500'
+            }`;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
 @endsection

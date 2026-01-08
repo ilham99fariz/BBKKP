@@ -35,11 +35,13 @@ class PartnerController extends Controller
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'website_url' => 'nullable|url',
             'is_active' => 'boolean',
+            'display_on_homepage' => 'boolean',
             'sort_order' => 'integer|min:0',
         ]);
 
         $data = $request->all();
         $data['is_active'] = $request->has('is_active');
+        $data['display_on_homepage'] = $request->has('display_on_homepage');
 
         if ($request->hasFile('logo')) {
             $data['logo'] = $request->file('logo')->store('partners', 'public');
@@ -69,11 +71,13 @@ class PartnerController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'website_url' => 'nullable|url',
             'is_active' => 'boolean',
+            'display_on_homepage' => 'boolean',
             'sort_order' => 'integer|min:0',
         ]);
 
         $data = $request->all();
         $data['is_active'] = $request->has('is_active');
+        $data['display_on_homepage'] = $request->has('display_on_homepage');
 
         if ($request->hasFile('logo')) {
             // Delete old logo
@@ -103,5 +107,23 @@ class PartnerController extends Controller
 
         return redirect()->route('admin.partners.index')
             ->with('success', 'Partner berhasil dihapus.');
+    }
+
+    /**
+     * Toggle display on homepage.
+     */
+    public function toggleHomepage(Request $request)
+    {
+        $request->validate([
+            'partner_id' => 'required|exists:partners,id',
+            'display_on_homepage' => 'required|boolean',
+        ]);
+
+        $partner = Partner::findOrFail($request->partner_id);
+        $partner->update([
+            'display_on_homepage' => $request->display_on_homepage
+        ]);
+
+        return response()->json(['success' => true]);
     }
 }
