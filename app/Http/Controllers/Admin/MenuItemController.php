@@ -33,7 +33,11 @@ class MenuItemController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255',
+            'slug_id' => 'nullable|string|max:255',
+            'slug_en' => 'nullable|string|max:255',
             'url' => 'nullable|string|max:255',
             'location' => 'required|string',
             'parent_id' => 'nullable|exists:menu_items,id',
@@ -74,7 +78,11 @@ class MenuItemController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
             'slug' => 'nullable|string|max:255',
+            'slug_id' => 'nullable|string|max:255',
+            'slug_en' => 'nullable|string|max:255',
             'url' => 'nullable|string|max:255',
             'location' => 'required|string',
             'parent_id' => 'nullable|exists:menu_items,id',

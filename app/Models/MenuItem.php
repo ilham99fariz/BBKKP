@@ -8,7 +8,11 @@ class MenuItem extends Model
 {
     protected $fillable = [
         'title',
+        'title_id',
+        'title_en',
         'slug',
+        'slug_id',
+        'slug_en',
         'url',
         'location',
         'parent_id',
@@ -86,11 +90,30 @@ class MenuItem extends Model
         if ($this->url) {
             return $this->url;
         }
-        
+
+        // Prefer locale-specific slug if available
+        $locale = app()->getLocale();
+        if ($locale && isset($this->{'slug_' . $locale}) && $this->{'slug_' . $locale}) {
+            return url('/' . $this->{'slug_' . $locale});
+        }
+
         if ($this->slug) {
             return url('/' . $this->slug);
         }
-        
+
         return '#';
+    }
+
+    /**
+     * Get title for current locale (fallback to default title)
+     */
+    public function getTitleByLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        if ($locale && isset($this->{'title_' . $locale}) && $this->{'title_' . $locale}) {
+            return $this->{'title_' . $locale};
+        }
+
+        return $this->title;
     }
 }
