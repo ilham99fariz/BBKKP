@@ -51,6 +51,26 @@ class MenuComposer
             ->orderBy('sort_order')
             ->get();
 
+        // Set display title based on current locale for menus and their children
+        $locale = app()->getLocale();
+        $mapLocaleTitles = function ($items) use ($locale) {
+            foreach ($items as $item) {
+                $item->display_title = $item->{'title_' . $locale} ?: $item->title;
+                if ($item->relationLoaded('children')) {
+                    foreach ($item->children as $child) {
+                        $child->display_title = $child->{'title_' . $locale} ?: $child->title;
+                    }
+                }
+            }
+            return $items;
+        };
+
+        $navbarMenus = $mapLocaleTitles($navbarMenus);
+        $footerLayanan = $footerLayanan ? $mapLocaleTitles(collect([$footerLayanan]))->first() : null;
+        $footerStandar = $footerStandar ? $mapLocaleTitles(collect([$footerStandar]))->first() : null;
+        $footerMedia = $mapLocaleTitles($footerMedia);
+        $footerTentang = $mapLocaleTitles($footerTentang);
+
         // Share to all views
         $view->with([
             'navbarMenus' => $navbarMenus,
