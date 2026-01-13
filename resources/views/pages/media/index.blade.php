@@ -20,13 +20,13 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Media dan Informasi</span>
+                            <span class="text-gray-300">{{ __('common.media_title') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -34,9 +34,9 @@
 
             <!-- Header Text -->
             <div class="text-center pt-14 sm:pt-2">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Media dan Informasi</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('common.media_title') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Kumpulan berita, publikasi, pengumuman, serta informasi resmi dari BBSPJIKKP
+                    {{ __('common.media_subtitle') }}
                 </p>
             </div>
         </div>
@@ -47,17 +47,17 @@
         <!-- Keterbukaan Informasi Publik -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- informasi Publik -->
-            <a href="{{ route('media.keterbukaan-informasi-publik') }}" class="group h-full flex">
+            <a href="{{ route('dynamic.page', 'keterbukaan-informasi-publik') }}" class="group h-full flex">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/informasipublik.jpg') }}" alt="Keterbukaan Informasi Publik"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">keterbukaan Informasi
-                            Publik</h2>
-                        <p class="text-gray-600 flex-1">Dokumen dan informasi publik yang wajib tersedia bagi masyarakat.
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.media_card_public_info_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.media_card_public_info_desc') }}
                         </p>
                     </div>
                 </div>
@@ -66,14 +66,15 @@
             <!-- News -->
             <a href="{{ route('news.index') }}" class="group h-full flex">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/berita.png') }}" alt="Berita"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">BBSPJIKKP News</h2>
-                        <p class="text-gray-600 flex-1">berita-berita, artikel dan update kegiatan BBSPJIKKP.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.media_card_news_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.media_card_news_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -81,14 +82,15 @@
             <!-- Publikasi -->
             <a href="{{ url('/publikasi') }}" class="group h-full flex">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/publikasi.jpeg') }}" alt="Publikasi"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Publikasi</h2>
-                        <p class="text-gray-600 flex-1">Laporan, pedoman, dan materi komunikasi yang dapat diunduh.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.media_card_publication_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.media_card_publication_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -96,19 +98,20 @@
             <!-- Pengumuman -->
             <a href="{{ url('/pengumuman') }}" class="group h-full flex">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/pengumuman.jpg') }}" alt="Pengumuman"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pengumuman</h2>
-                        <p class="text-gray-600 flex-1">Pemberitahuan resmi dan informasi penting untuk publik.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.media_card_announcement_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.media_card_announcement_desc') }}</p>
                     </div>
                 </div>
             </a>
             <!-- <a href="{{ route('media.index') }}" class="bg-white border rounded-xl p-5 hover:shadow-md transition-shadow opacity-0 pointer-events-none">
-                                                                                        <-- spacer to keep grid even on some breakpoints -->
+                                                                                            <-- spacer to keep grid even on some breakpoints -->
             <!-- </a> -->
 
         </div>

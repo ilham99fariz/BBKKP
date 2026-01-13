@@ -285,281 +285,223 @@
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-envelope mr-2"></i>
-                        <span>bbkkp_jogja@yahoo.com</span>
+                        <span>bbkkp_jogja@kemenprin.id</span>
                     </div>
                 </div>
 
                 <!-- Jam Pelayanan -->
-                <div class="mt-6">
-                    <h4 class="font-semibold mb-2 text-sm">Jam Pelayanan</h4>
-                    <div class="text-xs space-y-1">
-                        <div class="flex items-center">
-                            <i class="far fa-clock mr-2"></i>
-                            <span>Senin - Kamis: 08:00 - 15:30</span>
+                <div class="mt-6 bg-white/10 rounded-lg p-4 backdrop-blur-sm">
+                    <h4 class="font-bold mb-3 text-sm uppercase tracking-wide flex items-center">
+                        <i class="far fa-clock mr-2"></i>
+                        {{ __('common.service_hours') }}
+                    </h4>
+                    <div class="space-y-2.5">
+                        <div class="flex items-start justify-between text-xs">
+                            <div class="flex items-center">
+                                <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></div>
+                                <span class="font-medium">{{ __('common.monday_thursday') }}</span>
+                            </div>
+                            <span class="font-semibold">08:00 - 15:30</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="far fa-clock mr-2"></i>
-                            <span>Jumat: 08:00 - 16:00</span>
+                        <div class="flex items-start justify-between text-xs">
+                            <div class="flex items-center">
+                                <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-2"></div>
+                                <span class="font-medium">{{ __('common.friday') }}</span>
+                            </div>
+                            <span class="font-semibold">08:00 - 16:00</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="far fa-calendar-times mr-2"></i>
-                            <span>Sabtu, Ahad: Tutup</span>
+                        <div class="flex items-start justify-between text-xs border-t border-white/20 pt-2">
+                            <div class="flex items-center">
+                                <div class="w-1.5 h-1.5 bg-red-400 rounded-full mr-2"></div>
+                                <span class="font-medium">{{ __('common.saturday_sunday') }}</span>
+                            </div>
+                            <span class="font-semibold text-red-300">{{ __('common.closed') }}</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PROFIL -->
+            <!-- Layanan -->
             <div>
-                <!-- Desktop version -->
-                <div class="hidden md:block">
-                    <h3 class="text-base font-bold mb-4 uppercase">Profil</h3>
-                    <ul class="space-y-2 text-sm">
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sejarah</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Visi dan
-                            Misi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tugas Pokok dan
-                            Fungsi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Motto</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Maklumat
-                            Pelayanan</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan
-                            Mutu</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Struktur
-                            Organisasi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Profil Singkat
-                            Penjabat</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sumber Daya</a>
-                    </li>
-                    </ul>
-                </div>
-                
-                <!-- Mobile version -->
-                <div class="md:hidden" x-data="{ open: false }">
-                    <button @click="open = !open" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Profil</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm" x-show="open" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sejarah</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Visi dan Misi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tugas Pokok dan Fungsi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Motto</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Maklumat Pelayanan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan Mutu</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Struktur Organisasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Profil Singkat Penjabat</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sumber Daya</a></li>
-                    </ul>
-                </div>
+                @if($footerLayanan && $footerLayanan->children->count() > 0)
+                    <!-- Desktop version -->
+                    <div class="hidden md:block">
+                        <h3 class="text-base font-bold mb-4 uppercase">{{ $footerLayanan->display_title }}</h3>
+                        <ul class="space-y-2 text-sm">
+                            @foreach($footerLayanan->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    
+                    <!-- Mobile version -->
+                    <div class="md:hidden" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
+                            <span>{{ $footerLayanan->display_title }}</span>
+                            <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <ul class="space-y-2 text-sm" x-show="open" x-cloak>
+                            @foreach($footerLayanan->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
 
-            <!-- LAYANAN UTAMA & LAYANAN EDUKASI -->
+            <!-- Standar Pelayanan -->
             <div>
-                <!-- Desktop version -->
-                <div class="hidden md:block">
-                    <h3 class="text-base font-bold mb-4 uppercase">Layanan Utama</h3>
-                    <ul class="space-y-2 text-sm mb-6">
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Audit
-                            Teknologi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pengujian</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sertifikasi</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kalibrasi</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Konsultansi</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pelatihan
-                            Teknis</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Produsen Bahan
-                            Acuan (PBA)</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan
-                            INDI 4.0</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan
-                            TKDN</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
-                            Verifikasi dan Validasi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
-                            Inspeksi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Uji
-                            Profisiensi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga
-                            Sertifikasi Profesi</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Standar
-                            Playanan Publik</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tarif
-                            Percepatan Layanan</a></li>
-                    </ul>
-
-                    <h3 class="text-base font-bold mb-4 uppercase">Layanan Edukasi</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">PKL/Magang</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kunjungan</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Mobile version -->
-                <div class="md:hidden" x-data="{ openUtama: false, openEdukasi: false }">
-                    <button @click="openUtama = !openUtama" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Layanan Utama</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openUtama }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm mb-6" x-show="openUtama" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Audit Teknologi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pengujian</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Sertifikasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kalibrasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Konsultansi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pelatihan Teknis</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Produsen Bahan Acuan (PBA)</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan INDI 4.0</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pendampingan TKDN</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga Verifikasi dan Validasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga Inspeksi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Uji Profisiensi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Lembaga Sertifikasi Profesi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Standar Playanan Publik</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tarif Percepatan Layanan</a></li>
-                    </ul>
-
-                    <button @click="openEdukasi = !openEdukasi" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Layanan Edukasi</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openEdukasi }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm" x-show="openEdukasi" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">PKL/Magang</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kunjungan</a></li>
-                    </ul>
-                </div>
+                @if($footerStandar && $footerStandar->children->count() > 0)
+                    <!-- Desktop version -->
+                    <div class="hidden md:block">
+                        <h3 class="text-base font-bold mb-4 uppercase">{{ $footerStandar->display_title }}</h3>
+                        <ul class="space-y-2 text-sm">
+                            @foreach($footerStandar->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    
+                    <!-- Mobile version -->
+                    <div class="md:hidden" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
+                            <span>{{ $footerStandar->display_title }}</span>
+                            <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <ul class="space-y-2 text-sm" x-show="open" x-cloak>
+                            @foreach($footerStandar->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
 
-            <!-- LAYANAN HALAL & ZONA INTEGRITAS -->
+            <!-- Media & Informasi -->
             <div>
-                <!-- Desktop version -->
-                <div class="hidden md:block">
-                    <h3 class="text-base font-bold mb-4 uppercase">Layanan Halal</h3>
-                    <ul class="space-y-2 text-sm mb-6">
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tentang LPH</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan LPH</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Proses
-                            Sertifikasi Halal</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peraturan dan
-                            Pedoman Halal</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pertanyaan
-                            Yang Sering Terkait Halal</a></li>
-                    </ul>
-
-                    <h3 class="text-base font-bold mb-4 uppercase">Zona Integritas</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Komitmen</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peta Jalan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Gratifikasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Laporan Pelanggaran</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Benturan Kepentingan</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Mobile version -->
-                <div class="md:hidden" x-data="{ openHalal: false, openZona: false }">
-                    <button @click="openHalal = !openHalal" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Layanan Halal</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openHalal }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm mb-6" x-show="openHalal" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Tentang LPH</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan LPH</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Proses Sertifikasi Halal</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peraturan dan Pedoman Halal</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Pertanyaan Yang Sering Terkait Halal</a></li>
-                    </ul>
-
-                    <button @click="openZona = !openZona" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Zona Integritas</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openZona }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm" x-show="openZona" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Komitmen</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Peta Jalan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Gratifikasi</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Laporan Pelanggaran</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Benturan Kepentingan</a></li>
-                    </ul>
-                </div>
+                @if($footerMedia && $footerMedia->children->count() > 0)
+                    <!-- Desktop version -->
+                    <div class="hidden md:block">
+                        <h3 class="text-base font-bold mb-4 uppercase">{{ $footerMedia->display_title }}</h3>
+                        <ul class="space-y-2 text-sm">
+                            @foreach($footerMedia->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    
+                    <!-- Mobile version -->
+                    <div class="md:hidden" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
+                            <span>{{ $footerMedia->display_title }}</span>
+                            <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <ul class="space-y-2 text-sm" x-show="open" x-cloak>
+                            @foreach($footerMedia->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
 
-            <!-- INFORMASI PUBLIK & HUBUNGI KAMI -->
+            <!-- Tentang Kami -->
             <div>
-                <!-- Desktop version -->
-                <div class="hidden md:block">
-                    <h3 class="text-base font-bold mb-4 uppercase">Informasi Publik</h3>
-                    <ul class="space-y-2 text-sm mb-6">
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Berita</a>
-                    </li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Agenda
-                            Pimpinan</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Penjabat
-                            Pengelola Informasi dan Dokumentasi (PPID)</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar
-                            Informasi Publik (DIP)</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar
-                            Informasi Yang Dikecualikan (DIK)</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi
-                            Berkala</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi
-                            Setiap Saat</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan
-                            Informasi Publik</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kode Etik
-                            Pelayanan Publik</a></li>
-                    <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">SOP
-                            Penanganan Bencana</a></li>
-                    </ul>
+                @if($footerTentang && $footerTentang->children->count() > 0)
+                    <!-- Desktop version -->
+                    <div class="hidden md:block">
+                        <h3 class="text-base font-bold mb-4 uppercase">{{ $footerTentang->display_title }}</h3>
+                        <ul class="space-y-2 text-sm">
+                            @foreach($footerTentang->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                    
+                    <!-- Mobile version -->
+                    <div class="md:hidden" x-data="{ open: false }">
+                        <button @click="open = !open" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
+                            <span>{{ $footerTentang->display_title }}</span>
+                            <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': open }"></i>
+                        </button>
+                        <ul class="space-y-2 text-sm" x-show="open" x-cloak>
+                            @foreach($footerTentang->children as $item)
+                                @if($item->is_active)
+                                    <li>
+                                        <a href="{{ $item->url ?: url($item->slug) }}" 
+                                           class="hover:text-blue-200 transition-colors duration-200"
+                                           @if($item->open_new_tab) target="_blank" @endif>
+                                            {{ $item->display_title }}
+                                        </a>
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
 
-                    <h3 class="text-base font-bold mb-4 uppercase">Hubungi Kami</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Buku Tamu</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Keluhan dan Pengaduan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Survey Pelanggan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kontak</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Mobile version -->
-                <div class="md:hidden" x-data="{ openInfo: false, openHubungi: false }">
-                    <button @click="openInfo = !openInfo" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Informasi Publik</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openInfo }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm mb-6" x-show="openInfo" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Berita</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Agenda Pimpinan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Penjabat Pengelola Informasi dan Dokumentasi (PPID)</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar Informasi Publik (DIP)</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Daftar Informasi Yang Dikecualikan (DIK)</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi Berkala</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Informasi Setiap Saat</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Layanan Informasi Publik</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kode Etik Pelayanan Publik</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">SOP Penanganan Bencana</a></li>
-                    </ul>
-
-                    <button @click="openHubungi = !openHubungi" class="w-full flex items-center justify-between text-base font-bold mb-4 uppercase">
-                        <span>Hubungi Kami</span>
-                        <i class="fas fa-chevron-down transition-transform duration-200" :class="{ 'rotate-180': openHubungi }"></i>
-                    </button>
-                    <ul class="space-y-2 text-sm" x-show="openHubungi" x-cloak>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Buku Tamu</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Keluhan dan Pengaduan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Survey Pelanggan</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kontak</a></li>
-                        <li><a href="#" class="hover:text-blue-200 transition-colors duration-200">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
+            <!-- LAPOR Badge -->
+            <div class="flex flex-col items-center justify-center">
+                <a href="https://lapor.go.id" target="_blank" class="hover:opacity-75 transition-opacity duration-200" title="LAPOR - Layanan Aspirasi dan Pengaduan Online Rakyat">
+                    <img src="{{ asset('images/logolapor.png') }}" alt="LAPOR" class="h-16 w-auto">
+                </a>
             </div>
         </div>
 
@@ -575,19 +517,19 @@
                 <div class="flex items-center space-x-1">
                     <span class="text-sm mr-3 font-semibold">Media Sosial</span>
                     <a href="https://www.instagram.com/bbkkp.kemenperin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        class="bg-white text-pink-500 hover:bg-blue-300 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-instagram"></i>
                     </a>
                     <a href="https://x.com/BbkkpKemenperin"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
-                        <i class="fab fa-x-twitter"></i>
+                        class="bg-white text-black hover:bg-blue-300 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        <i class="fab fa-x"></i>
                     </a>
                     <a href="https://www.facebook.com/bbkkp.yogyakarta"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        class="bg-white text-blue-600 hover:bg-blue-300 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                     <a href="http://www.youtube.com/@BBKKPKemenperin"
-                        class="bg-white text-blue-500 hover:bg-blue-100 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
+                        class="bg-white text-red-500 hover:bg-blue-300 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>

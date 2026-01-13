@@ -20,21 +20,21 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li>
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
                             <a href="{{ route('halal.index') }}" class="text-gray-300 hover:text-white">
-                                Halal Center
+                                {{ __('halal.index_title') }}
                             </a>
                         </div>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Layanan LPH</span>
+                            <span class="text-gray-300">{{ __('halal.layanan_breadcrumb') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -42,9 +42,9 @@
 
             <!-- Header Text -->
             <div class="text-center pt-14 sm:pt-2">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Layanan LPH</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('halal.layanan_lph_title') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Layanan Pemeriksaan dan Audit Kehalalan Produk
+                    {{ __('halal.layanan_lph_subtitle') }}
                 </p>
             </div>
         </div>
@@ -52,32 +52,27 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="bg-white shadow-lg rounded-lg overflow-hidden p-8">
-            <h1 class="text-xl md:text-4xl font-bold text-gray-900 mb-8">Layanan LPH</h1>
+            <h1 class="text-xl md:text-4xl font-bold text-gray-900 mb-8">{{ __('halal.layanan_lph_title') }}</h1>
 
             <!-- RUANG LINGKUP PEMERIKSAAN -->
             <section class="mb-12">
-                <h2 class="text-xl semi-bold mb-4">RUANG LINGKUP PEMERIKSAAN</h2>
+                <h2 class="text-xl semi-bold mb-4">{{ __('halal.layanan_scope_title') }}</h2>
                 <p class="text-gray-700 leading-relaxed text-justify">
-                    LPH BBSPJIKKP dapat melayani pelaksanaan pemeriksaan dan/atau pengujian kehalalan produk
-                    dengan ruang lingkup: Makanan, Minuman, Obat, Kosmetik, Produk Kimiawi, Barang Gunaan,
-                    Jasa Pengolahan, Jasa Penyimpanan, Jasa Pengemasan, Jasa Pendistribusian, Jasa Penjualan,
-                    dan Jasa Penyajian.
+                    {{ __('halal.layanan_scope_desc') }}
                 </p>
             </section>
 
             <!-- PENGUJIAN PRODUK HALAL -->
             <section class="mb-12">
-                <h2 class="text-xl semi-bold mb-4">PENGUJIAN PRODUK HALAL</h2>
+                <h2 class="text-xl semi-bold mb-4">{{ __('halal.layanan_testing_title') }}</h2>
                 <p class="text-gray-700 leading-relaxed text-justify">
-                    LPH BBSPJIKKP bekerjasama dengan Laboratorium LPPOM MUI dan Laboratorium Penelitian
-                    dan Pengujian Terpadu Universitas Gadjah Mada (Terakreditasi ISO 17025) untuk melakukan
-                    pengujian produk halal pada makanan dan minuman yang meliputi:
+                    {{ __('halal.layanan_testing_desc') }}
                 </p>
 
                 <ul class="list-disc list-inside mt-3 text-gray-700 space-y-2">
-                    <li>Pengujian cemaran daging babi pada produk bakso dan nugget dengan metode RT-PCR.</li>
-                    <li>Pengujian identifikasi gelatin babi pada produk cangkang kapsul dengan metode RT-PCR.</li>
-                    <li>Pengujian kadar alkohol (ethanol) pada produk minuman dengan metode Gas Chromatography.</li>
+                    <li>{{ __('halal.layanan_testing_item1') }}</li>
+                    <li>{{ __('halal.layanan_testing_item2') }}</li>
+                    <li>{{ __('halal.layanan_testing_item3') }}</li>
                 </ul>
             </section>
         </div>

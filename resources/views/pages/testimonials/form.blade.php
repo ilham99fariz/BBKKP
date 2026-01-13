@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Testimoni - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET')
-@section('description', 'Bagikan pengalaman Anda bersama kami. Testimoni akan ditinjau terlebih dahulu oleh admin sebelum dipublikasikan.')
+@section('title', __('forms.testimonial_title') . ' - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET')
+@section('description', __('forms.testimonial_description'))
 
 @section('content')
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4">Testimoni Anda</h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ __('forms.testimonial_title') }}</h1>
                 <p class="text-lg text-green-100 max-w-3xl mx-auto">
-                    Berikan pengalaman Anda bersama kami
+                    {{ __('forms.testimonial_description') }}
                 </p>
             </div>
         </div>
@@ -20,10 +20,9 @@
     <section class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">Kirim Testimoni Anda</h2>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-3">{{ __('forms.testimonial_heading') }}</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    Testimoni akan ditinjau terlebih dahulu oleh admin sebelum ditampilkan di beranda. Kepercayaan pelanggan
-                    adalah prioritas kami.
+                    {{ __('forms.testimonial_note') }}
                 </p>
             </div>
 
@@ -55,7 +54,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                         <div>
                             <label for="client_name" class="block text-sm font-medium text-gray-700 mb-1">
-                                Nama <span class="text-red-500">*</span>
+                                {{ __('forms.testimonial_name') }} <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="client_name" id="client_name" value="{{ old('client_name') }}"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('client_name') border-red-500 @enderror"
@@ -67,7 +66,7 @@
 
                         <div>
                             <label for="client_company" class="block text-sm font-medium text-gray-700 mb-1">
-                                Perusahaan (opsional)
+                                {{ __('forms.testimonial_company') }}
                             </label>
                             <input type="text" name="client_company" id="client_company" value="{{ old('client_company') }}"
                                 class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('client_company') border-red-500 @enderror">
@@ -79,17 +78,17 @@
 
                     <div>
                         <label for="rating" class="block text-sm font-medium text-gray-700 mb-1">
-                            Rating Layanan <span class="text-red-500">*</span>
+                            {{ __('forms.testimonial_rating') }} <span class="text-red-500">*</span>
                         </label>
                         <select name="rating" id="rating"
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('rating') border-red-500 @enderror"
                             required>
-                            <option value="">Pilih Rating</option>
-                            <option value="1" {{ old('rating') == '1' ? 'selected' : '' }}>⭐ 1 Bintang</option>
-                            <option value="2" {{ old('rating') == '2' ? 'selected' : '' }}>⭐⭐ 2 Bintang</option>
-                            <option value="3" {{ old('rating') == '3' ? 'selected' : '' }}>⭐⭐⭐ 3 Bintang</option>
-                            <option value="4" {{ old('rating') == '4' ? 'selected' : '' }}>⭐⭐⭐⭐ 4 Bintang</option>
-                            <option value="5" {{ old('rating') == '5' ? 'selected' : '' }}>⭐⭐⭐⭐⭐ 5 Bintang</option>
+                            <option value="">{{ __('forms.testimonial_rating_select') }}</option>
+                            <option value="1" {{ old('rating') == '1' ? 'selected' : '' }}>{{ __('forms.testimonial_rating_1') }}</option>
+                            <option value="2" {{ old('rating') == '2' ? 'selected' : '' }}>{{ __('forms.testimonial_rating_2') }}</option>
+                            <option value="3" {{ old('rating') == '3' ? 'selected' : '' }}>{{ __('forms.testimonial_rating_3') }}</option>
+                            <option value="4" {{ old('rating') == '4' ? 'selected' : '' }}>{{ __('forms.testimonial_rating_4') }}</option>
+                            <option value="5" {{ old('rating') == '5' ? 'selected' : '' }}>{{ __('forms.testimonial_rating_5') }}</option>
                         </select>
                         @error('rating')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -98,28 +97,28 @@
 
                     <div>
                         <label for="content" class="block text-sm font-medium text-gray-700 mb-1">
-                            Testimoni <span class="text-red-500">*</span>
+                            {{ __('forms.testimonial_message') }} <span class="text-red-500">*</span>
                         </label>
                         <textarea name="content" id="content" rows="5"
-                            placeholder="Ceritakan pengalaman Anda menggunakan layanan kami..."
+                            placeholder="{{ __('forms.testimonial_message_placeholder') }}"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('content') border-red-500 @enderror"
                             required>{{ old('content') }}</textarea>
                         @error('content')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
-                        <p class="mt-1 text-xs text-gray-500">Minimal 10 karakter, maksimal 1000 karakter.</p>
+                        <p class="mt-1 text-xs text-gray-500">{{ __('forms.testimonial_char_limit') }}</p>
                     </div>
 
                     <div>
                         <label for="image" class="block text-sm font-medium text-gray-700 mb-1">
-                            Lampiran / Bukti Review (opsional)
+                            {{ __('forms.testimonial_image') }}
                         </label>
                         <input type="file" name="image" id="image" accept=".jpeg,.jpg,.png,.gif,.svg,.webp"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent @error('image') border-red-500 @enderror">
                         @error('image')
                             <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                         @enderror
-                        <p class="mt-1 text-xs text-gray-500">Format: JPEG, PNG, JPG, GIF, SVG, WEBP. Maksimal 2MB.</p>
+                        <p class="mt-1 text-xs text-gray-500">{{ __('forms.testimonial_image_note') }}</p>
                     </div>
 
                     <div class="pt-4">
@@ -129,14 +128,13 @@
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                             </svg>
-                            Kirim Testimoni
+                            {{ __('forms.testimonial_submit') }}
                         </button>
                     </div>
 
                     <p class="text-sm text-gray-600 mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
                         <i class="fas fa-info-circle text-blue-600 mr-2"></i>
-                        Testimoni Anda akan ditinjau oleh admin terlebih dahulu sebelum dipublikasikan di beranda. Kami
-                        berkomitmen untuk menampilkan testimoni yang autentik dan bermanfaat.
+                        {{ __('forms.testimonial_note') }}
                     </p>
                 </form>
             </div>
@@ -146,23 +144,22 @@
                 <div class="bg-white rounded-lg shadow p-6">
                     <div class="text-center">
                         <div class="text-green-600 text-3xl mb-2">✓</div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Proses Review</h3>
-                        <p class="text-sm text-gray-600">Tim kami akan meninjau testimoni Anda dalam waktu 1-2 hari kerja
-                        </p>
+                        <h3 class="font-semibold text-gray-900 mb-2">{{ __('forms.testimonial_review_process') }}</h3>
+                        <p class="text-sm text-gray-600">{{ __('forms.testimonial_review_desc') }}</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6">
                     <div class="text-center">
                         <div class="text-green-600 text-3xl mb-2">📋</div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Autentik & Berkualitas</h3>
-                        <p class="text-sm text-gray-600">Kami hanya menampilkan testimoni yang autentik dan bermanfaat</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">{{ __('forms.testimonial_authentic') }}</h3>
+                        <p class="text-sm text-gray-600">{{ __('forms.testimonial_authentic_desc') }}</p>
                     </div>
                 </div>
                 <div class="bg-white rounded-lg shadow p-6">
                     <div class="text-center">
                         <div class="text-green-600 text-3xl mb-2">🌟</div>
-                        <h3 class="font-semibold text-gray-900 mb-2">Penghargaan</h3>
-                        <p class="text-sm text-gray-600">Testimoni Anda membantu kami terus meningkatkan layanan</p>
+                        <h3 class="font-semibold text-gray-900 mb-2">{{ __('forms.testimonial_award') }}</h3>
+                        <p class="text-sm text-gray-600">{{ __('forms.testimonial_award_desc') }}</p>
                     </div>
                 </div>
             </div>

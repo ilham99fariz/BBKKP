@@ -39,7 +39,7 @@
                             <div x-show="open" x-cloak
                                 class="absolute top-full left-0 pt-4 w-64 bg-white shadow-xl rounded-lg py-2 z-50"
                                 @mouseenter="open = true" @mouseleave="open = false">
-                                    @foreach($menu->children as $child)
+                                @foreach($menu->children as $child)
                                     <a href="{{ $child->full_url }}"
                                         class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                                         {{ $child->display_title ?? $child->title }}
@@ -148,8 +148,9 @@
                         <button @click="toggleMenu('{{ 'menu_' . $menu->id }}')" type="button"
                             class="w-full flex items-center justify-between px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600">
                             <span>{{ $menu->display_title ?? $menu->title }}</span>
-                            <svg class="h-5 w-5 transition-transform duration-200" :class="openMenus['{{ 'menu_' . $menu->id }}'] ? 'rotate-180' : ''"
-                                fill="currentColor" viewBox="0 0 20 20">
+                            <svg class="h-5 w-5 transition-transform duration-200"
+                                :class="openMenus['{{ 'menu_' . $menu->id }}'] ? 'rotate-180' : ''" fill="currentColor"
+                                viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                     clip-rule="evenodd" />

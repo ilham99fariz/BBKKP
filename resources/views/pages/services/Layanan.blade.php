@@ -20,13 +20,13 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Layanan</span>
+                            <span class="text-gray-300">{{ __('common.services') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -36,7 +36,7 @@
             <div class="text-center pt-14 sm:pt-2">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('common.services') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    {{ __('List of service categories: Testing, Calibration, Certification, Consultation, Inspection, etc.') }}
+                    {{ __('common.services_page_subtitle') }}
                 </p>
             </div>
         </div>
@@ -58,7 +58,7 @@
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
                             {{ __('common.testing') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">{{ __('Product quality testing.') }}</p>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_testing_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -75,7 +75,7 @@
                         <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
                             {{ __('common.calibration') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">{{ __('Document review, field audit, and laboratory testing.') }}
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_calibration_desc') }}
                         </p>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                             {{ __('common.certification') }}
                         </h2>
                         <p class="text-gray-600 flex-1">
-                            {{ __('Registration stages, audit, fatwa meeting, and certificate issuance.') }}
+                            {{ __('common.services_card_certification_desc') }}
                         </p>
                     </div>
                 </div>
@@ -109,9 +109,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Bimbingan Teknis &
-                            Konsultasi</h2>
-                        <p class="text-gray-600 flex-1">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_guidance_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_guidance_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -125,8 +124,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Inspeksi</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_inspection_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_inspection_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -140,9 +139,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Verifikasi dan
-                            Validasi</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_verification_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_verification_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -156,8 +154,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Uji Profisiensi</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_proficiency_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_proficiency_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -165,15 +163,15 @@
             <!-- Pelatihan Teknis -->
             <a href="{{ url('/pelatihan-teknis') }}" class="group">
                 <div
-                    class="bg-white rounded-lg shadow-lg overflow-hiddSen transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
+                    class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl">
                     <div class="h-48 overflow-hidden">
                         <img src="{{ asset('images/pelatihan.jpg') }}" alt="Pelatihan Teknis"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Pelatihan Teknis
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_training_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_training_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -187,9 +185,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Produsen Bahan Acuan
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_reference_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_reference_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -203,8 +201,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Edukasi</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan kualitas produk.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('common.services_card_education_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.services_card_education_desc') }}</p>
                     </div>
                 </div>
             </a>

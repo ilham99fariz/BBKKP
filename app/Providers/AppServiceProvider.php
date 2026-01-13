@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // Load helpers
+        require_once app_path('Helpers/LanguageHelper.php');
+        
         // Set default string length for MySQL
         Schema::defaultStringLength(191);
 
