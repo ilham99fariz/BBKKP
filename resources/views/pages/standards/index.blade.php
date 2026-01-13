@@ -8,7 +8,8 @@
     <div class="relative bg-gray-900">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0">
-            <img src="{{ asset('images/standarpelayanan.png') }}" alt="Header Background" class="w-full h-full object-cover">
+            <img src="{{ asset('images/standarpelayanan.png') }}" alt="Header Background"
+                class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black opacity-50"></div>
         </div>
 
@@ -20,13 +21,13 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Standar Pelayanan</span>
+                            <span class="text-gray-300">{{ __('common.standards_title') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -34,9 +35,9 @@
 
             <!-- Header Text -->
             <div class="text-center pt-14 sm:pt-2">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Standar Pelayanan</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('common.standards_title') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Daftar standar pelayanan dan informasi terkait BBSPJIKKP
+                    {{ __('common.standards_subtitle') }}
                 </p>
             </div>
         </div>
@@ -71,9 +72,10 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Maklumat Pelayanan
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.standards_card_maklumat_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Maklumat dan informasi layanan</p>
+                        <p class="text-gray-600 flex-1">{{ __('common.standards_card_maklumat_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -87,8 +89,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Layanan</h2>
-                        <p class="text-gray-600 flex-1">Daftar harga layanan</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.standards_card_tariff_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.standards_card_tariff_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -102,8 +105,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tarif Percepatan</h2>
-                        <p class="text-gray-600 flex-1">Biayan layanan dengan percepatan.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.standards_card_acceleration_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.standards_card_acceleration_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -117,9 +121,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan
-                            Minimum</h2>
-                        <p class="text-gray-600 flex-1">Standar pelayanan minimum yang harus dipenuhi.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.standards_card_spm_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('common.standards_card_spm_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -133,8 +137,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Survey Pelanggan</h2>
-                        <p class="text-gray-600 flex-1">Survey pelanggan dalam menggunakan layanan.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('forms.survey_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('forms.survey_description') }}</p>
                     </div>
                 </div>
             </a>

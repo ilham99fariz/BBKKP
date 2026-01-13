@@ -40,6 +40,7 @@ class PageContentController extends Controller
             'media-informasi' => [
                 'publikasi' => 'Publikasi',
                 'pengumuman' => 'Pengumuman',
+                'keterbukaan-informasi-publik' => 'Keterbukaan Informasi Publik',
             ],
             'tentang-kami' => [
                 'profil-singkat' => 'Profil Singkat',

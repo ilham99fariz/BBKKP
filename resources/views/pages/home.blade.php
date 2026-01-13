@@ -126,34 +126,34 @@
                     {{ __('home.services_subtitle') }}
                 </p>
             </div>
-            @php
-                $servicesData = [
-                    [
-                        'title' => 'Pengujian',
-                        'description' => 'Layanan Pengujian Menjamin mutu dan keandalan produk melalui pengujian sesuai standar nasional dan internasional.',
-                        'image' => 'images/Pengujian1.jpg',
-                        'slug' => 'pengujian'
-                    ],
-                    [
-                        'title' => 'Kalibrasi',
-                        'description' => 'Laboratorium Kalibrasi BBSPJIKKP berorientasi pada kepuasan pelanggan dalam membantu pertumbuhan dunia usaha khususnya industri kecil, menengah, maupun besar.',
-                        'image' => 'images/kalibrasiB.jpg',
-                        'slug' => 'kalibrasi'
-                    ],
-                    [
-                        'title' => 'Sertifikasi',
-                        'description' => 'Sertifikasi BBSPJIKKP menawarkan solusi sertifikasi yang terintegrasi dan terpadu untuk industri kulit, plastik, dan karet.',
-                        'image' => 'images/Sertifikasi1.png',
-                        'slug' => 'sertifikasi'
-                    ],
-                    [
-                        'title' => 'Bimbingan Teknis & Konsultasi',
-                        'description' => 'Bimbingan Teknis & Konsultasi menawarkan layanan konsultasi dan bimbingan teknis yang terintegrasi untuk membantu tim Anda mencapai tujuan produksi.',
-                        'image' => 'images/konsultasi.png',
-                        'slug' => 'bimbingan-teknis-konsultasi'
-                    ],
-                ];
-            @endphp
+                @php
+                    $servicesData = [
+                        [
+                            'title' => __('common.service_testing'),
+                            'description' => __('common.service_testing_desc'),
+                            'image' => 'images/Pengujian1.jpg',
+                            'slug' => 'pengujian'
+                        ],
+                        [
+                            'title' => __('common.service_calibration'),
+                            'description' => __('common.service_calibration_desc'),
+                            'image' => 'images/kalibrasiB.jpg',
+                            'slug' => 'kalibrasi'
+                        ],
+                        [
+                            'title' => __('common.service_certification'),
+                            'description' => __('common.service_certification_desc'),
+                            'image' => 'images/Sertifikasi1.png',
+                            'slug' => 'sertifikasi'
+                        ],
+                        [
+                            'title' => __('common.service_guidance'),
+                            'description' => __('common.service_guidance_desc'),
+                            'image' => 'images/konsultasi.png',
+                            'slug' => 'bimbingan-teknis-konsultasi'
+                        ],
+                    ];
+                @endphp
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 @foreach ($servicesData as $service)
                     <div
@@ -185,7 +185,7 @@
             <div class="text-center mt-12">
                 <a href="{{ route('services.index') }}"
                     class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200">
-                    Lihat Semua Layanan
+                    {{ __('common.view_all_services') }}
                     <i class="fas fa-arrow-right ml-2"></i>
                 </a>
             </div>
@@ -290,7 +290,7 @@
                 {{ __('home.what_our_customers_say') }}
             </h2>
             <p class="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
-                Kepercayaan pelanggan adalah prioritas kami. Berikut testimoni dari pelanggan yang telah menggunakan layanan kami.
+                {{ __('common.testimonials_subtitle_long') }}
             </p>
 
             {{-- Daftar testimoni yang sudah disetujui admin --}}
@@ -352,11 +352,11 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
-                        Kirim Testimoni Anda
+                        {{ __('common.testimonials_submit') }}
                     </a>
                     <a href="{{ route('testimonials.index') }}"
                         class="inline-flex items-center justify-center px-6 py-2.5 border border-green-600 text-green-700 rounded-md font-semibold hover:bg-green-50 transition">
-                        Lihat semua testimoni
+                        {{ __('common.testimonials_view_all') }}
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -366,7 +366,7 @@
                 </div>
             @else
                 <p class="text-center text-gray-500">
-                    Belum ada testimoni yang dipublikasikan.
+                    {{ __('common.testimonials_empty') }}
                 </p>
             @endif
         </div>

@@ -50,8 +50,9 @@ Route::get('/berita/{news}', [NewsController::class, 'show'])->name('news.show')
 // Static index pages for parent menus
 Route::view('/standar-layanan', 'pages.standards.index')->name('standards.index');
 Route::view('/media-informasi', 'pages.media.index')->name('media.index');
-// Keterbukaan Informasi Publik page
-Route::view('/keterbukaan-informasi-publik', 'pages.media.keterbukaan-informasi-publik')->name('media.keterbukaan-informasi-publik');
+
+// Keterbukaan Informasi Publik - Menggunakan dynamic page
+// Route dihapus karena menggunakan catch-all dynamic page route
 
 // Publikasi dan Pengumuman sudah menggunakan dynamic pages
 // Akses melalui route dinamis dengan slug: /publikasi, /pengumuman

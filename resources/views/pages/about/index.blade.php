@@ -20,13 +20,13 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Tentang Kami</span>
+                            <span class="text-gray-300">{{ __('about.hero_title') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -34,9 +34,9 @@
 
             <!-- Header Text -->
             <div class="text-center pt-14 sm:pt-2">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Tentang Kami</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('about.hero_title') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Mengenal lebih dekat Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet
+                    {{ __('about.hero_subtitle') }}
                 </p>
             </div>
         </div>
@@ -58,8 +58,9 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tonggak Sejarah</h2>
-                        <p class="text-gray-600 flex-1">Perjalanan dan perkembangan BBSPJIKP dari masa ke masa.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('about.milestone_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('about.milestone_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -76,8 +77,9 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Singkat</h2>
-                        <p class="text-gray-600 flex-1">Visi, misi, dan informasi umum tentang BBSPJIKP.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('about.brief_profile_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('about.brief_profile_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -94,8 +96,9 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Profil Pejabat</h2>
-                        <p class="text-gray-600 flex-1">Struktur Pimpinan dan pejabat struktural BBSPJIKP.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('about.official_profile_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('about.official_profile_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -112,9 +115,10 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Struktur Organisasi
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('about.organization_structure_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Susunan organisasi dan tata kerja BBSPJIKP.</p>
+                        <p class="text-gray-600 flex-1">{{ __('about.organization_structure_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -131,8 +135,8 @@
                         </div>
                     </div>
                     <div class="p-6 flex flex-col">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Makna Logo</h2>
-                        <p class="text-gray-600">Filosofi dan arti di balik logo BBSPJIKP.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('about.logo_meaning_title') }}</h2>
+                        <p class="text-gray-600">{{ __('about.logo_meaning_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -147,8 +151,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Kontak</h2>
-                        <p class="text-gray-600 flex-1">Kontak kami untuk informasi lebih lanjut.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">{{ __('about.contact_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('about.contact_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -162,8 +166,8 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600">Testimoni</h2>
-                        <p class="text-gray-600 flex-1">Bagikan pengalaman Anda menggunakan layanan kami.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-green-600">{{ __('about.testimonial_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('about.testimonial_desc') }}</p>
                     </div>
                 </div>
             </a>

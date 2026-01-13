@@ -1,23 +1,22 @@
 @extends('layouts.app')
 
-@section('title', 'Testimoni Pelanggan')
-@section('description', 'Kumpulan testimoni pelanggan yang telah disetujui.')
+@section('title', __('common.testimonials_title'))
+@section('description', __('common.testimonials_subtitle_long'))
 
 @section('content')
     <section class="bg-gray-50 py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
-                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Testimoni Pelanggan</h1>
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">{{ __('common.testimonials_title') }}</h1>
                 <p class="text-gray-600 max-w-3xl mx-auto">
-                    Semua testimoni yang sudah ditinjau dan disetujui admin ditampilkan di sini.
+                    {{ __('common.testimonials_subtitle_long') }}
                 </p>
             </div>
 
             @if ($testimonials->count())
                 <div class="grid md:grid-cols-3 gap-8">
                     @foreach ($testimonials as $testimonial)
-                        <div
-                            class="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl transition">
+                        <div class="bg-white shadow-lg rounded-2xl p-6 flex flex-col justify-between hover:shadow-xl transition">
                             <div class="mb-3">
                                 <p class="font-semibold text-green-700">
                                     {{ $testimonial->client_name }}
@@ -45,8 +44,8 @@
                                 <div class="flex items-center mt-auto">
                                     @for ($i = 1; $i <= 5; $i++)
                                         @if ($i <= $testimonial->rating)
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                                class="w-5 h-5 text-yellow-400" viewBox="0 0 24 24">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-5 h-5 text-yellow-400"
+                                                viewBox="0 0 24 24">
                                                 <path
                                                     d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.782 1.402 8.174L12 18.896l-7.336 3.853 1.402-8.174L.132 9.211l8.2-1.193z" />
                                             </svg>
@@ -69,10 +68,9 @@
                 </div>
             @else
                 <p class="text-center text-gray-500">
-                    Belum ada testimoni yang dipublikasikan.
+                    {{ __('common.testimonials_empty') }}
                 </p>
             @endif
         </div>
     </section>
 @endsection
-

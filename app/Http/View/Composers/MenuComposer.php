@@ -25,31 +25,29 @@ class MenuComposer
             ->whereNull('parent_id')
             ->where('is_active', true)
             ->orderBy('sort_order')
-            ->with(['children' => function ($query) {
-                $query->where('is_active', true)
-                    ->orderBy('sort_order');
-            }])
+            ->with('children')
             ->first();
 
         $footerStandar = MenuItem::where('location', 'footer_standar')
             ->whereNull('parent_id')
             ->where('is_active', true)
             ->orderBy('sort_order')
-            ->with(['children' => function ($query) {
-                $query->where('is_active', true)
-                    ->orderBy('sort_order');
-            }])
+            ->with('children')
             ->first();
 
         $footerMedia = MenuItem::where('location', 'footer_media')
+            ->whereNull('parent_id')
             ->where('is_active', true)
             ->orderBy('sort_order')
-            ->get();
+            ->with('children')
+            ->first();
 
         $footerTentang = MenuItem::where('location', 'footer_tentang')
+            ->whereNull('parent_id')
             ->where('is_active', true)
             ->orderBy('sort_order')
-            ->get();
+            ->with('children')
+            ->first();
 
         // Set display title based on current locale for menus and their children
         $locale = app()->getLocale();
@@ -68,8 +66,8 @@ class MenuComposer
         $navbarMenus = $mapLocaleTitles($navbarMenus);
         $footerLayanan = $footerLayanan ? $mapLocaleTitles(collect([$footerLayanan]))->first() : null;
         $footerStandar = $footerStandar ? $mapLocaleTitles(collect([$footerStandar]))->first() : null;
-        $footerMedia = $mapLocaleTitles($footerMedia);
-        $footerTentang = $mapLocaleTitles($footerTentang);
+        $footerMedia = $footerMedia ? $mapLocaleTitles(collect([$footerMedia]))->first() : null;
+        $footerTentang = $footerTentang ? $mapLocaleTitles(collect([$footerTentang]))->first() : null;
 
         // Share to all views
         $view->with([

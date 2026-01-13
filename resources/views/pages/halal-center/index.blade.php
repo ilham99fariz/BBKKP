@@ -20,13 +20,13 @@
                     <li class="inline-flex items-center">
                         <a href="{{ route('home') }}" class="text-gray-300 hover:text-white flex items-center">
                             <i class="fas fa-home mr-2"></i>
-                            Home
+                            {{ __('common.home') }}
                         </a>
                     </li>
                     <li aria-current="page">
                         <div class="flex items-center">
                             <i class="fas fa-chevron-right text-gray-400 mx-2"></i>
-                            <span class="text-gray-300">Halal Center</span>
+                            <span class="text-gray-300">{{ __('halal.index_title') }}</span>
                         </div>
                     </li>
                 </ol>
@@ -34,9 +34,9 @@
 
             <!-- Header Text -->
             <div class="text-center pt-14 sm:pt-2">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Halal Center</h1>
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">{{ __('halal.index_title') }}</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Lembaga Pemeriksa Halal Balai Besar Standarisasi dan Pelayanan Jasa Industri Kulit, Karet dan Plastik
+                    {{ __('halal.index_subtitle') }}
                 </p>
             </div>
         </div>
@@ -55,8 +55,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Tentang LPH</h2>
-                        <p class="text-gray-600">Informasi mengenai peran dan fungsi Lembaga Pemeriksa Halal BBSPJIKP.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('halal.card_about_title') }}</h2>
+                        <p class="text-gray-600">{{ __('halal.card_about_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -70,8 +71,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Layanan LPH</h2>
-                        <p class="text-gray-600 flex-1">Pemeriksaan dokumen, audit lapangan, dan pengujian laboratorium.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('halal.card_services_title') }}</h2>
+                        <p class="text-gray-600 flex-1">{{ __('halal.card_services_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -85,9 +87,10 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Proses Sertifikasi
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('halal.card_certification_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Tahapan pendaftaran, audit, rapat fatwa, dan penerbitan sertifikat.
+                        <p class="text-gray-600 flex-1">{{ __('halal.card_certification_desc') }}
                         </p>
                     </div>
                 </div>
@@ -102,9 +105,10 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Peraturan & Pedoman
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('halal.card_regulations_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Undang-undang, peraturan, dan pedoman teknis terkait JPH.</p>
+                        <p class="text-gray-600 flex-1">{{ __('halal.card_regulations_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -118,8 +122,9 @@
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">FAQ</h2>
-                        <p class="text-gray-600 flex-1  ">Pertanyaan yang sering diajukan seputar sertifikasi halal.</p>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('halal.card_faq_title') }}</h2>
+                        <p class="text-gray-600 flex-1  ">{{ __('halal.card_faq_desc') }}</p>
                     </div>
                 </div>
             </a>

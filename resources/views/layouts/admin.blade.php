@@ -240,6 +240,11 @@
                                     <i class="fas fa-bullhorn mr-2"></i>
                                     Pengumuman
                                 </a>
+                                <a href="{{ route('admin.page-content.index', ['type' => 'media-informasi', 'category' => 'keterbukaan-informasi-publik']) }}"
+                                    class="flex items-center px-4 py-2 text-xs rounded-lg {{ request('category') == 'keterbukaan-informasi-publik' ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white' }}">
+                                    <i class="fas fa-folder-open mr-2"></i>
+                                    Keterbukaan Informasi Publik
+                                </a>
                                 <a href="{{ route('admin.page-content.index', ['type' => 'media-informasi']) }}"
                                     class="flex items-center px-4 py-2 text-xs rounded-lg {{ (request()->routeIs('admin.page-content.*') && request()->route('type') == 'media-informasi' && !request('category')) ? 'bg-gray-600 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white' }}">
                                     <i class="fas fa-list mr-2"></i>
@@ -380,7 +385,7 @@
                         <i class="fas fa-images mr-3"></i>
                         Slider Beranda
                     </a>
-                    
+
 
                     {{-- Pengaturan Website (OLD - Deprecated) --}}
                     {{-- <a href="{{ route('admin.settings.index') }}"

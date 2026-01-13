@@ -1,22 +1,16 @@
-<!DOCTYPE html>
-<html lang="id">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Survey Layanan BBSPJIKKP</title>
-    <style>
+@section('content')
+<style>
+        .survey-form-wrapper {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #f5f5f5;
-            padding: 20px;
         }
 
         .survey-container {
@@ -343,87 +337,86 @@
             }
         }
     </style>
-</head>
 
-<body>
+<div class="survey-form-wrapper">
     <div class="survey-container">
         <form id="surveyForm" action="{{ route('survey.store') }}" method="POST">
             @csrf
             <!-- PAGE 1: Data Responden -->
             <div class="page active" data-page="1">
                 <div class="page-indicator">
-                    <h2>Data Responden</h2>
-                    <div class="page-number">Halaman 1 dari 4</div>
+                    <h2>{{ __('forms.respondent_data') }}</h2>
+                    <div class="page-number">{{ __('forms.page_of') }} 1 {{ __('forms.page_of') }} 4</div>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Jenis Layanan yang Saudara Gunakan <span
+                    <label class="question-label">{{ __('forms.service_type') }} <span
                             class="required">*</span></label>
                     <div class="checkbox-grid">
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Pengujian">
-                            Pengujian
+                            {{ __('forms.service_type_testing') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Kalibrasi">
-                            Kalibrasi
+                            {{ __('forms.service_type_calibration') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Sertifikasi">
-                            Sertifikasi
+                            {{ __('forms.service_type_certification') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Sertifikasi Profesi">
-                            Sertifikasi Profesi
+                            {{ __('forms.service_type_professional_cert') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Konsultansi / Bimbingan Teknis">
-                            Konsultansi / Bimbingan Teknis
+                            {{ __('forms.service_type_consultation') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Pedampingan / Pelatihan">
-                            Pedampingan / Pelatihan
+                            {{ __('forms.service_type_mentoring') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Validasi & Verifikasi GRK">
-                            Validasi & Verifikasi GRK
+                            {{ __('forms.service_type_validation_grk') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Verifikasi TKDN">
-                            Verifikasi TKDN
+                            {{ __('forms.service_type_verification_tkdn') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Inspeksi">
-                            Inspeksi
+                            {{ __('forms.service_type_inspection') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Uji Profisiensi">
-                            Uji Profisiensi
+                            {{ __('forms.service_type_proficiency') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Audit Teknologi">
-                            Audit Teknologi
+                            {{ __('forms.service_type_technology_audit') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Miniplant Kulit, Karet, dan Plastik">
-                            Miniplant Kulit, Karet, dan Plastik
+                            {{ __('forms.service_type_mini_plant') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="layanan" value="Pemeriksaan Halal">
-                            Pemeriksaan Halal
+                            {{ __('forms.service_type_halal_check') }}
                         </label>
                     </div>
-                    <input type="text" name="layanan_lainnya" placeholder="Lainnya (sebutkan)"
+                    <input type="text" name="layanan_lainnya" placeholder="{{ __('forms.service_type_other') }}"
                         style="margin-top: 12px;">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Nama Lengkap <span class="required">*</span></label>
-                    <input type="text" name="nama" required placeholder="Masukkan nama lengkap">
+                    <label class="question-label">{{ __('forms.name') }} <span class="required">*</span></label>
+                    <input type="text" name="nama" required placeholder="{{ __('forms.name') }}">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Jenis Kelamin <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.contact_info') }} <span class="required">*</span></label>
                     <div class="radio-group">
                         <label class="radio-item">
                             <input type="radio" name="jenis_kelamin" value="Laki-laki" required>
@@ -437,58 +430,57 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Nomor Whatsapp/Telepon <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.phone') }} <span class="required">*</span></label>
                     <input type="tel" name="telepon" required placeholder="08xxxxxxxxxx">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Email <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.email') }} <span class="required">*</span></label>
                     <input type="email" name="email" required placeholder="contoh@email.com">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Pendidikan Terakhir Anda <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.education_level') }} <span class="required">*</span></label>
                     <select name="pendidikan" required>
-                        <option value="">Pilih pendidikan terakhir</option>
-                        <option value="SD">SD</option>
-                        <option value="SMP">SMP</option>
-                        <option value="SMA/SMK">SMA/SMK</option>
-                        <option value="D3">D3</option>
-                        <option value="S1">S1</option>
-                        <option value="S2">S2</option>
-                        <option value="S3">S3</option>
+                        <option value="">{{ __('forms.choose_option') }}</option>
+                        <option value="SD">{{ __('forms.education_sd') }}</option>
+                        <option value="SMP">{{ __('forms.education_smp') }}</option>
+                        <option value="SMA/SMK">{{ __('forms.education_sma') }}</option>
+                        <option value="D3">{{ __('forms.education_d3') }}</option>
+                        <option value="S1">{{ __('forms.education_s1') }}</option>
+                        <option value="S2">{{ __('forms.education_s2') }}</option>
+                        <option value="S3">{{ __('forms.education_s3') }}</option>
                     </select>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Nama Instansi / Perusahaan <span class="required">*</span></label>
-                    <input type="text" name="instansi" required placeholder="Masukkan nama instansi/perusahaan">
+                    <label class="question-label">{{ __('forms.company_name') }} <span class="required">*</span></label>
+                    <input type="text" name="instansi" required placeholder="{{ __('forms.company_name') }}">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Pekerjaan Saat Ini <span class="required">*</span></label>
-                    <input type="text" name="pekerjaan" required placeholder="Masukkan pekerjaan saat ini">
+                    <label class="question-label">{{ __('forms.current_position') }} <span class="required">*</span></label>
+                    <input type="text" name="pekerjaan" required placeholder="{{ __('forms.current_position') }}">
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="btn btn-next" onclick="nextPage()">Selanjutnya</button>
+                    <button type="button" class="btn btn-next" onclick="nextPage()">{{ __('forms.next') }}</button>
                 </div>
             </div>
 
             <!-- PAGE 2: Kepuasan Pelanggan -->
             <div class="page" data-page="2">
                 <div class="page-indicator">
-                    <h2>Kepuasan Pelanggan</h2>
-                    <div class="page-number">Halaman 2 dari 4</div>
+                    <h2>{{ __('forms.customer_satisfaction') }}</h2>
+                    <div class="page-number">{{ __('forms.page_of') }} 2 {{ __('forms.page_of') }} 4</div>
                 </div>
 
                 <div class="info-text">
-                    Pilihan terdiri dari bintang 1 hingga bintang 4. Berikan bintang 4 jika memang pelayanan kami telah
-                    sesuai dan memuaskan.
+                    {{ __('forms.satisfaction_info') }}
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kesesuaian persyaratan pelayanan dengan jenis pelayanannya <span
+                    <label class="question-label">{{ __('forms.appropriate_requirements') }} <span
                             class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_1" id="k1_4" value="4" required>
@@ -503,8 +495,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kemudahan prosedur pelayanan di Balai Besar Standardisasi dan
-                        Pelayanan Jasa Industri Kulit, Karet dan Plastik <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.ease_of_procedure') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_2" id="k2_4" value="4" required>
                         <label for="k2_4">★</label>
@@ -518,8 +509,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Ketepatan waktu pelayanan di Balai Besar Standardisasi dan Pelayanan
-                        Jasa Industri Kulit, Karet dan Plastik <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.timely_service') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_3" id="k3_4" value="4" required>
                         <label for="k3_4">★</label>
@@ -533,8 +523,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kesesuaian antara biaya yang dibayarkan dengan biaya yang telah
-                        ditetapkan <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.cost_accuracy') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_4" id="k4_4" value="4" required>
                         <label for="k4_4">★</label>
@@ -548,8 +537,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kesesuaian antara hasil pelayanan yang diberikan dengan ketentuan yang
-                        telah ditetapkan/ permintaan awal pelanggan <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.accuracy_results') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_5" id="k5_4" value="4" required>
                         <label for="k5_4">★</label>
@@ -563,7 +551,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kemampuan petugas dalam memberikan pelayanan <span
+                    <label class="question-label">{{ __('forms.officer_capability') }} <span
                             class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_6" id="k6_4" value="4" required>
@@ -578,7 +566,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Sikap (kesopanan dan keramahan) petugas dalam memberikan pelayanan
+                    <label class="question-label">{{ __('forms.officer_attitude') }}
                         <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_7" id="k7_4" value="4" required>
@@ -593,7 +581,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Kualitas sarana dan prasarana <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.infrastructure_quality') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_8" id="k8_4" value="4" required>
                         <label for="k8_4">★</label>
@@ -607,7 +595,7 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Penanganan terhadap pengaduan, saran dan masukan <span
+                    <label class="question-label">{{ __('forms.complaint_handling') }} <span
                             class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="kepuasan_9" id="k9_4" value="4" required>
@@ -622,38 +610,36 @@
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Saran / Masukan <span class="required">*</span></label>
-                    <textarea name="saran" required placeholder="Tuliskan saran atau masukan Anda..."></textarea>
+                    <label class="question-label">{{ __('forms.improvement_suggestions') }} <span class="required">*</span></label>
+                    <textarea name="saran" required placeholder="{{ __('forms.improvement_suggestions') }}..."></textarea>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Jasa Industri apa yang dibutuhkan Perusahaan Anda? <span
+                    <label class="question-label">{{ __('forms.general_comments') }} <span
                             class="required">*</span></label>
                     <textarea name="jasa_dibutuhkan" required
-                        placeholder="Tuliskan jasa industri yang dibutuhkan..."></textarea>
+                        placeholder="{{ __('forms.general_comments') }}..."></textarea>
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="btn btn-prev" onclick="prevPage()">Sebelumnya</button>
-                    <button type="button" class="btn btn-next" onclick="nextPage()">Selanjutnya</button>
+                    <button type="button" class="btn btn-prev" onclick="prevPage()">{{ __('forms.previous') }}</button>
+                    <button type="button" class="btn btn-next" onclick="nextPage()">{{ __('forms.next') }}</button>
                 </div>
             </div>
 
             <!-- PAGE 3: Persepsi Korupsi -->
             <div class="page" data-page="3">
                 <div class="page-indicator">
-                    <h2>Persepsi Korupsi</h2>
-                    <div class="page-number">Halaman 3 dari 4</div>
+                    <h2>{{ __('forms.corruption_perception') }}</h2>
+                    <div class="page-number">{{ __('forms.page_of') }} 3 {{ __('forms.page_of') }} 4</div>
                 </div>
 
                 <div class="info-text">
-                    Pilihan terdiri dari bintang 1 hingga bintang 4. Berikan bintang 4 jika Saudara Sangat Setuju dengan
-                    pernyataan terkait indikasi praktik korupsi pada pelayanan kami.
+                    {{ __('forms.corruption_info') }}
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Tidak terdapat praktek-praktek Kolusi, Korupsi dan Nepotisme (KKN)
-                        dalam pelayanan di BBSPJIKKP <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.no_indication_corruption') }} <span class="required">*</span></label>
                     <div class="star-rating">
                         <input type="radio" name="korupsi_1" id="p1_4" value="4" required>
                         <label for="p1_4">★</label>
@@ -815,99 +801,96 @@
             <!-- PAGE 4: Net Promoter Score -->
             <div class="page" data-page="4">
                 <div class="page-indicator">
-                    <h2>Net Promoter Score (NPS)</h2>
-                    <div class="page-number">Halaman 4 dari 4</div>
+                    <h2>{{ __('forms.nps_title') }}</h2>
+                    <div class="page-number">{{ __('forms.page_of') }} 4 {{ __('forms.page_of') }} 4</div>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Darimana Saudara mengenal dan mendapatkan Informasi mengenai Layanan
-                        BBSPJIKKP? <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.information_source') }} <span class="required">*</span></label>
                     <div class="checkbox-grid">
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Petugas Pelayanan">
-                            Petugas Pelayanan
+                            {{ __('forms.info_source_officer') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Website">
-                            Website
+                            {{ __('forms.info_source_website') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Media Sosial">
-                            Media Sosial
+                            {{ __('forms.info_source_social') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Media Massa / Cetak">
-                            Media Massa / Cetak
+                            {{ __('forms.info_source_print_media') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Pameran">
-                            Pameran
+                            {{ __('forms.info_source_exhibition') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Rekan Bisnis">
-                            Rekan Bisnis
+                            {{ __('forms.info_source_business_associate') }}
                         </label>
                         <label class="checkbox-item">
                             <input type="checkbox" name="info_sumber" value="Kerabat">
-                            Kerabat
+                            {{ __('forms.info_source_relative') }}
                         </label>
                     </div>
-                    <input type="text" name="info_sumber_lainnya" placeholder="Lainnya (sebutkan)"
+                    <input type="text" name="info_sumber_lainnya" placeholder="{{ __('forms.service_type_other') }}"
                         style="margin-top: 12px;">
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Sudah berapa tahun anda menggunakan jasa layanan industri di
-                        BBSPJIKKP? <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.service_duration') }} <span class="required">*</span></label>
                     <div class="radio-group">
                         <label class="radio-item">
                             <input type="radio" name="lama_penggunaan" value="1 tahun" required>
-                            1 tahun
+                            {{ __('forms.duration_1_year') }}
                         </label>
                         <label class="radio-item">
                             <input type="radio" name="lama_penggunaan" value="2 tahun">
-                            2 tahun
+                            {{ __('forms.duration_2_years') }}
                         </label>
                         <label class="radio-item">
                             <input type="radio" name="lama_penggunaan" value="3 tahun">
-                            3 tahun
+                            {{ __('forms.duration_3_years') }}
                         </label>
                         <label class="radio-item">
                             <input type="radio" name="lama_penggunaan" value="> 4 tahun">
-                            &gt; 4 tahun
+                            {{ __('forms.duration_above_4_years') }}
                         </label>
                     </div>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Pada skala 0 hingga 10, seberapa besar kemungkinan Anda
-                        merekomendasikan kami kepada teman atau kolega? <span class="required">*</span></label>
+                    <label class="question-label">{{ __('forms.nps_likelihood') }} <span class="required">*</span></label>
                     <div class="nps-container">
                         <div class="nps-value" id="npsValue">5</div>
                         <div class="nps-slider">
                             <input type="range" name="nps_score" id="npsSlider" min="0" max="10" value="5" required>
                         </div>
                         <div class="nps-labels">
-                            <span>0 (Sangat Tidak Mungkin)</span>
-                            <span>10 (Sangat Mungkin)</span>
+                            <span>{{ __('forms.nps_unlikely') }}</span>
+                            <span>{{ __('forms.nps_likely') }}</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="question-group">
-                    <label class="question-label">Apa alasan utama Anda memberikan skor tersebut? <span
+                    <label class="question-label">{{ __('forms.nps_reason') }} <span
                             class="required">*</span></label>
-                    <textarea name="nps_alasan" required placeholder="Tuliskan alasan Anda..."></textarea>
+                    <textarea name="nps_alasan" required placeholder="{{ __('forms.nps_reason') }}..."></textarea>
                 </div>
 
                 <div class="success-message" id="successMessage">
-                    <strong>Terima kasih!</strong><br>
-                    Survey Anda telah berhasil dikirim.
+                    <strong>{{ __('forms.testimonial_success') }}</strong><br>
+                    {{ __('forms.survey_success') }}
                 </div>
 
                 <div class="button-group">
-                    <button type="button" class="btn btn-prev" onclick="prevPage()">Sebelumnya</button>
-                    <button type="submit" class="btn btn-submit">Kirim Survey</button>
+                    <button type="button" class="btn btn-prev" onclick="prevPage()">{{ __('forms.previous') }}</button>
+                    <button type="submit" class="btn btn-submit">{{ __('forms.submit') }}</button>
                 </div>
             </div>
         </form>
@@ -1063,10 +1046,6 @@
             }
         });
     </script>
-
-
-
-
-</body>
-
-</html>
+</style>
+</div>
+@endsection
