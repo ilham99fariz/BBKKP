@@ -47,9 +47,9 @@ class ContactController extends Controller
             // Send email
             Mail::to(config('mail.from.address'))->send(new ContactMail($request->all()));
 
-            return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim. Kami akan segera menghubungi Anda.');
+            return redirect()->back()->with('success', __('contact.success_message'));
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat mengirim pesan. Silakan coba lagi.');
+            return redirect()->back()->with('error', __('contact.error_message'));
         }
     }
 }

@@ -1,16 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Kontak - BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET')
-@section('description', 'Hubungi kami untuk informasi lebih lanjut tentang layanan standardisasi dan pelayanan jasa industri')
+@section('title', __('contact.page_title'))
+@section('description', __('contact.page_description'))
 
 @section('content')
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-blue-600 to-blue-900 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4">Kontak Kami</h1>
+                <h1 class="text-3xl md:text-4xl font-bold mb-4">{{ __('contact.header_title') }}</h1>
                 <p class="text-lg text-blue-100 max-w-3xl mx-auto">
-                    Siap membantu kebutuhan industri Anda
+                    {{ __('contact.header_subtitle') }}
                 </p>
             </div>
         </div>
@@ -22,7 +22,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <!-- Contact Form -->
                 <div class="bg-white rounded-lg shadow-lg p-8">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Kirim Pesan</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">{{ __('contact.send_message') }}</h2>
 
                     @if(session('success'))
                         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
@@ -41,7 +41,8 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap
+                                <label for="name"
+                                    class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.full_name') }}
                                     *</label>
                                 <input type="text" id="name" name="name" value="{{ old('name') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('name') border-red-500 @enderror"
@@ -52,7 +53,8 @@
                             </div>
 
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                                <label for="email"
+                                    class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.email') }} *</label>
                                 <input type="email" id="email" name="email" value="{{ old('email') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror"
                                     required>
@@ -64,7 +66,8 @@
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Telepon</label>
+                                <label for="phone"
+                                    class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.phone') }}</label>
                                 <input type="tel" id="phone" name="phone" value="{{ old('phone') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('phone') border-red-500 @enderror">
                                 @error('phone')
@@ -73,7 +76,8 @@
                             </div>
 
                             <div>
-                                <label for="company" class="block text-sm font-medium text-gray-700 mb-2">Perusahaan</label>
+                                <label for="company"
+                                    class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.company') }}</label>
                                 <input type="text" id="company" name="company" value="{{ old('company') }}"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('company') border-red-500 @enderror">
                                 @error('company')
@@ -83,7 +87,8 @@
                         </div>
 
                         <div>
-                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subjek *</label>
+                            <label for="subject"
+                                class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.subject') }} *</label>
                             <input type="text" id="subject" name="subject" value="{{ old('subject') }}"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('subject') border-red-500 @enderror"
                                 required>
@@ -93,15 +98,16 @@
                         </div>
 
                         <div>
-                            <label for="purpose" class="block text-sm font-medium text-gray-700 mb-2">Keperluan *</label>
+                            <label for="purpose"
+                                class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.purpose') }} *</label>
                             <select id="purpose" name="purpose" required
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('purpose') border-red-500 @enderror">
-                                <option value="" disabled {{ old('purpose') ? '' : 'selected' }}>Pilih keperluan</option>
-                                <option value="kunjungan" {{ old('purpose') == 'kunjungan' ? 'selected' : '' }}>Kunjungan
-                                </option>
-                                <option value="ajuan_layanan" {{ old('purpose') == 'ajuan_layanan' ? 'selected' : '' }}>Ajuan
-                                    Layanan</option>
-                                <option value="lainnya" {{ old('purpose') == 'lainnya' ? 'selected' : '' }}>Lainnya</option>
+                                <option value="" disabled {{ old('purpose') ? '' : 'selected' }}>
+                                    {{ __('contact.select_purpose') }}</option>
+                                @foreach(__('contact.purpose_options') as $value => $label)
+                                    <option value="{{ $value }}" {{ old('purpose') == $value ? 'selected' : '' }}>{{ $label }}
+                                    </option>
+                                @endforeach
                             </select>
                             @error('purpose')
                                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -109,7 +115,8 @@
                         </div>
 
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Pesan *</label>
+                            <label for="message"
+                                class="block text-sm font-medium text-gray-700 mb-2">{{ __('contact.message') }} *</label>
                             <textarea id="message" name="message" rows="6"
                                 class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('message') border-red-500 @enderror"
                                 required>{{ old('message') }}</textarea>
@@ -120,7 +127,7 @@
 
                         <button type="submit"
                             class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
-                            Kirim Pesan
+                            {{ __('contact.submit_button') }}
                         </button>
                     </form>
                 </div>
@@ -129,7 +136,7 @@
                 <div class="space-y-8">
                     <!-- Office Info -->
                     <div class="bg-white rounded-lg shadow-lg p-8">
-                        <h2 class="text-2xl font-bold text-gray-900 mb-6">Informasi Kantor</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6">{{ __('contact.contact_info_title') }}</h2>
                         <div class="space-y-4">
                             <div class="flex items-start">
                                 <div
@@ -137,7 +144,7 @@
                                     <i class="fas fa-map-marker-alt text-blue-600"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Alamat</h3>
+                                    <h3 class="font-semibold text-gray-900">{{ __('contact.office_address') }}</h3>
                                     <a href="https://maps.app.goo.gl/FtS4PNQ56YYLv4z86" target="_blank"
                                         class="text-gray-600 hover:text-blue-600 transition-colors duration-200">Jl.
                                         Sukonandi No.9, Semaki, Kec. Umbulharjo,<br>Kota Yogyakarta, Daerah Istimewa
@@ -151,7 +158,7 @@
                                     <i class="fas fa-phone text-blue-600"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Telepon</h3>
+                                    <h3 class="font-semibold text-gray-900">{{ __('contact.phone_number') }}</h3>
                                     <p class="text-gray-600">+62 (274) 512-929</p>
                                 </div>
                             </div>
@@ -162,7 +169,7 @@
                                     <i class="fas fa-envelope text-blue-600"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900">Email</h3>
+                                    <h3 class="font-semibold text-gray-900">{{ __('contact.email_address') }}</h3>
                                     <a href="mailto:bbkkp_jogja@yahoo.com"
                                         class="text-gray-600 hover:text-blue-600 transition-colors duration-200">bbkkp_jogja@kemenprin.id</a>
                                 </div>
@@ -174,7 +181,7 @@
                                     <i class="fas fa-clock text-blue-600"></i>
                                 </div>
                                 <div>
-                                    <h3 class="font-semibold text-gray-900 mb-3">Jam Operasional</h3>
+                                    <h3 class="font-semibold text-gray-900 mb-3">{{ __('contact.office_hours') }}</h3>
                                     <div class="space-y-2 max-w-sm">
                                         <div
                                             class="flex items-center bg-blue-50 px-4 py-2 rounded-lg border-l-4 border-blue-600">
