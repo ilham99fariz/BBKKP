@@ -11,38 +11,17 @@ storage/*.key
 storage/logs/
 bootstrap/cache/
 
-# Allow public/storage and file uploads (images + docs)
-!public/storage/
-!public/storage/**/*.jpg
-!public/storage/**/*.jpeg
-!public/storage/**/*.png
-!public/storage/**/*.gif
-!public/storage/**/*.webp
-!public/storage/**/*.pdf
-!public/storage/**/*.doc
-!public/storage/**/*.docx
-!public/storage/**/*.xls
-!public/storage/**/*.xlsx
-!public/storage/**/*.ppt
-!public/storage/**/*.pptx
-!public/storage/**/*.zip
-!public/storage/**/*.rar
-!public/storage/**/.gitkeep
+# Ignore all uploaded files and storage directories
+storage/
+public/storage/
 
-# Allow uploads in storage/app/public (images + docs)
-!storage/app/public/
-!storage/app/public/**/*.jpg
-!storage/app/public/**/*.jpeg
-!storage/app/public/**/*.png
-!storage/app/public/**/*.gif
-!storage/app/public/**/*.webp
-!storage/app/public/**/*.pdf
-!storage/app/public/**/*.doc
-!storage/app/public/**/*.docx
-!storage/app/public/**/*.xls
-!storage/app/public/**/*.xlsx
-!storage/app/public/**/*.ppt
-!storage/app/public/**/*.pptx
-!storage/app/public/**/*.zip
-!storage/app/public/**/*.rar
-!storage/app/public/**/.gitkeep
+# But keep directory structure with .gitkeep
+!storage/.gitkeep
+!storage/app/.gitkeep
+!storage/app/public/.gitkeep
+!storage/framework/.gitkeep
+!storage/framework/cache/.gitkeep
+!storage/framework/sessions/.gitkeep
+!storage/framework/views/.gitkeep
+!storage/logs/.gitkeep
+!public/storage/.gitkeep
