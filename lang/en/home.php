@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'hero_title' => 'BALAI BESAR STANDARDISASI DAN PELAYANAN JASA INDUSTRI KULIT, PLASTIK, DAN KARET',
+    'hero_title' => 'CENTER OF STANDARDIZATION AND SERVICES FOR LEATHER, RUBBER AND PLASTICS INDUSTRIES',
     'hero_subtitle' => 'Providing high-quality standardization and industrial services to support national industry development',
     'hero_description' => 'We are committed to providing the best services in standardization and industrial services for leather, plastic, and rubber industries with international standards.',
     'view_our_services' => 'View Our Services',

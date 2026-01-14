@@ -25,8 +25,8 @@ return [
     
     'rating_scale' => 'Rating Scale: Choose from 1 to 4 stars. Give 4 stars if our service has indeed exceeded your expectations.',
     'appropriate_requirements' => 'Appropriateness of service requirements with the type of service',
-    'ease_of_procedure' => 'Ease of service procedures at Balai Besar Standardisasi and Industrial Services Center for Leather, Rubber and Plastic',
-    'timely_service' => 'Timeliness of service at Balai Besar Standardisasi and Industrial Services Center for Leather, Rubber and Plastic',
+    'ease_of_procedure' => 'Ease of service procedures at Center of Standardization and Services for Leather, Rubber and Plastics Industries',
+    'timely_service' => 'Timeliness of service at Center of Standardization and Services for Leather, Rubber and Plastics Industries',
     'cost_accuracy' => 'Conformity between the cost paid and the set cost',
     'accuracy_results' => 'Conformity between the results of services provided with applicable regulations',
     'officer_capability' => 'Ability of officers in providing services',

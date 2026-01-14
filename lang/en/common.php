@@ -91,11 +91,11 @@ return [
     'testimonials' => 'What Our Clients Say',
     'testimonials_subtitle' => 'Feedback from companies that have trusted our services',
     'about_institution' => 'About the Institution',
-    'institution_description' => 'Balai Besar Standardisasi and Industrial Services Center for Leather, Plastic and Rubber is a Technical Implementation Unit (UPT) under the Ministry of Industry.',
+    'institution_description' => 'Center of Standardization and Services for Leather, Rubber and Plastics Industries is a Technical Implementation Unit (UPT) under the Ministry of Industry.',
     
     // About Page
     'about_us' => 'About Us',
-    'about_us_subtitle' => 'Get to know more about Balai Besar Standardisasi and Industrial Services for Leather, Plastic and Rubber',
+    'about_us_subtitle' => 'Get to know more about Center of Standardization and Services for Leather, Rubber and Plastics Industries',
     'milestones' => 'Milestones',
     'milestones_desc' => 'Journey and development of BBSPJIKP over time.',
     'brief_profile' => 'Brief Profile',
@@ -116,10 +116,10 @@ return [
     'standard_services_desc' => 'Service standard documents and compliance information.',
     'service_announcement' => 'Service Announcements',
     'service_announcement_desc' => 'Important announcements related to BBSPJIKP services.',
-    'tariff' => 'Tariff',
-    'tariff_desc' => 'Service tariffs and fee information.',
-    'acceleration_tariff' => 'Acceleration Tariff',
-    'acceleration_tariff_desc' => 'Information about acceleration tariffs for faster services.',
+    'tariff' => 'Rates',
+    'tariff_desc' => 'Service rates and fee information.',
+    'acceleration_tariff' => 'Acceleration Rates',
+    'acceleration_tariff_desc' => 'Information about acceleration rates for faster services.',
     'spm' => 'SPM (Service Performance Standard)',
     'spm_desc' => 'Service Performance Standards at BBSPJIKP.',
     'customer_survey' => 'Customer Service Survey',
@@ -180,9 +180,9 @@ return [
     'standards_card_standard_desc' => 'Our service standard documents and compliance information.',
     'standards_card_maklumat_title' => 'Service Announcement',
     'standards_card_maklumat_desc' => 'Announcements and service information.',
-    'standards_card_tariff_title' => 'Service Tariff',
+    'standards_card_tariff_title' => 'Service Rates',
     'standards_card_tariff_desc' => 'Service pricing list.',
-    'standards_card_acceleration_title' => 'Acceleration Tariff',
+    'standards_card_acceleration_title' => 'Acceleration Rates',
     'standards_card_acceleration_desc' => 'Fees for faster service.',
     'standards_card_spm_title' => 'Service Performance Standard',
     'standards_card_spm_desc' => 'Service performance standards.',
@@ -218,6 +218,10 @@ return [
     'breadcrumb_about' => 'About Us',
     'breadcrumb_media' => 'Media & Information',
     'breadcrumb_halal' => 'Halal Center',
+    
+    // Institution
+    'institution_name' => 'Center of Standardization and Services for Leather, Rubber and Plastics Industries',
+    'institution_name_short' => 'BBSPJIKKP',
     
     // Error & Messages
     'not_found' => 'Page not found',

@@ -15,27 +15,27 @@
                     <div class="slider-item absolute inset-0 transition-opacity duration-[1500ms] ease-in-out {{ $index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0' }}" 
                          data-slide="{{ $index }}">
                         <img src="{{ Storage::url($slider->image) }}" 
-                             alt="{{ $slider->title ?? 'Slider Image' }}" 
+                            alt="{{ $slider->getTitleByLocale() ?? 'Slider Image' }}"
                              class="w-full h-full object-cover">
                         
-                        @if($slider->title || $slider->description || $slider->link_url)
+                        @if($slider->getTitleByLocale() || $slider->getDescriptionByLocale() || $slider->link_url)
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent flex items-end">
                                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 md:pb-20 w-full">
                                     <div class="max-w-3xl">
-                                        @if($slider->title)
+                                        @if($slider->getTitleByLocale())
                                             <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-                                                {{ $slider->title }}
+                                                {{ $slider->getTitleByLocale() }}
                                             </h2>
                                         @endif
-                                        @if($slider->description)
+                                        @if($slider->getDescriptionByLocale())
                                             <p class="text-lg md:text-xl text-white/90 mb-6">
-                                                {{ $slider->description }}
+                                                {{ $slider->getDescriptionByLocale() }}
                                             </p>
                                         @endif
-                                        @if($slider->link_url && $slider->link_text)
+                                        @if($slider->link_url && $slider->getLinkTextByLocale())
                                             <a href="{{ $slider->link_url }}" 
                                                class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105">
-                                                {{ $slider->link_text }}
+                                                {{ $slider->getLinkTextByLocale() }}
                                             </a>
                                         @endif
                                     </div>

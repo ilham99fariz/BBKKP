@@ -2,7 +2,7 @@
 
 return [
     'hero_title' => 'About Us',
-    'hero_subtitle' => 'Get to know Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Plastik, dan Karet',
+    'hero_subtitle' => 'Get to know Center of Standardization and Services for Leather, Rubber and Plastics Industries',
 
     'milestone_title' => 'Milestones',
     'milestone_desc' => 'The journey and development of BBSPJIKP over time.',
