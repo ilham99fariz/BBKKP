@@ -12,7 +12,7 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex-shrink-0 flex items-center">
-                    <img class="h-8 w-auto sm:h-10" src="{{ asset('images/logobalai.png') }}" alt="Logo">
+                    <img class="h-6 w-auto xs:h-8 sm:h-10" src="{{ asset('images/logobalai.png') }}" alt="Logo">
                     <!-- <span class="ml-2 text-xl font-bold text-gray-900">BALAI BESAR</span> -->
                 </a>
             </div>

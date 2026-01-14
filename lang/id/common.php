@@ -54,7 +54,7 @@ return [
     'address' => 'Alamat',
     'phone' => 'Telepon',
     'email' => 'Email',
-    'follow_us' => 'Ikuti Kami',
+    'follow_us' => 'Media Sosial',
     'quick_links' => 'Tautan Cepat',
     'service_hours' => 'Jam Pelayanan',
     'monday_thursday' => 'Senin - Kamis',
@@ -218,6 +218,10 @@ return [
     'breadcrumb_about' => 'Tentang Kami',
     'breadcrumb_media' => 'Media dan Informasi',
     'breadcrumb_halal' => 'Halal Center',
+    
+    // Institution
+    'institution_name' => 'Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik',
+    'institution_name_short' => 'BBSPJIKKP',
     
     // Error & Messages
     'not_found' => 'Halaman tidak ditemukan',

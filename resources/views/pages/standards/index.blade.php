@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Standar Pelayanan - BBSPJIKKP')
-@section('description', 'Daftar standar pelayanan dan informasi terkait BBSPJIKKP')
+@section('title', __('common.standards_title') . ' - BBSPJIKKP')
+@section('description', __('common.standards_subtitle'))
 
 @section('content')
     <!-- Hero Section with Background -->
@@ -52,13 +52,14 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/standarpelayanan.png') }}" alt="Standar Pelayanan"
+                        <img src="{{ asset('images/standarpelayanan.png') }}" alt="{{ __('common.standards_card_standard_title') }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">Standar Pelayanan
+                        <h2 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-blue-600">
+                            {{ __('common.standards_card_standard_title') }}
                         </h2>
-                        <p class="text-gray-600 flex-1">Dokumen dan standar pelayanan kami</p>
+                        <p class="text-gray-600 flex-1">{{ __('common.standards_card_standard_desc') }}</p>
                     </div>
                 </div>
             </a>
@@ -85,7 +86,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/tarifpelayanan.jpg') }}" alt="Tarif Layanan"
+                        <img src="{{ asset('images/tarifpelayanan.jpg') }}" alt="{{ __('common.standards_card_tariff_title') }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -101,7 +102,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/tarifpercepatan.jpg') }}" alt="Peraturan dan Pedoman"
+                        <img src="{{ asset('images/tarifpercepatan.jpg') }}" alt="{{ __('common.standards_card_acceleration_title') }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -117,7 +118,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/spm.png') }}" alt="Standar Pelayanan Minimum"
+                        <img src="{{ asset('images/spm.png') }}" alt="{{ __('common.standards_card_spm_title') }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">
@@ -133,7 +134,7 @@
                 <div
                     class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:translate-y-[-4px] hover:shadow-xl flex flex-col h-full w-full">
                     <div class="h-48 overflow-hidden">
-                        <img src="{{ asset('images/surveypelanggan.jpg') }}" alt="Survey Pelanggan"
+                        <img src="{{ asset('images/surveypelanggan.jpg') }}" alt="{{ __('forms.survey_title') }}"
                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                     </div>
                     <div class="p-6 flex flex-col flex-1">

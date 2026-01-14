@@ -34,14 +34,25 @@ class SliderController extends Controller
         $request->validate([
             'image' => 'required|image|mimes:jpeg,jpg,png,gif,webp|max:5120', // max 5MB
             'title' => 'nullable|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'description_id' => 'nullable|string|max:1000',
+            'description_en' => 'nullable|string|max:1000',
             'link_url' => 'nullable|url|max:500',
             'link_text' => 'nullable|string|max:100',
+            'link_text_id' => 'nullable|string|max:100',
+            'link_text_en' => 'nullable|string|max:100',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
 
-        $data = $request->only(['title', 'description', 'link_url', 'link_text', 'sort_order']);
+        $data = $request->only([
+            'title', 'title_id', 'title_en',
+            'description', 'description_id', 'description_en',
+            'link_url', 'link_text', 'link_text_id', 'link_text_en',
+            'sort_order'
+        ]);
         $data['is_active'] = $request->has('is_active');
 
         // Upload image
@@ -71,14 +82,25 @@ class SliderController extends Controller
         $request->validate([
             'image' => 'nullable|image|mimes:jpeg,jpg,png,gif,webp|max:5120',
             'title' => 'nullable|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
             'description' => 'nullable|string|max:1000',
+            'description_id' => 'nullable|string|max:1000',
+            'description_en' => 'nullable|string|max:1000',
             'link_url' => 'nullable|url|max:500',
             'link_text' => 'nullable|string|max:100',
+            'link_text_id' => 'nullable|string|max:100',
+            'link_text_en' => 'nullable|string|max:100',
             'sort_order' => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
 
-        $data = $request->only(['title', 'description', 'link_url', 'link_text', 'sort_order']);
+        $data = $request->only([
+            'title', 'title_id', 'title_en',
+            'description', 'description_id', 'description_en',
+            'link_url', 'link_text', 'link_text_id', 'link_text_en',
+            'sort_order'
+        ]);
         $data['is_active'] = $request->has('is_active');
 
         // Upload new image if provided

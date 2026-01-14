@@ -23,6 +23,10 @@ class ServiceRatingController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
+            'tooltip_label' => 'nullable|string|max:255',
             'year1' => 'required|numeric|min:0',
             'year2' => 'required|numeric|min:0',
             'year3' => 'required|numeric|min:0',
@@ -61,6 +65,10 @@ class ServiceRatingController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'title' => 'nullable|string|max:255',
+            'title_id' => 'nullable|string|max:255',
+            'title_en' => 'nullable|string|max:255',
+            'tooltip_label' => 'nullable|string|max:255',
             'year1' => 'required|numeric|min:0',
             'year2' => 'required|numeric|min:0',
             'year3' => 'required|numeric|min:0',

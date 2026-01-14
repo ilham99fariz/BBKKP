@@ -11,7 +11,7 @@
                     {{ $name }}
                 </span>
             @else
-                <a href="{{ request()->fullUrlWithQuery(['lang' => $locale]) }}"
+                <a href="{{ route('language.switch', $locale) }}"
                     class="px-2 py-1 text-gray-700 hover:bg-gray-100 rounded text-xs transition">
                     {{ $name }}
                 </a>
@@ -34,7 +34,7 @@
             class="hidden absolute top-12 right-4 bg-white border border-gray-200 rounded-lg shadow-lg p-2 z-50">
             @foreach($locales as $locale => $name)
                 @if($locale !== $currentLocale)
-                    <a href="{{ request()->fullUrlWithQuery(['lang' => $locale]) }}"
+                    <a href="{{ route('language.switch', $locale) }}"
                         class="block px-4 py-2 text-gray-700 hover:bg-blue-50 text-sm rounded">
                         {{ $name }}
                     </a>

@@ -51,6 +51,46 @@
                         </div>
                     </div>
 
+                    <!-- Title (Multi-Language) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Default (Opsional)
+                            </label>
+                            <input type="text" name="title" id="title" value="{{ old('title') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title') border-red-500 @enderror"
+                                placeholder="Contoh: Kepuasan Pelanggan">
+                            <p class="mt-1 text-xs text-gray-500">Fallback jika tidak ada terjemahan</p>
+                            @error('title')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="title_id" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Bahasa Indonesia
+                            </label>
+                            <input type="text" name="title_id" id="title_id" value="{{ old('title_id') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title_id') border-red-500 @enderror"
+                                placeholder="Contoh: Kepuasan Pelanggan">
+                            @error('title_id')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="title_en" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Bahasa Inggris
+                            </label>
+                            <input type="text" name="title_en" id="title_en" value="{{ old('title_en') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title_en') border-red-500 @enderror"
+                                placeholder="Example: Customer Satisfaction">
+                            @error('title_en')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+                    </div>
+
                     <div class="border-t pt-6">
                         <h3 class="text-lg font-medium text-gray-900 mb-4">Data Tahun 1</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">

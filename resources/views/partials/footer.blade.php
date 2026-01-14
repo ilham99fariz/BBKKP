@@ -10,7 +10,7 @@
                 @if(isset($serviceRatings) && $serviceRatings->count() > 0)
                 @php $rating = $serviceRatings->first(); @endphp
                 <div class="rounded-xl p-4 h-full flex flex-col">
-                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">Kepuasan Pelanggan</h3>
+                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">{{ $rating->getTitleByLocale() ?? 'Kepuasan Pelanggan' }}</h3>
                     <div class="rounded-lg p-3 flex flex-col">
                         <!-- Vertical Bar Chart -->
                         <div class="flex items-end">
@@ -87,7 +87,7 @@
                     $maxScale = $ipk->max_scale ?: 4;
                 @endphp
                 <div class="rounded-xl p-4 h-full flex flex-col">
-                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">Indeks Persepsi Korupsi</h3>
+                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">{{ $ipk->getTitleByLocale() ?? 'Indeks Persepsi Korupsi' }}</h3>
                     <div class="rounded-lg p-3 flex flex-col">
                         <!-- Vertical Bar Chart -->
                         <div class="flex items-end">
@@ -149,7 +149,7 @@
                 @if(isset($curveRatings) && $curveRatings->count() > 0)
                 @php $curve = $curveRatings->first(); @endphp
                 <div class="rounded-xl p-4 h-full flex flex-col">
-                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">Keluhan Pelanggan</h3>
+                    <h3 class="text-base font-bold mb-4 text-center uppercase tracking-wide">{{ $curve->getTitleByLocale() ?? 'Keluhan Pelanggan' }}</h3>
                     <div class="rounded-lg p-3 flex flex-col">
                         
                         <!-- Curve/Line Chart -->
@@ -272,7 +272,7 @@
                     <!-- <span class="ml-3 text-lg font-bold">BBSPJIKKP</span> -->
                 </div>
                 <p class="text-white text-sm mb-4 leading-relaxed">
-                    Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik
+                    {{ __('common.institution_name') }}
                 </p>
                 <div class="space-y-2 text-white text-sm">
                     <div class="flex items-start">
@@ -509,13 +509,12 @@
         <div class="border-t border-blue-400 mt-8 pt-8">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="text-white text-sm mb-4 md:mb-0 text-center md:text-left">
-                    © 2025 - Balai Besar Standardisasi dan Pelayanan Jasa Industri Kulit, Karet, dan Plastik. All
-                    Rights Reserved.
+                    © 2025 - {{ __('common.institution_name') }}. {{ __('common.copyright') }}
                 </div>
 
                 <!-- Social Media Links -->
                 <div class="flex items-center space-x-1">
-                    <span class="text-sm mr-3 font-semibold">Media Sosial</span>
+                    <span class="text-sm mr-3 font-semibold">{{ __('common.follow_us') }}</span>
                     <a href="https://www.instagram.com/bbkkp.kemenperin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                         class="bg-white text-pink-500 hover:bg-blue-300 w-8 h-8 rounded flex items-center justify-center transition-colors duration-200">
                         <i class="fab fa-instagram"></i>

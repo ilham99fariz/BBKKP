@@ -49,36 +49,88 @@
                         @enderror
                     </div>
 
-                    <!-- Title -->
-                    <div>
-                        <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
-                            Judul Overlay (Opsional)
-                        </label>
-                        <input type="text" name="title" id="title" value="{{ old('title') }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title') border-red-500 @enderror"
-                            placeholder="Contoh: Selamat Datang di BBSPJIKKP">
-                        <p class="mt-1 text-xs text-gray-500">Teks ini akan ditampilkan di atas gambar slider</p>
-                        @error('title')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                    <!-- Title (Multi-Language) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="title" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Default (Opsional)
+                            </label>
+                            <input type="text" name="title" id="title" value="{{ old('title') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title') border-red-500 @enderror"
+                                placeholder="Contoh: Selamat Datang">
+                            <p class="mt-1 text-xs text-gray-500">Fallback jika tidak ada terjemahan</p>
+                            @error('title')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="title_id" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Bahasa Indonesia
+                            </label>
+                            <input type="text" name="title_id" id="title_id" value="{{ old('title_id') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title_id') border-red-500 @enderror"
+                                placeholder="Contoh: Selamat Datang di BBSPJIKKP">
+                            @error('title_id')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="title_en" class="block text-sm font-medium text-gray-700 mb-2">
+                                Judul Bahasa Inggris
+                            </label>
+                            <input type="text" name="title_en" id="title_en" value="{{ old('title_en') }}"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('title_en') border-red-500 @enderror"
+                                placeholder="Example: Welcome to BBSPJIKKP">
+                            @error('title_en')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
 
-                    <!-- Description -->
-                    <div>
-                        <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
-                            Deskripsi Overlay (Opsional)
-                        </label>
-                        <textarea name="description" id="description" rows="3"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description') border-red-500 @enderror"
-                            placeholder="Deskripsi singkat untuk slider ini">{{ old('description') }}</textarea>
-                        <p class="mt-1 text-xs text-gray-500">Maksimal 1000 karakter</p>
-                        @error('description')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                    <!-- Description (Multi-Language) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
+                                Deskripsi Default (Opsional)
+                            </label>
+                            <textarea name="description" id="description" rows="3"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description') border-red-500 @enderror"
+                                placeholder="Deskripsi singkat">{{ old('description') }}</textarea>
+                            <p class="mt-1 text-xs text-gray-500">Fallback jika tidak ada terjemahan</p>
+                            @error('description')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="description_id" class="block text-sm font-medium text-gray-700 mb-2">
+                                Deskripsi Bahasa Indonesia
+                            </label>
+                            <textarea name="description_id" id="description_id" rows="3"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description_id') border-red-500 @enderror"
+                                placeholder="Deskripsi singkat untuk slider ini">{{ old('description_id') }}</textarea>
+                            @error('description_id')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
+
+                        <div>
+                            <label for="description_en" class="block text-sm font-medium text-gray-700 mb-2">
+                                Deskripsi Bahasa Inggris
+                            </label>
+                            <textarea name="description_en" id="description_en" rows="3"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('description_en') border-red-500 @enderror"
+                                placeholder="Short description for this slider">{{ old('description_en') }}</textarea>
+                            @error('description_en')
+                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                            @enderror
+                        </div>
                     </div>
 
-                    <!-- Link URL & Text -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Link URL & Text (Multi-Language) -->
+                    <div class="space-y-4">
                         <div>
                             <label for="link_url" class="block text-sm font-medium text-gray-700 mb-2">
                                 URL Tombol (Opsional)
@@ -92,16 +144,42 @@
                             @enderror
                         </div>
 
-                        <div>
-                            <label for="link_text" class="block text-sm font-medium text-gray-700 mb-2">
-                                Teks Tombol (Opsional)
-                            </label>
-                            <input type="text" name="link_text" id="link_text" value="{{ old('link_text') }}"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('link_text') border-red-500 @enderror"
-                                placeholder="Contoh: Lihat Selengkapnya">
-                            @error('link_text')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div>
+                                <label for="link_text" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Teks Tombol Default (Opsional)
+                                </label>
+                                <input type="text" name="link_text" id="link_text" value="{{ old('link_text') }}"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('link_text') border-red-500 @enderror"
+                                    placeholder="Fallback text">
+                                @error('link_text')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="link_text_id" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Teks Tombol Bahasa Indonesia
+                                </label>
+                                <input type="text" name="link_text_id" id="link_text_id" value="{{ old('link_text_id') }}"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('link_text_id') border-red-500 @enderror"
+                                    placeholder="Contoh: Lihat Selengkapnya">
+                                @error('link_text_id')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="link_text_en" class="block text-sm font-medium text-gray-700 mb-2">
+                                    Teks Tombol Bahasa Inggris
+                                </label>
+                                <input type="text" name="link_text_en" id="link_text_en" value="{{ old('link_text_en') }}"
+                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('link_text_en') border-red-500 @enderror"
+                                    placeholder="Example: View More">
+                                @error('link_text_en')
+                                    <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+                            </div>
                         </div>
                     </div>
 

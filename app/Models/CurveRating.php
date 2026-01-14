@@ -11,6 +11,9 @@ class CurveRating extends Model
 
     protected $fillable = [
         'name',
+        'title',
+        'title_id',
+        'title_en',
         'value1',
         'value2',
         'value3',
@@ -45,5 +48,17 @@ class CurveRating extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('sort_order')->orderBy('name');
+    }
+
+    /**
+     * Get title for current locale, fallback to default title
+     */
+    public function getTitleByLocale($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+        if ($locale && isset($this->{'title_' . $locale}) && $this->{'title_' . $locale}) {
+            return $this->{'title_' . $locale};
+        }
+        return $this->title ?? $this->name;
     }
 }
