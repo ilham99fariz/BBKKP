@@ -92,8 +92,7 @@
                                 <h3 class="text-lg font-bold text-gray-900 mb-4">📎 File Lampiran Lainnya</h3>
                                 <div class="space-y-3">
                                     @foreach ($nonPdfFiles as $attachment)
-                                        <button
-                                            onclick="openPreviewModal('{{ $attachment->original_name }}', '{{ $attachment->getFileUrlAttribute() }}', '{{ $attachment->mime_type }}')"
+                                        <a href="{{ $attachment->getFileUrlAttribute() }}" download
                                             class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-600 rounded-lg hover:shadow-md transition-all text-left">
                                             <div class="flex items-center flex-1">
                                                 @php
@@ -118,8 +117,8 @@
                                                     <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
                                                 </div>
                                             </div>
-                                            <i class="fas fa-eye text-blue-600 text-lg ml-4 flex-shrink-0"></i>
-                                        </button>
+                                            <i class="fas fa-download text-blue-600 text-lg ml-4 flex-shrink-0"></i>
+                                        </a>
                                     @endforeach
                                 </div>
                             </div>
@@ -130,8 +129,7 @@
                             <h3 class="text-lg font-bold text-gray-900 mb-4">📎 File Lampiran</h3>
                             <div class="space-y-3">
                                 @foreach ($page->attachments as $attachment)
-                                    <button
-                                        onclick="openPreviewModal('{{ $attachment->original_name }}', '{{ $attachment->getFileUrlAttribute() }}', '{{ $attachment->mime_type }}')"
+                                    <a href="{{ $attachment->getFileUrlAttribute() }}" download
                                         class="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 border-l-4 border-blue-600 rounded-lg hover:shadow-md transition-all text-left">
                                         <div class="flex items-center flex-1">
                                             @php
@@ -159,133 +157,13 @@
                                                 <p class="text-xs text-gray-500">{{ round($attachment->file_size / 1024 / 1024, 2) }} MB</p>
                                             </div>
                                         </div>
-                                        <i class="fas fa-eye text-blue-600 text-lg ml-4 flex-shrink-0"></i>
-                                    </button>
+                                        <i class="fas fa-download text-blue-600 text-lg ml-4 flex-shrink-0"></i>
+                                    </a>
                                 @endforeach
                             </div>
                         </div>
                     @endif
 
-                    <!-- Preview Modal -->
-                    <div id="previewModal"
-                        class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-                        <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] flex flex-col">
-                            <!-- Modal Header -->
-                            <div class="flex items-center justify-between p-4 border-b border-gray-200">
-                                <h2 id="modalTitle" class="text-lg font-bold text-gray-900 truncate"></h2>
-                                <button onclick="closePreviewModal()" class="text-gray-500 hover:text-gray-700 text-2xl">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-
-                            <!-- Modal Content -->
-                            <div class="flex-1 overflow-auto">
-                                <div id="modalContent" class="p-4">
-                                    <!-- Loading -->
-                                    <div class="flex items-center justify-center h-96">
-                                        <div class="text-center">
-                                            <i class="fas fa-spinner fa-spin text-4xl text-blue-600 mb-3"></i>
-                                            <p class="text-gray-600">Memuat file...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Modal Footer -->
-                            <div class="flex items-center justify-between p-4 border-t border-gray-200">
-                                <a id="downloadBtn" href="#" target="_blank"
-                                    class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                                    <i class="fas fa-download mr-2"></i> Download
-                                </a>
-                                <button onclick="closePreviewModal()"
-                                    class="px-4 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400 transition">
-                                    Tutup
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <script>
-                        function openPreviewModal(filename, fileUrl, mimeType) {
-                            const modal = document.getElementById('previewModal');
-                            const modalTitle = document.getElementById('modalTitle');
-                            const modalContent = document.getElementById('modalContent');
-                            const downloadBtn = document.getElementById('downloadBtn');
-
-                            modalTitle.textContent = filename;
-                            downloadBtn.href = fileUrl;
-
-                            // Tentukan jenis preview berdasarkan mime type
-                            if (mimeType.includes('pdf')) {
-                                modalContent.innerHTML = `
-                                            <iframe src="${fileUrl}" class="w-full h-96 border-none rounded-lg"></iframe>
-                                        `;
-                            } else if (mimeType.includes('word') || mimeType.includes('document')) {
-                                modalContent.innerHTML = `
-                                            <div class="text-center py-12">
-                                                <i class="fas fa-file-word text-6xl text-blue-600 mb-3"></i>
-                                                <p class="text-gray-600 mb-4">File Word tidak bisa dipreview secara langsung</p>
-                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                                    <i class="fas fa-download mr-2"></i> Download File
-                                                </a>
-                                            </div>
-                                        `;
-                            } else if (mimeType.includes('spreadsheet') || mimeType.includes('excel')) {
-                                modalContent.innerHTML = `
-                                            <div class="text-center py-12">
-                                                <i class="fas fa-file-excel text-6xl text-green-600 mb-3"></i>
-                                                <p class="text-gray-600 mb-4">File Excel tidak bisa dipreview secara langsung</p>
-                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                                    <i class="fas fa-download mr-2"></i> Download File
-                                                </a>
-                                            </div>
-                                        `;
-                            } else if (mimeType.includes('presentation')) {
-                                modalContent.innerHTML = `
-                                            <div class="text-center py-12">
-                                                <i class="fas fa-file-powerpoint text-6xl text-orange-600 mb-3"></i>
-                                                <p class="text-gray-600 mb-4">File PowerPoint tidak bisa dipreview secara langsung</p>
-                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                                    <i class="fas fa-download mr-2"></i> Download File
-                                                </a>
-                                            </div>
-                                        `;
-                            } else {
-                                modalContent.innerHTML = `
-                                            <div class="text-center py-12">
-                                                <i class="fas fa-file text-6xl text-gray-600 mb-3"></i>
-                                                <p class="text-gray-600 mb-4">File tidak bisa dipreview secara langsung</p>
-                                                <a href="${fileUrl}" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                                                    <i class="fas fa-download mr-2"></i> Download File
-                                                </a>
-                                            </div>
-                                        `;
-                            }
-
-                            modal.classList.remove('hidden');
-                            document.body.style.overflow = 'hidden';
-                        }
-
-                        function closePreviewModal() {
-                            const modal = document.getElementById('previewModal');
-                            modal.classList.add('hidden');
-                            document.body.style.overflow = 'auto';
-                        }
-
-                        // Tutup modal jika klik di luar konten
-                        document.getElementById('previewModal').addEventListener('click', function (e) {
-                            if (e.target === this) {
-                                closePreviewModal();
-                            }
-                        });
-
-                        // Tutup modal dengan tombol Escape
-                        document.addEventListener('keydown', function (e) {
-                            if (e.key === 'Escape') {
-                                closePreviewModal();
-                            }
-                        });
-                    </script>
                 @endif
             </div>
             <div id="accordion-container" class="w-full max-w-6xl mx-auto px-6 md:px-12 lg:px-16 prose prose-lg max-w-none">
