@@ -11,6 +11,15 @@ storage/*.key
 storage/logs/
 bootstrap/cache/
 
+# Allow public/storage and image files
+!public/storage/
+!public/storage/**/*.jpg
+!public/storage/**/*.jpeg
+!public/storage/**/*.png
+!public/storage/**/*.gif
+!public/storage/**/*.webp
+!public/storage/**/.gitkeep
+
 # Allow image files in storage/app/public
 !storage/app/public/
 !storage/app/public/**/*.jpg
@@ -19,20 +28,3 @@ bootstrap/cache/
 !storage/app/public/**/*.gif
 !storage/app/public/**/*.webp
 !storage/app/public/**/.gitkeep
-
-# Allow public storage and images
-!public/storage/
-!public/storage/**/*.jpg
-!public/storage/**/*.jpeg
-!public/storage/**/*.png
-!public/storage/**/*.gif
-!public/storage/**/*.webp
-!public/storage/**/.gitkeep
-!public/images/
-!public/images/**/*.jpg
-!public/images/**/*.JPG
-!public/images/**/*.jpeg
-!public/images/**/*.png
-!public/images/**/*.gif
-!public/images/**/*.webp
-!public/images/**/.gitkeep
