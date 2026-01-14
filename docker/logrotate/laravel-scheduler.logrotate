@@ -1,0 +1,10 @@
+/var/www/storage/logs/laravel-scheduler-*.log {
+    su www-data www-data
+    daily
+    copytruncate
+    rotate 7
+    missingok
+    notifempty
+    dateext
+    dateformat -%Y-%m-%d
+}

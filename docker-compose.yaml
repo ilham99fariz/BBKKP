@@ -1,0 +1,26 @@
+services:
+  bbkkp_web:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    build:
+      context: .
+      dockerfile: ./docker/dockerfile/base.Dockerfile
+    user: "root"
+    image: bbkkp_web
+    container_name: bbkkp_web
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./:/var/www
+    networks:
+      - bbkkp_network
+    ports:
+      - "3900:80"
+
+#Docker Networks
+networks:
+  bbkkp_network:
+    external: true
